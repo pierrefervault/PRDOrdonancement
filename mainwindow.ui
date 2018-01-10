@@ -25,10 +25,18 @@
    </property>
    <widget class="QMenu" name="menuFichier">
     <property name="title">
-     <string>Fichier</string>
+     <string>Action</string>
     </property>
+    <widget class="QMenu" name="menuR_soudre_des_instances">
+     <property name="title">
+      <string>Résoudre des instances</string>
+     </property>
+     <addaction name="actionInstances_mono_machine"/>
+     <addaction name="actionInstances_multi_machines"/>
+    </widget>
     <addaction name="actionG_n_rer_des_instances"/>
-    <addaction name="actionR_soudre_des_instances"/>
+    <addaction name="menuR_soudre_des_instances"/>
+    <addaction name="actionQuitter_l_application"/>
    </widget>
    <addaction name="menuFichier"/>
   </widget>
@@ -43,12 +51,22 @@
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionG_n_rer_des_instances">
    <property name="text">
-    <string>Générer des instances</string>
+    <string>Générer des instances multi-machine</string>
    </property>
   </action>
-  <action name="actionR_soudre_des_instances">
+  <action name="actionInstances_mono_machine">
    <property name="text">
-    <string>Résoudre des instances</string>
+    <string>Instances mono-machine</string>
+   </property>
+  </action>
+  <action name="actionInstances_multi_machines">
+   <property name="text">
+    <string>Instances multi-machines</string>
+   </property>
+  </action>
+  <action name="actionQuitter_l_application">
+   <property name="text">
+    <string>Quitter l'application</string>
    </property>
   </action>
  </widget>

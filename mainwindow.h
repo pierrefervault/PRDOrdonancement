@@ -21,6 +21,10 @@ private slots:
 
     void on_actionG_n_rer_des_instances_triggered();
 
+    void on_actionQuitter_l_application_triggered();
+
+    void on_actionInstances_multi_machines_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

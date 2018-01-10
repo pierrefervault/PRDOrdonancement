@@ -22,3 +22,14 @@ void MainWindow::on_actionG_n_rer_des_instances_triggered()
         generateInstance.reject();
     }
 }
+
+void MainWindow::on_actionQuitter_l_application_triggered()
+{
+    close();
+}
+
+void MainWindow::on_actionInstances_multi_machines_triggered()
+{
+    //Ceci fonctionne et c'est interressant
+    //system("./plne instance-300-1-100.data");
+}
