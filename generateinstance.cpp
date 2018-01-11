@@ -1,5 +1,6 @@
 #include "generateinstance.h"
 #include "ui_generateinstance.h"
+#include <QDir>
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -30,8 +31,28 @@ void GenerateInstance::on_okPushButton_clicked()
     int numRessource;
     int numMachine;
 
+    int dossier = 0;
+    string cheminDossier = "InstanceGeneree/instance-"+this->ui->nbrJobsLineEdit->text().toStdString()+
+            "-"+this->ui->nbrRessourcesLineEdit->text().toStdString()+"-"+this->ui->nbrMachinesLineEdit->text().toStdString();
+
+    QDir *repertoire = new QDir(QString::fromStdString(cheminDossier+"/"+to_string(dossier)));
+
+    cout << dossier << endl;
+
+    cout << repertoire->path().toStdString() << endl;
+
+    //J'ai limité à 1000 sous-dossiers différents
+    while (repertoire->exists() && dossier < 1000){
+        dossier++;
+        repertoire->setPath(QString::fromStdString(cheminDossier+"/"+to_string(dossier)));
+    }
+
+    repertoire->mkpath(".");
+
     for(numInstance = 0; numInstance < this->ui->nbrInstancesLineEdit->text().toInt(); numInstance++){
-        ofstream fichier("InstanceGeneree/instance"+to_string(numInstance)+"-"+this->ui->nbrJobsLineEdit->text().toStdString()+"-"+this->ui->nbrRessourcesLineEdit->text().toStdString()
+
+
+        ofstream fichier(cheminDossier+"/"+to_string(dossier)+"/instance"+to_string(numInstance)+"-"+this->ui->nbrJobsLineEdit->text().toStdString()+"-"+this->ui->nbrRessourcesLineEdit->text().toStdString()
                          +"-"+this->ui->nbrMachinesLineEdit->text().toStdString()+".data", ios::out | ios::trunc);  // ouverture en écriture avec effacement du fichier ouvert
 
         if(fichier){
