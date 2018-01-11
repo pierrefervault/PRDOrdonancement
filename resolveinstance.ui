@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ResolveInstance</class>
+ <widget class="QDialog" name="ResolveInstance">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QLabel" name="titleLabel">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>10</y>
+     <width>231</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Résolution instances multi-machines</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="fichierInstanceLabel">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>50</y>
+     <width>121</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Fichier d'instance :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="typeResolutionLabel">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>110</y>
+     <width>121</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Type de résolution :</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="typeResolutionComboBox">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>110</y>
+     <width>231</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>Résolution exacte indéxée temps</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Résolution exacte indéxée jobs</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Méthode heuristiques</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLineEdit" name="choisirFichierLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>50</y>
+     <width>231</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="choisirFichierPushButton">
+   <property name="geometry">
+    <rect>
+     <x>259</x>
+     <y>80</y>
+     <width>121</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Choisir un fichier</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="validerPushButton">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>250</y>
+     <width>80</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Résoudre</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="annulerPushButton">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>250</y>
+     <width>80</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Annuler</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

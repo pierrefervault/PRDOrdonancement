@@ -31,7 +31,7 @@ void GenerateInstance::on_okPushButton_clicked()
     int numMachine;
 
     for(numInstance = 0; numInstance < this->ui->nbrInstancesLineEdit->text().toInt(); numInstance++){
-        ofstream fichier("instance"+to_string(numInstance)+"-"+this->ui->nbrJobsLineEdit->text().toStdString()+"-"+this->ui->nbrRessourcesLineEdit->text().toStdString()
+        ofstream fichier("InstanceGeneree/instance"+to_string(numInstance)+"-"+this->ui->nbrJobsLineEdit->text().toStdString()+"-"+this->ui->nbrRessourcesLineEdit->text().toStdString()
                          +"-"+this->ui->nbrMachinesLineEdit->text().toStdString()+".data", ios::out | ios::trunc);  // ouverture en écriture avec effacement du fichier ouvert
 
         if(fichier){

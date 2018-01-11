@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "generateinstance.h"
+#include "resolveinstance.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -30,6 +31,11 @@ void MainWindow::on_actionQuitter_l_application_triggered()
 
 void MainWindow::on_actionInstances_multi_machines_triggered()
 {
+    ResolveInstance resolveInstance;
+    if(resolveInstance.exec()==QDialog::Accepted)
+    {
+        resolveInstance.reject();
+    }
     //Ceci fonctionne et c'est interressant
-    //system("./plne instance-300-1-100.data");
+    //system("./plne instance-300-1-100.data resultatPlne-300-1-100.data");
 }
