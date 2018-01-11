@@ -8,7 +8,7 @@ class WorkerMip1 : public QObject {
     Q_OBJECT
 
 public:
-    WorkerMip1(QString command);
+    WorkerMip1(QString filename, QString fileresult);
     ~WorkerMip1();
 public slots :
     void process();
@@ -16,7 +16,8 @@ signals:
     void finished();
     void error(QString err);
 private:
-    QString command;
+    QString filename;
+    QString fileresult;
 };
 
 #endif // WORKERMIP1_H

@@ -1,8 +1,13 @@
 #include "workermip1.h"
+#include "plne.h"
+#include <iostream>
 
-WorkerMip1::WorkerMip1(QString command)
+using namespace std;
+
+WorkerMip1::WorkerMip1(QString filename, QString fileresult)
 {
-    this->command = command;
+    this->filename = filename;
+    this->fileresult = fileresult;
 }
 
 WorkerMip1::~WorkerMip1(){
@@ -10,14 +15,6 @@ WorkerMip1::~WorkerMip1(){
 }
 
 void WorkerMip1::process(){
-    system(command.toStdString().c_str());
+    resolvePlne(this->filename.toStdString().c_str(), this->fileresult.toStdString().c_str());
     emit finished();
-}
-
-void WorkerMip1::error(QString err){
-
-}
-
-void WorkerMip1::finished(){
-
 }
