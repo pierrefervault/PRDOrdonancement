@@ -1,5 +1,5 @@
 #include "plne.h"
-/*#include <ilcplex/ilocplex.h>
+#include <ilcplex/ilocplex.h>
 #include<iostream>
 #include<string>
 #include <time.h> 
@@ -17,12 +17,15 @@ typedef IloArray<NumVarMatrix> NumVarMatrix3;
 typedef IloArray<NumVarMatrix3> NumVarMatrix4;
 typedef IloArray<NumVarMatrix4> NumVarMatrix5;
 typedef IloArray<NumVarMatrix5> NumVarMatrix6;
-*/
+
 int resolvePlne(const char* filename, const char* fileresult)
 {
-    /*
+    //Déclaration de l'environnement
 	IloEnv env;
     //  try {
+
+    cout << filename << endl;
+    cout << fileresult << endl;
 
 	std::ifstream f(filename);
 	if (!f)
@@ -32,30 +35,36 @@ int resolvePlne(const char* filename, const char* fileresult)
 
 
 	IloModel model(env);
-	IloInt i, j, m;
+    IloInt i, m;
 	IloInt nb_job , nb_ressources, nb_machines ;
 	f >> nb_job >> nb_ressources >> nb_machines;
+
 	//cout << "nb_job : " << nb_job << " nb_ressources : " << nb_ressources << endl;
 	// cout << endl;
-	IntMatrix cap_ressources (env, nb_ressources);
+    IntMatrix cap_ressources (env, nb_ressources);
+
+    //Ici on créer un tableau contenant la capacité en ressources pour la ressource r de chaque machine
 	for (int r=0; r < nb_ressources ; r++)
 	{
-		f >> cap_ressources[r];
-		cap_ressources[r] = IloIntArray (env, nb_machines);
+        cap_ressources[r] = IloIntArray (env, nb_machines);
+        f >> cap_ressources[r];
+        //cout << "Nombre de machines : " << nb_machines << endl;
 		for (int machine=0; machine < nb_machines ; machine++)
 		{
 			f >> cap_ressources[r][machine];
 			cout <<  cap_ressources[r][machine] << " ";
 		}
 	}
-	
-	cout << endl;cout << endl;
+
+    //cout << "Nombre de jobs : " << nb_job << endl;
 	
 	IloIntArray S_j (env, nb_job);
 	IloIntArray F_j (env, nb_job);
 	IloInt id , s_i , f_i ;
 	IloInt cmax=0;
-	for (i=0 ; i < nb_job ; i++)
+
+    //Ici, on mets à jour les instant de début et de fin pour chaque job
+    for (i=0 ; i < nb_job ; i++)
 	{
 		f >> id >> s_i >> f_i ;
 		
@@ -72,6 +81,7 @@ int resolvePlne(const char* filename, const char* fileresult)
 	
 	//cout <<"cmax : " <<cmax << endl;
 	
+    //Ici, on créer le tableau ou est stocké pour chaque job i la valeur pour la ressource r associée au job
 	NumMatrix C (env,nb_job);
 	for( i=0 ; i<nb_job ; i++)
 	{
@@ -86,11 +96,13 @@ int resolvePlne(const char* filename, const char* fileresult)
 		
 		//	cout << endl;
 	}
-	
+
+
+
 	IloArray<NumVarMatrix> Y(env,nb_job) ;
 	for (i=0 ; i < nb_job ; i++)
 	{
-		Y[i]= NumVarMatrix(env,nb_machines) ;
+        Y[i]= NumVarMatrix(env,nb_machines);
 		for (int machine= 0 ; machine < nb_machines ; machine++)
 		{
 			Y[i][machine] = IloNumVarArray (env,cmax+1);
@@ -103,7 +115,7 @@ int resolvePlne(const char* filename, const char* fileresult)
 	
 	NumVarMatrix X(env,nb_job) ;
 	for (i=0 ; i < nb_job ; i++)
-	{
+    {
 		X[i] = IloNumVarArray (env,nb_machines) ;
 		for (m=0 ; m < nb_machines ; m++)
 		{
@@ -171,7 +183,7 @@ int resolvePlne(const char* filename, const char* fileresult)
 	cplex.setParam(IloCplex::Param::Emphasis::MIP, 4);
 	//cplex.setParam(IloCplex::Param::ClockType,0);
 	
-	char output_file_name[80];
+    //char output_file_name[80];
 	// sprintf(output_file_name,"sol-%d-%d%s",nb_job,nb_ressources ,".txt");
 	//ofstream output_file(output_file_name);
 	ofstream output_file(fileresult,ios::app);

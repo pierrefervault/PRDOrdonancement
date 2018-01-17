@@ -14,6 +14,7 @@ class ResolveInstance : public QDialog
 public:
     explicit ResolveInstance(QWidget *parent = 0);
     void processPlneMIP1(QString filename, QString fileresult);
+    void processPlneMIP2(QString filename, QString fileresult);
     ~ResolveInstance();
 
 private slots:
