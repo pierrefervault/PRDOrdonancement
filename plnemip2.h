@@ -23,6 +23,19 @@ typedef IloArray<NumVarMatrix3> NumVarMatrix4;
 typedef IloArray<NumVarMatrix4> NumVarMatrix5;
 typedef IloArray<NumVarMatrix5> NumVarMatrix6;
 
+//-----------------Structure de données--------------------
+enum EtEvt { Start, End};
+
+struct Evt {
+    int ej,Id ;
+    EtEvt etevt;
+};
+
+typedef vector<int> vect_int;
+typedef vector< vector<int> > mat_int;
+typedef vector<Evt*> vect_evt;
+//***********************************************
+
 int resolvePlneMip2(const char* filename, const char* fileresult);
 
 map<int,vector<int>> getSubset(NumMatrix eh, int nb_job);

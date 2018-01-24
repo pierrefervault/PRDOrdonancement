@@ -47,8 +47,10 @@ void WorkerFile::process(){
         QString fichierResultat = repertoire->path()+"/heuristique-"+fichier.right(fichier.size()-8);
 
         cout << "Test Heuristique" << endl;
-        Heuristic heuristic;
-        heuristic.trierCCmax(fichierInstance.toStdString());
+        Heuristic heuristic(fichierInstance.toStdString());
+        heuristic.trierCCmax();
+        heuristic.trierSommeRessources();
+        heuristic.trierMoyenneRessourcesSousEnsembles();
     }
 
     emit finished();
