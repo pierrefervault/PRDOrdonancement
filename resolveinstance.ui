@@ -30,7 +30,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>50</y>
+     <y>80</y>
      <width>121</width>
      <height>16</height>
     </rect>
@@ -43,7 +43,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>110</y>
+     <y>160</y>
      <width>121</width>
      <height>16</height>
     </rect>
@@ -56,7 +56,7 @@
    <property name="geometry">
     <rect>
      <x>150</x>
-     <y>110</y>
+     <y>160</y>
      <width>231</width>
      <height>22</height>
     </rect>
@@ -81,7 +81,7 @@
    <property name="geometry">
     <rect>
      <x>150</x>
-     <y>50</y>
+     <y>80</y>
      <width>231</width>
      <height>22</height>
     </rect>
@@ -90,8 +90,8 @@
   <widget class="QPushButton" name="choisirFichierPushButton">
    <property name="geometry">
     <rect>
-     <x>259</x>
-     <y>80</y>
+     <x>260</x>
+     <y>110</y>
      <width>121</width>
      <height>22</height>
     </rect>
@@ -124,6 +124,35 @@
    </property>
    <property name="text">
     <string>Annuler</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="fichierRadioButton">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>40</y>
+     <width>131</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Fichier d'instance</string>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="dossierRadioButton">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>40</y>
+     <width>131</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Dossier d'instance</string>
    </property>
   </widget>
  </widget>

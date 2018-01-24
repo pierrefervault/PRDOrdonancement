@@ -1,5 +1,26 @@
 #include "plnemip2.h"
 
+//-----------------Structure de données--------------------
+enum EtEvt { Start, End};
+
+struct Evt {
+    int ej,Id ;
+    EtEvt etevt;
+};
+
+struct myclass {
+    bool operator() (Evt* e1,  Evt* e2)
+    {
+        if (e1->ej ==  e2->ej )return (e1->etevt > e2->etevt);
+        else return (e1->ej < e2->ej);
+    }
+} myobject;
+
+typedef vector<int> vect_int;
+typedef vector< vector<int> > mat_int;
+typedef vector<Evt*> vect_evt;
+//***********************************************
+
 int resolvePlneMip2(const char* filename, const char* fileresult)
 {
     //Déclaration de l'environnement
@@ -42,8 +63,10 @@ int resolvePlneMip2(const char* filename, const char* fileresult)
 
     IloIntArray S_j (env, nb_job);
     IloIntArray F_j (env, nb_job);
+    IloIntArray ID_j (env, nb_job);
     IloInt id , s_i , f_i ;
     IloInt cmax=0;
+
 
     //Tableau d'évenement eh
 
@@ -56,18 +79,21 @@ int resolvePlneMip2(const char* filename, const char* fileresult)
 
         S_j[i]=s_i;
         F_j[i]=f_i;
+        ID_j[i]=id;
 
-        eh[(2*i)] = IloNumArray (env,3);
+      /*  eh[(2*i)] = IloNumArray (env,4);
 
         eh[(2*i)][0] = S_j[i];
         eh[(2*i)][1] = i;
         eh[(2*i)][2] = 1;
+        eh[(2*i)][3] = F_j[i];
 
-        eh[1 + (2*i)] = IloNumArray (env,3);
+        eh[1 + (2*i)] = IloNumArray (env,4);
 
         eh[1 + (2*i)][0] = F_j[i];
         eh[1 + (2*i)][1] = i;
         eh[1 + (2*i)][2] = 0;
+        eh[1 + (2*i)][3] = F_j[i];*/
 
 
         if (cmax <= f_i ) cmax = f_i;
@@ -84,7 +110,7 @@ int resolvePlneMip2(const char* filename, const char* fileresult)
     }*/
 
     //Trie à bulle du tableau d'événement eh
-    bool tab_en_ordre = false;
+ /* bool tab_en_ordre = false;
     int taille = (nb_job * 2);
     while(!tab_en_ordre)
     {
@@ -96,13 +122,29 @@ int resolvePlneMip2(const char* filename, const char* fileresult)
                 swap(eh[i],eh[i+1]);
                 tab_en_ordre = false;
             }
+            else {
+                if(eh[i][0] == eh[i+1][0])
+                {
+                    if(eh[i][3] > eh[i+1][3])
+                    {
+                        swap(eh[i],eh[i+1]);
+                        tab_en_ordre = false;
+                    }
+                }
+            }
         }
         taille--;
-    }
+    }*/
+
+    /*cout << endl;
+
+    for (i=0; i < (nb_job * 2); i++){
+        cout << eh[i][0] << " " << eh[i][1] << " " << eh[i][2] << " " << eh[i][3] << endl;
+    }*/
 
     //Algorithme de création de sous-ensembles maximaux
 
-    map<int,vector<int>> Jk = getSubset(eh, nb_job);
+  /*  map<int,vector<int>> Jk = getSubset(eh, nb_job);
 
     for(std::map<int,vector<int>>::iterator it = Jk.begin() ; it != Jk.end() ; ++it){
         cout << it->first << endl;
@@ -110,9 +152,127 @@ int resolvePlneMip2(const char* filename, const char* fileresult)
             cout << *itVect << " ";
         }
         cout << endl;
-    }
+    }*/
 
-    //cout <<"cmax : " <<cmax << endl;
+    //cout <<"cmax : " <<cmax << endl;*
+
+    //********************** Algo MaxSet*********************
+        mat_int S;
+        vect_evt e;
+        for(int i=0; i<nb_job ; i++)
+        {
+
+            Evt *evt_s  = new Evt;
+            Evt *evt_f  = new Evt;
+
+            evt_s->Id= ID_j[i];
+            evt_s->ej= S_j[i];
+            evt_s->etevt = Start;
+            e.push_back(evt_s );
+
+            evt_f->Id= ID_j[i];
+            evt_f->ej= F_j[i];
+            evt_f->etevt = End;
+            e.push_back(evt_f);
+
+        }
+
+        sort(e.begin(),e.end(), myobject);
+
+        for(int h=0; h<(2*nb_job) ; h++)
+        {
+            //cout <<  e[h]->Id+1 << " " << e[h]->ej << " " << e[h]->etevt << endl;
+        }
+
+            for(int i=0; i<nb_job ; i++)
+        {
+            S.push_back(vector<int>());
+        }
+
+
+
+        int k = 0; int compt =0; bool inc =0;
+
+        for(int h=0; h<(2*nb_job) ; h++)
+        {
+            if (e[h]->etevt == 0)
+            {
+                S[0].push_back(e[h]->Id) ;
+                inc =0;
+            }
+
+            else
+            {
+                if (inc ==0)
+                {
+                    k=k+1;
+                    for(int l=0; l< S[0].size() ; l++)
+                    {
+                        S[k].push_back(S[0][l]) ;
+                    }
+                        inc=1;
+
+                        int trouve;
+                        for (std::vector<int>::iterator it = S[0].begin() ; it != S[0].end(); ++it)
+                        {
+                            //cout << *it << " ";
+                            if (*it == e[h]->Id)
+                            {
+                                trouve = e[h]->Id;
+                            }
+                        }
+                        //cout  <<endl;
+                        for(int l=0; l< S[0].size() ; l++)
+                        {
+                            if (trouve == S[0][l])
+                            {
+                                S[0].erase(S[0].begin()+l);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        int trouve;
+                        for (std::vector<int>::iterator it = S[0].begin() ; it != S[0].end(); ++it)
+                        {
+                            //cout << *it << " ";
+                            if (*it == e[h]->Id)
+                            {
+                                trouve = e[h]->Id;
+                            }
+                        }
+                        //cout  <<endl;
+                        for(int l=0; l< S[0].size() ; l++)
+                        {
+                            if (trouve == S[0][l])
+                            {
+                                S[0].erase(S[0].begin()+l);
+                            }
+                        }
+                    }
+              }
+        }
+
+        int nb_h =0;
+        for(int i=0; i< S.size() ; i++)
+        {
+            if (S[i].size() != 0)
+            {
+                nb_h = nb_h+1;
+            }
+            for(int j=0; j< S[i].size() ; j++)
+            {
+
+
+                 cout << S[i][j]+1 << " " ;
+            }
+            cout << endl;
+        }
+
+
+    //***************Fin Algo MaxSet************************
+
+
 
     //Ici, on créer le tableau ou est stocké pour chaque job i la valeur pour la ressource r associée au job
     NumMatrix C (env,nb_job);
@@ -140,14 +300,37 @@ int resolvePlneMip2(const char* filename, const char* fileresult)
         }
     }
 
-
     for (int r=0; r < nb_ressources ; r++) {
-        for (int h= 0 ; h < Jk.size() ; h++) {
-            for (int m= 0 ; m < nb_machines ; m++) {
+        for (int m= 0 ; m < nb_machines ; m++) {
+            for (int h= 0 ; h < nb_h ; h++) {
                 IloExpr capacite_ressources(env);
-                for (int l=0 ; l < Jk[h].size() ; l++) {
+                for (i=0 ; i < S[h+1].size() ; i++)
+                {
+                    capacite_ressources += X[S[h+1][i]][m] * C[S[h+1][i]][r] ;
+                }
+                model.add( capacite_ressources <= cap_ressources[r][m] ) ;
+            }
+        }
+    }
+
+    for( i=0 ; i<nb_job ; i++)
+    {
+        IloExpr unicite_job(env);
+        for (int m= 0 ; m < nb_machines ; m++) {
+            unicite_job +=  X[i][m];
+        }
+        model.add( unicite_job <= 1 ) ;
+    }
+
+ /*   for (int r=0; r < nb_ressources ; r++) {
+        for (int m= 0 ; m < nb_machines ; m++) {
+            for (unsigned int h= 0 ; h < Jk.size() ; h++) {
+                IloExpr capacite_ressources(env);
+                for (unsigned int l=0 ; l < Jk[h].size() ; l++) {
+                    cout << "Job : " << Jk[h][l] << " ";
                     capacite_ressources += X[(Jk[h][l])][m] * C[l][r] ;
                 }
+                cout << endl;
                 model.add( capacite_ressources <= cap_ressources[r][m] ) ;
             }
         }
@@ -161,7 +344,7 @@ int resolvePlneMip2(const char* filename, const char* fileresult)
             unicite_job +=  X[i][m];
         }
         model.add( unicite_job <= 1 ) ;
-    }
+    }*/
 
 
     IloExpr numberJob(env);

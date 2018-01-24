@@ -16,18 +16,20 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     generateinstance.cpp \
     resolveinstance.cpp \
-    workermip1.cpp \
     plne.cpp \
     plnemip2.cpp \
-    workermip2.cpp
+    heuristic.cpp \
+    workerfile.cpp \
+    workerfolder.cpp
 
 HEADERS  += mainwindow.h \
     generateinstance.h \
     resolveinstance.h \
-    workermip1.h \
     plne.h \
-    workermip2.h \
-    plnemip2.h
+    plnemip2.h \
+    heuristic.h \
+    workerfile.h \
+    workerfolder.h
 
 FORMS    += mainwindow.ui \
     generateinstance.ui \

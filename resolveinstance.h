@@ -13,8 +13,8 @@ class ResolveInstance : public QDialog
 
 public:
     explicit ResolveInstance(QWidget *parent = 0);
-    void processPlneMIP1(QString filename, QString fileresult);
-    void processPlneMIP2(QString filename, QString fileresult);
+    void processFile(QString filename, QString typeOfResolution);
+    void processFolder(QString filename, QString typeOfResolution);
     ~ResolveInstance();
 
 private slots:
@@ -23,6 +23,10 @@ private slots:
     void on_validerPushButton_clicked();
 
     void on_annulerPushButton_clicked();
+
+    void on_fichierRadioButton_clicked();
+
+    void on_dossierRadioButton_clicked();
 
 private:
     Ui::ResolveInstance *ui;
