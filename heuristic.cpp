@@ -2,19 +2,6 @@
 #include <iostream>
 #include <fstream>
 
-//-----------------Structure de données--------------------
-enum EtEvt { Start, End};
-
-struct Evt {
-    int ej,Id ;
-    EtEvt etevt;
-};
-
-typedef vector<int> vect_int;
-typedef vector< vector<int> > mat_int;
-typedef vector<Evt*> vect_evt;
-//***********************************************
-
 Heuristic::Heuristic(string filename)
 {
     std::ifstream f(filename);
@@ -86,7 +73,7 @@ Heuristic::Heuristic(string filename)
 
 }
 
-void Heuristic::trierCCmax(){
+vector<int> Heuristic::trierCCmax(){
 
     //Ici on créer le tableau de valeur pour CCMax
     vector<vector<int>> tableauInitial;
@@ -130,13 +117,18 @@ void Heuristic::trierCCmax(){
         taille--;
     }
 
+    vector<int> tableauJobs;
+
     for (int i = 0; i < this->nbr_jobs; i++){
-        cout << tableauInitial[i][0] << " " << tableauInitial[i][1] << endl;
+        //cout << tableauInitial[i][0] << " " << tableauInitial[i][1] << endl;
+        tableauJobs.push_back(tableauInitial[i][0]);
     }
+
+    return tableauJobs;
 
 }
 
-void Heuristic::trierSommeRessources(){
+vector<int> Heuristic::trierSommeRessources(){
 
     //Ici on créer le tableau de valeur pour SommeRessources
     vector<vector<int>> tableauInitial;
@@ -180,13 +172,18 @@ void Heuristic::trierSommeRessources(){
         taille--;
     }
 
+    vector<int> tableauJobs;
+
     for (int i = 0; i < this->nbr_jobs; i++){
         cout << tableauInitial[i][0] << " " << tableauInitial[i][1] << endl;
+        tableauJobs.push_back(tableauInitial[i][0]);
     }
+
+    return tableauJobs;
 
 }
 
-void Heuristic::trierMoyenneRessourcesSousEnsembles(){
+vector<int> Heuristic::trierMoyenneRessourcesSousEnsembles(){
 
     vector<vector<int>> eh;
     for (int i=0 ; i < this->nbr_jobs ; i++)
@@ -299,6 +296,8 @@ void Heuristic::trierMoyenneRessourcesSousEnsembles(){
     }
     cout << endl;
 
+    return tableauJobs;
+
 }
 
 map<int,vector<int>> Heuristic::getSubset(vector<vector<int>> eh, int nb_job){
@@ -342,4 +341,57 @@ map<int,vector<int>> Heuristic::getSubset(vector<vector<int>> eh, int nb_job){
             }
         }
     }
+}
+
+void Heuristic::resolveMachinePerMachine(vector<int> tableauJobs){
+
+    vector<vector<int>> jobsOrdonnances;
+    for(int m = 0; m < this->nbr_machines ; m++){
+        vector<int> jobsMachine;
+        vector<int> Lm = tableauJobs;
+        while(Lm.size() != 0){
+            vector<int> Sm;
+            for(int i = 0; i < jobsMachine.size(); i++){
+                if(this->S_j[Lm[0]] < this->F_j[jobsMachine[i]] && this->F_j[Lm[0]] > this->S_j[jobsMachine[i]]){
+                    Sm.push_back(jobsMachine[i]);
+                }
+            }
+
+            bool jobOrdonancable = true;
+
+            for(int i = this->S_j[Lm[0]]; i < this->F_j[Lm[0]]; i++){
+                for(int r = 0; r < this->nbr_ressources ; r++){
+                    int sommesRessources = 0;
+                    for(int j = 0; j < Sm.size(); j++){
+                        if(this->S_j[Sm[j]] <= i && this->F_j[Sm[j]] > i )
+                        sommesRessources += C[Sm[j]][r];
+                    }
+                    sommesRessources += C[Lm[0]][r];
+                   // cout << "Sommes Ressources : " << sommesRessources << endl;
+                    if(sommesRessources > this->cap_ressources[r][m])
+                        jobOrdonancable = false;
+                   // cout << jobOrdonancable << endl;
+                }
+            }
+
+            if (jobOrdonancable){
+                jobsMachine.push_back(Lm[0]);
+                tableauJobs.erase(std::remove(tableauJobs.begin(), tableauJobs.end(), Lm[0]), tableauJobs.end());
+            }
+            Lm.erase(std::remove(Lm.begin(), Lm.end(), Lm[0]), Lm.end());
+        }
+        jobsOrdonnances.push_back(jobsMachine);
+    }
+
+    int nbrJobsOrdonnances = 0;
+    for(int i = 0; i < jobsOrdonnances.size(); i++){
+        cout << "Machines : " << i << " : ";
+        for(int j = 0; j < jobsOrdonnances[i].size(); j++){
+            cout << jobsOrdonnances[i][j] << " ";
+            nbrJobsOrdonnances++;
+        }
+        cout << endl;
+    }
+    cout << "Nombre de jobs Ordonnances : " << nbrJobsOrdonnances << endl;
+
 }

@@ -11,10 +11,11 @@ class Heuristic
 {
 public:
     Heuristic(string filename);
-    void trierCCmax();
-    void trierSommeRessources();
-    void trierMoyenneRessourcesSousEnsembles();
+    vector<int> trierCCmax();
+    vector<int> trierSommeRessources();
+    vector<int> trierMoyenneRessourcesSousEnsembles();
     map<int,vector<int>> getSubset(vector<vector<int>> eh, int nb_job);
+    void resolveMachinePerMachine(vector<int> tableauJobs);
 
 private:
     int nbr_jobs;

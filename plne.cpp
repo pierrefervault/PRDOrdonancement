@@ -1,7 +1,6 @@
 #include "plne.h"
 #include <ilcplex/ilocplex.h>
 #include<iostream>
-#include<string>
 #include <time.h> 
 
 
@@ -18,7 +17,7 @@ typedef IloArray<NumVarMatrix3> NumVarMatrix4;
 typedef IloArray<NumVarMatrix4> NumVarMatrix5;
 typedef IloArray<NumVarMatrix5> NumVarMatrix6;
 
-int resolvePlne(const char* filename, const char* fileresult)
+int resolvePlne(string filename, string fileresult)
 {
     //Déclaration de l'environnement
 	IloEnv env;
@@ -186,8 +185,8 @@ int resolvePlne(const char* filename, const char* fileresult)
     //char output_file_name[80];
 	// sprintf(output_file_name,"sol-%d-%d%s",nb_job,nb_ressources ,".txt");
 	//ofstream output_file(output_file_name);
-	ofstream output_file(fileresult,ios::app);
-	
+    ofstream output_file(fileresult,ios::app);
+
 	double Avant = cplex.getCplexTime();
 	if (cplex.solve()) {
 		

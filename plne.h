@@ -1,6 +1,10 @@
 #ifndef PLNE_H
 #define PLNE_H
 
-int resolvePlne(const char* filename, const char* fileresult);
+#include<string>
+
+using namespace std;
+
+int resolvePlne(string filename, string fileresult);
 
 #endif // PLNE_H

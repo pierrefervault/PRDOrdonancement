@@ -109,7 +109,7 @@ void ResolveInstance::processFile(QString filename, QString typeOfResolution)
 
 void ResolveInstance::processFolder(QString filename, QString typeOfResolution)
 {
-    QThread* thread = new QThread;
+    QThread* thread = new QThread();
     //cout << filename << " " << fileresult << endl;
     WorkerFolder* workerFolder = new WorkerFolder(filename, typeOfResolution);
     workerFolder->moveToThread(thread);

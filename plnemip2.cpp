@@ -1,6 +1,6 @@
 #include "plnemip2.h"
 
-int resolvePlneMip2(const char* filename, const char* fileresult)
+int resolvePlneMip2(string filename, string fileresult)
 {
     //Déclaration de l'environnement
     IloEnv env;

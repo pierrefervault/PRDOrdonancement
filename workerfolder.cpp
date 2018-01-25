@@ -42,6 +42,8 @@ void WorkerFolder::process(){
 
     std::list<QString> list = fileList.toStdList();
 
+    QString folderName = "";
+
     //Pour chaque élément de la liste
     for(std::list<QString>::iterator it = list.begin() ; it != list.end() ; ++it){
 
@@ -54,20 +56,23 @@ void WorkerFolder::process(){
 
         //On crée le nouveau répertoire
         QString tmpFolder = fichierInstance.right(fichierInstance.size()-9);
-        QDir *repertoire = new QDir("Resultat"+tmpFolder.left(tmpFolder.size()-fichier.size()-1));
-        repertoire->mkpath(".");
+        QDir repertoire = QDir("Resultat"+tmpFolder.left(tmpFolder.size()-fichier.size()-1));
+        if (folderName != repertoire.path()){
+            repertoire.removeRecursively();
+            folderName = repertoire.path();
+            repertoire.mkpath(".");
+        }
 
         if (typeOfResolution == "mip1"){
             //On donne le nouveau chemin pour le fichier de résultat
-            QString fichierResultat = repertoire->path()+"/resolutionMip1-"+fichier.right(fichier.size()-8);
-
-            resolvePlne(fichierInstance.toStdString().c_str(), fichierResultat.toStdString().c_str());
+            QString fichierResultat = repertoire.path()+"/resolutionMip1"+fichier.right(fichier.size()-fichier.split("-")[0].size());
+            resolvePlne(fichierInstance.toStdString(), fichierResultat.toStdString());
         }
+
         if (typeOfResolution == "mip2"){
             //On donne le nouveau chemin pour le fichier de résultat
-            QString fichierResultat = repertoire->path()+"/resolutionMip2-"+fichier.right(fichier.size()-8);
-
-            resolvePlneMip2(fichierInstance.toStdString().c_str(), fichierResultat.toStdString().c_str());
+            QString fichierResultat = repertoire.path()+"/resolutionMip2"+fichier.right(fichier.size()-fichier.split("-")[0].size());
+            resolvePlneMip2(fichierInstance.toStdString(), fichierResultat.toStdString());
         }
     }
 
