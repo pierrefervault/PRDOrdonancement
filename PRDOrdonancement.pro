@@ -13,27 +13,30 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
-    generateinstance.cpp \
-    resolveinstance.cpp \
-    plne.cpp \
-    plnemip2.cpp \
-    heuristic.cpp \
-    workerfile.cpp \
-    workerfolder.cpp
+    methodeexacte.cpp \
+    heuristique.cpp \
+    generationinstance.cpp \
+    resolutioninstance.cpp \
+    fenetreprincipale.cpp \
+    workerfichier.cpp \
+    workerdossier.cpp \
+    workerinstance.cpp
 
-HEADERS  += mainwindow.h \
-    generateinstance.h \
-    resolveinstance.h \
-    plne.h \
-    plnemip2.h \
-    heuristic.h \
-    workerfile.h \
-    workerfolder.h
+HEADERS  += \
+    methodeexacte.h \
+    heuristique.h \
+    generationinstance.h \
+    resolutioninstance.h \
+    fenetreprincipale.h \
+    workerfichier.h \
+    workerdossier.h \
+    workerinstance.h
+    
 
-FORMS    += mainwindow.ui \
-    generateinstance.ui \
-    resolveinstance.ui
+FORMS    += \
+    generationinstance.ui \
+    resolutioninstance.ui \
+    fenetreprincipale.ui
 
 INCLUDEPATH += /home/pierre/build-PRDOrdonancement-Desktop_Qt_5_7_0_GCC_64bit-Debug/cplex_216/cplex/include
 INCLUDEPATH += /home/pierre/build-PRDOrdonancement-Desktop_Qt_5_7_0_GCC_64bit-Debug/cplex_216/concert/include

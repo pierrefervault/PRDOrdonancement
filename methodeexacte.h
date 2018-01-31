@@ -1,5 +1,8 @@
-#ifndef PLNEMIP2_H
-#define PLNEMIP2_H
+#ifndef METHODEEXACTE_H
+#define METHODEEXACTE_H
+
+#include <QObject>
+#include <QWidget>
 #include <ilcplex/ilocplex.h>
 #include <iostream>
 #include <algorithm>
@@ -24,8 +27,13 @@ typedef IloArray<NumVarMatrix3> NumVarMatrix4;
 typedef IloArray<NumVarMatrix4> NumVarMatrix5;
 typedef IloArray<NumVarMatrix5> NumVarMatrix6;
 
-int resolvePlneMip2(string fichierInstance, string fichierResultat);
+class MethodeExacte
+{
+public:
+    MethodeExacte();
+    int resolvePlne(string fichierInstance, string fichierResultat);
+    int resolvePlneMip2(string fichierInstance, string fichierResultat);
+    map<int,vector<int>> getSubset(NumMatrix eh, int nb_job);
+};
 
-map<int,vector<int>> getSubset(NumMatrix eh, int nb_job);
-
-#endif // PLNEMIP2_H
+#endif // METHODEEXACTE_H

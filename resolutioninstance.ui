@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ResolveInstance</class>
- <widget class="QDialog" name="ResolveInstance">
+ <class>ResolutionInstance</class>
+ <widget class="QDialog" name="ResolutionInstance">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>588</width>
+    <height>322</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,21 +16,26 @@
   <widget class="QLabel" name="titleLabel">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>190</x>
      <y>10</y>
      <width>231</width>
      <height>20</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+    </font>
+   </property>
    <property name="text">
-    <string>Résolution instances multi-machines</string>
+    <string>Résolution d'instances</string>
    </property>
   </widget>
   <widget class="QLabel" name="fichierInstanceLabel">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>80</y>
+     <y>100</y>
      <width>121</width>
      <height>16</height>
     </rect>
@@ -43,7 +48,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>160</y>
+     <y>180</y>
      <width>121</width>
      <height>16</height>
     </rect>
@@ -56,24 +61,24 @@
    <property name="geometry">
     <rect>
      <x>150</x>
-     <y>160</y>
-     <width>231</width>
+     <y>180</y>
+     <width>421</width>
      <height>22</height>
     </rect>
    </property>
    <item>
     <property name="text">
-     <string>Résolution exacte indéxée temps</string>
+     <string>Exacte indéxée temps</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>Résolution exacte indéxée jobs</string>
+     <string>Exacte indéxée jobs</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>Méthode heuristiques</string>
+     <string>Heuristiques</string>
     </property>
    </item>
   </widget>
@@ -81,8 +86,8 @@
    <property name="geometry">
     <rect>
      <x>150</x>
-     <y>80</y>
-     <width>231</width>
+     <y>100</y>
+     <width>421</width>
      <height>22</height>
     </rect>
    </property>
@@ -90,8 +95,8 @@
   <widget class="QPushButton" name="choisirFichierPushButton">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>110</y>
+     <x>450</x>
+     <y>130</y>
      <width>121</width>
      <height>22</height>
     </rect>
@@ -103,8 +108,8 @@
   <widget class="QPushButton" name="validerPushButton">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>250</y>
+     <x>420</x>
+     <y>280</y>
      <width>80</width>
      <height>22</height>
     </rect>
@@ -116,8 +121,8 @@
   <widget class="QPushButton" name="annulerPushButton">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>250</y>
+     <x>80</x>
+     <y>280</y>
      <width>80</width>
      <height>22</height>
     </rect>
@@ -129,8 +134,8 @@
   <widget class="QRadioButton" name="fichierRadioButton">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>40</y>
+     <x>150</x>
+     <y>60</y>
      <width>131</width>
      <height>20</height>
     </rect>
@@ -145,15 +150,103 @@
   <widget class="QRadioButton" name="dossierRadioButton">
    <property name="geometry">
     <rect>
-     <x>200</x>
-     <y>40</y>
-     <width>131</width>
+     <x>370</x>
+     <y>60</y>
+     <width>141</width>
      <height>20</height>
     </rect>
    </property>
    <property name="text">
-    <string>Dossier d'instance</string>
+    <string>Dossier d'instances</string>
    </property>
+  </widget>
+  <widget class="QComboBox" name="triComboBox">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>210</y>
+     <width>421</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>CCmax basé sur la somme des ressources de chaque job</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>CCmax basé sur la ressource maximale de chaque job</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Somme des ressources de chaque job</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Valeur moyenne des ressources des sous-ensembles maximaux</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="typeTriLabel">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>210</y>
+     <width>121</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Type de tri :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="typeAffectationLabel">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>240</y>
+     <width>121</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Type d'affectation :</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="affectationComboBox">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>240</y>
+     <width>421</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>Affectation machine par machine</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Affectation priorisant la machine avec le moins de charge</string>
+    </property>
+   </item>
   </widget>
  </widget>
  <resources/>

@@ -1,40 +1,26 @@
 #include "plne.h"
-#include <ilcplex/ilocplex.h>
-#include<iostream>
-#include <time.h> 
 
-
-ILOSTLBEGIN
-
-typedef IloArray<IloIntArray>    IntMatrix;
-typedef IloArray<IloNumArray>    NumMatrix;
-typedef IloArray<NumMatrix>    NumMatrix3;
-typedef IloArray<NumMatrix3>    NumMatrix4;
-typedef IloArray<NumMatrix4>    NumMatrix5;
-typedef IloArray<IloNumVarArray> NumVarMatrix;
-typedef IloArray<NumVarMatrix> NumVarMatrix3;
-typedef IloArray<NumVarMatrix3> NumVarMatrix4;
-typedef IloArray<NumVarMatrix4> NumVarMatrix5;
-typedef IloArray<NumVarMatrix5> NumVarMatrix6;
-
-int resolvePlne(string filename, string fileresult)
+int resolvePlne(string fichierInstance, string fichierResultat)
 {
     //Déclaration de l'environnement
 	IloEnv env;
     //  try {
 
-    cout << filename << endl;
-    cout << fileresult << endl;
+    cout << fichierInstance << endl;
+    cout << fichierResultat << endl;
 
-	std::ifstream f(filename);
+    //On cherche à lire le fichier, si ce n'est pas possible on l'indique
+    std::ifstream f(fichierInstance);
 	if (!f)
 	{
-		cout << filename <<" invalid file" << endl;
+        cout << fichierInstance <<" invalid file" << endl;
 	} 
 
 
+    //On déclare un modèle qui nous servira à générer notre solution avec différentes contraintes
 	IloModel model(env);
     IloInt i, m;
+    //Nous déclarons le nombre de jobs, de ressources et de machines selon ce qu'on a lu dans le fichier
 	IloInt nb_job , nb_ressources, nb_machines ;
 	f >> nb_job >> nb_ressources >> nb_machines;
 
@@ -62,7 +48,7 @@ int resolvePlne(string filename, string fileresult)
 	IloInt id , s_i , f_i ;
 	IloInt cmax=0;
 
-    //Ici, on mets à jour les instant de début et de fin pour chaque job
+    //Ici, on mets à jour les instant de début (S_j) et de fin (F_j) pour chaque job
     for (i=0 ; i < nb_job ; i++)
 	{
 		f >> id >> s_i >> f_i ;
@@ -80,6 +66,8 @@ int resolvePlne(string filename, string fileresult)
 	
 	//cout <<"cmax : " <<cmax << endl;
 	
+
+
     //Ici, on créer le tableau ou est stocké pour chaque job i la valeur pour la ressource r associée au job
 	NumMatrix C (env,nb_job);
 	for( i=0 ; i<nb_job ; i++)
@@ -97,6 +85,7 @@ int resolvePlne(string filename, string fileresult)
 	}
 
 
+    //Ici on créer les variables Y qui valent 1 si le jobs i est exécuté à l'instant t sur une machine m
 
 	IloArray<NumVarMatrix> Y(env,nb_job) ;
 	for (i=0 ; i < nb_job ; i++)
@@ -112,6 +101,8 @@ int resolvePlne(string filename, string fileresult)
 		}			
 	}
 	
+    //Ici on créer les variables X qui valent 1 si le jobs i est exécuté sur une machine m
+
 	NumVarMatrix X(env,nb_job) ;
 	for (i=0 ; i < nb_job ; i++)
     {
@@ -123,6 +114,8 @@ int resolvePlne(string filename, string fileresult)
 	}
 	
 	
+    //Ici on ajoute la contrainte qui vérifie que si un jobs est exécuté,
+    //il est exécuté durant la période [S[i],F[i][
 	for (i=0 ; i < nb_job ; i++) {
 		
 		
@@ -135,7 +128,8 @@ int resolvePlne(string filename, string fileresult)
 		}
 	}
 	
-	
+    //Ici on ajoute la contrainte qui vérifie que si un jobs est exécuté,
+    //pour chaque t les valeurs de ressources sur la machine m ne sont pas dépassée
 	for (int r=0; r < nb_ressources ; r++) {
 		for (int t= 0 ; t < cmax+1 ; t++) {
 			for (int m= 0 ; m < nb_machines ; m++) {
@@ -150,7 +144,7 @@ int resolvePlne(string filename, string fileresult)
 		}
 	}
 
-	
+    //Ici on ajoute la contrainte qui vérifie qu'un job ne peut être exécuter au maximum que sur une seule machine
 	for( i=0 ; i<nb_job ; i++)
 	{
 		IloExpr unicite_job(env);	
@@ -161,6 +155,7 @@ int resolvePlne(string filename, string fileresult)
 	}
 	
 	
+    //Ici, on ajoute la fonction objective qui correspond à maximiser le nombre de jobs ordonnancés
 	IloExpr numberJob(env);
 	
 	for( i=0 ; i<nb_job ; i++)
@@ -185,7 +180,7 @@ int resolvePlne(string filename, string fileresult)
     //char output_file_name[80];
 	// sprintf(output_file_name,"sol-%d-%d%s",nb_job,nb_ressources ,".txt");
 	//ofstream output_file(output_file_name);
-    ofstream output_file(fileresult,ios::app);
+    ofstream output_file(fichierResultat,ios::app);
 
 	double Avant = cplex.getCplexTime();
 	if (cplex.solve()) {
@@ -197,7 +192,7 @@ int resolvePlne(string filename, string fileresult)
 		//cout << " temps écouler = " <<cplex.getCplexTime() << endl;
 		//cout << " temps écouler = " << cplex.getTime() << endl;
 		
-		output_file << "Instance \t: " << filename << endl;
+        output_file << "Instance \t: " << fichierInstance << endl;
 		output_file << "Solution status: " << cplex.getStatus() << endl;
 		output_file << " Optimal Value = " << cplex.getObjValue() << endl;
 		//output_file << " Optimal Value = " << cplex.getTime() << endl;
@@ -234,15 +229,15 @@ int resolvePlne(string filename, string fileresult)
 	
 	///////////////////////////////////////////////////
 	
-	/* }
+    /* }
 
 catch (IloException& ex) {
 	cerr << "Error: " << ex << endl;
 }
 catch (...) {
 	cerr << "Error" << endl;
-}
-    env.end();*/
+}*/
+    env.end();
 	return 0;
 }
 
