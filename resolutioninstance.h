@@ -21,6 +21,7 @@ public:
     explicit ResolutionInstance(QWidget *parent = 0);
     void executionFichier(QString fichierInstance, QString typeResolution);
     void executionDossier(QString fichierInstance, QString typeResolution);
+    QString trouverMethodeResolution(int indexTableau, int indexSousElement = -1);
     ~ResolutionInstance();
 
 private slots:
@@ -33,10 +34,6 @@ private slots:
     void on_fichierRadioButton_clicked();
 
     void on_dossierRadioButton_clicked();
-
-    void on_typeResolutionComboBox_currentIndexChanged(int index);
-
-    void on_typeResolutionComboBox_currentTextChanged(const QString &arg1);
 
 private:
     Ui::ResolutionInstance *ui;

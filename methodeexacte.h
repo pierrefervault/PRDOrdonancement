@@ -30,10 +30,12 @@ typedef IloArray<NumVarMatrix5> NumVarMatrix6;
 class MethodeExacte
 {
 public:
+
     MethodeExacte();
-    int resolvePlne(string fichierInstance, string fichierResultat);
-    int resolvePlneMip2(string fichierInstance, string fichierResultat);
-    map<int,vector<int>> getSubset(NumMatrix eh, int nb_job);
+    int resolutionPlneMip1(string fichierInstance, string fichierResultat);
+    int resolutionPlneMip2(string fichierInstance, string fichierResultat);
+    map<int,vector<int>> getSousEnsemblesMaximaux(NumMatrix eh, int nb_job);
+
 };
 
 #endif // METHODEEXACTE_H

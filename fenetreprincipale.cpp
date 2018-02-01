@@ -29,13 +29,11 @@ void FenetrePrincipale::on_actionQuitter_l_application_triggered()
     close();
 }
 
-void FenetrePrincipale::on_actionInstances_multi_machines_triggered()
+void FenetrePrincipale::on_actionR_soudre_des_instances_triggered()
 {
     ResolutionInstance resolutionInstance;
     if(resolutionInstance.exec()==QDialog::Accepted)
     {
         resolutionInstance.reject();
     }
-    //Ceci fonctionne et c'est interressant
-    //system("./plne instance-300-1-100.data resultatPlne-300-1-100.data");
 }

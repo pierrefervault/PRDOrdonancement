@@ -23,7 +23,7 @@ private slots:
 
     void on_actionQuitter_l_application_triggered();
 
-    void on_actionInstances_multi_machines_triggered();
+    void on_actionR_soudre_des_instances_triggered();
 
 private:
     Ui::FenetrePrincipale *ui;

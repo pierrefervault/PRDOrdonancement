@@ -17,10 +17,24 @@ GenerationInstance::~GenerationInstance()
 
 void GenerationInstance::on_okPushButton_clicked()
 {
-    executionGenerationInstance(this->ui->nbrInstancesLineEdit->text().toInt(), this->ui->nbrJobsLineEdit->text().toInt(),
-                                this->ui->nbrRessourcesLineEdit->text().toInt(), this->ui->nbrMachinesLineEdit->text().toInt(),
-                                this->ui->instantFinLineEdit->text().toInt());
-    accept();
+    if (this->ui->nbrInstancesLineEdit->text().toInt() != NULL && this->ui->nbrJobsLineEdit->text().toInt() != NULL &&
+            this->ui->nbrRessourcesLineEdit->text().toInt() != NULL && this->ui->nbrMachinesLineEdit->text().toInt() != NULL &&
+            this->ui->horizonPlanificationLineEdit->text().toInt() != NULL)
+    {
+        cout << "Execution de la génération d'instances" << endl;
+        int horizonPlanification = 0;
+
+        if (this->ui->horizonPlanificationComboBox->currentText() == "secondes") horizonPlanification = this->ui->horizonPlanificationLineEdit->text().toInt();
+        if (this->ui->horizonPlanificationComboBox->currentText() == "minutes") horizonPlanification = this->ui->horizonPlanificationLineEdit->text().toInt() * 60;
+        if (this->ui->horizonPlanificationComboBox->currentText() == "heures") horizonPlanification = this->ui->horizonPlanificationLineEdit->text().toInt() * 3600;
+        if (this->ui->horizonPlanificationComboBox->currentText() == "jours") horizonPlanification = this->ui->horizonPlanificationLineEdit->text().toInt() * 86400;
+
+        executionGenerationInstance(this->ui->nbrInstancesLineEdit->text().toInt(), this->ui->nbrJobsLineEdit->text().toInt(),
+                                    this->ui->nbrRessourcesLineEdit->text().toInt(), this->ui->nbrMachinesLineEdit->text().toInt(),
+                                    horizonPlanification);
+        accept();
+    }
+    else cout << "Un champs n'est pas correctement rempli" << endl;
 }
 
 void GenerationInstance::on_annulerPushButton_clicked()

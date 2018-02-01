@@ -1,5 +1,7 @@
 #include "resolutioninstance.h"
 #include "ui_resolutioninstance.h"
+#include "QCheckBox"
+#include "QBoxLayout"
 
 using namespace std;
 
@@ -44,116 +46,33 @@ void ResolutionInstance::on_choisirFichierPushButton_clicked()
 
 void ResolutionInstance::on_validerPushButton_clicked()
 {
-    if(this->ui->typeResolutionComboBox->currentText() == "Exacte indéxée temps"){
 
-            if(this->ui->fichierRadioButton->isChecked()){
-                QString fichierInstance = this->ui->choisirFichierLineEdit->text();
-                executionFichier(fichierInstance, "mip1");
+    QString fichierInstance = this->ui->choisirFichierLineEdit->text();
+
+    if (fichierInstance != NULL){
+        for (int i = 0; i < this->ui->treeWidget->topLevelItemCount() ; i++){
+            if (this->ui->treeWidget->topLevelItem(i)->checkState(0) == 2){
+
+                if(this->ui->fichierRadioButton->isChecked()) executionFichier(fichierInstance, trouverMethodeResolution(i));
+                if(this->ui->dossierRadioButton->isChecked()) executionDossier(fichierInstance, trouverMethodeResolution(i));
+
             }
+            else {
 
-            if(this->ui->dossierRadioButton->isChecked()){
-                QString fichierInstance = this->ui->choisirFichierLineEdit->text();
-                executionDossier(fichierInstance, "mip1");
-            }
-            accept();
-    }
+                if (this->ui->treeWidget->topLevelItem(i)->childCount() != 0){
+                    for(int j = 0; j < this->ui->treeWidget->topLevelItem(i)->childCount(); j++){
 
-    if(this->ui->typeResolutionComboBox->currentText() == "Exacte indéxée jobs"){
+                        if(this->ui->treeWidget->topLevelItem(i)->child(j)->checkState(0) == 2){
 
-            if(this->ui->fichierRadioButton->isChecked()){
-                QString fichierInstance = this->ui->choisirFichierLineEdit->text();
-                executionFichier(fichierInstance, "mip2");
-            }
+                            if(this->ui->fichierRadioButton->isChecked()) executionFichier(fichierInstance, trouverMethodeResolution(i, j));
+                            if(this->ui->dossierRadioButton->isChecked()) executionDossier(fichierInstance, trouverMethodeResolution(i, j));
 
-            if(this->ui->dossierRadioButton->isChecked()){
-                QString fichierInstance = this->ui->choisirFichierLineEdit->text();
-                executionDossier(fichierInstance, "mip2");
-            }
-            accept();
-    }
-
-    if(this->ui->typeResolutionComboBox->currentText() == "Heuristiques"){
-
-            if(this->ui->fichierRadioButton->isChecked()){
-                QString fichierInstance = this->ui->choisirFichierLineEdit->text();
-
-                if(this->ui->triComboBox->currentText() == "CCmax basé sur la somme des ressources de chaque job"){
-
-                    if(this->ui->affectationComboBox->currentText() == "Affectation machine par machine")
-                        executionFichier(fichierInstance, "Affectation1 CCmaxSommeRessources");
-                    if(this->ui->affectationComboBox->currentText() == "Affectation priorisant la machine avec le moins de charge")
-                        executionFichier(fichierInstance, "Affectation2 CCmaxSommeRessources");
-
-                }
-
-                if(this->ui->triComboBox->currentText() == "CCmax basé sur la ressource maximale de chaque job"){
-
-                    if(this->ui->affectationComboBox->currentText() == "Affectation machine par machine")
-                        executionFichier(fichierInstance, "Affectation1 CCmaxMaxRessources");
-                    if(this->ui->affectationComboBox->currentText() == "Affectation priorisant la machine avec le moins de charge")
-                        executionFichier(fichierInstance, "Affectation2 CCmaxMaxRessources");
-
-                }
-
-                if(this->ui->triComboBox->currentText() == "Somme des ressources de chaque job"){
-
-                    if(this->ui->affectationComboBox->currentText() == "Affectation machine par machine")
-                        executionFichier(fichierInstance, "Affectation1 SommeRessources");
-                    if(this->ui->affectationComboBox->currentText() == "Affectation priorisant la machine avec le moins de charge")
-                        executionFichier(fichierInstance, "Affectation2 SommeRessources");
-
-                }
-
-                if(this->ui->triComboBox->currentText() == "Valeur moyenne des ressources des sous-ensembles maximaux"){
-
-                    if(this->ui->affectationComboBox->currentText() == "Affectation machine par machine")
-                        executionFichier(fichierInstance, "Affectation1 MoyenneRessourcesSousEnsembles");
-                    if(this->ui->affectationComboBox->currentText() == "Affectation priorisant la machine avec le moins de charge")
-                        executionFichier(fichierInstance, "Affectation2 MoyenneRessourcesSousEnsembles");
-
+                        }
+                    }
                 }
             }
-
-            if(this->ui->dossierRadioButton->isChecked()){
-                QString fichierInstance = this->ui->choisirFichierLineEdit->text();
-
-                if(this->ui->triComboBox->currentText() == "CCmax basé sur la somme des ressources de chaque job"){
-
-                    if(this->ui->affectationComboBox->currentText() == "Affectation machine par machine")
-                        executionDossier(fichierInstance, "Affectation1 CCmaxSommeRessources");
-                    if(this->ui->affectationComboBox->currentText() == "Affectation priorisant la machine avec le moins de charge")
-                        executionDossier(fichierInstance, "Affectation2 CCmaxSommeRessources");
-
-                }
-
-                if(this->ui->triComboBox->currentText() == "CCmax basé sur la ressource maximale de chaque job"){
-
-                    if(this->ui->affectationComboBox->currentText() == "Affectation machine par machine")
-                        executionDossier(fichierInstance, "Affectation1 CCmaxMaxRessources");
-                    if(this->ui->affectationComboBox->currentText() == "Affectation priorisant la machine avec le moins de charge")
-                        executionDossier(fichierInstance, "Affectation2 CCmaxMaxRessources");
-
-                }
-
-                if(this->ui->triComboBox->currentText() == "Somme des ressources de chaque job"){
-
-                    if(this->ui->affectationComboBox->currentText() == "Affectation machine par machine")
-                        executionDossier(fichierInstance, "Affectation1 SommeRessources");
-                    if(this->ui->affectationComboBox->currentText() == "Affectation priorisant la machine avec le moins de charge")
-                        executionDossier(fichierInstance, "Affectation2 SommeRessources");
-
-                }
-
-                if(this->ui->triComboBox->currentText() == "Valeur moyenne des ressources des sous-ensembles maximaux"){
-
-                    if(this->ui->affectationComboBox->currentText() == "Affectation machine par machine")
-                        executionDossier(fichierInstance, "Affectation1 MoyenneRessourcesSousEnsembles");
-                    if(this->ui->affectationComboBox->currentText() == "Affectation priorisant la machine avec le moins de charge")
-                        executionDossier(fichierInstance, "Affectation2 MoyenneRessourcesSousEnsembles");
-
-                }
-            }
-            accept();
+        }
+        accept();
     }
 }
 
@@ -203,18 +122,36 @@ void ResolutionInstance::on_dossierRadioButton_clicked()
     this->ui->fichierInstanceLabel->setText("Dossier d'instances :");
 }
 
-void ResolutionInstance::on_typeResolutionComboBox_currentIndexChanged(int index)
-{
-    if(this->ui->typeResolutionComboBox->currentText() == "Heuristiques"){
-        this->ui->affectationComboBox->setEnabled(true);
-        this->ui->typeAffectationLabel->setEnabled(true);
-        this->ui->typeTriLabel->setEnabled(true);
-        this->ui->triComboBox->setEnabled(true);
+QString ResolutionInstance::trouverMethodeResolution(int indexTableau, int indexSousElement){
+
+    if (this->ui->treeWidget->topLevelItem(indexTableau)->text(0) == "Resolution exacte indexée temps") return "mip1";
+    if (this->ui->treeWidget->topLevelItem(indexTableau)->text(0) == "Resolution exacte indexée jobs") return "mip2";
+
+    QString methodeResolution = "";
+
+    if(indexSousElement != -1){
+
+        if(this->ui->treeWidget->topLevelItem(indexTableau)->child(indexSousElement)->text(0) == "Affectation machine par machine")
+            methodeResolution += "Affectation1";
+
+        if(this->ui->treeWidget->topLevelItem(indexTableau)->child(indexSousElement)->text(0) == "Affectation priorisant la machine avec le moins de charge")
+            methodeResolution += "Affectation2";
+
+
+        if (this->ui->treeWidget->topLevelItem(indexTableau)->text(0) == "CCmax basé sur la somme des ressources de chaque job")
+            methodeResolution += " CCmaxSommeRessources";
+
+        if (this->ui->treeWidget->topLevelItem(indexTableau)->text(0) == "CCmax basé sur la ressource maximale de chaque job")
+            methodeResolution += " CCmaxMaxRessources";
+
+        if (this->ui->treeWidget->topLevelItem(indexTableau)->text(0) == "Somme des ressources de chaque job")
+            methodeResolution += " SommeRessources";
+
+        if (this->ui->treeWidget->topLevelItem(indexTableau)->text(0) == "Valeur moyenne des ressources des sous-ensembles maximaux")
+            methodeResolution += " MoyenneRessourcesSousEnsembles";
+
     }
-    else{
-        this->ui->affectationComboBox->setEnabled(false);
-        this->ui->typeAffectationLabel->setEnabled(false);
-        this->ui->typeTriLabel->setEnabled(false);
-        this->ui->triComboBox->setEnabled(false);
-    }
+
+    return methodeResolution;
+
 }

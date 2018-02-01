@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>588</width>
-    <height>322</height>
+    <height>430</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -44,44 +44,6 @@
     <string>Fichier d'instance :</string>
    </property>
   </widget>
-  <widget class="QLabel" name="typeResolutionLabel">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>180</y>
-     <width>121</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Type de résolution :</string>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="typeResolutionComboBox">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>180</y>
-     <width>421</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <item>
-    <property name="text">
-     <string>Exacte indéxée temps</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Exacte indéxée jobs</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Heuristiques</string>
-    </property>
-   </item>
-  </widget>
   <widget class="QLineEdit" name="choisirFichierLineEdit">
    <property name="geometry">
     <rect>
@@ -109,7 +71,7 @@
    <property name="geometry">
     <rect>
      <x>420</x>
-     <y>280</y>
+     <y>390</y>
      <width>80</width>
      <height>22</height>
     </rect>
@@ -122,7 +84,7 @@
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>280</y>
+     <y>390</y>
      <width>80</width>
      <height>22</height>
     </rect>
@@ -160,92 +122,139 @@
     <string>Dossier d'instances</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="triComboBox">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
+  <widget class="QTreeWidget" name="treeWidget">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>210</y>
-     <width>421</width>
-     <height>22</height>
+     <x>40</x>
+     <y>170</y>
+     <width>531</width>
+     <height>191</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+     <underline>false</underline>
+     <strikeout>false</strikeout>
+     <stylestrategy>PreferDefault</stylestrategy>
+     <kerning>true</kerning>
+    </font>
+   </property>
+   <property name="autoScrollMargin">
+    <number>16</number>
+   </property>
+   <property name="selectionMode">
+    <enum>QAbstractItemView::NoSelection</enum>
+   </property>
+   <attribute name="headerVisible">
+    <bool>false</bool>
+   </attribute>
+   <column>
+    <property name="text">
+     <string>1</string>
+    </property>
+   </column>
+   <item>
+    <property name="text">
+     <string>Resolution exacte indexée temps</string>
+    </property>
+    <property name="checkState">
+     <enum>Unchecked</enum>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Resolution exacte indexée jobs</string>
+    </property>
+    <property name="checkState">
+     <enum>Unchecked</enum>
+    </property>
+   </item>
    <item>
     <property name="text">
      <string>CCmax basé sur la somme des ressources de chaque job</string>
     </property>
+    <item>
+     <property name="text">
+      <string>Affectation priorisant la machine avec le moins de charge</string>
+     </property>
+     <property name="checkState">
+      <enum>Unchecked</enum>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Affectation machine par machine</string>
+     </property>
+     <property name="checkState">
+      <enum>Unchecked</enum>
+     </property>
+    </item>
    </item>
    <item>
     <property name="text">
      <string>CCmax basé sur la ressource maximale de chaque job</string>
     </property>
+    <item>
+     <property name="text">
+      <string>Affectation priorisant la machine avec le moins de charge</string>
+     </property>
+     <property name="checkState">
+      <enum>Unchecked</enum>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Affectation machine par machine</string>
+     </property>
+     <property name="checkState">
+      <enum>Unchecked</enum>
+     </property>
+    </item>
    </item>
    <item>
     <property name="text">
      <string>Somme des ressources de chaque job</string>
     </property>
+    <item>
+     <property name="text">
+      <string>Affectation priorisant la machine avec le moins de charge</string>
+     </property>
+     <property name="checkState">
+      <enum>Unchecked</enum>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Affectation machine par machine</string>
+     </property>
+     <property name="checkState">
+      <enum>Unchecked</enum>
+     </property>
+    </item>
    </item>
    <item>
     <property name="text">
      <string>Valeur moyenne des ressources des sous-ensembles maximaux</string>
     </property>
-   </item>
-  </widget>
-  <widget class="QLabel" name="typeTriLabel">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>210</y>
-     <width>121</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Type de tri :</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="typeAffectationLabel">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>240</y>
-     <width>121</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Type d'affectation :</string>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="affectationComboBox">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>240</y>
-     <width>421</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <item>
-    <property name="text">
-     <string>Affectation machine par machine</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Affectation priorisant la machine avec le moins de charge</string>
-    </property>
+    <item>
+     <property name="text">
+      <string>Affectation priorisant la machine avec le moins de charge</string>
+     </property>
+     <property name="checkState">
+      <enum>Unchecked</enum>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Affectation machine par machine</string>
+     </property>
+     <property name="checkState">
+      <enum>Unchecked</enum>
+     </property>
+    </item>
    </item>
   </widget>
  </widget>

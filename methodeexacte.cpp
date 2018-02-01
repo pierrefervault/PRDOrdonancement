@@ -5,7 +5,7 @@ MethodeExacte::MethodeExacte()
 
 }
 
-int MethodeExacte::resolvePlne(string fichierInstance, string fichierResultat)
+int MethodeExacte::resolutionPlneMip1(string fichierInstance, string fichierResultat)
 {
     //Déclaration de l'environnement
     IloEnv env;
@@ -19,6 +19,7 @@ int MethodeExacte::resolvePlne(string fichierInstance, string fichierResultat)
     if (!f)
     {
         cout << fichierInstance <<" invalid file" << endl;
+        return 0;
     }
 
 
@@ -246,7 +247,7 @@ catch (...) {
     return 0;
 }
 
-int MethodeExacte::resolvePlneMip2(string fichierInstance, string fichierResultat)
+int MethodeExacte::resolutionPlneMip2(string fichierInstance, string fichierResultat)
 {
     //Déclaration de l'environnement
     IloEnv env;
@@ -260,6 +261,7 @@ int MethodeExacte::resolvePlneMip2(string fichierInstance, string fichierResulta
     if (!f)
     {
         cout << fichierInstance <<" invalid file" << endl;
+        return 0;
     }
 
 
@@ -372,7 +374,7 @@ int MethodeExacte::resolvePlneMip2(string fichierInstance, string fichierResulta
 
     //Algorithme de création de sous-ensembles maximaux
 
-    map<int,vector<int>> Jk = getSubset(eh, nb_job);
+    map<int,vector<int>> Jk = getSousEnsemblesMaximaux(eh, nb_job);
 
     for(std::map<int,vector<int>>::iterator it = Jk.begin() ; it != Jk.end() ; ++it){
         cout << it->first << endl;
@@ -519,7 +521,7 @@ catch (...) {
     return 0;
 }
 
-map<int,vector<int>> MethodeExacte::getSubset(NumMatrix eh, int nb_job){
+map<int,vector<int>> MethodeExacte::getSousEnsemblesMaximaux(NumMatrix eh, int nb_job){
 
     map<int,vector<int>> Jk;
 

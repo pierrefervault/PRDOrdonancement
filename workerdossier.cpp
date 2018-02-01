@@ -63,7 +63,7 @@ void WorkerDossier::process(){
             QString fichierResultat = repertoire.path()+"/resolutionMip1-"+fichier.right(fichier.size()-8);
 
             MethodeExacte methodeExacte;
-            methodeExacte.resolvePlne(fichierInstance.toStdString(), fichierResultat.toStdString());
+            methodeExacte.resolutionPlneMip1(fichierInstance.toStdString(), fichierResultat.toStdString());
         }
 
         if (typeResolution.split(" ")[0] == "mip2"){
@@ -78,7 +78,7 @@ void WorkerDossier::process(){
             QString fichierResultat = repertoire.path()+"/resolutionMip2-"+fichier.right(fichier.size()-8);
 
             MethodeExacte methodeExacte;
-            methodeExacte.resolvePlneMip2(fichierInstance.toStdString(), fichierResultat.toStdString());
+            methodeExacte.resolutionPlneMip2(fichierInstance.toStdString(), fichierResultat.toStdString());
         }
 
         if (typeResolution.split(" ")[0] == "Affectation1"){
