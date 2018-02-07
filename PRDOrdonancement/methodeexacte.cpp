@@ -27,40 +27,40 @@ int MethodeExacte::resolutionPlneMip1(string fichierInstance, string fichierResu
     IloModel model(env);
     IloInt i, m;
     //Nous déclarons le nombre de jobs, de ressources et de machines selon ce qu'on a lu dans le fichier
-    IloInt nb_job , nb_ressources, nb_machines ;
-    f >> nb_job >> nb_ressources >> nb_machines;
+    IloInt nbrJobs , nbrRessources, nbrMachines ;
+    f >> nbrJobs >> nbrRessources >> nbrMachines;
 
-    //cout << "nb_job : " << nb_job << " nb_ressources : " << nb_ressources << endl;
+    //cout << "nbrJobs : " << nbrJobs << " nbrRessources : " << nbrRessources << endl;
     // cout << endl;
-    IntMatrix cap_ressources (env, nb_ressources);
+    IntMatrix capRessources (env, nbrRessources);
 
     //Ici on créer un tableau contenant la capacité en ressources pour la ressource r de chaque machine
-    for (int r=0; r < nb_ressources ; r++)
+    for (int r=0; r < nbrRessources ; r++)
     {
-        cap_ressources[r] = IloIntArray (env, nb_machines);
-        f >> cap_ressources[r];
-        //cout << "Nombre de machines : " << nb_machines << endl;
-        for (int machine=0; machine < nb_machines ; machine++)
+        capRessources[r] = IloIntArray (env, nbrMachines);
+        f >> capRessources[r];
+        //cout << "Nombre de machines : " << nbrMachines << endl;
+        for (int machine=0; machine < nbrMachines ; machine++)
         {
-            f >> cap_ressources[r][machine];
-            cout <<  cap_ressources[r][machine] << " ";
+            f >> capRessources[r][machine];
+            cout <<  capRessources[r][machine] << " ";
         }
     }
 
-    //cout << "Nombre de jobs : " << nb_job << endl;
+    //cout << "Nombre de jobs : " << nbrJobs << endl;
 
-    IloIntArray S_j (env, nb_job);
-    IloIntArray F_j (env, nb_job);
+    IloIntArray sj (env, nbrJobs);
+    IloIntArray fj (env, nbrJobs);
     IloInt id , s_i , f_i ;
     IloInt cmax=0;
 
-    //Ici, on mets à jour les instant de début (S_j) et de fin (F_j) pour chaque job
-    for (i=0 ; i < nb_job ; i++)
+    //Ici, on mets à jour les instant de début (Sj) et de fin (fj) pour chaque job
+    for (i=0 ; i < nbrJobs ; i++)
     {
         f >> id >> s_i >> f_i ;
 
-        S_j[i]=s_i;
-        F_j[i]=f_i;
+        sj[i]=s_i;
+        fj[i]=f_i;
 
 
         if (cmax <= f_i ) cmax = f_i;
@@ -75,12 +75,12 @@ int MethodeExacte::resolutionPlneMip1(string fichierInstance, string fichierResu
 
 
     //Ici, on créer le tableau ou est stocké pour chaque job i la valeur pour la ressource r associée au job
-    NumMatrix C (env,nb_job);
-    for( i=0 ; i<nb_job ; i++)
+    NumMatrix C (env,nbrJobs);
+    for( i=0 ; i<nbrJobs ; i++)
     {
         IloInt cap;
-        C[i] = IloNumArray  (env,nb_ressources);
-        for (int r=0; r < nb_ressources ; r++)
+        C[i] = IloNumArray  (env,nbrRessources);
+        for (int r=0; r < nbrRessources ; r++)
         {
             f >> cap;
             C[i][r]=cap;
@@ -93,11 +93,11 @@ int MethodeExacte::resolutionPlneMip1(string fichierInstance, string fichierResu
 
     //Ici on créer les variables Y qui valent 1 si le jobs i est exécuté à l'instant t sur une machine m
 
-    IloArray<NumVarMatrix> Y(env,nb_job) ;
-    for (i=0 ; i < nb_job ; i++)
+    IloArray<NumVarMatrix> Y(env,nbrJobs) ;
+    for (i=0 ; i < nbrJobs ; i++)
     {
-        Y[i]= NumVarMatrix(env,nb_machines);
-        for (int machine= 0 ; machine < nb_machines ; machine++)
+        Y[i]= NumVarMatrix(env,nbrMachines);
+        for (int machine= 0 ; machine < nbrMachines ; machine++)
         {
             Y[i][machine] = IloNumVarArray (env,cmax+1);
             for (int t= 0 ; t < cmax+1 ; t++)
@@ -109,11 +109,11 @@ int MethodeExacte::resolutionPlneMip1(string fichierInstance, string fichierResu
 
     //Ici on créer les variables X qui valent 1 si le jobs i est exécuté sur une machine m
 
-    NumVarMatrix X(env,nb_job) ;
-    for (i=0 ; i < nb_job ; i++)
+    NumVarMatrix X(env,nbrJobs) ;
+    for (i=0 ; i < nbrJobs ; i++)
     {
-        X[i] = IloNumVarArray (env,nb_machines) ;
-        for (m=0 ; m < nb_machines ; m++)
+        X[i] = IloNumVarArray (env,nbrMachines) ;
+        for (m=0 ; m < nbrMachines ; m++)
         {
             X[i][m]=IloNumVar(env,0,1,ILOINT);
         }
@@ -122,39 +122,39 @@ int MethodeExacte::resolutionPlneMip1(string fichierInstance, string fichierResu
 
     //Ici on ajoute la contrainte qui vérifie que si un jobs est exécuté,
     //il est exécuté durant la période [S[i],F[i][
-    for (i=0 ; i < nb_job ; i++) {
+    for (i=0 ; i < nbrJobs ; i++) {
 
 
-        for (int m= 0 ; m < nb_machines ; m++) {
+        for (int m= 0 ; m < nbrMachines ; m++) {
             IloExpr temps_total_execution_job(env);
-            for (int t= S_j[i] ; t < F_j[i] ; t++) {
+            for (int t=sj[i] ; t < fj[i] ; t++) {
                 temps_total_execution_job +=  Y[i][m][t];
             }
-            model.add(temps_total_execution_job ==  (F_j[i]-S_j[i])*X[i][m]);
+            model.add(temps_total_execution_job ==  (fj[i]-sj[i])*X[i][m]);
         }
     }
 
     //Ici on ajoute la contrainte qui vérifie que si un jobs est exécuté,
     //pour chaque t les valeurs de ressources sur la machine m ne sont pas dépassée
-    for (int r=0; r < nb_ressources ; r++) {
+    for (int r=0; r < nbrRessources ; r++) {
         for (int t= 0 ; t < cmax+1 ; t++) {
-            for (int m= 0 ; m < nb_machines ; m++) {
+            for (int m= 0 ; m < nbrMachines ; m++) {
                 IloExpr capacite_ressources(env);
-                for (i=0 ; i < nb_job ; i++) {
+                for (i=0 ; i < nbrJobs ; i++) {
 
                     capacite_ressources += Y[i][m][t] * C[i][r] ;
 
                 }
-                model.add( capacite_ressources <= cap_ressources[r][m] ) ;
+                model.add( capacite_ressources <= capRessources[r][m] ) ;
             }
         }
     }
 
     //Ici on ajoute la contrainte qui vérifie qu'un job ne peut être exécuter au maximum que sur une seule machine
-    for( i=0 ; i<nb_job ; i++)
+    for( i=0 ; i<nbrJobs ; i++)
     {
         IloExpr unicite_job(env);
-        for (int m= 0 ; m < nb_machines ; m++) {
+        for (int m= 0 ; m < nbrMachines ; m++) {
             unicite_job +=  X[i][m];
         }
         model.add( unicite_job <= 1 ) ;
@@ -164,9 +164,9 @@ int MethodeExacte::resolutionPlneMip1(string fichierInstance, string fichierResu
     //Ici, on ajoute la fonction objective qui correspond à maximiser le nombre de jobs ordonnancés
     IloExpr numberJob(env);
 
-    for( i=0 ; i<nb_job ; i++)
+    for( i=0 ; i<nbrJobs ; i++)
     {
-        for (int m= 0 ; m < nb_machines ; m++) {
+        for (int m= 0 ; m < nbrMachines ; m++) {
             numberJob +=  X[i][m];
         }
     }
@@ -184,7 +184,7 @@ int MethodeExacte::resolutionPlneMip1(string fichierInstance, string fichierResu
     //cplex.setParam(IloCplex::Param::ClockType,0);
 
     //char output_file_name[80];
-    // sprintf(output_file_name,"sol-%d-%d%s",nb_job,nb_ressources ,".txt");
+    // sprintf(output_file_name,"sol-%d-%d%s",nbrJobs,nbrRessources ,".txt");
     //ofstream output_file(output_file_name);
     ofstream output_file(fichierResultat,ios::app);
 
@@ -203,14 +203,14 @@ int MethodeExacte::resolutionPlneMip1(string fichierInstance, string fichierResu
         output_file << " Optimal Value = " << cplex.getObjValue() << endl;
         //output_file << " Optimal Value = " << cplex.getTime() << endl;
 
-        for (int m= 0 ; m < nb_machines ; m++) {
-            for( i=0 ; i<nb_job ; i++){
+        for (int m= 0 ; m < nbrMachines ; m++) {
+            for( i=0 ; i<nbrJobs ; i++){
                 if (cplex.getValue(X[i][m])>=0.9)
                 {
                     // cout << "VM_" << i+1 << " : " << cplex.getValue(X[i]) << "[ "  ;
                     cout << "Machine_"<< m+1 << " VM_" << i+1 << " : [ "  ;
 
-                    for (int t= S_j[i] ; t < F_j[i] ; t++) {
+                    for (int t=sj[i] ; t < fj[i] ; t++) {
 
                         if (cplex.getValue(Y[i][m][t]) >= 0.9)
                         {
@@ -218,7 +218,7 @@ int MethodeExacte::resolutionPlneMip1(string fichierInstance, string fichierResu
                         }
                     }
 
-                    cout << F_j[i] << " ]" <<endl;
+                    cout << fj[i] << " ]" <<endl;
                 }
             }
         }
@@ -235,6 +235,8 @@ int MethodeExacte::resolutionPlneMip1(string fichierInstance, string fichierResu
 
     ///////////////////////////////////////////////////
 
+    int optimal = cplex.getObjValue();
+
     /* }
 
 catch (IloException& ex) {
@@ -244,7 +246,7 @@ catch (...) {
     cerr << "Error" << endl;
 }*/
     env.end();
-    return 0;
+    return optimal;
 }
 
 int MethodeExacte::resolutionPlneMip2(string fichierInstance, string fichierResultat)
@@ -269,61 +271,61 @@ int MethodeExacte::resolutionPlneMip2(string fichierInstance, string fichierResu
     IloModel model(env);
     IloInt i, m;
     //Nous déclarons le nombre de jobs, de ressources et de machines selon ce qu'on a lu dans le fichier
-    IloInt nb_job , nb_ressources, nb_machines ;
-    f >> nb_job >> nb_ressources >> nb_machines;
+    IloInt nbrJobs , nbrRessources, nbrMachines ;
+    f >> nbrJobs >> nbrRessources >> nbrMachines;
 
-    //cout << "nb_job : " << nb_job << " nb_ressources : " << nb_ressources << endl;
+    //cout << "nbrJobs : " << nbrJobs << " nbrRessources : " << nbrRessources << endl;
     // cout << endl;
-    IntMatrix cap_ressources (env, nb_ressources);
+    IntMatrix capRessources (env, nbrRessources);
 
     //Ici on créer un tableau contenant la capacité en ressources pour la ressource r de chaque machine
-    for (int r=0; r < nb_ressources ; r++)
+    for (int r=0; r < nbrRessources ; r++)
     {
-        cap_ressources[r] = IloIntArray (env, nb_machines);
-        f >> cap_ressources[r];
-        //cout << "Nombre de machines : " << nb_machines << endl;
-        for (int machine=0; machine < nb_machines ; machine++)
+        capRessources[r] = IloIntArray (env, nbrMachines);
+        f >> capRessources[r];
+        //cout << "Nombre de machines : " << nbrMachines << endl;
+        for (int machine=0; machine < nbrMachines ; machine++)
         {
-            f >> cap_ressources[r][machine];
-            cout <<  cap_ressources[r][machine] << " ";
+            f >> capRessources[r][machine];
+            cout <<  capRessources[r][machine] << " ";
         }
     }
 
-    //cout << "Nombre de jobs : " << nb_job << endl;
+    //cout << "Nombre de jobs : " << nbrJobs << endl;
 
-    IloIntArray S_j (env, nb_job);
-    IloIntArray F_j (env, nb_job);
-    IloIntArray ID_j (env, nb_job);
+    IloIntArray sj (env, nbrJobs);
+    IloIntArray fj (env, nbrJobs);
+    IloIntArray idj (env, nbrJobs);
     IloInt id , s_i , f_i ;
     IloInt cmax=0;
 
 
     //Tableau d'évenement eh
 
-    NumMatrix eh(env,nb_job*2);
+    NumMatrix eh(env,nbrJobs*2);
 
     //Ici, on mets à jour les instant de début et de fin pour chaque job
-    for (i=0 ; i < nb_job ; i++)
+    for (i=0 ; i < nbrJobs ; i++)
     {
         f >> id >> s_i >> f_i ;
 
-        S_j[i]=s_i;
-        F_j[i]=f_i;
-        ID_j[i]=id;
+        sj[i]=s_i;
+        fj[i]=f_i;
+        idj[i]=id;
 
         eh[(2*i)] = IloNumArray (env,4);
 
-        eh[(2*i)][0] = S_j[i];
+        eh[(2*i)][0] =sj[i];
         eh[(2*i)][1] = i;
         eh[(2*i)][2] = 1;
-        eh[(2*i)][3] = F_j[i];
+        eh[(2*i)][3] = fj[i];
 
         eh[1 + (2*i)] = IloNumArray (env,4);
 
-        eh[1 + (2*i)][0] = F_j[i];
+        eh[1 + (2*i)][0] = fj[i];
         eh[1 + (2*i)][1] = i;
         eh[1 + (2*i)][2] = 0;
-        eh[1 + (2*i)][3] = F_j[i];
+        eh[1 + (2*i)][3] = fj[i];
 
 
         if (cmax <= f_i ) cmax = f_i;
@@ -335,13 +337,13 @@ int MethodeExacte::resolutionPlneMip2(string fichierInstance, string fichierResu
 
     cout << endl;
 
-    for (i=0; i < (nb_job * 2); i++){
+    for (i=0; i < (nbrJobs * 2); i++){
         cout << eh[i][0] << " " << eh[i][1] << " " << eh[i][2] << " " << endl;
     }
 
     //Trie à bulle du tableau d'événement eh
     bool tab_en_ordre = false;
-    int taille = (nb_job * 2);
+    int taille = (nbrJobs * 2);
     while(!tab_en_ordre)
     {
         tab_en_ordre = true;
@@ -368,13 +370,13 @@ int MethodeExacte::resolutionPlneMip2(string fichierInstance, string fichierResu
 
     //cout << endl;
 
-    for (i=0; i < (nb_job * 2); i++){
+    for (i=0; i < (nbrJobs * 2); i++){
         cout << eh[i][0] << " " << eh[i][1] << " " << eh[i][2] << " " << eh[i][3] << endl;
     }
 
     //Algorithme de création de sous-ensembles maximaux
 
-    map<int,vector<int>> Jk = getSousEnsemblesMaximaux(eh, nb_job);
+    map<int,vector<int>> Jk = getSousEnsemblesMaximaux(eh, nbrJobs);
 
     for(std::map<int,vector<int>>::iterator it = Jk.begin() ; it != Jk.end() ; ++it){
         cout << it->first << endl;
@@ -387,12 +389,12 @@ int MethodeExacte::resolutionPlneMip2(string fichierInstance, string fichierResu
     //cout <<"cmax : " <<cmax << endl;*
 
     //Ici, on créer le tableau ou est stocké pour chaque job i la valeur pour la ressource r associée au job
-    NumMatrix C (env,nb_job);
-    for( i=0 ; i<nb_job ; i++)
+    NumMatrix C (env,nbrJobs);
+    for( i=0 ; i<nbrJobs ; i++)
     {
         IloInt cap;
-        C[i] = IloNumArray  (env,nb_ressources);
-        for (int r=0; r < nb_ressources ; r++)
+        C[i] = IloNumArray  (env,nbrRessources);
+        for (int r=0; r < nbrRessources ; r++)
         {
             f >> cap;
             C[i][r]=cap;
@@ -403,11 +405,11 @@ int MethodeExacte::resolutionPlneMip2(string fichierInstance, string fichierResu
     }
 
     //Ici on créer les variables X qui valent 1 si le jobs i est exécuté sur une machine m
-    NumVarMatrix X(env,nb_job) ;
-    for (i=0 ; i < nb_job ; i++)
+    NumVarMatrix X(env,nbrJobs) ;
+    for (i=0 ; i < nbrJobs ; i++)
     {
-        X[i] = IloNumVarArray (env,nb_machines) ;
-        for (m=0 ; m < nb_machines ; m++)
+        X[i] = IloNumVarArray (env,nbrMachines) ;
+        for (m=0 ; m < nbrMachines ; m++)
         {
             X[i][m]=IloNumVar(env,0,1,ILOINT);
         }
@@ -415,8 +417,8 @@ int MethodeExacte::resolutionPlneMip2(string fichierInstance, string fichierResu
 
     //Ici on ajoute la contrainte qui vérifie que si un jobs est exécuté,
     //les valeurs de ressources sur la machine m ne sont pas dépassée
-   for (int r=0; r < nb_ressources ; r++) {
-        for (int m= 0 ; m < nb_machines ; m++) {
+   for (int r=0; r < nbrRessources ; r++) {
+        for (int m= 0 ; m < nbrMachines ; m++) {
             for (unsigned int h= 0 ; h < Jk.size() ; h++) {
                 IloExpr capacite_ressources(env);
                 for (unsigned int l=0 ; l < Jk[h].size() ; l++) {
@@ -424,16 +426,16 @@ int MethodeExacte::resolutionPlneMip2(string fichierInstance, string fichierResu
                     capacite_ressources += X[(Jk[h][l])][m] * C[(Jk[h][l])][r] ;
                 }
                 cout << endl;
-                model.add( capacite_ressources <= cap_ressources[r][m] ) ;
+                model.add( capacite_ressources <= capRessources[r][m] ) ;
             }
         }
     }
 
     //Ici on ajoute la contrainte qui vérifie qu'un job ne peut être exécuter au maximum que sur une seule machine
-    for( i=0 ; i<nb_job ; i++)
+    for( i=0 ; i<nbrJobs ; i++)
     {
         IloExpr unicite_job(env);
-        for (int m= 0 ; m < nb_machines ; m++) {
+        for (int m= 0 ; m < nbrMachines ; m++) {
             unicite_job +=  X[i][m];
         }
         model.add( unicite_job <= 1 ) ;
@@ -442,9 +444,9 @@ int MethodeExacte::resolutionPlneMip2(string fichierInstance, string fichierResu
 
     IloExpr numberJob(env);
 
-    for( i=0 ; i<nb_job ; i++)
+    for( i=0 ; i<nbrJobs ; i++)
     {
-        for (int m= 0 ; m < nb_machines ; m++) {
+        for (int m= 0 ; m < nbrMachines ; m++) {
             numberJob +=  X[i][m];
         }
     }
@@ -462,7 +464,7 @@ int MethodeExacte::resolutionPlneMip2(string fichierInstance, string fichierResu
     //cplex.setParam(IloCplex::Param::ClockType,0);
 
     //char output_file_name[80];
-    // sprintf(output_file_name,"sol-%d-%d%s",nb_job,nb_ressources ,".txt");
+    // sprintf(output_file_name,"sol-%d-%d%s",nbrJobs,nbrRessources ,".txt");
     //ofstream output_file(output_file_name);
     ofstream output_file(fichierResultat,ios::app);
 
@@ -481,18 +483,18 @@ int MethodeExacte::resolutionPlneMip2(string fichierInstance, string fichierResu
         output_file << " Optimal Value = " << cplex.getObjValue() << endl;
         //output_file << " Optimal Value = " << cplex.getTime() << endl;
 
-        for (int m= 0 ; m < nb_machines ; m++) {
-            for( i=0 ; i<nb_job ; i++){
+        for (int m= 0 ; m < nbrMachines ; m++) {
+            for( i=0 ; i<nbrJobs ; i++){
                 if (cplex.getValue(X[i][m])>=0.9)
                 {
                     // cout << "VM_" << i+1 << " : " << cplex.getValue(X[i]) << "[ "  ;
                     cout << "Machine_"<< m+1 << " VM_" << i+1 << " : [ "  ;
 
-                    for (int t= S_j[i] ; t < F_j[i] ; t++) {
+                    for (int t=sj[i] ; t < fj[i] ; t++) {
                         cout << t << " " ;
                     }
 
-                    cout << F_j[i] << " ]" <<endl;
+                    cout << fj[i] << " ]" <<endl;
                 }
             }
         }
@@ -509,6 +511,8 @@ int MethodeExacte::resolutionPlneMip2(string fichierInstance, string fichierResu
 
     ///////////////////////////////////////////////////
 
+    int optimal = cplex.getObjValue();
+
     /* }
 
 catch (IloException& ex) {
@@ -516,12 +520,12 @@ catch (IloException& ex) {
 }
 catch (...) {
     cerr << "Error" << endl;
-}
-    env.end();*/
-    return 0;
+}*/
+    env.end();
+    return optimal;
 }
 
-map<int,vector<int>> MethodeExacte::getSousEnsemblesMaximaux(NumMatrix eh, int nb_job){
+map<int,vector<int>> MethodeExacte::getSousEnsemblesMaximaux(NumMatrix eh, int nbrJobs){
 
     map<int,vector<int>> Jk;
 
@@ -531,12 +535,12 @@ map<int,vector<int>> MethodeExacte::getSousEnsemblesMaximaux(NumMatrix eh, int n
     //Permet de savoir si on doit encore enlever des jobs du sous ensembles après une première supression
     int inc = 0;
 
-    //Nombre d'événement de type S_j parcourus
+    //Nombre d'événement de typesj parcourus
     int nbStartEvent = 0;
 
-    for(int h = 0 ; h < (nb_job * 2); h++){
+    for(int h = 0 ; h < (nbrJobs * 2); h++){
 
-        //Si l'événement est de type S_j, on ajoute le job correspondant au sous-ensemble k
+        //Si l'événement est de typesj, on ajoute le job correspondant au sous-ensemble k
         if(eh[h][2] == 1){
             nbStartEvent++;
             Jk[k].push_back(eh[h][1]);
@@ -547,21 +551,21 @@ map<int,vector<int>> MethodeExacte::getSousEnsemblesMaximaux(NumMatrix eh, int n
         }
         else{
 
-            //Si on a parcouru l'ensemble des événements de type S_j on retourne les sous-ensembles
-            if(nbStartEvent == nb_job){
+            //Si on a parcouru l'ensemble des événements de typesj on retourne les sous-ensembles
+            if(nbStartEvent == nbrJobs){
                 return Jk;
             }
 
             else{
 
-                //Si le sous ensembles est maximal et que l'on parcoure un événement de type F_j
+                //Si le sous ensembles est maximal et que l'on parcoure un événement de type fj
                 if(inc == 0){
 
                     //On considère le nouveau sous-ensemble non maximal
                     inc = 1;
                     k++;
 
-                    //Le nouveau sous-ensemble corespond à l'ancien où l'on exclu le jobs correspondant à l'événement F_j
+                    //Le nouveau sous-ensemble corespond à l'ancien où l'on exclu le jobs correspondant à l'événement fj
                     Jk[k] = Jk[k-1];
                     for (std::vector<int>::iterator it = Jk[k].begin(); it != Jk[k].end();) {
                         if (*it == eh[h][1]) {
@@ -572,10 +576,10 @@ map<int,vector<int>> MethodeExacte::getSousEnsemblesMaximaux(NumMatrix eh, int n
                     }
                 }
 
-                //Si le sous ensembles n'est pas maximal et que l'on parcoure un événement de type F_j
+                //Si le sous ensembles n'est pas maximal et que l'on parcoure un événement de type fj
                 else{
 
-                    //On enlève le jobs correspondant à l'événement F_j du sous-ensemble
+                    //On enlève le jobs correspondant à l'événement fj du sous-ensemble
 
                     for (std::vector<int>::iterator it = Jk[k].begin(); it != Jk[k].end();) {
                         if (*it == eh[h][1]) {

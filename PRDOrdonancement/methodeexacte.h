@@ -2,7 +2,6 @@
 #define METHODEEXACTE_H
 
 #include <QObject>
-#include <QWidget>
 #include <ilcplex/ilocplex.h>
 #include <iostream>
 #include <algorithm>

@@ -28,4 +28,4 @@ private:
     Ui::GenerationInstance *ui;
 };
 
-#endif GENERATIONINSTANCE_H
+#endif //GENERATIONINSTANCE_H
