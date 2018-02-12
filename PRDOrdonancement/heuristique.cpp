@@ -43,18 +43,18 @@ Heuristique::Heuristique(string fichierInstance)
     vector<int>sj;
     vector<int> fj;
 
-    int cmax=0;
+    int horizonMax = 0;
 
     //Ici, on mets à jour les instant de début et de fin pour chaque job
     for (i=0 ; i < this->instance.getNbrJobs() ; i++)
     {
         f >> id >> s_i >> f_i ;
 
-       sj.push_back(s_i);
+        sj.push_back(s_i);
         fj.push_back(f_i);
 
 
-        if (cmax <= f_i ) cmax = f_i;
+        if (horizonMax <= f_i ) horizonMax = f_i;
 
 
         //cout << id << " " << s_i << " " << f_i << " " << endl;
@@ -62,6 +62,7 @@ Heuristique::Heuristique(string fichierInstance)
 
     this->instance.setSj(sj);
     this->instance.setFj(fj);
+    this->instance.setHorizonMax(horizonMax);
 
     //Ici, on créer le tableau ou est stocké pour chaque job i la valeur pour la ressource r associée au job
 
@@ -618,6 +619,20 @@ int Heuristique::writeInFile(vector<vector<int>> jobsOrdonnances, QString typeRe
     output_file << " Optimal Value = " << nbrJobsOrdonnances << endl;
 
     output_file << "temps écoulé: " << dureeExecution  << " seconds" << endl;
+
+    output_file << "IdMachine " << "nb " << endl;
+
+    for(unsigned int i = 0; i < jobsOrdonnances.size(); i++){
+        output_file << i+1 << " " << jobsOrdonnances[i].size() << endl;
+    }
+
+    output_file << "IdMachine " << "n°Job " << "Si " << "Fi " << endl;
+
+    for(unsigned int i = 0; i < jobsOrdonnances.size(); i++){
+        for(unsigned int j = 0; j < jobsOrdonnances[i].size(); j++){
+            output_file << i+1 << " " << jobsOrdonnances[i][j] << " " << this->instance.getSj()[jobsOrdonnances[i][j]] << " " << this->instance.getFj()[jobsOrdonnances[i][j]] << endl;
+        }
+    }
 
     return nbrJobsOrdonnances;
 }

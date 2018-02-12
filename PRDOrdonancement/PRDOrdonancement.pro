@@ -32,7 +32,6 @@ HEADERS  += \
     workerdossier.h \
     workerinstance.h \
     instance.h
-    
 
 FORMS    += \
     generationinstance.ui \
@@ -41,8 +40,14 @@ FORMS    += \
 
 INCLUDEPATH += /home/pierre/build-PRDOrdonancement-Desktop_Qt_5_7_0_GCC_64bit-Debug/PRDOrdonancement/cplex_216/cplex/include
 INCLUDEPATH += /home/pierre/build-PRDOrdonancement-Desktop_Qt_5_7_0_GCC_64bit-Debug/PRDOrdonancement/cplex_216/concert/include
- 
+
 DEFINES += IL_STD
  
 LIBS += -L/home/pierre/build-PRDOrdonancement-Desktop_Qt_5_7_0_GCC_64bit-Debug/PRDOrdonancement/cplex_216/cplex/lib/x86-64_linux/static_pic -lilocplex -lconcert -lcplex -lm -lpthread
 LIBS += -L/home/pierre/build-PRDOrdonancement-Desktop_Qt_5_7_0_GCC_64bit-Debug/PRDOrdonancement/cplex_216/concert/lib/x86-64_linux/static_pic -lconcert
+
+CONFIG += qwt
+INCLUDEPATH += /usr/local/qwt-6.1.2/include
+LIBS += -L /usr/local/qwt-6.1.2/lib -lqwt
+
+include(/usr/local/qwt-6.1.2/features/qwt.prf)

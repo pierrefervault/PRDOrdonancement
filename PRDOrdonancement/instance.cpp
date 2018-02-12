@@ -85,4 +85,12 @@ void Instance::setTableauRessourcesJobs(const vector<vector<int> > &value)
     tableauRessourcesJobs = value;
 }
 
+int Instance::getHorizonMax() const
+{
+    return horizonMax;
+}
 
+void Instance::setHorizonMax(int value)
+{
+    horizonMax = value;
+}

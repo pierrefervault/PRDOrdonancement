@@ -7,6 +7,7 @@
 #include <chrono>
 #include <fstream>
 #include "instance.h"
+#include <map>
 
 using namespace std;
 

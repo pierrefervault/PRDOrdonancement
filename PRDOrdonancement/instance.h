@@ -35,6 +35,9 @@ public:
     vector<vector<int> > getTableauRessourcesJobs() const;
     void setTableauRessourcesJobs(const vector<vector<int> > &value);
 
+    int getHorizonMax() const;
+    void setHorizonMax(int value);
+
 private:
 
     QString fichierInstance;
@@ -44,6 +47,7 @@ private:
 
     vector<int> sj;
     vector<int> fj;
+    int horizonMax;
 
     vector<vector<int>> capRessources;
     vector<vector<int>> tableauRessourcesJobs;

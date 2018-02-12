@@ -2,6 +2,12 @@
 #include "ui_fenetreprincipale.h"
 #include "generationinstance.h"
 #include "resolutioninstance.h"
+/*#include <qwt.h>
+#include <qwt_plot.h>
+#include <qwt_plot_curve.h>
+#include <qwt_plot_grid.h>
+#include <qwt_symbol.h>
+#include <qwt_legend.h>*/
 
 FenetrePrincipale::FenetrePrincipale(QWidget *parent) :
     QMainWindow(parent),
@@ -36,4 +42,18 @@ void FenetrePrincipale::on_actionR_soudre_des_instances_triggered()
     {
         resolutionInstance.reject();
     }
+}
+
+void FenetrePrincipale::on_actionGraphique_triggered()
+{
+/*    QwtPlot* plot = new QwtPlot();
+
+    plot->setTitle( "Plot Demo" );
+    plot->setCanvasBackground( Qt::white );
+    plot->setAxisScale( QwtPlot::yLeft, 0.0, 10.0 );
+    plot->insertLegend( new QwtLegend() );
+
+    ui->horizontalLayout->addWidget(plot); // the app crashes here.
+
+    plot->show();*/
 }

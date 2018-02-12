@@ -35,17 +35,17 @@ void ClassTest::testSolutionInferieureOuEgaleNbrJobsMip1(){
 
     string fichierInstance = "instance-8-3-3.data";
 
-    MethodeExacte* methodeExacte = new MethodeExacte();
+    MethodeExacte* methodeExacte = new MethodeExacte(fichierInstance);
 
-    QVERIFY2(methodeExacte->resolutionPlneMip1(fichierInstance,"") <= 8, "Solution trouve inférieure ou égale au nombre de jobs total");
+    QVERIFY2(methodeExacte->resolutionPlneMip1("") <= 8, "Solution trouve inférieure ou égale au nombre de jobs total");
 }
 
 void ClassTest::testSolutionInferieureOuEgaleNbrJobsMip2(){
 
     string fichierInstance = "instance-8-3-3.data";
 
-    MethodeExacte* methodeExacte = new MethodeExacte();
+    MethodeExacte* methodeExacte = new MethodeExacte(fichierInstance);
 
-    QVERIFY2(methodeExacte->resolutionPlneMip2(fichierInstance,"") <= 8, "Solution trouve inférieure ou égale au nombre de jobs total");
+    QVERIFY2(methodeExacte->resolutionPlneMip2("") <= 8, "Solution trouve inférieure ou égale au nombre de jobs total");
 
 }

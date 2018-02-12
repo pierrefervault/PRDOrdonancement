@@ -9,6 +9,8 @@
 #include "workerdossier.h"
 #include <iostream>
 
+using namespace std;
+
 namespace Ui {
 class ResolutionInstance;
 }
@@ -35,8 +37,15 @@ private slots:
 
     void on_dossierRadioButton_clicked();
 
+    void on_agentSpinBox_valueChanged(int arg1);
+
+    void on_agentComboBox_currentIndexChanged(int index);
+
+    void on_validerPourcentagePushButton_clicked();
+
 private:
     Ui::ResolutionInstance *ui;
+    vector<int> pourcentageParAgent;
 };
 
 #endif // RESOLUTIONINSTANCE_H

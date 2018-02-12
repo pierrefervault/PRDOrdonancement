@@ -13,7 +13,19 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>371</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout"/>
+   </widget>
+  </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
@@ -30,6 +42,7 @@
     <addaction name="actionG_n_rer_des_instances"/>
     <addaction name="actionR_soudre_des_instances"/>
     <addaction name="actionQuitter_l_application"/>
+    <addaction name="actionGraphique"/>
    </widget>
    <addaction name="menuFichier"/>
   </widget>
@@ -55,6 +68,11 @@
   <action name="actionR_soudre_des_instances">
    <property name="text">
     <string>Résoudre des instances</string>
+   </property>
+  </action>
+  <action name="actionGraphique">
+   <property name="text">
+    <string>Graphique</string>
    </property>
   </action>
  </widget>

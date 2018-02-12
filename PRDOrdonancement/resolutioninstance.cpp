@@ -2,6 +2,7 @@
 #include "ui_resolutioninstance.h"
 #include "QCheckBox"
 #include "QBoxLayout"
+#include "QMessageBox"
 
 using namespace std;
 
@@ -10,6 +11,11 @@ ResolutionInstance::ResolutionInstance(QWidget *parent) :
     ui(new Ui::ResolutionInstance)
 {
     ui->setupUi(this);
+    this->pourcentageParAgent.clear();
+    this->ui->agentComboBox->clear();
+    this->ui->agentComboBox->addItem("Agent 1");
+    this->ui->pourcentageLineEdit->setText("100");
+    this->pourcentageParAgent.push_back(100);
 }
 
 ResolutionInstance::~ResolutionInstance()
@@ -73,6 +79,11 @@ void ResolutionInstance::on_validerPushButton_clicked()
             }
         }
         accept();
+    }
+    else{
+        QMessageBox messageBox;
+        messageBox.critical(0,"Erreur","Le fichier ou dossier d'instance n'est pas spécifié");
+        messageBox.setFixedSize(500,200);
     }
 }
 
@@ -154,4 +165,51 @@ QString ResolutionInstance::trouverMethodeResolution(int indexTableau, int index
 
     return methodeResolution;
 
+}
+
+void ResolutionInstance::on_agentSpinBox_valueChanged(int arg1)
+{
+    this->ui->agentComboBox->clear();
+    this->pourcentageParAgent.clear();
+
+    for (int i = 1; i < this->ui->agentSpinBox->text().toInt()+1; i++){
+        this->ui->agentComboBox->addItem("Agent "+QString::number(i));
+        this->pourcentageParAgent.push_back(0);
+    }
+    this->pourcentageParAgent[0] = 100;
+    this->ui->pourcentageLineEdit->setText("100");
+}
+
+void ResolutionInstance::on_agentComboBox_currentIndexChanged(int index)
+{
+    cout << this->pourcentageParAgent.size() << endl;
+    for (unsigned int i = 0; i < this->pourcentageParAgent.size(); i++){
+        cout << this->pourcentageParAgent[i] << endl;
+    }
+    if (this->pourcentageParAgent.size() > 0){
+        this->ui->pourcentageLineEdit->setText(QString::number(this->pourcentageParAgent[index]));
+    }
+}
+
+void ResolutionInstance::on_validerPourcentagePushButton_clicked()
+{
+    int sommePourcentage = 0;
+    for (unsigned int i = 0; i < this->pourcentageParAgent.size(); i++){
+
+        if (i == this->ui->agentComboBox->currentIndex()){
+            sommePourcentage += this->ui->pourcentageLineEdit->text().toInt();
+        }
+        else{
+            sommePourcentage += this->pourcentageParAgent[i];
+        }
+    }
+
+    if (sommePourcentage <= 100){
+        this->pourcentageParAgent[this->ui->agentComboBox->currentIndex()] = this->ui->pourcentageLineEdit->text().toInt();
+    }
+    else{
+        QMessageBox messageBox;
+        messageBox.critical(0,"Erreur","La somme des pourcentage pour tout les agents est supérieur à 100");
+        messageBox.setFixedSize(500,200);
+    }
 }

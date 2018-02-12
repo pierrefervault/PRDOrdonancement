@@ -25,6 +25,8 @@ private slots:
 
     void on_actionR_soudre_des_instances_triggered();
 
+    void on_actionGraphique_triggered();
+
 private:
     Ui::FenetrePrincipale *ui;
 };

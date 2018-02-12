@@ -1,5 +1,6 @@
 #include "generationinstance.h"
 #include "ui_generationinstance.h"
+#include "QMessageBox"
 
 using namespace std;
 
@@ -34,7 +35,11 @@ void GenerationInstance::on_okPushButton_clicked()
                                     horizonPlanification);
         accept();
     }
-    else cout << "Un champs n'est pas correctement rempli" << endl;
+    else{
+        QMessageBox messageBox;
+        messageBox.critical(0,"Erreur","Un champs n'est pas correctement rempli");
+        messageBox.setFixedSize(500,200);
+    }
 }
 
 void GenerationInstance::on_annulerPushButton_clicked()
@@ -54,4 +59,3 @@ void GenerationInstance::executionGenerationInstance(int nbrInstance, int nbrJob
     connect(thread, SIGNAL (finished()), thread, SLOT (deleteLater()));
     thread->start();
 }
-

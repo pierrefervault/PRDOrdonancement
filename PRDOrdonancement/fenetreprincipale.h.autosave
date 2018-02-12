@@ -1,0 +1,63 @@
+#ifndef FENETREPRINCIPALE_H
+#define FENETREPRINCIPALE_H
+
+#include <QMainWindow>
+
+namespace Ui {
+class FenetrePrincipale;
+}
+
+/**
+ * @brief 
+ *
+ */
+class FenetrePrincipale : public QMainWindow
+{
+    Q_OBJECT
+
+public:
+    /**
+     * @brief 
+     *
+     * @param parent
+     */
+    explicit FenetrePrincipale(QWidget *parent = 0);
+    /**
+     * @brief 
+     *
+     */
+    ~FenetrePrincipale();
+
+private slots:
+
+
+
+    /**
+     * @brief 
+     *
+     */
+    void on_actionG_n_rer_des_instances_triggered();
+
+    /**
+     * @brief 
+     *
+     */
+    void on_actionQuitter_l_application_triggered();
+
+    /**
+     * @brief 
+     *
+     */
+    void on_actionR_soudre_des_instances_triggered();
+
+    /**
+     * @brief 
+     *
+     */
+    void on_actionGraphique_triggered();
+
+private:
+    Ui::FenetrePrincipale *ui; /**< TODO: describe */
+};
+
+#endif // FENETREPRINCIPALE_H

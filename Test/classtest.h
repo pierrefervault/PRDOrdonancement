@@ -16,6 +16,7 @@ public:
     explicit ClassTest(QObject *parent = 0);
 
 private slots:
+
     void testSolutionInferieureOuEgaleNbrJobsAffectation1();
     void testSolutionInferieureOuEgaleNbrJobsAffectation2();
     void testSolutionInferieureOuEgaleNbrJobsMip1();

@@ -25,25 +25,25 @@ void WorkerFichier::process(){
 
     if (typeResolution.split(" ")[0] == "mip1"){
         //On donne le nouveau chemin pour le fichier de résultat
-        QString fichierResultat = repertoire.path()+"/resolutionMip1-"+fichier.right(fichier.size()-8);
+        QString fichierResultat = repertoire.path()+"/resolutionMip1"+fichier.right(fichier.size()-8);
 
-        MethodeExacte methodeExacte;
-        methodeExacte.resolutionPlneMip1(fichierInstance.toStdString(), fichierResultat.toStdString());
+        MethodeExacte methodeExacte(fichierInstance.toStdString());
+        methodeExacte.resolutionPlneMip1(fichierResultat.toStdString());
     }
     if (typeResolution.split(" ")[0] == "mip2"){
         //On donne le nouveau chemin pour le fichier de résultat
-        QString fichierResultat = repertoire.path()+"/resolutionMip2-"+fichier.right(fichier.size()-8);
+        QString fichierResultat = repertoire.path()+"/resolutionMip2"+fichier.right(fichier.size()-8);
 
-        MethodeExacte methodeExacte;
-        methodeExacte.resolutionPlneMip2(fichierInstance.toStdString(), fichierResultat.toStdString());
+        MethodeExacte methodeExacte(fichierInstance.toStdString());
+        methodeExacte.resolutionPlneMip2(fichierResultat.toStdString());
     }
 
     if (typeResolution.split(" ")[0] == "Affectation1"){
 
         Heuristique heuristic(fichierInstance.toStdString());
 
-        //On donne le nouveau chemin pour le fichier de résultat
-        QString fichierResultat = repertoire.path()+"/Affectation1-"+typeResolution.split(" ")[1]+"-"+fichier.right(fichier.size()-8);
+        //On donne le nouveau chemin pour le fichier de résultat (on enlève 8 caractères au nom de fichier initial qui correspondent à "instance")
+        QString fichierResultat = repertoire.path()+"/Affectation1-"+typeResolution.split(" ")[1]+fichier.right(fichier.size()-8);
         heuristic.resolveMachinePerMachine(typeResolution.split(" ")[1], fichierResultat);
     }
 
@@ -51,8 +51,8 @@ void WorkerFichier::process(){
 
         Heuristique heuristic(fichierInstance.toStdString());
 
-        //On donne le nouveau chemin pour le fichier de résultat
-        QString fichierResultat = repertoire.path()+"/Affectation2-"+typeResolution.split(" ")[1]+"-"+fichier.right(fichier.size()-8);
+        //On donne le nouveau chemin pour le fichier de résultat (on enlève 8 caractères au nom de fichier initial qui correspondent à "instance")
+        QString fichierResultat = repertoire.path()+"/Affectation2-"+typeResolution.split(" ")[1]+fichier.right(fichier.size()-8);
         heuristic.resolveMachineLessUsedMachine(typeResolution.split(" ")[1], fichierResultat);
     }
 
