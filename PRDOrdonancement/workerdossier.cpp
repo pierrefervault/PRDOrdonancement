@@ -1,22 +1,36 @@
 #include "workerdossier.h"
 
+/**
+ * @brief Constructeur de la classe WorkerDossier
+ *
+ * @param dossierInstance Le chemin vers le dossier d'instance
+ * @param typeResolution Le type de résolution à effectuer
+ */
 WorkerDossier::WorkerDossier(QString dossierInstance, QString typeResolution)
 {
     this->dossierInstance = dossierInstance;
     this->typeResolution = typeResolution;
 }
 
+/**
+ * @brief Destructeur de la classe WorkerDossier
+ *
+ */
 WorkerDossier::~WorkerDossier(){
 
 }
 
+/**
+ * @brief Action effectuée lors du lancement du worker
+ *
+ */
 void WorkerDossier::process(){
 
     QString dossierInstance = this->dossierInstance;
     QFileInfo path(dossierInstance);
 
 
-    // On remplit une QStringList avec chacun des filtres désirés ici "*.mp3" et "*.avi".
+    // On remplit une QStringList avec chacun des filtres désirés ici "*.data".
     QStringList listFilter;
     listFilter << "*.data";
 
@@ -54,13 +68,13 @@ void WorkerDossier::process(){
         if (typeResolution.split(" ")[0] == "mip1"){
 
             if (folderName != repertoire.path()){
-                repertoire.remove("resolutionMip1-"+fichier.right(fichier.size()-8));
+                repertoire.remove("resolutionMip1"+fichier.right(fichier.size()-fichier.split("-")[0].size()));
                 folderName = repertoire.path();
                 repertoire.mkpath(".");
             }
 
             //On donne le nouveau chemin pour le fichier de résultat
-            QString fichierResultat = repertoire.path()+"/resolutionMip1-"+fichier.right(fichier.size()-8);
+            QString fichierResultat = repertoire.path()+"/resolutionMip1"+fichier.right(fichier.size()-fichier.split("-")[0].size());
 
             MethodeExacte methodeExacte(fichierInstance.toStdString());
             methodeExacte.resolutionPlneMip1(fichierResultat.toStdString());
@@ -69,13 +83,13 @@ void WorkerDossier::process(){
         if (typeResolution.split(" ")[0] == "mip2"){
 
             if (folderName != repertoire.path()){
-                repertoire.remove("resolutionMip2-"+fichier.right(fichier.size()-8));
+                repertoire.remove("resolutionMip2"+fichier.right(fichier.size()-fichier.split("-")[0].size()));
                 folderName = repertoire.path();
                 repertoire.mkpath(".");
             }
 
             //On donne le nouveau chemin pour le fichier de résultat
-            QString fichierResultat = repertoire.path()+"/resolutionMip2-"+fichier.right(fichier.size()-8);
+            QString fichierResultat = repertoire.path()+"/resolutionMip2"+fichier.right(fichier.size()-fichier.split("-")[0].size());
 
             MethodeExacte methodeExacte(fichierInstance.toStdString());
             methodeExacte.resolutionPlneMip2(fichierResultat.toStdString());
@@ -84,7 +98,7 @@ void WorkerDossier::process(){
         if (typeResolution.split(" ")[0] == "Affectation1"){
 
             if (folderName != repertoire.path()){
-                repertoire.remove("Affectation1-"+typeResolution.split(" ")[1]+"-"+fichier.right(fichier.size()-8));
+                repertoire.remove("Affectation1-"+typeResolution.split(" ")[1]+fichier.right(fichier.size()-fichier.split("-")[0].size()));
                 folderName = repertoire.path();
                 repertoire.mkpath(".");
             }
@@ -92,14 +106,14 @@ void WorkerDossier::process(){
             Heuristique heuristic(fichierInstance.toStdString());
 
             //On donne le nouveau chemin pour le fichier de résultat
-            QString fichierResultat = repertoire.path()+"/Affectation1-"+typeResolution.split(" ")[1]+"-"+fichier.right(fichier.size()-8);
+            QString fichierResultat = repertoire.path()+"/Affectation1-"+typeResolution.split(" ")[1]+fichier.right(fichier.size()-fichier.split("-")[0].size());
             heuristic.resolveMachinePerMachine(typeResolution.split(" ")[1], fichierResultat);
         }
 
         if (typeResolution.split(" ")[0] == "Affectation2"){
 
             if (folderName != repertoire.path()){
-                repertoire.remove("Affectation2-"+typeResolution.split(" ")[1]+"-"+fichier.right(fichier.size()-8));
+                repertoire.remove("Affectation2-"+typeResolution.split(" ")[1]+fichier.right(fichier.size()-fichier.split("-")[0].size()));
                 folderName = repertoire.path();
                 repertoire.mkpath(".");
             }
@@ -107,7 +121,7 @@ void WorkerDossier::process(){
             Heuristique heuristic(fichierInstance.toStdString());
 
             //On donne le nouveau chemin pour le fichier de résultat
-            QString fichierResultat = repertoire.path()+"/Affectation2-"+typeResolution.split(" ")[1]+"-"+fichier.right(fichier.size()-8);
+            QString fichierResultat = repertoire.path()+"/Affectation2-"+typeResolution.split(" ")[1]+fichier.right(fichier.size()-fichier.split("-")[0].size());
             heuristic.resolveMachineLessUsedMachine(typeResolution.split(" ")[1], fichierResultat);
         }
     }

@@ -1,0 +1,5 @@
+<map id="Instance::getNbrMachines" name="Instance::getNbrMachines">
+<area shape="rect" id="node2" href="$classHeuristique.html#a58630433c6bac8eec9a5888945eba479" title="Constructeur de la classe Heuristique. " alt="" coords="240,5,403,32"/>
+<area shape="rect" id="node3" href="$classHeuristique.html#a49b20cab1a9055fddf0519fe7bf99c4a" title="Affectation machine par machine. " alt="" coords="228,57,415,98"/>
+<area shape="rect" id="node4" href="$classHeuristique.html#aa590500fc2368d1ea58ab483b2377fea" title="Affectation privilégiant la machine la moins chargée. " alt="" coords="228,122,415,163"/>
+</map>

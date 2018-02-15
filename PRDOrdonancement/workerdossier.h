@@ -11,20 +11,47 @@
 #include <QDirIterator>
 #include <heuristique.h>
 
+/**
+ * @brief Le Worker permetant de gérer la résolution d'un dossier d'instances
+ *
+ */
 class WorkerDossier : public QObject {
     Q_OBJECT
 
 public:
+    /**
+     * @brief Constructeur de la classe WorkerDossier
+     *
+     * @param dossierInstance Le chemin vers le dossier d'instance
+     * @param typeResolution Le type de résolution à effectuer
+     */
     WorkerDossier(QString dossierInstance, QString typeResolution);
+    /**
+     * @brief Destructeur de la classe WorkerDossier
+     *
+     */
     ~WorkerDossier();
 public slots :
+    /**
+     * @brief Action effectuée lors du lancement du worker
+     *
+     */
     void process();
 signals:
+    /**
+     * @brief Action effectuée lorsque le worker a fini l'ensemble de ces tâches
+     *
+     */
     void finished();
+    /**
+     * @brief Action effectuée lorsqu'il y a une erreur dans le worker
+     *
+     * @param err
+     */
     void error(QString err);
 private:
-    QString dossierInstance;
-    QString typeResolution;
+    QString dossierInstance; /**< Le chemin vers le dossier d'instances */
+    QString typeResolution; /**< Le type de résolution à effectuer */
 };
 
 #endif // WORKERDOSSIER_H

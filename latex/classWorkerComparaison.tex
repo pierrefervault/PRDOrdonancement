@@ -1,0 +1,135 @@
+\hypertarget{classWorkerComparaison}{}\section{Worker\+Comparaison Class Reference}
+\label{classWorkerComparaison}\index{Worker\+Comparaison@{Worker\+Comparaison}}
+
+
+Le Worker permetant de gérer la comparaison d\textquotesingle{}un dossier de résultats.  
+
+
+
+
+{\ttfamily \#include $<$workercomparaison.\+h$>$}
+
+
+
+Inheritance diagram for Worker\+Comparaison\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{classWorkerComparaison__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Worker\+Comparaison\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{classWorkerComparaison__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classWorkerComparaison_ac62afd6b36f0c1590e5f3878334a9928}{process} ()
+\begin{DoxyCompactList}\small\item\em Action effectuée lors du lancement du worker. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classWorkerComparaison_a22ed9afba5f29d89a014b2b895d995b2}{finished} ()
+\begin{DoxyCompactList}\small\item\em Action effectuée lorsque le worker a fini l\textquotesingle{}ensemble de ces tâches. \end{DoxyCompactList}\item 
+void \hyperlink{classWorkerComparaison_aa9c167d230b850568f48575bc19241d7}{error} (Q\+String err)
+\begin{DoxyCompactList}\small\item\em Action effectuée lorsqu\textquotesingle{}il y a une erreur dans le worker. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWorkerComparaison_ab4c8a73500944f1e13c9008dd6302e80}{Worker\+Comparaison} (Q\+String dossier\+Resultat, Q\+String type\+Comparaison)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe \hyperlink{classWorkerComparaison}{Worker\+Comparaison}. \end{DoxyCompactList}\item 
+\hyperlink{classWorkerComparaison_a82acf722e3274431c0f86093c9dcb799}{$\sim$\+Worker\+Comparaison} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe \hyperlink{classWorkerComparaison}{Worker\+Comparaison}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Le Worker permetant de gérer la comparaison d\textquotesingle{}un dossier de résultats. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classWorkerComparaison_ab4c8a73500944f1e13c9008dd6302e80}\label{classWorkerComparaison_ab4c8a73500944f1e13c9008dd6302e80}} 
+\index{Worker\+Comparaison@{Worker\+Comparaison}!Worker\+Comparaison@{Worker\+Comparaison}}
+\index{Worker\+Comparaison@{Worker\+Comparaison}!Worker\+Comparaison@{Worker\+Comparaison}}
+\subsubsection{\texorpdfstring{Worker\+Comparaison()}{WorkerComparaison()}}
+{\footnotesize\ttfamily Worker\+Comparaison\+::\+Worker\+Comparaison (\begin{DoxyParamCaption}\item[{Q\+String}]{dossier\+Resultat,  }\item[{Q\+String}]{type\+Comparaison }\end{DoxyParamCaption})}
+
+
+
+Constructeur de la classe \hyperlink{classWorkerComparaison}{Worker\+Comparaison}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dossier\+Resultat} & Le chemin vers le dossier contenant les résultats des méthodes de résolution \\
+\hline
+{\em type\+Comparaison} & Le type de comparaison à effectuer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorkerComparaison_a82acf722e3274431c0f86093c9dcb799}\label{classWorkerComparaison_a82acf722e3274431c0f86093c9dcb799}} 
+\index{Worker\+Comparaison@{Worker\+Comparaison}!````~Worker\+Comparaison@{$\sim$\+Worker\+Comparaison}}
+\index{````~Worker\+Comparaison@{$\sim$\+Worker\+Comparaison}!Worker\+Comparaison@{Worker\+Comparaison}}
+\subsubsection{\texorpdfstring{$\sim$\+Worker\+Comparaison()}{~WorkerComparaison()}}
+{\footnotesize\ttfamily Worker\+Comparaison\+::$\sim$\+Worker\+Comparaison (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructeur de la classe \hyperlink{classWorkerComparaison}{Worker\+Comparaison}. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classWorkerComparaison_aa9c167d230b850568f48575bc19241d7}\label{classWorkerComparaison_aa9c167d230b850568f48575bc19241d7}} 
+\index{Worker\+Comparaison@{Worker\+Comparaison}!error@{error}}
+\index{error@{error}!Worker\+Comparaison@{Worker\+Comparaison}}
+\subsubsection{\texorpdfstring{error}{error}}
+{\footnotesize\ttfamily void Worker\+Comparaison\+::error (\begin{DoxyParamCaption}\item[{Q\+String}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Action effectuée lorsqu\textquotesingle{}il y a une erreur dans le worker. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em err} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorkerComparaison_a22ed9afba5f29d89a014b2b895d995b2}\label{classWorkerComparaison_a22ed9afba5f29d89a014b2b895d995b2}} 
+\index{Worker\+Comparaison@{Worker\+Comparaison}!finished@{finished}}
+\index{finished@{finished}!Worker\+Comparaison@{Worker\+Comparaison}}
+\subsubsection{\texorpdfstring{finished}{finished}}
+{\footnotesize\ttfamily void Worker\+Comparaison\+::finished (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Action effectuée lorsque le worker a fini l\textquotesingle{}ensemble de ces tâches. 
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{classWorkerComparaison_a22ed9afba5f29d89a014b2b895d995b2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classWorkerComparaison_ac62afd6b36f0c1590e5f3878334a9928}\label{classWorkerComparaison_ac62afd6b36f0c1590e5f3878334a9928}} 
+\index{Worker\+Comparaison@{Worker\+Comparaison}!process@{process}}
+\index{process@{process}!Worker\+Comparaison@{Worker\+Comparaison}}
+\subsubsection{\texorpdfstring{process}{process}}
+{\footnotesize\ttfamily void Worker\+Comparaison\+::process (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Action effectuée lors du lancement du worker. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+P\+R\+D\+Ordonancement/\hyperlink{workercomparaison_8h}{workercomparaison.\+h}\item 
+P\+R\+D\+Ordonancement/\hyperlink{workercomparaison_8cpp}{workercomparaison.\+cpp}\end{DoxyCompactItemize}

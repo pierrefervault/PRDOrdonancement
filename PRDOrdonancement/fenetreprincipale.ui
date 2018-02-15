@@ -32,7 +32,7 @@
      <x>0</x>
      <y>0</y>
      <width>400</width>
-     <height>19</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -41,8 +41,8 @@
     </property>
     <addaction name="actionG_n_rer_des_instances"/>
     <addaction name="actionR_soudre_des_instances"/>
+    <addaction name="actionComparer_des_m_thodes_de_r_solutions"/>
     <addaction name="actionQuitter_l_application"/>
-    <addaction name="actionGraphique"/>
    </widget>
    <addaction name="menuFichier"/>
   </widget>
@@ -70,9 +70,9 @@
     <string>Résoudre des instances</string>
    </property>
   </action>
-  <action name="actionGraphique">
+  <action name="actionComparer_des_m_thodes_de_r_solutions">
    <property name="text">
-    <string>Graphique</string>
+    <string>Comparer des méthodes de résolutions</string>
    </property>
   </action>
  </widget>

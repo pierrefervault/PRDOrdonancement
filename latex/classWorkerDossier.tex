@@ -1,0 +1,139 @@
+\hypertarget{classWorkerDossier}{}\section{Worker\+Dossier Class Reference}
+\label{classWorkerDossier}\index{Worker\+Dossier@{Worker\+Dossier}}
+
+
+Le Worker permetant de gérer la résolution d\textquotesingle{}un dossier d\textquotesingle{}instances.  
+
+
+
+
+{\ttfamily \#include $<$workerdossier.\+h$>$}
+
+
+
+Inheritance diagram for Worker\+Dossier\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=162pt]{classWorkerDossier__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Worker\+Dossier\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=162pt]{classWorkerDossier__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classWorkerDossier_a2e2970df6c43c669eb730a858a780a31}{process} ()
+\begin{DoxyCompactList}\small\item\em Action effectuée lors du lancement du worker. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classWorkerDossier_aef696bfd03c464295dc80fb1fc9f71da}{finished} ()
+\begin{DoxyCompactList}\small\item\em Action effectuée lorsque le worker a fini l\textquotesingle{}ensemble de ces tâches. \end{DoxyCompactList}\item 
+void \hyperlink{classWorkerDossier_afb02d04b47bb81450661cbc36ad25902}{error} (Q\+String err)
+\begin{DoxyCompactList}\small\item\em Action effectuée lorsqu\textquotesingle{}il y a une erreur dans le worker. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWorkerDossier_ae62defa93ef94862572fda95736a03ed}{Worker\+Dossier} (Q\+String dossier\+Instance, Q\+String type\+Resolution)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe \hyperlink{classWorkerDossier}{Worker\+Dossier}. \end{DoxyCompactList}\item 
+\hyperlink{classWorkerDossier_ac2d339dcdd7e35d1fed6debf3495f904}{$\sim$\+Worker\+Dossier} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe \hyperlink{classWorkerDossier}{Worker\+Dossier}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Le Worker permetant de gérer la résolution d\textquotesingle{}un dossier d\textquotesingle{}instances. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classWorkerDossier_ae62defa93ef94862572fda95736a03ed}\label{classWorkerDossier_ae62defa93ef94862572fda95736a03ed}} 
+\index{Worker\+Dossier@{Worker\+Dossier}!Worker\+Dossier@{Worker\+Dossier}}
+\index{Worker\+Dossier@{Worker\+Dossier}!Worker\+Dossier@{Worker\+Dossier}}
+\subsubsection{\texorpdfstring{Worker\+Dossier()}{WorkerDossier()}}
+{\footnotesize\ttfamily Worker\+Dossier\+::\+Worker\+Dossier (\begin{DoxyParamCaption}\item[{Q\+String}]{dossier\+Instance,  }\item[{Q\+String}]{type\+Resolution }\end{DoxyParamCaption})}
+
+
+
+Constructeur de la classe \hyperlink{classWorkerDossier}{Worker\+Dossier}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dossier\+Instance} & Le chemin vers le dossier d\textquotesingle{}instance \\
+\hline
+{\em type\+Resolution} & Le type de résolution à effectuer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorkerDossier_ac2d339dcdd7e35d1fed6debf3495f904}\label{classWorkerDossier_ac2d339dcdd7e35d1fed6debf3495f904}} 
+\index{Worker\+Dossier@{Worker\+Dossier}!````~Worker\+Dossier@{$\sim$\+Worker\+Dossier}}
+\index{````~Worker\+Dossier@{$\sim$\+Worker\+Dossier}!Worker\+Dossier@{Worker\+Dossier}}
+\subsubsection{\texorpdfstring{$\sim$\+Worker\+Dossier()}{~WorkerDossier()}}
+{\footnotesize\ttfamily Worker\+Dossier\+::$\sim$\+Worker\+Dossier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructeur de la classe \hyperlink{classWorkerDossier}{Worker\+Dossier}. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classWorkerDossier_afb02d04b47bb81450661cbc36ad25902}\label{classWorkerDossier_afb02d04b47bb81450661cbc36ad25902}} 
+\index{Worker\+Dossier@{Worker\+Dossier}!error@{error}}
+\index{error@{error}!Worker\+Dossier@{Worker\+Dossier}}
+\subsubsection{\texorpdfstring{error}{error}}
+{\footnotesize\ttfamily void Worker\+Dossier\+::error (\begin{DoxyParamCaption}\item[{Q\+String}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Action effectuée lorsqu\textquotesingle{}il y a une erreur dans le worker. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em err} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorkerDossier_aef696bfd03c464295dc80fb1fc9f71da}\label{classWorkerDossier_aef696bfd03c464295dc80fb1fc9f71da}} 
+\index{Worker\+Dossier@{Worker\+Dossier}!finished@{finished}}
+\index{finished@{finished}!Worker\+Dossier@{Worker\+Dossier}}
+\subsubsection{\texorpdfstring{finished}{finished}}
+{\footnotesize\ttfamily void Worker\+Dossier\+::finished (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Action effectuée lorsque le worker a fini l\textquotesingle{}ensemble de ces tâches. 
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classWorkerDossier_aef696bfd03c464295dc80fb1fc9f71da_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classWorkerDossier_a2e2970df6c43c669eb730a858a780a31}\label{classWorkerDossier_a2e2970df6c43c669eb730a858a780a31}} 
+\index{Worker\+Dossier@{Worker\+Dossier}!process@{process}}
+\index{process@{process}!Worker\+Dossier@{Worker\+Dossier}}
+\subsubsection{\texorpdfstring{process}{process}}
+{\footnotesize\ttfamily void Worker\+Dossier\+::process (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Action effectuée lors du lancement du worker. 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classWorkerDossier_a2e2970df6c43c669eb730a858a780a31_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+P\+R\+D\+Ordonancement/\hyperlink{workerdossier_8h}{workerdossier.\+h}\item 
+P\+R\+D\+Ordonancement/\hyperlink{workerdossier_8cpp}{workerdossier.\+cpp}\end{DoxyCompactItemize}

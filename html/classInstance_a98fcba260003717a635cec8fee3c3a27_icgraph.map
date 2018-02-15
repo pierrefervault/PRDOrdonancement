@@ -1,0 +1,4 @@
+<map id="Instance::getCapRessources" name="Instance::getCapRessources">
+<area shape="rect" id="node2" href="$classHeuristique.html#a49b20cab1a9055fddf0519fe7bf99c4a" title="Affectation machine par machine. " alt="" coords="245,5,432,47"/>
+<area shape="rect" id="node3" href="$classHeuristique.html#aa590500fc2368d1ea58ab483b2377fea" title="Affectation privilégiant la machine la moins chargée. " alt="" coords="245,71,432,112"/>
+</map>

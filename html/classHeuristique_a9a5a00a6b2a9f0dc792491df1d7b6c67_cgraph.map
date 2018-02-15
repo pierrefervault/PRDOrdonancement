@@ -1,0 +1,8 @@
+<map id="Heuristique::trierMoyenneRessourcesSousEnsembles" name="Heuristique::trierMoyenneRessourcesSousEnsembles">
+<area shape="rect" id="node2" href="$classInstance.html#ad81a535d52b45496e795ea48ed8ce020" title="Permet d&#39;obtenir le nombre de jobs de l&#39;instance. " alt="" coords="288,5,435,32"/>
+<area shape="rect" id="node3" href="$classInstance.html#a2c11032145489a3a90d3b9f1e3dfd2d4" title="Permet d&#39;obtenir le tableau des instants de départ de l&#39;ensemble des jobs. " alt="" coords="306,56,417,83"/>
+<area shape="rect" id="node4" href="$classInstance.html#aaf335b7258a7db93b8912f2853133620" title="Permet d&#39;obtenir le tableau des instants de fin de l&#39;ensemble des jobs. " alt="" coords="307,107,416,133"/>
+<area shape="rect" id="node5" href="$classHeuristique.html#a6799e05f33af7ac257ba56b9921a8baf" title="Algorithme permetant de récupérer les sous&#45;ensembles maximaux de l&#39;instance. " alt="" coords="257,158,466,199"/>
+<area shape="rect" id="node6" href="$classInstance.html#aa69a89ba7a29d4ca426ffe4b1922cac6" title="Permet d&#39;obtenir le nombre de ressources de l&#39;instance. " alt="" coords="267,224,456,251"/>
+<area shape="rect" id="node7" href="$classInstance.html#a98460018fa91a213ce7c1fe83a318641" title="Permet d&#39;obtenir le tableau des capacités en ressource pour l&#39;ensemble des jobs. " alt="" coords="240,275,483,301"/>
+</map>

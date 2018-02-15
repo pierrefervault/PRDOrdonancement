@@ -1,0 +1,9 @@
+<map id="Instance::getNbrJobs" name="Instance::getNbrJobs">
+<area shape="rect" id="node2" href="$classHeuristique.html#a58630433c6bac8eec9a5888945eba479" title="Constructeur de la classe Heuristique. " alt="" coords="235,5,398,32"/>
+<area shape="rect" id="node3" href="$classHeuristique.html#a19705558bc45437d88b750fe9cbe6125" title="Tri selon la méthode CCmax basée sur la somme des ressources de chaque job. " alt="" coords="213,122,421,163"/>
+<area shape="rect" id="node6" href="$classHeuristique.html#a1fb7501d952a428b817ad179bc2a2185" title="Tri selon la méthode CCmax basée sur la valeur de ressource maximale de chaque job. " alt="" coords="223,187,411,229"/>
+<area shape="rect" id="node7" href="$classHeuristique.html#a019587ee3112631f8369d8ffe6303f2c" title="Tri selon la somme des ressources de chaque job. " alt="" coords="200,253,433,280"/>
+<area shape="rect" id="node8" href="$classHeuristique.html#a9a5a00a6b2a9f0dc792491df1d7b6c67" title="Tri selon la moyenne des ressources de chaque sous&#45;ensembles maximaux de l&#39;instance. " alt="" coords="223,57,410,98"/>
+<area shape="rect" id="node4" href="$classHeuristique.html#a49b20cab1a9055fddf0519fe7bf99c4a" title="Affectation machine par machine. " alt="" coords="481,122,668,163"/>
+<area shape="rect" id="node5" href="$classHeuristique.html#aa590500fc2368d1ea58ab483b2377fea" title="Affectation privilégiant la machine la moins chargée. " alt="" coords="481,187,668,229"/>
+</map>

@@ -4,6 +4,11 @@
 
 using namespace std;
 
+/**
+ * @brief Constructeur de la fenêtre GenerationInstance
+ *
+ * @param parent
+ */
 GenerationInstance::GenerationInstance(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::GenerationInstance)
@@ -11,16 +16,24 @@ GenerationInstance::GenerationInstance(QWidget *parent) :
     ui->setupUi(this);
 }
 
+/**
+ * @brief Destructeur de la fenêtre GenerationInstance
+ *
+ */
 GenerationInstance::~GenerationInstance()
 {
     delete ui;
 }
 
+/**
+ * @brief Action effectuée lors du clic sur le bouton de génération d'instance
+ *
+ */
 void GenerationInstance::on_okPushButton_clicked()
 {
-    if (this->ui->nbrInstancesLineEdit->text().toInt() != NULL && this->ui->nbrJobsLineEdit->text().toInt() != NULL &&
-            this->ui->nbrRessourcesLineEdit->text().toInt() != NULL && this->ui->nbrMachinesLineEdit->text().toInt() != NULL &&
-            this->ui->horizonPlanificationLineEdit->text().toInt() != NULL)
+    if (!this->ui->nbrInstancesLineEdit->text().isEmpty() && !this->ui->nbrJobsLineEdit->text().isEmpty() &&
+            !this->ui->nbrRessourcesLineEdit->text().isEmpty() && !this->ui->nbrMachinesLineEdit->text().isEmpty() &&
+            !this->ui->horizonPlanificationLineEdit->text().isEmpty())
     {
         cout << "Execution de la génération d'instances" << endl;
         int horizonPlanification = 0;
@@ -42,11 +55,24 @@ void GenerationInstance::on_okPushButton_clicked()
     }
 }
 
+/**
+ * @brief Action effectuée lors du clic sur le bouton annuler
+ *
+ */
 void GenerationInstance::on_annulerPushButton_clicked()
 {
     reject();
 }
 
+/**
+ * @brief Fonction permetant d'executer la generation des instances spécifiées
+ *
+ * @param nbrInstance Le nombre d'instance à générer
+ * @param nbrJobs Le nombre de jobs par instance
+ * @param nbrRessources Le nombre de ressources par instance
+ * @param nbrMachines Le nombre de machines par instance
+ * @param horizonPlanification L'horizon de planification maximale par instance
+ */
 void GenerationInstance::executionGenerationInstance(int nbrInstance, int nbrJobs, int nbrRessources, int nbrMachines, int horizonPlanification)
 {
     QThread* thread = new QThread;

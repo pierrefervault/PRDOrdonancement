@@ -49,3 +49,22 @@ void ClassTest::testSolutionInferieureOuEgaleNbrJobsMip2(){
     QVERIFY2(methodeExacte->resolutionPlneMip2("") <= 8, "Solution trouve inférieure ou égale au nombre de jobs total");
 
 }
+
+void ClassTest::testSolutionInstanceMip1(){
+
+    string fichierInstance = "instance-8-3-3.data";
+
+    MethodeExacte* methodeExacte = new MethodeExacte(fichierInstance);
+
+    QVERIFY2(methodeExacte->resolutionPlneMip1("") == 7, "Solution optimale trouvée avec le Mip1");
+}
+
+void ClassTest::testSolutionInstanceMip2(){
+
+    string fichierInstance = "instance-8-3-3.data";
+
+    MethodeExacte* methodeExacte = new MethodeExacte(fichierInstance);
+
+    QVERIFY2(methodeExacte->resolutionPlneMip2("") == 7, "Solution optimale trouvée avec le Mip2");
+
+}

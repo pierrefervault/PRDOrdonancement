@@ -1,5 +1,10 @@
 #include "methodeexacte.h"
 
+/**
+ * @brief Constructeur de la classe MethodeExacte
+ *
+ * @param fichierInstance Le chemin vers le fichier d'instance
+ */
 MethodeExacte::MethodeExacte(string fichierInstance)
 {
 
@@ -84,6 +89,12 @@ MethodeExacte::MethodeExacte(string fichierInstance)
 
 }
 
+/**
+ * @brief Methode de résolution exacte indéxée temps
+ *
+ * @param fichierResultat Le fichier où seront stockés les résulats
+ * @return int Le nombre de jobs ordonnancés
+ */
 int MethodeExacte::resolutionPlneMip1(string fichierResultat)
 {
     //Déclaration de l'environnement
@@ -193,14 +204,14 @@ int MethodeExacte::resolutionPlneMip1(string fichierResultat)
 
 
 
-        cout << "Solution status: " << cplex.getStatus() << endl;
-        cout << " Optimal Value = " << cplex.getObjValue() << endl;
+        cout << "Solution status:" << cplex.getStatus() << endl;
+        cout << " Optimal Value=" << cplex.getObjValue() << endl;
         //cout << " temps écouler = " <<cplex.getCplexTime() << endl;
         //cout << " temps écouler = " << cplex.getTime() << endl;
 
-        output_file << "Instance \t: " << this->instance.getFichierInstance().toStdString() << endl;
-        output_file << "Solution status: " << cplex.getStatus() << endl;
-        output_file << " Optimal Value = " << cplex.getObjValue() << endl;
+        output_file << "Instance:" << this->instance.getFichierInstance().toStdString() << endl;
+        output_file << "Solution status:" << cplex.getStatus() << endl;
+        output_file << " Optimal Value=" << cplex.getObjValue() << endl;
         //output_file << " Optimal Value = " << cplex.getTime() << endl;
 
         for (int m= 0 ; m < this->instance.getNbrMachines() ; m++) {
@@ -231,9 +242,9 @@ int MethodeExacte::resolutionPlneMip1(string fichierResultat)
 
     double Apres = cplex.getCplexTime();
 
-    output_file << "temps écoulé: " << (double)(Apres - Avant)  << " seconds" << endl;
+    output_file << "temps écoulé (en secondes):" << (double)(Apres - Avant) << endl;
 
-    output_file << "IdMachine " << "nb " << endl;
+    output_file << "IdMachine " << "Nombre de jobs ordonnancés" << endl;
 
     for (int m= 0 ; m < this->instance.getNbrMachines() ; m++) {
         int nb = 0;
@@ -243,7 +254,7 @@ int MethodeExacte::resolutionPlneMip1(string fichierResultat)
                 nb++;
             }
         }
-        output_file << m+1 << " " << nb << endl;
+        output_file << m << " " << nb << endl;
     }
 
     output_file << "IdMachine " << "n°Job " << "Si " << "Fi " << endl;
@@ -252,7 +263,7 @@ int MethodeExacte::resolutionPlneMip1(string fichierResultat)
         for( int i=0 ; i<this->instance.getNbrJobs() ; i++){
             if (cplex.getValue(X[i][m])>=0.9)
             {
-                output_file << m+1 << " " << i << " " << this->instance.getSj()[i] << " " << this->instance.getFj()[i] << endl;
+                output_file << m << " " << i << " " << this->instance.getSj()[i] << " " << this->instance.getFj()[i] << endl;
             }
         }
     }
@@ -275,6 +286,12 @@ catch (...) {
     return optimal;
 }
 
+/**
+ * @brief Methode de résolution exacte indéxée jobs
+ *
+ * @param fichierResultat Le fichier où seront stockés les résulats
+ * @return int Le nombre de jobs ordonnancés
+ */
 int MethodeExacte::resolutionPlneMip2(string fichierResultat)
 {
     //Déclaration de l'environnement
@@ -411,14 +428,14 @@ int MethodeExacte::resolutionPlneMip2(string fichierResultat)
 
 
 
-        cout << "Solution status: " << cplex.getStatus() << endl;
-        cout << " Optimal Value = " << cplex.getObjValue() << endl;
+        cout << "Solution status:" << cplex.getStatus() << endl;
+        cout << " Optimal Value=" << cplex.getObjValue() << endl;
         //cout << " temps écouler = " <<cplex.getCplexTime() << endl;
         //cout << " temps écouler = " << cplex.getTime() << endl;
 
-        output_file << "Instance \t: " << this->instance.getFichierInstance().toStdString() << endl;
-        output_file << "Solution status: " << cplex.getStatus() << endl;
-        output_file << " Optimal Value = " << cplex.getObjValue() << endl;
+        output_file << "Instance:" << this->instance.getFichierInstance().toStdString() << endl;
+        output_file << "Solution status:" << cplex.getStatus() << endl;
+        output_file << " Optimal Value=" << cplex.getObjValue() << endl;
         //output_file << " Optimal Value = " << cplex.getTime() << endl;
 
         for (int m= 0 ; m < this->instance.getNbrMachines() ; m++) {
@@ -445,9 +462,9 @@ int MethodeExacte::resolutionPlneMip2(string fichierResultat)
 
     double Apres = cplex.getCplexTime();
 
-    output_file << "temps écoulé: " << (double)(Apres - Avant)  << " seconds" << endl;
+    output_file << "temps écoulé (en secondes):" << (double)(Apres - Avant) << endl;
 
-    output_file << "IdMachine " << "nb " << endl;
+    output_file << "IdMachine " << "Nombre de jobs ordonnancés" << endl;
 
     for (int m= 0 ; m < this->instance.getNbrMachines() ; m++) {
         int nb = 0;
@@ -457,7 +474,7 @@ int MethodeExacte::resolutionPlneMip2(string fichierResultat)
                 nb++;
             }
         }
-        output_file << m+1 << " " << nb << endl;
+        output_file << m << " " << nb << endl;
     }
 
     output_file << "IdMachine " << "n°Job " << "Si " << "Fi " << endl;
@@ -466,7 +483,7 @@ int MethodeExacte::resolutionPlneMip2(string fichierResultat)
         for(int i=0 ; i<this->instance.getNbrJobs() ; i++){
             if (cplex.getValue(X[i][m])>=0.9)
             {
-                output_file << m+1 << " " << i << " " << this->instance.getSj()[i] << " " << this->instance.getFj()[i] << endl;
+                output_file << m << " " << i << " " << this->instance.getSj()[i] << " " << this->instance.getFj()[i] << endl;
             }
         }
     }
@@ -487,6 +504,13 @@ catch (...) {
     return optimal;
 }
 
+/**
+ * @brief Algorithme permetant de récupérer les sous-ensembles maximaux de l'instance
+ *
+ * @param eh La liste d'événement classée
+ * @param nb_job Le nombre de jobs de l'instance
+ * @return map<int, vector<int> > Les sous ensembles maximaux
+ */
 map<int,vector<int>> MethodeExacte::getSousEnsemblesMaximaux(vector<vector<int>> eh, int nb_job){
 
     map<int,vector<int>> Jk;

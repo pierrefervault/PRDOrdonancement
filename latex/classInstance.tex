@@ -1,0 +1,448 @@
+\hypertarget{classInstance}{}\section{Instance Class Reference}
+\label{classInstance}\index{Instance@{Instance}}
+
+
+Classe représentant une instance.  
+
+
+
+
+{\ttfamily \#include $<$instance.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classInstance_a399506c7e75ab9ab78fbc34a25932bbd}{Instance} ()
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe \hyperlink{classInstance}{Instance}. \end{DoxyCompactList}\item 
+Q\+String \hyperlink{classInstance_a783365375cdab53149f87208374331a7}{get\+Fichier\+Instance} () const
+\begin{DoxyCompactList}\small\item\em Permet de retourner le chemin vers le fichier d\textquotesingle{}instance. \end{DoxyCompactList}\item 
+void \hyperlink{classInstance_a263461a7a8c44c9e7080620a30cc8fcf}{set\+Fichier\+Instance} (const Q\+String \&value)
+\begin{DoxyCompactList}\small\item\em Setter du chemin vers le fichier d\textquotesingle{}instance. \end{DoxyCompactList}\item 
+int \hyperlink{classInstance_ad81a535d52b45496e795ea48ed8ce020}{get\+Nbr\+Jobs} () const
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}obtenir le nombre de jobs de l\textquotesingle{}instance. \end{DoxyCompactList}\item 
+void \hyperlink{classInstance_a0736cdee9e0838c995893b7ba8545c5d}{set\+Nbr\+Jobs} (int value)
+\begin{DoxyCompactList}\small\item\em Setter du nombre de jobs de l\textquotesingle{}instance. \end{DoxyCompactList}\item 
+int \hyperlink{classInstance_aa69a89ba7a29d4ca426ffe4b1922cac6}{get\+Nbr\+Ressources} () const
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}obtenir le nombre de ressources de l\textquotesingle{}instance. \end{DoxyCompactList}\item 
+void \hyperlink{classInstance_a391acee96072e5ad7270ecdbe8231bd6}{set\+Nbr\+Ressources} (int value)
+\begin{DoxyCompactList}\small\item\em Setter du nombre de ressources de l\textquotesingle{}instance. \end{DoxyCompactList}\item 
+int \hyperlink{classInstance_a7151797f760b20d6fc3be88ecb7b2a4b}{get\+Nbr\+Machines} () const
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}obtenir le nombre de machines de l\textquotesingle{}instance. \end{DoxyCompactList}\item 
+void \hyperlink{classInstance_a6f61185f5b1136ba9ab2f6f01c9410b5}{set\+Nbr\+Machines} (int value)
+\begin{DoxyCompactList}\small\item\em Setter du nombre de machines de l\textquotesingle{}instance. \end{DoxyCompactList}\item 
+vector$<$ int $>$ \hyperlink{classInstance_a2c11032145489a3a90d3b9f1e3dfd2d4}{get\+Sj} () const
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}obtenir le tableau des instants de départ de l\textquotesingle{}ensemble des jobs. \end{DoxyCompactList}\item 
+void \hyperlink{classInstance_a8086f6081bf72f4cce29dafcf0fdb5db}{set\+Sj} (const vector$<$ int $>$ \&value)
+\begin{DoxyCompactList}\small\item\em Setter du tableau des instants de départ de l\textquotesingle{}ensemble des jobs. \end{DoxyCompactList}\item 
+vector$<$ int $>$ \hyperlink{classInstance_aaf335b7258a7db93b8912f2853133620}{get\+Fj} () const
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}obtenir le tableau des instants de fin de l\textquotesingle{}ensemble des jobs. \end{DoxyCompactList}\item 
+void \hyperlink{classInstance_a3d954198f1caa44f89a61262c14fc716}{set\+Fj} (const vector$<$ int $>$ \&value)
+\begin{DoxyCompactList}\small\item\em Setter du tableau des instants de fin de l\textquotesingle{}ensemble des jobs. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ int $>$ $>$ \hyperlink{classInstance_a98fcba260003717a635cec8fee3c3a27}{get\+Cap\+Ressources} () const
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}obtenir le tableau des capacités en ressource pour l\textquotesingle{}ensemble des machines. \end{DoxyCompactList}\item 
+void \hyperlink{classInstance_a57f113b9723182ba7f8f5346b34095eb}{set\+Cap\+Ressources} (const vector$<$ vector$<$ int $>$$>$ \&value)
+\begin{DoxyCompactList}\small\item\em Setter du tableau des capacités en ressource pour l\textquotesingle{}ensemble des machines. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ int $>$ $>$ \hyperlink{classInstance_a98460018fa91a213ce7c1fe83a318641}{get\+Tableau\+Ressources\+Jobs} () const
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}obtenir le tableau des capacités en ressource pour l\textquotesingle{}ensemble des jobs. \end{DoxyCompactList}\item 
+void \hyperlink{classInstance_a4d3bf921882ce7809cc718200e9cf6e9}{set\+Tableau\+Ressources\+Jobs} (const vector$<$ vector$<$ int $>$ $>$ \&value)
+\begin{DoxyCompactList}\small\item\em Setter du tableau des capacités en ressource pour l\textquotesingle{}ensemble des jobs. \end{DoxyCompactList}\item 
+int \hyperlink{classInstance_aeb425f8526606ab97dea1fbbe5973381}{get\+Horizon\+Max} () const
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}obtenir l\textquotesingle{}horizon maximale de planification de l\textquotesingle{}instance. \end{DoxyCompactList}\item 
+void \hyperlink{classInstance_a048579344184b12873bf1d6bceb7ac9e}{set\+Horizon\+Max} (int value)
+\begin{DoxyCompactList}\small\item\em Setter de l\textquotesingle{}horizon maximale de planification de l\textquotesingle{}instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe représentant une instance. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classInstance_a399506c7e75ab9ab78fbc34a25932bbd}\label{classInstance_a399506c7e75ab9ab78fbc34a25932bbd}} 
+\index{Instance@{Instance}!Instance@{Instance}}
+\index{Instance@{Instance}!Instance@{Instance}}
+\subsubsection{\texorpdfstring{Instance()}{Instance()}}
+{\footnotesize\ttfamily Instance\+::\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructeur de la classe \hyperlink{classInstance}{Instance}. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classInstance_a98fcba260003717a635cec8fee3c3a27}\label{classInstance_a98fcba260003717a635cec8fee3c3a27}} 
+\index{Instance@{Instance}!get\+Cap\+Ressources@{get\+Cap\+Ressources}}
+\index{get\+Cap\+Ressources@{get\+Cap\+Ressources}!Instance@{Instance}}
+\subsubsection{\texorpdfstring{get\+Cap\+Ressources()}{getCapRessources()}}
+{\footnotesize\ttfamily vector$<$ vector$<$ int $>$ $>$ Instance\+::get\+Cap\+Ressources (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Permet d\textquotesingle{}obtenir le tableau des capacités en ressource pour l\textquotesingle{}ensemble des machines. 
+
+\begin{DoxyReturn}{Returns}
+vector$<$vector$<$int$>$$>$ Le tableau des capacités en ressource pour l\textquotesingle{}ensemble des machines 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInstance_a98fcba260003717a635cec8fee3c3a27_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classInstance_a783365375cdab53149f87208374331a7}\label{classInstance_a783365375cdab53149f87208374331a7}} 
+\index{Instance@{Instance}!get\+Fichier\+Instance@{get\+Fichier\+Instance}}
+\index{get\+Fichier\+Instance@{get\+Fichier\+Instance}!Instance@{Instance}}
+\subsubsection{\texorpdfstring{get\+Fichier\+Instance()}{getFichierInstance()}}
+{\footnotesize\ttfamily Q\+String Instance\+::get\+Fichier\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Permet de retourner le chemin vers le fichier d\textquotesingle{}instance. 
+
+\begin{DoxyReturn}{Returns}
+Q\+String Le chemin vers le fichier d\textquotesingle{}instance 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInstance_a783365375cdab53149f87208374331a7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classInstance_aaf335b7258a7db93b8912f2853133620}\label{classInstance_aaf335b7258a7db93b8912f2853133620}} 
+\index{Instance@{Instance}!get\+Fj@{get\+Fj}}
+\index{get\+Fj@{get\+Fj}!Instance@{Instance}}
+\subsubsection{\texorpdfstring{get\+Fj()}{getFj()}}
+{\footnotesize\ttfamily vector$<$ int $>$ Instance\+::get\+Fj (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Permet d\textquotesingle{}obtenir le tableau des instants de fin de l\textquotesingle{}ensemble des jobs. 
+
+\begin{DoxyReturn}{Returns}
+vector$<$int$>$ Le tableau des instants de fin de l\textquotesingle{}ensemble des jobs 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInstance_aaf335b7258a7db93b8912f2853133620_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classInstance_aeb425f8526606ab97dea1fbbe5973381}\label{classInstance_aeb425f8526606ab97dea1fbbe5973381}} 
+\index{Instance@{Instance}!get\+Horizon\+Max@{get\+Horizon\+Max}}
+\index{get\+Horizon\+Max@{get\+Horizon\+Max}!Instance@{Instance}}
+\subsubsection{\texorpdfstring{get\+Horizon\+Max()}{getHorizonMax()}}
+{\footnotesize\ttfamily int Instance\+::get\+Horizon\+Max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Permet d\textquotesingle{}obtenir l\textquotesingle{}horizon maximale de planification de l\textquotesingle{}instance. 
+
+\begin{DoxyReturn}{Returns}
+int L\textquotesingle{}horizon maximale de planification de l\textquotesingle{}instance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInstance_ad81a535d52b45496e795ea48ed8ce020}\label{classInstance_ad81a535d52b45496e795ea48ed8ce020}} 
+\index{Instance@{Instance}!get\+Nbr\+Jobs@{get\+Nbr\+Jobs}}
+\index{get\+Nbr\+Jobs@{get\+Nbr\+Jobs}!Instance@{Instance}}
+\subsubsection{\texorpdfstring{get\+Nbr\+Jobs()}{getNbrJobs()}}
+{\footnotesize\ttfamily int Instance\+::get\+Nbr\+Jobs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Permet d\textquotesingle{}obtenir le nombre de jobs de l\textquotesingle{}instance. 
+
+\begin{DoxyReturn}{Returns}
+int Le nombre de jobs 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInstance_ad81a535d52b45496e795ea48ed8ce020_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classInstance_a7151797f760b20d6fc3be88ecb7b2a4b}\label{classInstance_a7151797f760b20d6fc3be88ecb7b2a4b}} 
+\index{Instance@{Instance}!get\+Nbr\+Machines@{get\+Nbr\+Machines}}
+\index{get\+Nbr\+Machines@{get\+Nbr\+Machines}!Instance@{Instance}}
+\subsubsection{\texorpdfstring{get\+Nbr\+Machines()}{getNbrMachines()}}
+{\footnotesize\ttfamily int Instance\+::get\+Nbr\+Machines (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Permet d\textquotesingle{}obtenir le nombre de machines de l\textquotesingle{}instance. 
+
+\begin{DoxyReturn}{Returns}
+int Le nombre de machines 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInstance_a7151797f760b20d6fc3be88ecb7b2a4b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classInstance_aa69a89ba7a29d4ca426ffe4b1922cac6}\label{classInstance_aa69a89ba7a29d4ca426ffe4b1922cac6}} 
+\index{Instance@{Instance}!get\+Nbr\+Ressources@{get\+Nbr\+Ressources}}
+\index{get\+Nbr\+Ressources@{get\+Nbr\+Ressources}!Instance@{Instance}}
+\subsubsection{\texorpdfstring{get\+Nbr\+Ressources()}{getNbrRessources()}}
+{\footnotesize\ttfamily int Instance\+::get\+Nbr\+Ressources (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Permet d\textquotesingle{}obtenir le nombre de ressources de l\textquotesingle{}instance. 
+
+\begin{DoxyReturn}{Returns}
+int Le nombre de ressources 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInstance_aa69a89ba7a29d4ca426ffe4b1922cac6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classInstance_a2c11032145489a3a90d3b9f1e3dfd2d4}\label{classInstance_a2c11032145489a3a90d3b9f1e3dfd2d4}} 
+\index{Instance@{Instance}!get\+Sj@{get\+Sj}}
+\index{get\+Sj@{get\+Sj}!Instance@{Instance}}
+\subsubsection{\texorpdfstring{get\+Sj()}{getSj()}}
+{\footnotesize\ttfamily vector$<$ int $>$ Instance\+::get\+Sj (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Permet d\textquotesingle{}obtenir le tableau des instants de départ de l\textquotesingle{}ensemble des jobs. 
+
+\begin{DoxyReturn}{Returns}
+vector$<$int$>$ Le tableau des instants de départ de l\textquotesingle{}ensemble des jobs 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInstance_a2c11032145489a3a90d3b9f1e3dfd2d4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classInstance_a98460018fa91a213ce7c1fe83a318641}\label{classInstance_a98460018fa91a213ce7c1fe83a318641}} 
+\index{Instance@{Instance}!get\+Tableau\+Ressources\+Jobs@{get\+Tableau\+Ressources\+Jobs}}
+\index{get\+Tableau\+Ressources\+Jobs@{get\+Tableau\+Ressources\+Jobs}!Instance@{Instance}}
+\subsubsection{\texorpdfstring{get\+Tableau\+Ressources\+Jobs()}{getTableauRessourcesJobs()}}
+{\footnotesize\ttfamily vector$<$ vector$<$ int $>$ $>$ Instance\+::get\+Tableau\+Ressources\+Jobs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Permet d\textquotesingle{}obtenir le tableau des capacités en ressource pour l\textquotesingle{}ensemble des jobs. 
+
+\begin{DoxyReturn}{Returns}
+vector$<$vector$<$int$>$$>$ Le tableau des capacités en ressource pour l\textquotesingle{}ensemble des jobs 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInstance_a98460018fa91a213ce7c1fe83a318641_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classInstance_a57f113b9723182ba7f8f5346b34095eb}\label{classInstance_a57f113b9723182ba7f8f5346b34095eb}} 
+\index{Instance@{Instance}!set\+Cap\+Ressources@{set\+Cap\+Ressources}}
+\index{set\+Cap\+Ressources@{set\+Cap\+Ressources}!Instance@{Instance}}
+\subsubsection{\texorpdfstring{set\+Cap\+Ressources()}{setCapRessources()}}
+{\footnotesize\ttfamily void Instance\+::set\+Cap\+Ressources (\begin{DoxyParamCaption}\item[{const vector$<$ vector$<$ int $>$$>$ \&}]{value }\end{DoxyParamCaption})}
+
+
+
+Setter du tableau des capacités en ressource pour l\textquotesingle{}ensemble des machines. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Le tableau des capacités en ressource pour l\textquotesingle{}ensemble des machines souhaité \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInstance_a57f113b9723182ba7f8f5346b34095eb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classInstance_a263461a7a8c44c9e7080620a30cc8fcf}\label{classInstance_a263461a7a8c44c9e7080620a30cc8fcf}} 
+\index{Instance@{Instance}!set\+Fichier\+Instance@{set\+Fichier\+Instance}}
+\index{set\+Fichier\+Instance@{set\+Fichier\+Instance}!Instance@{Instance}}
+\subsubsection{\texorpdfstring{set\+Fichier\+Instance()}{setFichierInstance()}}
+{\footnotesize\ttfamily void Instance\+::set\+Fichier\+Instance (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{value }\end{DoxyParamCaption})}
+
+
+
+Setter du chemin vers le fichier d\textquotesingle{}instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Le chemin vers le fichier d\textquotesingle{}instance que l\textquotesingle{}on souhaite \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInstance_a263461a7a8c44c9e7080620a30cc8fcf_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classInstance_a3d954198f1caa44f89a61262c14fc716}\label{classInstance_a3d954198f1caa44f89a61262c14fc716}} 
+\index{Instance@{Instance}!set\+Fj@{set\+Fj}}
+\index{set\+Fj@{set\+Fj}!Instance@{Instance}}
+\subsubsection{\texorpdfstring{set\+Fj()}{setFj()}}
+{\footnotesize\ttfamily void Instance\+::set\+Fj (\begin{DoxyParamCaption}\item[{const vector$<$ int $>$ \&}]{value }\end{DoxyParamCaption})}
+
+
+
+Setter du tableau des instants de fin de l\textquotesingle{}ensemble des jobs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Le tableau des instants de fin de l\textquotesingle{}ensemble des jobs souhaité \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{classInstance_a3d954198f1caa44f89a61262c14fc716_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classInstance_a048579344184b12873bf1d6bceb7ac9e}\label{classInstance_a048579344184b12873bf1d6bceb7ac9e}} 
+\index{Instance@{Instance}!set\+Horizon\+Max@{set\+Horizon\+Max}}
+\index{set\+Horizon\+Max@{set\+Horizon\+Max}!Instance@{Instance}}
+\subsubsection{\texorpdfstring{set\+Horizon\+Max()}{setHorizonMax()}}
+{\footnotesize\ttfamily void Instance\+::set\+Horizon\+Max (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})}
+
+
+
+Setter de l\textquotesingle{}horizon maximale de planification de l\textquotesingle{}instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & L\textquotesingle{}horizon maximale de planification de l\textquotesingle{}instance souhaitée \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInstance_a048579344184b12873bf1d6bceb7ac9e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classInstance_a0736cdee9e0838c995893b7ba8545c5d}\label{classInstance_a0736cdee9e0838c995893b7ba8545c5d}} 
+\index{Instance@{Instance}!set\+Nbr\+Jobs@{set\+Nbr\+Jobs}}
+\index{set\+Nbr\+Jobs@{set\+Nbr\+Jobs}!Instance@{Instance}}
+\subsubsection{\texorpdfstring{set\+Nbr\+Jobs()}{setNbrJobs()}}
+{\footnotesize\ttfamily void Instance\+::set\+Nbr\+Jobs (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})}
+
+
+
+Setter du nombre de jobs de l\textquotesingle{}instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Le nombre de jobs souhaité de l\textquotesingle{}instance \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{classInstance_a0736cdee9e0838c995893b7ba8545c5d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classInstance_a6f61185f5b1136ba9ab2f6f01c9410b5}\label{classInstance_a6f61185f5b1136ba9ab2f6f01c9410b5}} 
+\index{Instance@{Instance}!set\+Nbr\+Machines@{set\+Nbr\+Machines}}
+\index{set\+Nbr\+Machines@{set\+Nbr\+Machines}!Instance@{Instance}}
+\subsubsection{\texorpdfstring{set\+Nbr\+Machines()}{setNbrMachines()}}
+{\footnotesize\ttfamily void Instance\+::set\+Nbr\+Machines (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})}
+
+
+
+Setter du nombre de machines de l\textquotesingle{}instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Le nombre de machines souhaité de l\textquotesingle{}instance \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInstance_a6f61185f5b1136ba9ab2f6f01c9410b5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classInstance_a391acee96072e5ad7270ecdbe8231bd6}\label{classInstance_a391acee96072e5ad7270ecdbe8231bd6}} 
+\index{Instance@{Instance}!set\+Nbr\+Ressources@{set\+Nbr\+Ressources}}
+\index{set\+Nbr\+Ressources@{set\+Nbr\+Ressources}!Instance@{Instance}}
+\subsubsection{\texorpdfstring{set\+Nbr\+Ressources()}{setNbrRessources()}}
+{\footnotesize\ttfamily void Instance\+::set\+Nbr\+Ressources (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})}
+
+
+
+Setter du nombre de ressources de l\textquotesingle{}instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Le nombre de ressources souhaité de l\textquotesingle{}instance \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInstance_a391acee96072e5ad7270ecdbe8231bd6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classInstance_a8086f6081bf72f4cce29dafcf0fdb5db}\label{classInstance_a8086f6081bf72f4cce29dafcf0fdb5db}} 
+\index{Instance@{Instance}!set\+Sj@{set\+Sj}}
+\index{set\+Sj@{set\+Sj}!Instance@{Instance}}
+\subsubsection{\texorpdfstring{set\+Sj()}{setSj()}}
+{\footnotesize\ttfamily void Instance\+::set\+Sj (\begin{DoxyParamCaption}\item[{const vector$<$ int $>$ \&}]{value }\end{DoxyParamCaption})}
+
+
+
+Setter du tableau des instants de départ de l\textquotesingle{}ensemble des jobs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Le tableau des instants de départ de l\textquotesingle{}ensemble des jobs souhaité \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{classInstance_a8086f6081bf72f4cce29dafcf0fdb5db_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classInstance_a4d3bf921882ce7809cc718200e9cf6e9}\label{classInstance_a4d3bf921882ce7809cc718200e9cf6e9}} 
+\index{Instance@{Instance}!set\+Tableau\+Ressources\+Jobs@{set\+Tableau\+Ressources\+Jobs}}
+\index{set\+Tableau\+Ressources\+Jobs@{set\+Tableau\+Ressources\+Jobs}!Instance@{Instance}}
+\subsubsection{\texorpdfstring{set\+Tableau\+Ressources\+Jobs()}{setTableauRessourcesJobs()}}
+{\footnotesize\ttfamily void Instance\+::set\+Tableau\+Ressources\+Jobs (\begin{DoxyParamCaption}\item[{const vector$<$ vector$<$ int $>$ $>$ \&}]{value }\end{DoxyParamCaption})}
+
+
+
+Setter du tableau des capacités en ressource pour l\textquotesingle{}ensemble des jobs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Le tableau des capacités en ressource pour l\textquotesingle{}ensemble des jobs souhaité \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInstance_a4d3bf921882ce7809cc718200e9cf6e9_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+P\+R\+D\+Ordonancement/\hyperlink{instance_8h}{instance.\+h}\item 
+P\+R\+D\+Ordonancement/\hyperlink{instance_8cpp}{instance.\+cpp}\end{DoxyCompactItemize}

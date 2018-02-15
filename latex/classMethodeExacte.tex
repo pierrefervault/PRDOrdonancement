@@ -1,0 +1,137 @@
+\hypertarget{classMethodeExacte}{}\section{Methode\+Exacte Class Reference}
+\label{classMethodeExacte}\index{Methode\+Exacte@{Methode\+Exacte}}
+
+
+Classe \hyperlink{classMethodeExacte}{Methode\+Exacte} permetant de résoudre des instances à l\textquotesingle{}aide de méthodes exactes.  
+
+
+
+
+{\ttfamily \#include $<$methodeexacte.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMethodeExacte_a1548457daee37a44a3913378d90dab65}{Methode\+Exacte} (string fichier\+Instance)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe \hyperlink{classMethodeExacte}{Methode\+Exacte}. \end{DoxyCompactList}\item 
+int \hyperlink{classMethodeExacte_a202241adc56888d12cf6769a6cab5412}{resolution\+Plne\+Mip1} (string fichier\+Resultat)
+\begin{DoxyCompactList}\small\item\em Methode de résolution exacte indéxée temps. \end{DoxyCompactList}\item 
+int \hyperlink{classMethodeExacte_ae3a50fe055b468baa284287ba61ba381}{resolution\+Plne\+Mip2} (string fichier\+Resultat)
+\begin{DoxyCompactList}\small\item\em Methode de résolution exacte indéxée jobs. \end{DoxyCompactList}\item 
+map$<$ int, vector$<$ int $>$ $>$ \hyperlink{classMethodeExacte_a10f398a3e3c163f7fc9b45f48f916f98}{get\+Sous\+Ensembles\+Maximaux} (vector$<$ vector$<$ int $>$$>$ eh, int nb\+\_\+job)
+\begin{DoxyCompactList}\small\item\em Algorithme permetant de récupérer les sous-\/ensembles maximaux de l\textquotesingle{}instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe \hyperlink{classMethodeExacte}{Methode\+Exacte} permetant de résoudre des instances à l\textquotesingle{}aide de méthodes exactes. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMethodeExacte_a1548457daee37a44a3913378d90dab65}\label{classMethodeExacte_a1548457daee37a44a3913378d90dab65}} 
+\index{Methode\+Exacte@{Methode\+Exacte}!Methode\+Exacte@{Methode\+Exacte}}
+\index{Methode\+Exacte@{Methode\+Exacte}!Methode\+Exacte@{Methode\+Exacte}}
+\subsubsection{\texorpdfstring{Methode\+Exacte()}{MethodeExacte()}}
+{\footnotesize\ttfamily Methode\+Exacte\+::\+Methode\+Exacte (\begin{DoxyParamCaption}\item[{string}]{fichier\+Instance }\end{DoxyParamCaption})}
+
+
+
+Constructeur de la classe \hyperlink{classMethodeExacte}{Methode\+Exacte}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fichier\+Instance} & Le chemin vers le fichier d\textquotesingle{}instance \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classMethodeExacte_a10f398a3e3c163f7fc9b45f48f916f98}\label{classMethodeExacte_a10f398a3e3c163f7fc9b45f48f916f98}} 
+\index{Methode\+Exacte@{Methode\+Exacte}!get\+Sous\+Ensembles\+Maximaux@{get\+Sous\+Ensembles\+Maximaux}}
+\index{get\+Sous\+Ensembles\+Maximaux@{get\+Sous\+Ensembles\+Maximaux}!Methode\+Exacte@{Methode\+Exacte}}
+\subsubsection{\texorpdfstring{get\+Sous\+Ensembles\+Maximaux()}{getSousEnsemblesMaximaux()}}
+{\footnotesize\ttfamily map$<$ int, vector$<$ int $>$ $>$ Methode\+Exacte\+::get\+Sous\+Ensembles\+Maximaux (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ int $>$$>$}]{eh,  }\item[{int}]{nb\+\_\+job }\end{DoxyParamCaption})}
+
+
+
+Algorithme permetant de récupérer les sous-\/ensembles maximaux de l\textquotesingle{}instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em eh} & La liste d\textquotesingle{}événement classée \\
+\hline
+{\em nb\+\_\+job} & Le nombre de jobs de l\textquotesingle{}instance \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+map$<$int, vector$<$int$>$ $>$ Les sous ensembles maximaux 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMethodeExacte_a10f398a3e3c163f7fc9b45f48f916f98_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classMethodeExacte_a202241adc56888d12cf6769a6cab5412}\label{classMethodeExacte_a202241adc56888d12cf6769a6cab5412}} 
+\index{Methode\+Exacte@{Methode\+Exacte}!resolution\+Plne\+Mip1@{resolution\+Plne\+Mip1}}
+\index{resolution\+Plne\+Mip1@{resolution\+Plne\+Mip1}!Methode\+Exacte@{Methode\+Exacte}}
+\subsubsection{\texorpdfstring{resolution\+Plne\+Mip1()}{resolutionPlneMip1()}}
+{\footnotesize\ttfamily int Methode\+Exacte\+::resolution\+Plne\+Mip1 (\begin{DoxyParamCaption}\item[{string}]{fichier\+Resultat }\end{DoxyParamCaption})}
+
+
+
+Methode de résolution exacte indéxée temps. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fichier\+Resultat} & Le fichier où seront stockés les résulats \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Le nombre de jobs ordonnancés 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMethodeExacte_a202241adc56888d12cf6769a6cab5412_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classMethodeExacte_ae3a50fe055b468baa284287ba61ba381}\label{classMethodeExacte_ae3a50fe055b468baa284287ba61ba381}} 
+\index{Methode\+Exacte@{Methode\+Exacte}!resolution\+Plne\+Mip2@{resolution\+Plne\+Mip2}}
+\index{resolution\+Plne\+Mip2@{resolution\+Plne\+Mip2}!Methode\+Exacte@{Methode\+Exacte}}
+\subsubsection{\texorpdfstring{resolution\+Plne\+Mip2()}{resolutionPlneMip2()}}
+{\footnotesize\ttfamily int Methode\+Exacte\+::resolution\+Plne\+Mip2 (\begin{DoxyParamCaption}\item[{string}]{fichier\+Resultat }\end{DoxyParamCaption})}
+
+
+
+Methode de résolution exacte indéxée jobs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fichier\+Resultat} & Le fichier où seront stockés les résulats \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Le nombre de jobs ordonnancés 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMethodeExacte_ae3a50fe055b468baa284287ba61ba381_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMethodeExacte_ae3a50fe055b468baa284287ba61ba381_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+P\+R\+D\+Ordonancement/\hyperlink{methodeexacte_8h}{methodeexacte.\+h}\item 
+P\+R\+D\+Ordonancement/\hyperlink{methodeexacte_01_07copy_011_08_8cpp}{methodeexacte (copy 1).\+cpp}\item 
+P\+R\+D\+Ordonancement/\hyperlink{methodeexacte_8cpp}{methodeexacte.\+cpp}\end{DoxyCompactItemize}

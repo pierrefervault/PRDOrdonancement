@@ -1,0 +1,139 @@
+\hypertarget{classWorkerFichier}{}\section{Worker\+Fichier Class Reference}
+\label{classWorkerFichier}\index{Worker\+Fichier@{Worker\+Fichier}}
+
+
+Le Worker permetant de gérer la résolution d\textquotesingle{}un fichier d\textquotesingle{}instance.  
+
+
+
+
+{\ttfamily \#include $<$workerfichier.\+h$>$}
+
+
+
+Inheritance diagram for Worker\+Fichier\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{classWorkerFichier__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Worker\+Fichier\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{classWorkerFichier__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classWorkerFichier_a3b72efa3a7e2de6f1a8001d999731e11}{process} ()
+\begin{DoxyCompactList}\small\item\em Action effectuée lors du lancement du worker. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classWorkerFichier_a829c3872070e4cab2d84c11b7c12dccc}{finished} ()
+\begin{DoxyCompactList}\small\item\em Action effectuée lorsque le worker a fini l\textquotesingle{}ensemble de ces tâches. \end{DoxyCompactList}\item 
+void \hyperlink{classWorkerFichier_ae7f4b3f3ce2a053855a21d05f13e1f4e}{error} (Q\+String err)
+\begin{DoxyCompactList}\small\item\em Action effectuée lorsqu\textquotesingle{}il y a une erreur dans le worker. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWorkerFichier_a9ec0e174cceef123487826fb902fb649}{Worker\+Fichier} (Q\+String fichier\+Instance, Q\+String type\+Resolution)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe \hyperlink{classWorkerFichier}{Worker\+Fichier}. \end{DoxyCompactList}\item 
+\hyperlink{classWorkerFichier_acabdd12b795f6b7f656e0ed9e61cb6ca}{$\sim$\+Worker\+Fichier} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe \hyperlink{classWorkerFichier}{Worker\+Fichier}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Le Worker permetant de gérer la résolution d\textquotesingle{}un fichier d\textquotesingle{}instance. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classWorkerFichier_a9ec0e174cceef123487826fb902fb649}\label{classWorkerFichier_a9ec0e174cceef123487826fb902fb649}} 
+\index{Worker\+Fichier@{Worker\+Fichier}!Worker\+Fichier@{Worker\+Fichier}}
+\index{Worker\+Fichier@{Worker\+Fichier}!Worker\+Fichier@{Worker\+Fichier}}
+\subsubsection{\texorpdfstring{Worker\+Fichier()}{WorkerFichier()}}
+{\footnotesize\ttfamily Worker\+Fichier\+::\+Worker\+Fichier (\begin{DoxyParamCaption}\item[{Q\+String}]{fichier\+Instance,  }\item[{Q\+String}]{type\+Resolution }\end{DoxyParamCaption})}
+
+
+
+Constructeur de la classe \hyperlink{classWorkerFichier}{Worker\+Fichier}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fichier\+Instance} & Le chemin vers le fichier d\textquotesingle{}instance \\
+\hline
+{\em type\+Resolution} & Le type de résolution à effectuer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorkerFichier_acabdd12b795f6b7f656e0ed9e61cb6ca}\label{classWorkerFichier_acabdd12b795f6b7f656e0ed9e61cb6ca}} 
+\index{Worker\+Fichier@{Worker\+Fichier}!````~Worker\+Fichier@{$\sim$\+Worker\+Fichier}}
+\index{````~Worker\+Fichier@{$\sim$\+Worker\+Fichier}!Worker\+Fichier@{Worker\+Fichier}}
+\subsubsection{\texorpdfstring{$\sim$\+Worker\+Fichier()}{~WorkerFichier()}}
+{\footnotesize\ttfamily Worker\+Fichier\+::$\sim$\+Worker\+Fichier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructeur de la classe \hyperlink{classWorkerFichier}{Worker\+Fichier}. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classWorkerFichier_ae7f4b3f3ce2a053855a21d05f13e1f4e}\label{classWorkerFichier_ae7f4b3f3ce2a053855a21d05f13e1f4e}} 
+\index{Worker\+Fichier@{Worker\+Fichier}!error@{error}}
+\index{error@{error}!Worker\+Fichier@{Worker\+Fichier}}
+\subsubsection{\texorpdfstring{error}{error}}
+{\footnotesize\ttfamily void Worker\+Fichier\+::error (\begin{DoxyParamCaption}\item[{Q\+String}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Action effectuée lorsqu\textquotesingle{}il y a une erreur dans le worker. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em err} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorkerFichier_a829c3872070e4cab2d84c11b7c12dccc}\label{classWorkerFichier_a829c3872070e4cab2d84c11b7c12dccc}} 
+\index{Worker\+Fichier@{Worker\+Fichier}!finished@{finished}}
+\index{finished@{finished}!Worker\+Fichier@{Worker\+Fichier}}
+\subsubsection{\texorpdfstring{finished}{finished}}
+{\footnotesize\ttfamily void Worker\+Fichier\+::finished (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Action effectuée lorsque le worker a fini l\textquotesingle{}ensemble de ces tâches. 
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classWorkerFichier_a829c3872070e4cab2d84c11b7c12dccc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classWorkerFichier_a3b72efa3a7e2de6f1a8001d999731e11}\label{classWorkerFichier_a3b72efa3a7e2de6f1a8001d999731e11}} 
+\index{Worker\+Fichier@{Worker\+Fichier}!process@{process}}
+\index{process@{process}!Worker\+Fichier@{Worker\+Fichier}}
+\subsubsection{\texorpdfstring{process}{process}}
+{\footnotesize\ttfamily void Worker\+Fichier\+::process (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Action effectuée lors du lancement du worker. 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classWorkerFichier_a3b72efa3a7e2de6f1a8001d999731e11_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+P\+R\+D\+Ordonancement/\hyperlink{workerfichier_8h}{workerfichier.\+h}\item 
+P\+R\+D\+Ordonancement/\hyperlink{workerfichier_8cpp}{workerfichier.\+cpp}\end{DoxyCompactItemize}

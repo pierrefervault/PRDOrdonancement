@@ -1,0 +1,5 @@
+<map id="Heuristique::trierSommeRessources" name="Heuristique::trierSommeRessources">
+<area shape="rect" id="node2" href="$classInstance.html#ad81a535d52b45496e795ea48ed8ce020" title="Permet d&#39;obtenir le nombre de jobs de l&#39;instance. " alt="" coords="335,5,481,32"/>
+<area shape="rect" id="node3" href="$classInstance.html#a98460018fa91a213ce7c1fe83a318641" title="Permet d&#39;obtenir le tableau des capacités en ressource pour l&#39;ensemble des jobs. " alt="" coords="287,56,529,83"/>
+<area shape="rect" id="node4" href="$classInstance.html#a2c11032145489a3a90d3b9f1e3dfd2d4" title="Permet d&#39;obtenir le tableau des instants de départ de l&#39;ensemble des jobs. " alt="" coords="353,107,463,133"/>
+</map>

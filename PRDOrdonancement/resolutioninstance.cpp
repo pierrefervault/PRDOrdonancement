@@ -6,6 +6,11 @@
 
 using namespace std;
 
+/**
+ * @brief Constructeur de la classe ResolutionInstance
+ *
+ * @param parent
+ */
 ResolutionInstance::ResolutionInstance(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ResolutionInstance)
@@ -18,11 +23,19 @@ ResolutionInstance::ResolutionInstance(QWidget *parent) :
     this->pourcentageParAgent.push_back(100);
 }
 
+/**
+ * @brief Destructeur de la classe ResolutionInstance
+ *
+ */
 ResolutionInstance::~ResolutionInstance()
 {
     delete ui;
 }
 
+/**
+ * @brief Action effectuée lors du clic sur le bouton permettant de choisir un fichier ou un dossier
+ *
+ */
 void ResolutionInstance::on_choisirFichierPushButton_clicked()
 {
     if(this->ui->fichierRadioButton->isChecked()){
@@ -50,6 +63,10 @@ void ResolutionInstance::on_choisirFichierPushButton_clicked()
 
 }
 
+/**
+ * @brief Action effectuée lors du clic sur le bouton permettant de valider
+ *
+ */
 void ResolutionInstance::on_validerPushButton_clicked()
 {
 
@@ -87,6 +104,12 @@ void ResolutionInstance::on_validerPushButton_clicked()
     }
 }
 
+/**
+ * @brief Execution de la résolution avec un seul fichier d'instance
+ *
+ * @param fichierInstance Chemin vers le fichier d'instance
+ * @param typeResolution Type de la résolution
+ */
 void ResolutionInstance::executionFichier(QString fichierInstance, QString typeResolution)
 {
     QThread* thread = new QThread;
@@ -101,6 +124,12 @@ void ResolutionInstance::executionFichier(QString fichierInstance, QString typeR
     thread->start();
 }
 
+/**
+ * @brief Execution de la résolution avec un seul fichier d'instance
+ *
+ * @param dossierInstance Chemin vers le dossier d'instances
+ * @param typeResolution Type de la résolution
+ */
 void ResolutionInstance::executionDossier(QString fichierInstance, QString typeResolution)
 {
     QThread* thread = new QThread();
@@ -116,23 +145,42 @@ void ResolutionInstance::executionDossier(QString fichierInstance, QString typeR
 }
 
 
+/**
+ * @brief Action effectuée lors du clic sur le bouton permettant d'annuler
+ *
+ */
 void ResolutionInstance::on_annulerPushButton_clicked()
 {
     reject();
 }
 
+/**
+ * @brief Action effectuée lors du clic sur le bouton permettant de spécifié que l'on veut choisir un fichier
+ *
+ */
 void ResolutionInstance::on_fichierRadioButton_clicked()
 {
     this->ui->choisirFichierLineEdit->clear();
     this->ui->fichierInstanceLabel->setText("Fichier d'instance :");
 }
 
+/**
+ * @brief Action effectuée lors du clic sur le bouton permettant de spécifié que l'on veut choisir un dossier
+ *
+ */
 void ResolutionInstance::on_dossierRadioButton_clicked()
 {
     this->ui->choisirFichierLineEdit->clear();
     this->ui->fichierInstanceLabel->setText("Dossier d'instances :");
 }
 
+/**
+ * @brief Fonction permetant de trouver la methode de résolution suivant les champs CheckBox remplis
+ *
+ * @param indexTableau Index du tableau selectionné
+ * @param indexSousElement Index du sous-élément du tableau selectionné (-1 si il n'y a pas de sous-élément)
+ * @return QString La méthode de résolution
+ */
 QString ResolutionInstance::trouverMethodeResolution(int indexTableau, int indexSousElement){
 
     if (this->ui->treeWidget->topLevelItem(indexTableau)->text(0) == "Resolution exacte indexée temps") return "mip1";
@@ -167,6 +215,11 @@ QString ResolutionInstance::trouverMethodeResolution(int indexTableau, int index
 
 }
 
+/**
+ * @brief Action effectuée lors du changement de l'objet SpinBox spécifique au nombre d'agent
+ *
+ * @param arg1
+ */
 void ResolutionInstance::on_agentSpinBox_valueChanged(int arg1)
 {
     this->ui->agentComboBox->clear();
@@ -180,6 +233,11 @@ void ResolutionInstance::on_agentSpinBox_valueChanged(int arg1)
     this->ui->pourcentageLineEdit->setText("100");
 }
 
+/**
+ * @brief Action effectuée lors du changement de l'objet ComboBox spécifique au nombre d'agent
+ *
+ * @param index
+ */
 void ResolutionInstance::on_agentComboBox_currentIndexChanged(int index)
 {
     cout << this->pourcentageParAgent.size() << endl;
@@ -191,6 +249,10 @@ void ResolutionInstance::on_agentComboBox_currentIndexChanged(int index)
     }
 }
 
+/**
+ * @brief Action effectuée lors du clic sur le bouton permetant de valider le pourcentage de jobs affectés à un agent
+ *
+ */
 void ResolutionInstance::on_validerPourcentagePushButton_clicked()
 {
     int sommePourcentage = 0;

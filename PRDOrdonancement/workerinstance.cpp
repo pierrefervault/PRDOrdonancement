@@ -1,5 +1,14 @@
 #include "workerinstance.h"
 
+/**
+ * @brief Constructeur de la classe WorkerInstance
+ *
+ * @param nbrInstance Le nombre d'instance à générer
+ * @param nbrJobs Le nombre de jobs par instance
+ * @param nbrRessources Le nombre de ressources par instance
+ * @param nbrMachines Le nombre de machines par instance
+ * @param horizonPlanification L'horizon maximale de planification par instance
+ */
 WorkerInstance::WorkerInstance(int nbrInstance, int nbrJobs, int nbrRessources, int nbrMachines, int horizonPlanification)
 {
     this->nbrInstance = nbrInstance;
@@ -9,10 +18,18 @@ WorkerInstance::WorkerInstance(int nbrInstance, int nbrJobs, int nbrRessources, 
     this->horizonPlanification = horizonPlanification;
 }
 
+/**
+ * @brief Destructeur de la classe WorkerInstance
+ *
+ */
 WorkerInstance::~WorkerInstance(){
 
 }
 
+/**
+ * @brief Action effectuée lors du lancement du worker
+ *
+ */
 void WorkerInstance::process(){
 
     std::random_device rd;

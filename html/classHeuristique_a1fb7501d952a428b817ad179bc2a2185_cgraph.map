@@ -1,0 +1,6 @@
+<map id="Heuristique::trierCCmaxMaxRessources" name="Heuristique::trierCCmaxMaxRessources">
+<area shape="rect" id="node2" href="$classInstance.html#ad81a535d52b45496e795ea48ed8ce020" title="Permet d&#39;obtenir le nombre de jobs de l&#39;instance. " alt="" coords="289,5,436,32"/>
+<area shape="rect" id="node3" href="$classInstance.html#a98460018fa91a213ce7c1fe83a318641" title="Permet d&#39;obtenir le tableau des capacités en ressource pour l&#39;ensemble des jobs. " alt="" coords="241,56,484,83"/>
+<area shape="rect" id="node4" href="$classInstance.html#aaf335b7258a7db93b8912f2853133620" title="Permet d&#39;obtenir le tableau des instants de fin de l&#39;ensemble des jobs. " alt="" coords="308,107,417,133"/>
+<area shape="rect" id="node5" href="$classInstance.html#a2c11032145489a3a90d3b9f1e3dfd2d4" title="Permet d&#39;obtenir le tableau des instants de départ de l&#39;ensemble des jobs. " alt="" coords="307,157,418,184"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="Instance::getSj" name="Instance::getSj">
+<area shape="rect" id="node2" href="$classHeuristique.html#a19705558bc45437d88b750fe9cbe6125" title="Tri selon la méthode CCmax basée sur la somme des ressources de chaque job. " alt="" coords="177,168,385,209"/>
+<area shape="rect" id="node3" href="$classHeuristique.html#a49b20cab1a9055fddf0519fe7bf99c4a" title="Affectation machine par machine. " alt="" coords="445,138,632,180"/>
+<area shape="rect" id="node4" href="$classHeuristique.html#aa590500fc2368d1ea58ab483b2377fea" title="Affectation privilégiant la machine la moins chargée. " alt="" coords="445,218,632,260"/>
+<area shape="rect" id="node5" href="$classHeuristique.html#a1fb7501d952a428b817ad179bc2a2185" title="Tri selon la méthode CCmax basée sur la valeur de ressource maximale de chaque job. " alt="" coords="187,233,375,274"/>
+<area shape="rect" id="node6" href="$classHeuristique.html#a019587ee3112631f8369d8ffe6303f2c" title="Tri selon la somme des ressources de chaque job. " alt="" coords="164,299,397,326"/>
+<area shape="rect" id="node7" href="$classHeuristique.html#a9a5a00a6b2a9f0dc792491df1d7b6c67" title="Tri selon la moyenne des ressources de chaque sous&#45;ensembles maximaux de l&#39;instance. " alt="" coords="187,50,374,92"/>
+<area shape="rect" id="node8" href="$classHeuristique.html#adc1f4075bda4dfbf40f6ed4cc8a6c993" title="Ecriture dans un fichier de résulat. " alt="" coords="203,116,359,143"/>
+</map>

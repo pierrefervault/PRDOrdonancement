@@ -20,7 +20,9 @@ SOURCES += main.cpp\
     workerfichier.cpp \
     workerdossier.cpp \
     workerinstance.cpp \
-    instance.cpp
+    instance.cpp \
+    comparaisonsolution.cpp \
+    workercomparaison.cpp
 
 HEADERS  += \
     methodeexacte.h \
@@ -31,12 +33,15 @@ HEADERS  += \
     workerfichier.h \
     workerdossier.h \
     workerinstance.h \
-    instance.h
+    instance.h \
+    comparaisonsolution.h \
+    workercomparaison.h
 
 FORMS    += \
     generationinstance.ui \
     resolutioninstance.ui \
-    fenetreprincipale.ui
+    fenetreprincipale.ui \
+    comparaisonsolution.ui
 
 INCLUDEPATH += /home/pierre/build-PRDOrdonancement-Desktop_Qt_5_7_0_GCC_64bit-Debug/PRDOrdonancement/cplex_216/cplex/include
 INCLUDEPATH += /home/pierre/build-PRDOrdonancement-Desktop_Qt_5_7_0_GCC_64bit-Debug/PRDOrdonancement/cplex_216/concert/include
@@ -47,7 +52,7 @@ LIBS += -L/home/pierre/build-PRDOrdonancement-Desktop_Qt_5_7_0_GCC_64bit-Debug/P
 LIBS += -L/home/pierre/build-PRDOrdonancement-Desktop_Qt_5_7_0_GCC_64bit-Debug/PRDOrdonancement/cplex_216/concert/lib/x86-64_linux/static_pic -lconcert
 
 CONFIG += qwt
-INCLUDEPATH += /usr/local/qwt-6.1.2/include
-LIBS += -L /usr/local/qwt-6.1.2/lib -lqwt
+INCLUDEPATH += /usr/local/qwt-6.1.3/include
+LIBS += -L /usr/local/qwt-6.1.3/lib -lqwt
 
-include(/usr/local/qwt-6.1.2/features/qwt.prf)
+include(/usr/local/qwt-6.1.3/features/qwt.prf)

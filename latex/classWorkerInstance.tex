@@ -1,0 +1,131 @@
+\hypertarget{classWorkerInstance}{}\section{Worker\+Instance Class Reference}
+\label{classWorkerInstance}\index{Worker\+Instance@{Worker\+Instance}}
+
+
+Le Worker permetant de gérer la génération de fichiers d\textquotesingle{}instance.  
+
+
+
+
+{\ttfamily \#include $<$workerinstance.\+h$>$}
+
+
+
+Inheritance diagram for Worker\+Instance\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{classWorkerInstance__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Worker\+Instance\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{classWorkerInstance__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classWorkerInstance_ab9005529d8aa529d74226d8e4a1e9f3f}{process} ()
+\begin{DoxyCompactList}\small\item\em Action effectuée lors du lancement du worker. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classWorkerInstance_ac9e45034de2450472fcc07ba0b960000}{finished} ()
+\begin{DoxyCompactList}\small\item\em Action effectuée lorsque le worker a fini l\textquotesingle{}ensemble de ces tâches. \end{DoxyCompactList}\item 
+void \hyperlink{classWorkerInstance_a7327b868e3d96daa63e71c47076e598e}{error} (Q\+String err)
+\begin{DoxyCompactList}\small\item\em Action effectuée lorsqu\textquotesingle{}il y a une erreur dans le worker. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWorkerInstance_a671ad15f8e70f05028c3fb1efe9bfe8d}{Worker\+Instance} (int nbr\+Instance, int nbr\+Jobs, int nbr\+Ressources, int nbr\+Machines, int horizon\+Planification)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe \hyperlink{classWorkerInstance}{Worker\+Instance}. \end{DoxyCompactList}\item 
+\hyperlink{classWorkerInstance_a0072f72256aacba8cb97ab4f50bcb939}{$\sim$\+Worker\+Instance} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe \hyperlink{classWorkerInstance}{Worker\+Instance}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Le Worker permetant de gérer la génération de fichiers d\textquotesingle{}instance. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classWorkerInstance_a671ad15f8e70f05028c3fb1efe9bfe8d}\label{classWorkerInstance_a671ad15f8e70f05028c3fb1efe9bfe8d}} 
+\index{Worker\+Instance@{Worker\+Instance}!Worker\+Instance@{Worker\+Instance}}
+\index{Worker\+Instance@{Worker\+Instance}!Worker\+Instance@{Worker\+Instance}}
+\subsubsection{\texorpdfstring{Worker\+Instance()}{WorkerInstance()}}
+{\footnotesize\ttfamily Worker\+Instance\+::\+Worker\+Instance (\begin{DoxyParamCaption}\item[{int}]{nbr\+Instance,  }\item[{int}]{nbr\+Jobs,  }\item[{int}]{nbr\+Ressources,  }\item[{int}]{nbr\+Machines,  }\item[{int}]{horizon\+Planification }\end{DoxyParamCaption})}
+
+
+
+Constructeur de la classe \hyperlink{classWorkerInstance}{Worker\+Instance}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nbr\+Instance} & Le nombre d\textquotesingle{}instance à générer \\
+\hline
+{\em nbr\+Jobs} & Le nombre de jobs par instance \\
+\hline
+{\em nbr\+Ressources} & Le nombre de ressources par instance \\
+\hline
+{\em nbr\+Machines} & Le nombre de machines par instance \\
+\hline
+{\em horizon\+Planification} & L\textquotesingle{}horizon maximale de planification par instance \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorkerInstance_a0072f72256aacba8cb97ab4f50bcb939}\label{classWorkerInstance_a0072f72256aacba8cb97ab4f50bcb939}} 
+\index{Worker\+Instance@{Worker\+Instance}!````~Worker\+Instance@{$\sim$\+Worker\+Instance}}
+\index{````~Worker\+Instance@{$\sim$\+Worker\+Instance}!Worker\+Instance@{Worker\+Instance}}
+\subsubsection{\texorpdfstring{$\sim$\+Worker\+Instance()}{~WorkerInstance()}}
+{\footnotesize\ttfamily Worker\+Instance\+::$\sim$\+Worker\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructeur de la classe \hyperlink{classWorkerInstance}{Worker\+Instance}. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classWorkerInstance_a7327b868e3d96daa63e71c47076e598e}\label{classWorkerInstance_a7327b868e3d96daa63e71c47076e598e}} 
+\index{Worker\+Instance@{Worker\+Instance}!error@{error}}
+\index{error@{error}!Worker\+Instance@{Worker\+Instance}}
+\subsubsection{\texorpdfstring{error}{error}}
+{\footnotesize\ttfamily void Worker\+Instance\+::error (\begin{DoxyParamCaption}\item[{Q\+String}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Action effectuée lorsqu\textquotesingle{}il y a une erreur dans le worker. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em err} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorkerInstance_ac9e45034de2450472fcc07ba0b960000}\label{classWorkerInstance_ac9e45034de2450472fcc07ba0b960000}} 
+\index{Worker\+Instance@{Worker\+Instance}!finished@{finished}}
+\index{finished@{finished}!Worker\+Instance@{Worker\+Instance}}
+\subsubsection{\texorpdfstring{finished}{finished}}
+{\footnotesize\ttfamily void Worker\+Instance\+::finished (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Action effectuée lorsque le worker a fini l\textquotesingle{}ensemble de ces tâches. 
+
+\mbox{\Hypertarget{classWorkerInstance_ab9005529d8aa529d74226d8e4a1e9f3f}\label{classWorkerInstance_ab9005529d8aa529d74226d8e4a1e9f3f}} 
+\index{Worker\+Instance@{Worker\+Instance}!process@{process}}
+\index{process@{process}!Worker\+Instance@{Worker\+Instance}}
+\subsubsection{\texorpdfstring{process}{process}}
+{\footnotesize\ttfamily void Worker\+Instance\+::process (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Action effectuée lors du lancement du worker. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+P\+R\+D\+Ordonancement/\hyperlink{workerinstance_8h}{workerinstance.\+h}\item 
+P\+R\+D\+Ordonancement/\hyperlink{workerinstance_8cpp}{workerinstance.\+cpp}\end{DoxyCompactItemize}

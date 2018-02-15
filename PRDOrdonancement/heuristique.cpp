@@ -1,6 +1,11 @@
 #include "heuristique.h"
 
 
+/**
+ * @brief Constructeur de la classe Heuristique
+ *
+ * @param fichierInstance Le fichier d'instance
+ */
 Heuristique::Heuristique(string fichierInstance)
 {
     //On cherche à lire le fichier, si ce n'est pas possible on l'indique
@@ -84,6 +89,11 @@ Heuristique::Heuristique(string fichierInstance)
 
 }
 
+/**
+ * @brief Tri selon la méthode CCmax basée sur la somme des ressources de chaque job
+ *
+ * @return vector<int> La liste des jobs triés
+ */
 vector<int> Heuristique::trierCCmaxSommeRessources(){
 
     //Ici on créer le tableau de valeur pour CCMax
@@ -140,6 +150,11 @@ vector<int> Heuristique::trierCCmaxSommeRessources(){
 
 }
 
+/**
+ * @brief Tri selon la méthode CCmax basée sur la valeur de ressource maximale de chaque job
+ *
+ * @return vector<int> La liste des jobs triés
+ */
 vector<int> Heuristique::trierCCmaxMaxRessources(){
 
     //Ici on créer le tableau de valeur pour CCMax
@@ -199,6 +214,11 @@ vector<int> Heuristique::trierCCmaxMaxRessources(){
 
 }
 
+/**
+ * @brief Tri selon la somme des ressources de chaque job
+ *
+ * @return vector<int> La liste des jobs triés
+ */
 vector<int> Heuristique::trierSommeRessources(){
 
     //Ici on créer le tableau de valeur avec pour chaque job la somme de ces ressources
@@ -254,6 +274,11 @@ vector<int> Heuristique::trierSommeRessources(){
 
 }
 
+/**
+ * @brief Tri selon la moyenne des ressources de chaque sous-ensembles maximaux de l'instance
+ *
+ * @return vector<int> La liste des jobs triés
+ */
 vector<int> Heuristique::trierMoyenneRessourcesSousEnsembles(){
 
     //On crée le tableau d'événement eh nécessaire à la création des sous-ensembles de jobs maximaux
@@ -309,11 +334,11 @@ vector<int> Heuristique::trierMoyenneRessourcesSousEnsembles(){
     map<int,vector<int>> Jk = getSousEnsemblesMaximaux(eh, this->instance.getNbrJobs());
 
     for(unsigned int i = 0; i < Jk.size(); i++){
-        cout << "Sous-ensembles " << i << " : ";
+        //cout << "Sous-ensembles " << i << " : ";
         for(unsigned int j = 0; j < Jk[i].size(); j++){
-            cout << Jk[i][j] << " ";
+            //cout << Jk[i][j] << " ";
         }
-        cout << endl;
+        //cout << endl;
     }
 
     vector<int> moyenneRessourceJk;
@@ -366,6 +391,13 @@ vector<int> Heuristique::trierMoyenneRessourcesSousEnsembles(){
     return tableauJobs;
 }
 
+/**
+ * @brief Algorithme permetant de récupérer les sous-ensembles maximaux de l'instance
+ *
+ * @param eh La liste d'événement classée
+ * @param nb_job Le nombre de jobs de l'instance
+ * @return map<int, vector<int> > Les sous ensembles maximaux
+ */
 map<int,vector<int>> Heuristique::getSousEnsemblesMaximaux(vector<vector<int>> eh, int nb_job){
 
     map<int,vector<int>> Jk;
@@ -434,6 +466,13 @@ map<int,vector<int>> Heuristique::getSousEnsemblesMaximaux(vector<vector<int>> e
     }
 }
 
+/**
+ * @brief Affectation machine par machine
+ *
+ * @param typeTri Le type de tri à utiliser avant l'affectation
+ * @param fichierResultat Le fichier où seront stockés les résulats
+ * @return int Le nombre de jobs ordonnancés
+ */
 int Heuristique::resolveMachinePerMachine(QString typeTri, QString fichierResultat){
 
     auto start = std::chrono::high_resolution_clock::now();
@@ -493,6 +532,13 @@ int Heuristique::resolveMachinePerMachine(QString typeTri, QString fichierResult
 
 }
 
+/**
+ * @brief Affectation privilégiant la machine la moins chargée
+ *
+ * @param typeTri Le type de tri à utiliser avant l'affectation
+ * @param fichierResultat Le fichier où seront stockés les résulats
+ * @return int Le nombre de jobs ordonnancés
+ */
 int Heuristique::resolveMachineLessUsedMachine(QString typeTri, QString fichierResultat){
 
     auto start = std::chrono::high_resolution_clock::now();
@@ -600,48 +646,67 @@ int Heuristique::resolveMachineLessUsedMachine(QString typeTri, QString fichierR
 
 }
 
+/**
+ * @brief Ecriture dans un fichier de résulat
+ *
+ * @param jobsOrdonnances Le tableau de jobs ordonancés
+ * @param typeResolution Le type de résolution
+ * @param fichierResultat Le fichier où seront stockés les résulats
+ * @param dureeExecution La durée d'execution de la résolution
+ * @return int Le nombre de jobs ordonnancés
+ */
 int Heuristique::writeInFile(vector<vector<int>> jobsOrdonnances, QString typeResolution, QString fichierResultat, double dureeExecution){
 
     int nbrJobsOrdonnances = 0;
     for(unsigned int i = 0; i < jobsOrdonnances.size(); i++){
-        cout << "Machines : " << i << " : ";
+        //cout << "Machines : " << i << " : ";
         for(unsigned int j = 0; j < jobsOrdonnances[i].size(); j++){
             cout << jobsOrdonnances[i][j] << " ";
             nbrJobsOrdonnances++;
         }
-        cout << endl;
+        //cout << endl;
     }
 
     ofstream output_file(fichierResultat.toStdString(),ios::app);
 
-    output_file << "Instance \t: " << this->instance.getFichierInstance().toStdString() << endl;
-    output_file << "Solution status: " << typeResolution.toStdString() << endl;
-    output_file << " Optimal Value = " << nbrJobsOrdonnances << endl;
+    output_file << "Instance:" << this->instance.getFichierInstance().toStdString() << endl;
+    output_file << "Solution status:" << typeResolution.toStdString() << endl;
+    output_file << " Optimal Value=" << nbrJobsOrdonnances << endl;
 
-    output_file << "temps écoulé: " << dureeExecution  << " seconds" << endl;
+    output_file << "temps écoulé (en secondes):" << dureeExecution << endl;
 
-    output_file << "IdMachine " << "nb " << endl;
+    output_file << "IdMachine " << "Nombre de jobs ordonnancés" << endl;
 
     for(unsigned int i = 0; i < jobsOrdonnances.size(); i++){
-        output_file << i+1 << " " << jobsOrdonnances[i].size() << endl;
+        output_file << i << " " << jobsOrdonnances[i].size() << endl;
     }
 
     output_file << "IdMachine " << "n°Job " << "Si " << "Fi " << endl;
 
     for(unsigned int i = 0; i < jobsOrdonnances.size(); i++){
         for(unsigned int j = 0; j < jobsOrdonnances[i].size(); j++){
-            output_file << i+1 << " " << jobsOrdonnances[i][j] << " " << this->instance.getSj()[jobsOrdonnances[i][j]] << " " << this->instance.getFj()[jobsOrdonnances[i][j]] << endl;
+            output_file << i << " " << jobsOrdonnances[i][j] << " " << this->instance.getSj()[jobsOrdonnances[i][j]] << " " << this->instance.getFj()[jobsOrdonnances[i][j]] << endl;
         }
     }
 
     return nbrJobsOrdonnances;
 }
 
+/**
+ * @brief Retourne l'instance courante
+ *
+ * @return Instance L'instance courante
+ */
 Instance Heuristique::getInstance() const
 {
     return instance;
 }
 
+/**
+ * @brief Permet de spécifier une instance
+ *
+ * @param value L'instance que l'on souhaite spécifier
+ */
 void Heuristique::setInstance(const Instance &value)
 {
     instance = value;
