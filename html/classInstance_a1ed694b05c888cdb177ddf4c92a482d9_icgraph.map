@@ -1,0 +1,7 @@
+<map id="Instance::getNbrJobs" name="Instance::getNbrJobs">
+<area shape="rect" id="node2" href="$classHeuristique.html#a38c390423fc2b190da599148ca879cd6" title="Tri selon la méthode CCmax basée sur la somme des ressources de chaque job. " alt="" coords="213,5,421,47"/>
+<area shape="rect" id="node5" href="$classHeuristique.html#a02aae5127f941e55311e8bbd3b4afd3c" title="Tri selon la méthode CCmax basée sur la valeur de ressource maximale de chaque job. " alt="" coords="223,71,411,112"/>
+<area shape="rect" id="node6" href="$classHeuristique.html#a6101d6d238a7667b820b50629e4d497f" title="Tri selon la somme des ressources de chaque job. " alt="" coords="200,137,433,163"/>
+<area shape="rect" id="node3" href="$classHeuristique.html#ad8a57ed34b0c46f6d65e501ee99da498" title="Affectation machine par machine. " alt="" coords="481,35,668,76"/>
+<area shape="rect" id="node4" href="$classHeuristique.html#aee20a4baec95a33533a6e13029c437df" title="Affectation privilégiant la machine la moins chargée. " alt="" coords="481,100,668,141"/>
+</map>

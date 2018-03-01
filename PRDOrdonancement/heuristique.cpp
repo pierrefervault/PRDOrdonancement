@@ -8,104 +8,26 @@
  */
 Heuristique::Heuristique(string fichierInstance)
 {
-    //On cherche à lire le fichier, si ce n'est pas possible on l'indique
-    std::ifstream f(fichierInstance);
-    if (!f)
-    {
-        cout << fichierInstance <<" invalid file" << endl;
-    }
-    this->instance.setFichierInstance(QString::fromStdString(fichierInstance));
-
-    //Nous spécifions en attribut le nombre de jobs, de ressources et de machines selon ce qu'on a lu dans le fichier
-    int i;
-    int nbrJobs, nbrRessources, nbrMachines;
-    f >> nbrJobs >> nbrRessources >> nbrMachines;
-
-    this->instance.setNbrJobs(nbrJobs);
-    this->instance.setNbrRessources(nbrRessources);
-    this->instance.setNbrMachines(nbrMachines);
-
-    vector<vector<int>> capRessources;
-
-    //Ici on créer un tableau contenant la capacité en ressources pour la ressource r de chaque machine
-    for (int r=0; r < this->instance.getNbrRessources() ; r++)
-    {
-        vector<int> ressources;
-        for (int machine=0; machine < this->instance.getNbrMachines() ; machine++)
-        {
-            int value;
-            f >> value;
-            ressources.push_back(value);
-        }
-        capRessources.push_back(ressources);
-    }
-    this->instance.setCapRessources(capRessources);
-
-    //cout << "Nombre de jobs : " << nb_job << endl;
-
-    int id , s_i , f_i ;
-
-    vector<int>sj;
-    vector<int> fj;
-
-    int horizonMax = 0;
-
-    //Ici, on mets à jour les instant de début et de fin pour chaque job
-    for (i=0 ; i < this->instance.getNbrJobs() ; i++)
-    {
-        f >> id >> s_i >> f_i ;
-
-        sj.push_back(s_i);
-        fj.push_back(f_i);
-
-
-        if (horizonMax <= f_i ) horizonMax = f_i;
-
-
-        //cout << id << " " << s_i << " " << f_i << " " << endl;
-    }
-
-    this->instance.setSj(sj);
-    this->instance.setFj(fj);
-    this->instance.setHorizonMax(horizonMax);
-
-    //Ici, on créer le tableau ou est stocké pour chaque job i la valeur pour la ressource r associée au job
-
-    vector<vector<int>> tableauRessourcesJobs;
-
-    for( i=0 ; i<this->instance.getNbrJobs() ; i++)
-    {
-        vector<int> ressources;
-
-        for (int r=0; r < this->instance.getNbrRessources() ; r++)
-        {
-            int value;
-            f >> value;
-            ressources.push_back(value);
-        }
-        tableauRessourcesJobs.push_back(ressources);
-    }
-    this->instance.setTableauRessourcesJobs(tableauRessourcesJobs);
-
+    this->instance.chargerInstance(fichierInstance);
 }
 
 /**
  * @brief Tri selon la méthode CCmax basée sur la somme des ressources de chaque job
  *
- * @return vector<int> La liste des jobs triés
+ * @return vector<unsigned int> La liste des jobs triés
  */
-vector<int> Heuristique::trierCCmaxSommeRessources(){
+vector<unsigned int> Heuristique::trierCCmaxSommeRessources(){
 
     //Ici on créer le tableau de valeur pour CCMax
     //selon la formule sommes des ressources pour un job * (F(i)-S(i))
-    vector<vector<int>> tableauInitial;
+    vector<vector<unsigned int>> tableauInitial;
 
-    for(int i = 0 ; i<this->instance.getNbrJobs() ; i++)
+    for(unsigned int i = 0 ; i<this->instance.getNbrJobs() ; i++)
     {
-        vector<int> jobCCmax;
+        vector<unsigned int> jobCCmax;
         jobCCmax.push_back(i);
         jobCCmax.push_back(0);
-        for (int r = 0; r < this->instance.getNbrRessources() ; r++)
+        for (unsigned int r = 0; r < this->instance.getNbrRessources() ; r++)
         {
             jobCCmax[1] += (this->instance.getTableauRessourcesJobs()[i][r] * (this->instance.getFj()[i]-this->instance.getSj()[i]));
         }
@@ -114,11 +36,11 @@ vector<int> Heuristique::trierCCmaxSommeRessources(){
 
     //Trie par ordre croissant de valeur de CCmax du tableau de job
     bool tab_en_ordre = false;
-    int taille = this->instance.getNbrJobs();
+    unsigned int taille = this->instance.getNbrJobs();
     while(!tab_en_ordre)
     {
         tab_en_ordre = true;
-        for(int i=0 ; i < taille-1 ; i++)
+        for(unsigned int i=0 ; i < taille-1 ; i++)
         {
             if(tableauInitial[i][1] > tableauInitial[i+1][1])
             {
@@ -140,9 +62,9 @@ vector<int> Heuristique::trierCCmaxSommeRessources(){
     }
 
     //Création du tableau de jobstriés selon la règle CCmax (sommesRessources)
-    vector<int> tableauJobs;
+    vector<unsigned int> tableauJobs;
 
-    for (int i = 0; i < this->instance.getNbrJobs(); i++){
+    for (unsigned int i = 0; i < this->instance.getNbrJobs(); i++){
         tableauJobs.push_back(tableauInitial[i][0]);
     }
 
@@ -153,22 +75,22 @@ vector<int> Heuristique::trierCCmaxSommeRessources(){
 /**
  * @brief Tri selon la méthode CCmax basée sur la valeur de ressource maximale de chaque job
  *
- * @return vector<int> La liste des jobs triés
+ * @return vector<unsigned int> La liste des jobs triés
  */
-vector<int> Heuristique::trierCCmaxMaxRessources(){
+vector<unsigned int> Heuristique::trierCCmaxMaxRessources(){
 
     //Ici on créer le tableau de valeur pour CCMax
     //selon la formule valeur de la ressource la plus importante pour un job * (F(i)-S(i))
-    vector<vector<int>> tableauInitial;
+    vector<vector<unsigned int>> tableauInitial;
 
-    for(int i = 0 ; i<this->instance.getNbrJobs() ; i++)
+    for(unsigned int i = 0 ; i<this->instance.getNbrJobs() ; i++)
     {
-        vector<int> jobCCmax;
+        vector<unsigned int> jobCCmax;
         jobCCmax.push_back(i);
         jobCCmax.push_back(0);
         //On prend en compte la ressource la plus importante pour calculer le CCmax
-        int maxRessource = 0;
-        for (int r = 0; r < this->instance.getNbrJobs() ; r++)
+        unsigned int maxRessource = 0;
+        for (unsigned int r = 0; r < this->instance.getNbrJobs() ; r++)
         {
             if (this->instance.getTableauRessourcesJobs()[i][r] > maxRessource) maxRessource = this->instance.getTableauRessourcesJobs()[i][r];
         }
@@ -178,11 +100,11 @@ vector<int> Heuristique::trierCCmaxMaxRessources(){
 
     //Trie par ordre croissant de valeur de CCmax du tableau de job
     bool tab_en_ordre = false;
-    int taille = this->instance.getNbrJobs();
+    unsigned int taille = this->instance.getNbrJobs();
     while(!tab_en_ordre)
     {
         tab_en_ordre = true;
-        for(int i=0 ; i < taille-1 ; i++)
+        for(unsigned int i=0 ; i < taille-1 ; i++)
         {
             if(tableauInitial[i][1] > tableauInitial[i+1][1])
             {
@@ -204,9 +126,9 @@ vector<int> Heuristique::trierCCmaxMaxRessources(){
     }
 
     //Création du tableau de jobstriés selon la règle CCmax (par rapport à la ressource maximale)
-    vector<int> tableauJobs;
+    vector<unsigned int> tableauJobs;
 
-    for (int i = 0; i < this->instance.getNbrJobs(); i++){
+    for (unsigned int i = 0; i < this->instance.getNbrJobs(); i++){
         tableauJobs.push_back(tableauInitial[i][0]);
     }
 
@@ -217,19 +139,19 @@ vector<int> Heuristique::trierCCmaxMaxRessources(){
 /**
  * @brief Tri selon la somme des ressources de chaque job
  *
- * @return vector<int> La liste des jobs triés
+ * @return vector<unsigned int> La liste des jobs triés
  */
-vector<int> Heuristique::trierSommeRessources(){
+vector<unsigned int> Heuristique::trierSommeRessources(){
 
     //Ici on créer le tableau de valeur avec pour chaque job la somme de ces ressources
-    vector<vector<int>> tableauInitial;
+    vector<vector<unsigned int>> tableauInitial;
 
-    for(int i = 0 ; i<this->instance.getNbrJobs() ; i++)
+    for(unsigned int i = 0 ; i<this->instance.getNbrJobs() ; i++)
     {
-        vector<int> jobCCmax;
+        vector<unsigned int> jobCCmax;
         jobCCmax.push_back(i);
         jobCCmax.push_back(0);
-        for (int r = 0; r < this->instance.getNbrJobs() ; r++)
+        for (unsigned int r = 0; r < this->instance.getNbrJobs() ; r++)
         {
             jobCCmax[1] += this->instance.getTableauRessourcesJobs()[i][r];
         }
@@ -238,11 +160,11 @@ vector<int> Heuristique::trierSommeRessources(){
 
     //Trie par ordre croissant de la sommes de ressources de chaque jobs du tableau
     bool tab_en_ordre = false;
-    int taille = this->instance.getNbrJobs();
+    unsigned int taille = this->instance.getNbrJobs();
     while(!tab_en_ordre)
     {
         tab_en_ordre = true;
-        for(int i=0 ; i < taille-1 ; i++)
+        for(unsigned int i=0 ; i < taille-1 ; i++)
         {
             if(tableauInitial[i][1] > tableauInitial[i+1][1])
             {
@@ -264,9 +186,9 @@ vector<int> Heuristique::trierSommeRessources(){
     }
 
     //On crée le tableau de jobs triés
-    vector<int> tableauJobs;
+    vector<unsigned int> tableauJobs;
 
-    for (int i = 0; i < this->instance.getNbrJobs(); i++){
+    for (unsigned int i = 0; i < this->instance.getNbrJobs(); i++){
         tableauJobs.push_back(tableauInitial[i][0]);
     }
 
@@ -277,61 +199,13 @@ vector<int> Heuristique::trierSommeRessources(){
 /**
  * @brief Tri selon la moyenne des ressources de chaque sous-ensembles maximaux de l'instance
  *
- * @return vector<int> La liste des jobs triés
+ * @return vector<unsigned int> La liste des jobs triés
  */
-vector<int> Heuristique::trierMoyenneRessourcesSousEnsembles(){
-
-    //On crée le tableau d'événement eh nécessaire à la création des sous-ensembles de jobs maximaux
-    vector<vector<int>> eh;
-    for (int i=0 ; i < this->instance.getNbrJobs() ; i++)
-    {
-        vector<int> debut;
-        debut.push_back(this->instance.getSj()[i]);
-        debut.push_back(i);
-        debut.push_back(1);
-        debut.push_back(this->instance.getFj()[i]);
-
-        eh.push_back(debut);
-
-        vector<int> fin;
-        fin.push_back(this->instance.getFj()[i]);
-        fin.push_back(i);
-        fin.push_back(0);
-        fin.push_back(this->instance.getFj()[i]);
-
-        eh.push_back(fin);
-    }
-
-    //Trie à bulle du tableau d'événement eh suivant l'ordre défini par l'algorithme
-    bool tab_en_ordre = false;
-    int taille = (this->instance.getNbrJobs()*2);
-    while(!tab_en_ordre)
-    {
-        tab_en_ordre = true;
-        for(int i=0 ; i < taille-1 ; i++)
-        {
-            if(eh[i][0] > eh[i+1][0])
-            {
-                swap(eh[i],eh[i+1]);
-                tab_en_ordre = false;
-            }
-            else {
-                if(eh[i][0] == eh[i+1][0])
-                {
-                    if(eh[i][3] > eh[i+1][3])
-                    {
-                        swap(eh[i],eh[i+1]);
-                        tab_en_ordre = false;
-                    }
-                }
-            }
-        }
-        taille--;
-    }
+vector<unsigned int> Heuristique::trierMoyenneRessourcesSousEnsembles(){
 
     //Algorithme de création de sous-ensembles maximaux
 
-    map<int,vector<int>> Jk = getSousEnsemblesMaximaux(eh, this->instance.getNbrJobs());
+    map<unsigned int,vector<unsigned int>> Jk = this->instance.getSousEnsemblesMaximaux();
 
     for(unsigned int i = 0; i < Jk.size(); i++){
         //cout << "Sous-ensembles " << i << " : ";
@@ -341,13 +215,13 @@ vector<int> Heuristique::trierMoyenneRessourcesSousEnsembles(){
         //cout << endl;
     }
 
-    vector<int> moyenneRessourceJk;
+    vector<unsigned int> moyenneRessourceJk;
 
     //Calcul des moyennes de ressources par sous-ensembles
     for(unsigned int i = 0 ; i < Jk.size(); i++){
-        int moyenneRessource = 0;
+        unsigned int moyenneRessource = 0;
         for(unsigned int j = 0; j < Jk[i].size(); j++){
-            for (int r = 0; r < this->instance.getNbrRessources(); r++){
+            for (unsigned int r = 0; r < this->instance.getNbrRessources(); r++){
                 moyenneRessource += this->instance.getTableauRessourcesJobs()[Jk[i][j]][r];
             }
         }
@@ -356,12 +230,12 @@ vector<int> Heuristique::trierMoyenneRessourcesSousEnsembles(){
     }
 
     //Trie par ordre croissant de moyennes de ressources pour chaque sous-ensembles
-    tab_en_ordre = false;
-    taille = Jk.size();
+    bool tab_en_ordre = false;
+    unsigned int taille = Jk.size();
     while(!tab_en_ordre)
     {
         tab_en_ordre = true;
-        for(int i=0 ; i < taille-1 ; i++)
+        for(unsigned int i=0 ; i < taille-1 ; i++)
         {
             if(moyenneRessourceJk[i] > moyenneRessourceJk[i+1])
             {
@@ -375,7 +249,7 @@ vector<int> Heuristique::trierMoyenneRessourcesSousEnsembles(){
 
     //Création du tableau de jobs triés
 
-    vector<int> tableauJobs;
+    vector<unsigned int> tableauJobs;
 
     for(unsigned int i = 0 ; i < Jk.size(); i++){
         for(unsigned int j = 0; j < Jk[i].size(); j++){
@@ -392,122 +266,56 @@ vector<int> Heuristique::trierMoyenneRessourcesSousEnsembles(){
 }
 
 /**
- * @brief Algorithme permetant de récupérer les sous-ensembles maximaux de l'instance
- *
- * @param eh La liste d'événement classée
- * @param nb_job Le nombre de jobs de l'instance
- * @return map<int, vector<int> > Les sous ensembles maximaux
- */
-map<int,vector<int>> Heuristique::getSousEnsemblesMaximaux(vector<vector<int>> eh, int nb_job){
-
-    map<int,vector<int>> Jk;
-
-    //numero du sous-ensemble maximal
-    int k = 0;
-
-    //Permet de savoir si on doit encore enlever des jobs du sous ensembles après une première supression
-    int inc = 0;
-
-    //Nombre d'événement de typesj parcourus
-    int nbStartEvent = 0;
-
-    for(int h = 0 ; h < (nb_job * 2); h++){
-
-        //Si l'événement est de typesj, on ajoute le job correspondant au sous-ensemble k
-        if(eh[h][2] == 1){
-            nbStartEvent++;
-            Jk[k].push_back(eh[h][1]);
-
-            //On spécifie que le sous-ensemble est maximal
-            inc = 0;
-        }
-        else{
-
-            //Si on a parcouru l'ensemble des événements de typesj on retourne les sous-ensembles
-            if(nbStartEvent == nb_job){
-                return Jk;
-            }
-
-            else{
-
-                //Si le sous ensembles est maximal et que l'on parcoure un événement de type fj
-                if(inc == 0){
-
-                    //On considère le nouveau sous-ensemble non maximal
-                    inc = 1;
-                    k++;
-
-                    //Le nouveau sous-ensemble corespond à l'ancien où l'on exclu le jobs correspondant à l'événement fj
-                    Jk[k] = Jk[k-1];
-                    for (std::vector<int>::iterator it = Jk[k].begin(); it != Jk[k].end();) {
-                        if (*it == eh[h][1]) {
-                            it = Jk[k].erase(it);
-                        } else {
-                            ++it;
-                        }
-                    }
-                }
-
-                //Si le sous ensembles n'est pas maximal et que l'on parcoure un événement de type fj
-                else{
-
-                    //On enlève le jobs correspondant à l'événement fj du sous-ensemble
-
-                    for (std::vector<int>::iterator it = Jk[k].begin(); it != Jk[k].end();) {
-                        if (*it == eh[h][1]) {
-                            it = Jk[k].erase(it);
-                        } else {
-                            ++it;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-/**
  * @brief Affectation machine par machine
  *
  * @param typeTri Le type de tri à utiliser avant l'affectation
  * @param fichierResultat Le fichier où seront stockés les résulats
- * @return int Le nombre de jobs ordonnancés
+ * @return unsigned int Le nombre de jobs ordonnancés
  */
-int Heuristique::resolveMachinePerMachine(QString typeTri, QString fichierResultat){
+unsigned int Heuristique::resolveMachinePerMachine(QString typeTri, QString fichierResultat){
+
+    //Déclaration de variable en local pour améliorer les performances des heuristiques
+    unsigned int nbr_machines = this->instance.getNbrMachines();
+    unsigned int nbr_ressources = this->instance.getNbrRessources();
+    vector<unsigned int> s_j = this->instance.getSj();
+    vector<unsigned int> f_j = this->instance.getFj();
+
+    vector<vector<unsigned int>> capRessources = this->instance.getCapRessources();
+    vector<vector<unsigned int>> tableauRessourcesJobs = this->instance.getTableauRessourcesJobs();
 
     auto start = std::chrono::high_resolution_clock::now();
 
-    vector<int> tableauJobs;
+    vector<unsigned int> tableauJobs;
 
     if(typeTri == "CCmaxSommeRessources") tableauJobs = this->trierCCmaxSommeRessources();
     if(typeTri == "CCmaxMaxRessources") tableauJobs = this->trierCCmaxMaxRessources();
     if(typeTri == "SommeRessources") tableauJobs = this->trierSommeRessources();
     if(typeTri == "MoyenneRessourcesSousEnsembles") tableauJobs = this->trierMoyenneRessourcesSousEnsembles();
 
-    vector<vector<int>> jobsOrdonnances;
-    for(int m = 0; m < this->instance.getNbrMachines() ; m++){
-        vector<int> jobsMachine;
-        vector<int> Lm = tableauJobs;
+    vector<vector<unsigned int>> jobsOrdonnances;
+    for(unsigned int m = 0; m < nbr_machines ; m++){
+        vector<unsigned int> jobsMachine;
+        vector<unsigned int> Lm = tableauJobs;
         while(Lm.size() != 0){
-            vector<int> Sm;
+            vector<unsigned int> Sm;
             for(unsigned int i = 0; i < jobsMachine.size(); i++){
-                if(this->instance.getSj()[Lm[0]] < this->instance.getFj()[jobsMachine[i]] && this->instance.getFj()[Lm[0]] > this->instance.getSj()[jobsMachine[i]]){
+                if(s_j[Lm[0]] < f_j[jobsMachine[i]] && f_j[Lm[0]] > s_j[jobsMachine[i]]){
                     Sm.push_back(jobsMachine[i]);
                 }
             }
 
             bool jobOrdonancable = true;
 
-            for(int i = this->instance.getSj()[Lm[0]]; i < this->instance.getFj()[Lm[0]]; i++){
-                for(int r = 0; r < this->instance.getNbrRessources() ; r++){
-                    int sommesRessources = 0;
+            for(unsigned int i = s_j[Lm[0]]; i < f_j[Lm[0]]; i++){
+                for(unsigned int r = 0; r < nbr_ressources ; r++){
+                    unsigned int sommesRessources = 0;
                     for(unsigned int j = 0; j < Sm.size(); j++){
-                        if(this->instance.getSj()[Sm[j]] <= i && this->instance.getFj()[Sm[j]] > i )
-                        sommesRessources += this->instance.getTableauRessourcesJobs()[Sm[j]][r];
+                        if(s_j[Sm[j]] <= i && f_j[Sm[j]] > i )
+                        sommesRessources += tableauRessourcesJobs[Sm[j]][r];
                     }
-                    sommesRessources += this->instance.getTableauRessourcesJobs()[Lm[0]][r];
+                    sommesRessources += tableauRessourcesJobs[Lm[0]][r];
                    // cout << "Sommes Ressources : " << sommesRessources << endl;
-                    if(sommesRessources > this->instance.getCapRessources()[r][m])
+                    if(sommesRessources > capRessources[r][m])
                         jobOrdonancable = false;
                    // cout << jobOrdonancable << endl;
                 }
@@ -528,7 +336,7 @@ int Heuristique::resolveMachinePerMachine(QString typeTri, QString fichierResult
 
     double time = nanoseconds/1000000000;
 
-    return writeInFile(jobsOrdonnances, "Affectation1-"+typeTri, fichierResultat, time);
+    return ecritureDansFichier(jobsOrdonnances, "Affectation1-"+typeTri, fichierResultat, time);
 
 }
 
@@ -537,35 +345,45 @@ int Heuristique::resolveMachinePerMachine(QString typeTri, QString fichierResult
  *
  * @param typeTri Le type de tri à utiliser avant l'affectation
  * @param fichierResultat Le fichier où seront stockés les résulats
- * @return int Le nombre de jobs ordonnancés
+ * @return unsigned int Le nombre de jobs ordonnancés
  */
-int Heuristique::resolveMachineLessUsedMachine(QString typeTri, QString fichierResultat){
+
+unsigned int Heuristique::resolveMachineLessUsedMachine(QString typeTri, QString fichierResultat){
+
+    //Déclaration de variable en local pour améliorer les performances des heuristiques
+    unsigned int nbr_machines = this->instance.getNbrMachines();
+    unsigned int nbr_ressources = this->instance.getNbrRessources();
+    vector<unsigned int> sj = this->instance.getSj();
+    vector<unsigned int> fj = this->instance.getFj();
+
+    vector<vector<unsigned int>> capRessources = this->instance.getCapRessources();
+    vector<vector<unsigned int>> tableauRessourcesJobs = this->instance.getTableauRessourcesJobs();
 
     auto start = std::chrono::high_resolution_clock::now();
 
-    vector<int> tableauJobs;
+    vector<unsigned int> tableauJobs;
 
     if(typeTri == "CCmaxSommeRessources") tableauJobs = this->trierCCmaxSommeRessources();
     if(typeTri == "CCmaxMaxRessources") tableauJobs = this->trierCCmaxMaxRessources();
     if(typeTri == "SommeRessources") tableauJobs = this->trierSommeRessources();
     if(typeTri == "MoyenneRessourcesSousEnsembles") tableauJobs = this->trierMoyenneRessourcesSousEnsembles();
 
-    vector<vector<int>> jobsOrdonnances;
-    for(int m = 0; m < this->instance.getNbrMachines() ; m++){
-        vector<int> tableauMachines;
+    vector<vector<unsigned int>> jobsOrdonnances;
+    for(unsigned int m = 0; m < nbr_machines ; m++){
+        vector<unsigned int> tableauMachines;
         jobsOrdonnances.push_back(tableauMachines);
     }
     while(tableauJobs.size() != 0){
-        vector<vector<int>> chargeEnsemblesMachine;
-        for(int m = 0; m < this->instance.getNbrMachines() ; m++){
-            vector<int> chargeMachine;
+        vector<vector<unsigned int>> chargeEnsemblesMachine;
+        for(unsigned int m = 0; m < nbr_machines ; m++){
+            vector<unsigned int> chargeMachine;
             chargeMachine.push_back(m);
-            int charge = 0;
-            for(int i = this->instance.getSj()[tableauJobs[0]]; i < this->instance.getFj()[tableauJobs[0]]; i++){
-                for(int r = 0; r < this->instance.getNbrRessources() ; r++){
+            unsigned int charge = 0;
+            for(unsigned int i = sj[tableauJobs[0]]; i < fj[tableauJobs[0]]; i++){
+                for(unsigned int r = 0; r < nbr_ressources ; r++){
                     for(unsigned int j = 0; j < jobsOrdonnances[m].size(); j++){
-                        if(this->instance.getSj()[jobsOrdonnances[m][j]] <= i && this->instance.getFj()[jobsOrdonnances[m][j]] > i )
-                            charge += this->instance.getTableauRessourcesJobs()[jobsOrdonnances[m][j]][r];
+                        if(sj[jobsOrdonnances[m][j]] <= i && fj[jobsOrdonnances[m][j]] > i )
+                            charge += tableauRessourcesJobs[jobsOrdonnances[m][j]][r];
                     }
                 }
             }
@@ -575,11 +393,11 @@ int Heuristique::resolveMachineLessUsedMachine(QString typeTri, QString fichierR
         }
         //Trie à bulle des machines suivant la charge sur chacune d'elles
         bool tab_en_ordre = false;
-        int taille = this->instance.getNbrMachines();
+        unsigned int taille = nbr_machines;
         while(!tab_en_ordre)
         {
             tab_en_ordre = true;
-            for(int i=0 ; i < taille-1 ; i++)
+            for(unsigned int i=0 ; i < taille-1 ; i++)
             {
                 if(chargeEnsemblesMachine[i][1] > chargeEnsemblesMachine[i+1][1])
                 {
@@ -590,15 +408,15 @@ int Heuristique::resolveMachineLessUsedMachine(QString typeTri, QString fichierR
             taille--;
         }
 
-        int numeroJob = tableauJobs[0];
+        unsigned int numeroJob = tableauJobs[0];
 
         for (unsigned int m = 0; m < chargeEnsemblesMachine.size(); m++){
             if(numeroJob == tableauJobs[0] && tableauJobs.size() != 0){
-                vector<int> Sm;
+                vector<unsigned int> Sm;
                 for(unsigned int i = 0; i < jobsOrdonnances[chargeEnsemblesMachine[m][0]].size(); i++){
 
-                    if(this->instance.getSj()[tableauJobs[0]] < this->instance.getFj()[jobsOrdonnances[chargeEnsemblesMachine[m][0]][i]] &&
-                            this->instance.getFj()[tableauJobs[0]] > this->instance.getSj()[jobsOrdonnances[chargeEnsemblesMachine[m][0]][i]])
+                    if(sj[tableauJobs[0]] < fj[jobsOrdonnances[chargeEnsemblesMachine[m][0]][i]] &&
+                            fj[tableauJobs[0]] > sj[jobsOrdonnances[chargeEnsemblesMachine[m][0]][i]])
                     {
                         Sm.push_back(jobsOrdonnances[chargeEnsemblesMachine[m][0]][i]);
                     }
@@ -607,16 +425,16 @@ int Heuristique::resolveMachineLessUsedMachine(QString typeTri, QString fichierR
 
                 bool jobOrdonancable = true;
 
-                for(int i = this->instance.getSj()[tableauJobs[0]]; i < this->instance.getFj()[tableauJobs[0]]; i++){
-                    for(int r = 0; r < this->instance.getNbrRessources() ; r++){
-                        int sommesRessources = 0;
+                for(unsigned int i = sj[tableauJobs[0]]; i < fj[tableauJobs[0]]; i++){
+                    for(unsigned int r = 0; r < nbr_ressources ; r++){
+                        unsigned int sommesRessources = 0;
                         for(unsigned int j = 0; j < Sm.size(); j++){
-                            if(this->instance.getSj()[Sm[j]] <= i && this->instance.getFj()[Sm[j]] > i )
-                            sommesRessources += this->instance.getTableauRessourcesJobs()[Sm[j]][r];
+                            if(sj[Sm[j]] <= i && fj[Sm[j]] > i )
+                            sommesRessources += tableauRessourcesJobs[Sm[j]][r];
                         }
-                        sommesRessources += this->instance.getTableauRessourcesJobs()[tableauJobs[0]][r];
+                        sommesRessources += tableauRessourcesJobs[tableauJobs[0]][r];
                         //cout << "Sommes Ressources : " << sommesRessources << endl;
-                        if(sommesRessources > this->instance.getCapRessources()[r][chargeEnsemblesMachine[m][0]])
+                        if(sommesRessources > capRessources[r][chargeEnsemblesMachine[m][0]])
                             jobOrdonancable = false;
                         //cout << jobOrdonancable << endl;
                     }
@@ -642,7 +460,7 @@ int Heuristique::resolveMachineLessUsedMachine(QString typeTri, QString fichierR
 
     double time = nanoseconds/1000000000;
 
-    return writeInFile(jobsOrdonnances, "Affectation1-"+typeTri, fichierResultat, time);
+    return ecritureDansFichier(jobsOrdonnances, "Affectation2-"+typeTri, fichierResultat, time);
 
 }
 
@@ -653,11 +471,11 @@ int Heuristique::resolveMachineLessUsedMachine(QString typeTri, QString fichierR
  * @param typeResolution Le type de résolution
  * @param fichierResultat Le fichier où seront stockés les résulats
  * @param dureeExecution La durée d'execution de la résolution
- * @return int Le nombre de jobs ordonnancés
+ * @return unsigned int Le nombre de jobs ordonnancés
  */
-int Heuristique::writeInFile(vector<vector<int>> jobsOrdonnances, QString typeResolution, QString fichierResultat, double dureeExecution){
+unsigned int Heuristique:: ecritureDansFichier(vector<vector<unsigned int>> jobsOrdonnances, QString typeResolution, QString fichierResultat, double dureeExecution){
 
-    int nbrJobsOrdonnances = 0;
+    unsigned int nbrJobsOrdonnances = 0;
     for(unsigned int i = 0; i < jobsOrdonnances.size(); i++){
         //cout << "Machines : " << i << " : ";
         for(unsigned int j = 0; j < jobsOrdonnances[i].size(); j++){
@@ -692,22 +510,12 @@ int Heuristique::writeInFile(vector<vector<int>> jobsOrdonnances, QString typeRe
     return nbrJobsOrdonnances;
 }
 
-/**
- * @brief Retourne l'instance courante
- *
- * @return Instance L'instance courante
- */
 Instance Heuristique::getInstance() const
 {
     return instance;
 }
 
-/**
- * @brief Permet de spécifier une instance
- *
- * @param value L'instance que l'on souhaite spécifier
- */
-void Heuristique::setInstance(const Instance &value)
+void Heuristique::setInstance(Instance value)
 {
     instance = value;
 }

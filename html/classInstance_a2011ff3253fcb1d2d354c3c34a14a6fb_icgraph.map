@@ -1,0 +1,5 @@
+<map id="Instance::getSousEnsemblesMaximaux" name="Instance::getSousEnsemblesMaximaux">
+<area shape="rect" id="node2" href="$classHeuristique.html#a4541884c49c13e08ee6c73c919388fd3" title="Tri selon la moyenne des ressources de chaque sous&#45;ensembles maximaux de l&#39;instance. " alt="" coords="247,39,433,80"/>
+<area shape="rect" id="node3" href="$classHeuristique.html#ad8a57ed34b0c46f6d65e501ee99da498" title="Affectation machine par machine. " alt="" coords="481,5,668,47"/>
+<area shape="rect" id="node4" href="$classHeuristique.html#aee20a4baec95a33533a6e13029c437df" title="Affectation privilégiant la machine la moins chargée. " alt="" coords="481,71,668,112"/>
+</map>

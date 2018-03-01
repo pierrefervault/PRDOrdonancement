@@ -46,6 +46,7 @@ void WorkerDossier::process(){
         // ...on va au prochain fichier correspondant à notre filtre et le stocke dans la liste
         fileList << dirIterator.next();
     }
+    fileList.sort();
 
     std::list<QString> list = fileList.toStdList();
 

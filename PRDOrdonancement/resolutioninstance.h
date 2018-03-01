@@ -8,6 +8,9 @@
 #include "workerfichier.h"
 #include "workerdossier.h"
 #include <iostream>
+#include "QCheckBox"
+#include "QBoxLayout"
+#include "QMessageBox"
 
 using namespace std;
 
@@ -51,7 +54,7 @@ public:
      * @param indexSousElement Index du sous-élément du tableau selectionné (-1 si il n'y a pas de sous-élément)
      * @return QString La méthode de résolution
      */
-    QString trouverMethodeResolution(int indexTableau, int indexSousElement = -1);
+    QString trouverMethodeResolution(unsigned int indexTableau, unsigned int indexSousElement = -1);
     /**
      * @brief Destructeur de la classe ResolutionInstance
      *
@@ -109,9 +112,11 @@ private slots:
      */
     void on_validerPourcentagePushButton_clicked();
 
+    void on_toutCocherCheckBox_clicked(bool checked);
+
 private:
     Ui::ResolutionInstance *ui; /**< La fenêtre de résolution d'instances */
-    vector<int> pourcentageParAgent; /**< Le pourcentage attribué à chaque agent */
+    vector<unsigned int> pourcentageParAgent; /**< Le pourcentage attribué à chaque agent */
 };
 
 #endif // RESOLUTIONINSTANCE_H

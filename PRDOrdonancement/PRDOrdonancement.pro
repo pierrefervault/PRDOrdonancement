@@ -22,7 +22,9 @@ SOURCES += main.cpp\
     workerinstance.cpp \
     instance.cpp \
     comparaisonsolution.cpp \
-    workercomparaison.cpp
+    workercomparaison.cpp \
+    calculcomparaison.cpp \
+    resultat.cpp
 
 HEADERS  += \
     methodeexacte.h \
@@ -35,7 +37,9 @@ HEADERS  += \
     workerinstance.h \
     instance.h \
     comparaisonsolution.h \
-    workercomparaison.h
+    workercomparaison.h \
+    calculcomparaison.h \
+    resultat.h
 
 FORMS    += \
     generationinstance.ui \

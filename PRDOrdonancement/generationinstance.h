@@ -41,7 +41,7 @@ public:
      * @param nbrMachines Le nombre de machines par instance
      * @param horizonPlanification L'horizon de planification maximale par instance
      */
-    void executionGenerationInstance(int nbrInstance, int nbrJobs, int nbrRessources, int nbrMachines, int horizonPlanification);
+    void executionGenerationInstance(unsigned int nbrInstance, unsigned int nbrJobs, unsigned int nbrRessources, unsigned int nbrMachines, unsigned int horizonPlanification);
 
 private slots:
     /**

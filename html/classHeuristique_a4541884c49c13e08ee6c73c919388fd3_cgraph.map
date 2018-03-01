@@ -1,0 +1,5 @@
+<map id="Heuristique::trierMoyenneRessourcesSousEnsembles" name="Heuristique::trierMoyenneRessourcesSousEnsembles">
+<area shape="rect" id="node2" href="$classInstance.html#a2011ff3253fcb1d2d354c3c34a14a6fb" title="Retourne les sous&#45;ensembles maximaux de jobs de l&#39;instance (jobs se chevauchant) " alt="" coords="265,5,458,47"/>
+<area shape="rect" id="node3" href="$classInstance.html#a79b49dcc3d590b823e41d8a223ecf25d" title="Permet d&#39;obtenir le nombre de ressources de l&#39;instance. " alt="" coords="267,71,456,98"/>
+<area shape="rect" id="node4" href="$classInstance.html#ad4124bd2f1edb83a46ef94cfe07eafc8" title="Permet d&#39;obtenir le tableau des capacités en ressource pour l&#39;ensemble des jobs. " alt="" coords="240,122,483,149"/>
+</map>

@@ -1,14 +1,3 @@
 <map id="Heuristique::Heuristique" name="Heuristique::Heuristique">
-<area shape="rect" id="node2" href="$classInstance.html#a263461a7a8c44c9e7080620a30cc8fcf" title="Setter du chemin vers le fichier d&#39;instance. " alt="" coords="244,5,431,32"/>
-<area shape="rect" id="node3" href="$classInstance.html#a0736cdee9e0838c995893b7ba8545c5d" title="Setter du nombre de jobs de l&#39;instance. " alt="" coords="264,56,411,83"/>
-<area shape="rect" id="node4" href="$classInstance.html#a391acee96072e5ad7270ecdbe8231bd6" title="Setter du nombre de ressources de l&#39;instance. " alt="" coords="243,107,432,133"/>
-<area shape="rect" id="node5" href="$classInstance.html#a6f61185f5b1136ba9ab2f6f01c9410b5" title="Setter du nombre de machines de l&#39;instance. " alt="" coords="250,157,425,184"/>
-<area shape="rect" id="node6" href="$classInstance.html#aa69a89ba7a29d4ca426ffe4b1922cac6" title="Permet d&#39;obtenir le nombre de ressources de l&#39;instance. " alt="" coords="243,208,432,235"/>
-<area shape="rect" id="node7" href="$classInstance.html#a7151797f760b20d6fc3be88ecb7b2a4b" title="Permet d&#39;obtenir le nombre de machines de l&#39;instance. " alt="" coords="250,259,425,285"/>
-<area shape="rect" id="node8" href="$classInstance.html#a57f113b9723182ba7f8f5346b34095eb" title="Setter du tableau des capacités en ressource pour l&#39;ensemble des machines. " alt="" coords="241,309,433,336"/>
-<area shape="rect" id="node9" href="$classInstance.html#ad81a535d52b45496e795ea48ed8ce020" title="Permet d&#39;obtenir le nombre de jobs de l&#39;instance. " alt="" coords="264,360,411,387"/>
-<area shape="rect" id="node10" href="$classInstance.html#a8086f6081bf72f4cce29dafcf0fdb5db" title="Setter du tableau des instants de départ de l&#39;ensemble des jobs. " alt="" coords="282,411,393,437"/>
-<area shape="rect" id="node11" href="$classInstance.html#a3d954198f1caa44f89a61262c14fc716" title="Setter du tableau des instants de fin de l&#39;ensemble des jobs. " alt="" coords="283,461,392,488"/>
-<area shape="rect" id="node12" href="$classInstance.html#a048579344184b12873bf1d6bceb7ac9e" title="Setter de l&#39;horizon maximale de planification de l&#39;instance. " alt="" coords="253,512,421,539"/>
-<area shape="rect" id="node13" href="$classInstance.html#a4d3bf921882ce7809cc718200e9cf6e9" title="Setter du tableau des capacités en ressource pour l&#39;ensemble des jobs. " alt="" coords="216,563,459,589"/>
+<area shape="rect" id="node2" href="$classInstance.html#aa64eca6a12ffa8ffc850ac4e04f268fb" title="Permet de charger une instance à partir d&#39;un chemin vers un fichier d&#39;instance. " alt="" coords="216,5,389,32"/>
 </map>

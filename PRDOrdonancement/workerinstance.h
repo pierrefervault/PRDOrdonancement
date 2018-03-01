@@ -3,12 +3,7 @@
 
 #include <QObject>
 #include <QWidget>
-#include <QDir>
-#include <iostream>
-#include <string>
-#include <fstream>
-#include <time.h>
-#include <random>
+#include "instance.h"
 
 using namespace std;
 
@@ -29,7 +24,7 @@ public:
      * @param nbrMachines Le nombre de machines par instance
      * @param horizonPlanification L'horizon maximale de planification par instance
      */
-    WorkerInstance(int nbrInstance, int nbrJobs, int nbrRessources, int nbrMachines, int horizonPlanification);
+    WorkerInstance(unsigned int nbrInstance, unsigned int nbrJobs, unsigned int nbrRessources, unsigned int nbrMachines, unsigned int horizonPlanification);
      /**
       * @brief Destructeur de la classe WorkerInstance
       *
@@ -55,11 +50,11 @@ signals:
      */
     void error(QString err);
 private:
-    int nbrInstance; /**< Nombre d'instance à générer */
-    int nbrJobs; /**< Nombre de jobs par instance */
-    int nbrRessources; /**< Nombre de ressources par instance */
-    int nbrMachines; /**< Nombre de machines par instance */
-    int horizonPlanification; /**< Horizon maximale de planification par instance */
+    unsigned int nbrInstance; /**< Nombre d'instance à générer */
+    unsigned int nbrJobs; /**< Nombre de jobs par instance */
+    unsigned int nbrRessources; /**< Nombre de ressources par instance */
+    unsigned int nbrMachines; /**< Nombre de machines par instance */
+    unsigned int horizonPlanification; /**< Horizon maximale de planification par instance */
 };
 
 #endif // WORKERINSTANCE_H

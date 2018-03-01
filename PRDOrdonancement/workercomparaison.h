@@ -8,6 +8,7 @@
 #include <QFileInfo>
 #include <QDir>
 #include <QDirIterator>
+#include "resultat.h"
 
 using namespace std;
 
@@ -25,7 +26,7 @@ public:
      * @param dossierResultat Le chemin vers le dossier contenant les résultats des méthodes de résolution
      * @param typeComparaison Le type de comparaison à effectuer
      */
-    WorkerComparaison(QString dossierResultat, QString typeComparaison);
+    WorkerComparaison(QString dossierResultat, QString typeComparaison, int nbrRessources, int nbrMachines);
     /**
      * @brief Destructeur de la classe WorkerComparaison
      *
@@ -37,12 +38,15 @@ public slots :
      *
      */
     void process();
+
 signals:
     /**
      * @brief Action effectuée lorsque le worker a fini l'ensemble de ces tâches
      *
      */
     void finished();
+
+    void updateLayout(map<unsigned int,map<QString,unsigned int>> tableauComparaison, QString typeComparaison);
     /**
      * @brief Action effectuée lorsqu'il y a une erreur dans le worker
      *
@@ -52,6 +56,8 @@ signals:
 private:
     QString dossierResultat; /**< Le chemin vers le dossier contenant les résultats des méthodes de résolution */
     QString typeComparaison; /**< Le type de comparaison à effectuer */
+    unsigned int nbrRessources;
+    unsigned int nbrMachines;
 };
 
 #endif // WORKERCOMPARAISON_H

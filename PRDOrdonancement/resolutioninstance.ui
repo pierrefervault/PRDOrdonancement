@@ -342,6 +342,19 @@
     <string>Valider Pourcentage</string>
    </property>
   </widget>
+  <widget class="QCheckBox" name="toutCocherCheckBox">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>290</y>
+     <width>101</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Tout cocher</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

@@ -36,7 +36,7 @@ void GenerationInstance::on_okPushButton_clicked()
             !this->ui->horizonPlanificationLineEdit->text().isEmpty())
     {
         cout << "Execution de la génération d'instances" << endl;
-        int horizonPlanification = 0;
+        unsigned int horizonPlanification = 0;
 
         if (this->ui->horizonPlanificationComboBox->currentText() == "secondes") horizonPlanification = this->ui->horizonPlanificationLineEdit->text().toInt();
         if (this->ui->horizonPlanificationComboBox->currentText() == "minutes") horizonPlanification = this->ui->horizonPlanificationLineEdit->text().toInt() * 60;
@@ -73,7 +73,7 @@ void GenerationInstance::on_annulerPushButton_clicked()
  * @param nbrMachines Le nombre de machines par instance
  * @param horizonPlanification L'horizon de planification maximale par instance
  */
-void GenerationInstance::executionGenerationInstance(int nbrInstance, int nbrJobs, int nbrRessources, int nbrMachines, int horizonPlanification)
+void GenerationInstance::executionGenerationInstance(unsigned int nbrInstance, unsigned int nbrJobs, unsigned int nbrRessources, unsigned int nbrMachines, unsigned int horizonPlanification)
 {
     QThread* thread = new QThread;
     WorkerInstance* workerInstance = new WorkerInstance(nbrInstance, nbrJobs, nbrRessources, nbrMachines, horizonPlanification);

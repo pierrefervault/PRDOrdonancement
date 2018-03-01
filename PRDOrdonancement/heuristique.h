@@ -18,60 +18,60 @@ using namespace std;
 class Heuristique
 {
 public:
+
     /**
      * @brief Constructeur de la classe Heuristique
      *
      * @param fichierInstance Le fichier d'instance
      */
     Heuristique(string fichierInstance);
+
     /**
      * @brief Tri selon la méthode CCmax basée sur la somme des ressources de chaque job
      *
-     * @return vector<int> La liste des jobs triés
+     * @return vector<unsigned int> La liste des jobs triés
      */
-    vector<int> trierCCmaxSommeRessources();
+    vector<unsigned int> trierCCmaxSommeRessources();
+
     /**
      * @brief Tri selon la méthode CCmax basée sur la valeur de ressource maximale de chaque job
      *
-     * @return vector<int> La liste des jobs triés
+     * @return vector<unsigned int> La liste des jobs triés
      */
-    vector<int> trierCCmaxMaxRessources();
+    vector<unsigned int> trierCCmaxMaxRessources();
+
     /**
      * @brief Tri selon la somme des ressources de chaque job
      *
-     * @return vector<int> La liste des jobs triés
+     * @return vector<unsigned int> La liste des jobs triés
      */
-    vector<int> trierSommeRessources();
+    vector<unsigned int> trierSommeRessources();
+
     /**
      * @brief Tri selon la moyenne des ressources de chaque sous-ensembles maximaux de l'instance
      *
-     * @return vector<int> La liste des jobs triés
+     * @return vector<unsigned int> La liste des jobs triés
      */
-    vector<int> trierMoyenneRessourcesSousEnsembles();
-    /**
-     * @brief Algorithme permetant de récupérer les sous-ensembles maximaux de l'instance
-     *
-     * @param eh La liste d'événement classée
-     * @param nb_job Le nombre de jobs de l'instance
-     * @return map<int, vector<int> > Les sous ensembles maximaux
-     */
-    map<int,vector<int>> getSousEnsemblesMaximaux(vector<vector<int>> eh, int nb_job);
+    vector<unsigned int> trierMoyenneRessourcesSousEnsembles();
+
     /**
      * @brief Affectation machine par machine
      *
      * @param typeTri Le type de tri à utiliser avant l'affectation
      * @param fichierResultat Le fichier où seront stockés les résulats
-     * @return int Le nombre de jobs ordonnancés
+     * @return unsigned int Le nombre de jobs ordonnancés
      */
-    int resolveMachinePerMachine(QString typeTri, QString fichierResultat);
+    unsigned int resolveMachinePerMachine(QString typeTri, QString fichierResultat);
+
     /**
      * @brief Affectation privilégiant la machine la moins chargée
      *
      * @param typeTri Le type de tri à utiliser avant l'affectation
      * @param fichierResultat Le fichier où seront stockés les résulats
-     * @return int Le nombre de jobs ordonnancés
+     * @return unsigned int Le nombre de jobs ordonnancés
      */
-    int resolveMachineLessUsedMachine(QString typeTri, QString fichierResultat);
+    unsigned int resolveMachineLessUsedMachine(QString typeTri, QString fichierResultat);
+
     /**
      * @brief Ecriture dans un fichier de résulat
      *
@@ -79,22 +79,24 @@ public:
      * @param typeResolution Le type de résolution
      * @param fichierResultat Le fichier où seront stockés les résulats
      * @param dureeExecution La durée d'execution de la résolution
-     * @return int Le nombre de jobs ordonnancés
+     * @return unsigned int Le nombre de jobs ordonnancés
      */
-    int writeInFile(vector<vector<int>> jobsOrdonnances, QString typeResolution, QString fichierResultat, double dureeExecution);
+    unsigned int ecritureDansFichier(vector<vector<unsigned int>> jobsOrdonnances, QString typeResolution, QString fichierResultat, double dureeExecution);
+
 
     /**
-     * @brief Retourne l'instance courante
+     * @brief
      *
-     * @return Instance L'instance courante
+     * @return Instance
      */
     Instance getInstance() const;
+
     /**
-     * @brief Permet de spécifier une instance
+     * @brief
      *
-     * @param value L'instance que l'on souhaite spécifier
+     * @param value
      */
-    void setInstance(const Instance &value);
+    void setInstance(Instance value);
 
 private:
 

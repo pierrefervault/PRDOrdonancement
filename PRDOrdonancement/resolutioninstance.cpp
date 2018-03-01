@@ -1,8 +1,5 @@
 #include "resolutioninstance.h"
 #include "ui_resolutioninstance.h"
-#include "QCheckBox"
-#include "QBoxLayout"
-#include "QMessageBox"
 
 using namespace std;
 
@@ -73,7 +70,7 @@ void ResolutionInstance::on_validerPushButton_clicked()
     QString fichierInstance = this->ui->choisirFichierLineEdit->text();
 
     if (fichierInstance != NULL){
-        for (int i = 0; i < this->ui->treeWidget->topLevelItemCount() ; i++){
+        for (unsigned int i = 0; i < this->ui->treeWidget->topLevelItemCount() ; i++){
             if (this->ui->treeWidget->topLevelItem(i)->checkState(0) == 2){
 
                 if(this->ui->fichierRadioButton->isChecked()) executionFichier(fichierInstance, trouverMethodeResolution(i));
@@ -83,7 +80,7 @@ void ResolutionInstance::on_validerPushButton_clicked()
             else {
 
                 if (this->ui->treeWidget->topLevelItem(i)->childCount() != 0){
-                    for(int j = 0; j < this->ui->treeWidget->topLevelItem(i)->childCount(); j++){
+                    for(unsigned int j = 0; j < this->ui->treeWidget->topLevelItem(i)->childCount(); j++){
 
                         if(this->ui->treeWidget->topLevelItem(i)->child(j)->checkState(0) == 2){
 
@@ -181,7 +178,7 @@ void ResolutionInstance::on_dossierRadioButton_clicked()
  * @param indexSousElement Index du sous-élément du tableau selectionné (-1 si il n'y a pas de sous-élément)
  * @return QString La méthode de résolution
  */
-QString ResolutionInstance::trouverMethodeResolution(int indexTableau, int indexSousElement){
+QString ResolutionInstance::trouverMethodeResolution(unsigned int indexTableau, unsigned int indexSousElement){
 
     if (this->ui->treeWidget->topLevelItem(indexTableau)->text(0) == "Resolution exacte indexée temps") return "mip1";
     if (this->ui->treeWidget->topLevelItem(indexTableau)->text(0) == "Resolution exacte indexée jobs") return "mip2";
@@ -225,7 +222,7 @@ void ResolutionInstance::on_agentSpinBox_valueChanged(int arg1)
     this->ui->agentComboBox->clear();
     this->pourcentageParAgent.clear();
 
-    for (int i = 1; i < this->ui->agentSpinBox->text().toInt()+1; i++){
+    for (unsigned int i = 1; i < this->ui->agentSpinBox->text().toInt()+1; i++){
         this->ui->agentComboBox->addItem("Agent "+QString::number(i));
         this->pourcentageParAgent.push_back(0);
     }
@@ -255,7 +252,7 @@ void ResolutionInstance::on_agentComboBox_currentIndexChanged(int index)
  */
 void ResolutionInstance::on_validerPourcentagePushButton_clicked()
 {
-    int sommePourcentage = 0;
+    unsigned int sommePourcentage = 0;
     for (unsigned int i = 0; i < this->pourcentageParAgent.size(); i++){
 
         if (i == this->ui->agentComboBox->currentIndex()){
@@ -273,5 +270,37 @@ void ResolutionInstance::on_validerPourcentagePushButton_clicked()
         QMessageBox messageBox;
         messageBox.critical(0,"Erreur","La somme des pourcentage pour tout les agents est supérieur à 100");
         messageBox.setFixedSize(500,200);
+    }
+}
+
+
+
+void ResolutionInstance::on_toutCocherCheckBox_clicked(bool checked)
+{
+    if (checked){
+        for (unsigned int i = 0; i < this->ui->treeWidget->topLevelItemCount() ; i++){
+
+            if (this->ui->treeWidget->topLevelItem(i)->childCount() != 0){
+                for(unsigned int j = 0; j < this->ui->treeWidget->topLevelItem(i)->childCount(); j++){
+                    this->ui->treeWidget->topLevelItem(i)->child(j)->setCheckState(0,Qt::Checked);
+                }
+            }
+            else{
+                this->ui->treeWidget->topLevelItem(i)->setCheckState(0,Qt::Checked);
+            }
+        }
+    }
+    else{
+        for (unsigned int i = 0; i < this->ui->treeWidget->topLevelItemCount() ; i++){
+
+            if (this->ui->treeWidget->topLevelItem(i)->childCount() != 0){
+                for(unsigned int j = 0; j < this->ui->treeWidget->topLevelItem(i)->childCount(); j++){
+                    this->ui->treeWidget->topLevelItem(i)->child(j)->setCheckState(0,Qt::Unchecked);
+                }
+            }
+            else{
+                this->ui->treeWidget->topLevelItem(i)->setCheckState(0,Qt::Unchecked);
+            }
+        }
     }
 }

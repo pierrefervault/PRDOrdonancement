@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['comparaisonsolution',['ComparaisonSolution',['../classComparaisonSolution.html',1,'']]],
-  ['creationinstance',['CreationInstance',['../classCreationInstance.html',1,'']]]
+  ['comparaisonsolution',['ComparaisonSolution',['../classComparaisonSolution.html',1,'']]]
 ];
