@@ -11,6 +11,7 @@
 #include <map>
 #include <vector>
 #include "instance.h"
+#include "resultat.h"
 
 using namespace std;
 
@@ -46,8 +47,12 @@ public:
      */
     unsigned int resolutionPlneMip2(string fichierResultat);
 
+    Instance getInstance() const;
+    void setInstance(const Instance &value);
+
 private:
-    Instance *instance; /**< L'instance à résoudre */
+    Instance instance; /**< L'instance à résoudre */
+    Resultat resultat; /**< La classe Resultat permetant de sauvegarder des résultats de résolution dans un fichier */
 };
 
 #endif // METHODEEXACTE_H

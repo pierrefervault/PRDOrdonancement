@@ -1,9 +1,8 @@
 #ifndef INSTANCE_H
 #define INSTANCE_H
 
-#include <QString>
+#include <QObject>
 #include <QDir>
-#include <vector>
 #include<iostream>
 #include <fstream>
 #include <string>
@@ -158,7 +157,7 @@ public:
     map<unsigned int,vector<unsigned int>> getSousEnsemblesMaximaux();
 
     /**
-     * @brief
+     * @brief Permet de sauvegarder des instances avec des paramètres particuliers
      *
      * @param nbrInstance Le nombre d'instance à générer
      * @param nbrJobs Le nombre de jobs par instance

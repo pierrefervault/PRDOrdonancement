@@ -13,7 +13,6 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
     methodeexacte.cpp \
-    heuristique.cpp \
     generationinstance.cpp \
     resolutioninstance.cpp \
     fenetreprincipale.cpp \
@@ -24,11 +23,11 @@ SOURCES += main.cpp\
     comparaisonsolution.cpp \
     workercomparaison.cpp \
     calculcomparaison.cpp \
+    heuristique.cpp\
     resultat.cpp
 
 HEADERS  += \
     methodeexacte.h \
-    heuristique.h \
     generationinstance.h \
     resolutioninstance.h \
     fenetreprincipale.h \
@@ -39,6 +38,7 @@ HEADERS  += \
     comparaisonsolution.h \
     workercomparaison.h \
     calculcomparaison.h \
+    heuristique.h \
     resultat.h
 
 FORMS    += \

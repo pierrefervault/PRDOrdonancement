@@ -13,6 +13,7 @@ ResolutionInstance::ResolutionInstance(QWidget *parent) :
     ui(new Ui::ResolutionInstance)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Résolution d'instances");
     this->pourcentageParAgent.clear();
     this->ui->agentComboBox->clear();
     this->ui->agentComboBox->addItem("Agent 1");
@@ -159,6 +160,7 @@ void ResolutionInstance::on_fichierRadioButton_clicked()
 {
     this->ui->choisirFichierLineEdit->clear();
     this->ui->fichierInstanceLabel->setText("Fichier d'instance :");
+    this->ui->choisirFichierPushButton->setText("Choisir un fichier");
 }
 
 /**
@@ -169,6 +171,7 @@ void ResolutionInstance::on_dossierRadioButton_clicked()
 {
     this->ui->choisirFichierLineEdit->clear();
     this->ui->fichierInstanceLabel->setText("Dossier d'instances :");
+    this->ui->choisirFichierPushButton->setText("Choisir un dossier");
 }
 
 /**
@@ -274,7 +277,10 @@ void ResolutionInstance::on_validerPourcentagePushButton_clicked()
 }
 
 
-
+/**
+ * @brief Action effectuée lors du clic sur le bouton permetant de cocher l'ensemble des méthodes de résolution en meme temps
+ *
+ */
 void ResolutionInstance::on_toutCocherCheckBox_clicked(bool checked)
 {
     if (checked){

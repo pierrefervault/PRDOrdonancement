@@ -36,20 +36,20 @@
     <rect>
      <x>20</x>
      <y>100</y>
-     <width>121</width>
+     <width>131</width>
      <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>Fichier d'instance :</string>
+    <string>Dossiers d'instance :</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="choisirFichierLineEdit">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>160</x>
      <y>100</y>
-     <width>421</width>
+     <width>411</width>
      <height>22</height>
     </rect>
    </property>
@@ -57,14 +57,14 @@
   <widget class="QPushButton" name="choisirFichierPushButton">
    <property name="geometry">
     <rect>
-     <x>450</x>
+     <x>420</x>
      <y>130</y>
-     <width>121</width>
+     <width>151</width>
      <height>22</height>
     </rect>
    </property>
    <property name="text">
-    <string>Choisir un fichier</string>
+    <string>Choisir un dossier</string>
    </property>
   </widget>
   <widget class="QPushButton" name="validerPushButton">
@@ -96,8 +96,8 @@
   <widget class="QRadioButton" name="fichierRadioButton">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>60</y>
+     <x>390</x>
+     <y>50</y>
      <width>131</width>
      <height>20</height>
     </rect>
@@ -106,20 +106,23 @@
     <string>Fichier d'instance</string>
    </property>
    <property name="checked">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QRadioButton" name="dossierRadioButton">
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>60</y>
+     <x>150</x>
+     <y>50</y>
      <width>141</width>
      <height>20</height>
     </rect>
    </property>
    <property name="text">
     <string>Dossier d'instances</string>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QTreeWidget" name="treeWidget">

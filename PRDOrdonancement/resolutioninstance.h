@@ -112,6 +112,10 @@ private slots:
      */
     void on_validerPourcentagePushButton_clicked();
 
+    /**
+     * @brief Action effectuée lors du clic sur le bouton permetant de cocher l'ensemble des méthodes de résolution en meme temps
+     *
+     */
     void on_toutCocherCheckBox_clicked(bool checked);
 
 private:

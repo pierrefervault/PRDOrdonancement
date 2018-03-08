@@ -8,6 +8,7 @@
 #include <fstream>
 #include "instance.h"
 #include <map>
+#include "resultat.h"
 
 using namespace std;
 
@@ -73,34 +74,23 @@ public:
     unsigned int resolveMachineLessUsedMachine(QString typeTri, QString fichierResultat);
 
     /**
-     * @brief Ecriture dans un fichier de résulat
+     * @brief Getter de l'instance pour laquelle on veut appliquer une heuristique
      *
-     * @param jobsOrdonnances Le tableau de jobs ordonancés
-     * @param typeResolution Le type de résolution
-     * @param fichierResultat Le fichier où seront stockés les résulats
-     * @param dureeExecution La durée d'execution de la résolution
-     * @return unsigned int Le nombre de jobs ordonnancés
-     */
-    unsigned int ecritureDansFichier(vector<vector<unsigned int>> jobsOrdonnances, QString typeResolution, QString fichierResultat, double dureeExecution);
-
-
-    /**
-     * @brief
-     *
-     * @return Instance
+     * @return Instance L'instance pour laquelle on veut appliquer une heuristique
      */
     Instance getInstance() const;
 
     /**
-     * @brief
+     * @brief Setter de l'instance pour laquelle on veut appliquer une heuristique
      *
-     * @param value
+     * @param value L'instance pour laquelle on veut appliquer une heuristique
      */
     void setInstance(Instance value);
 
 private:
 
     Instance instance; /**< L'instance à résoudre */
+    Resultat resultat; /**< La classe Resultat permetant de sauvegarder des résultats de résolution dans un fichier */
 
 };
 

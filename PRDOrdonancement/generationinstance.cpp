@@ -14,6 +14,7 @@ GenerationInstance::GenerationInstance(QWidget *parent) :
     ui(new Ui::GenerationInstance)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Génération d'instances");
 }
 
 /**

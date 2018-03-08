@@ -56,8 +56,8 @@ signals:
 private:
     QString dossierResultat; /**< Le chemin vers le dossier contenant les résultats des méthodes de résolution */
     QString typeComparaison; /**< Le type de comparaison à effectuer */
-    unsigned int nbrRessources;
-    unsigned int nbrMachines;
+    unsigned int nbrRessources; /**< Le nombre de ressources pour chaque solution */
+    unsigned int nbrMachines; /**< Le nombre de machines pour chaque solution */
 };
 
 #endif // WORKERCOMPARAISON_H

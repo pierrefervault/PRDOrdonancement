@@ -22,12 +22,14 @@ INCLUDEPATH += $$PWD/../PRDOrdonancement
 SOURCES += \
     $$PWD/../PRDOrdonancement/methodeexacte.cpp \
     $$PWD/../PRDOrdonancement/heuristique.cpp \
-    $$PWD/../PRDOrdonancement/instance.cpp
+    $$PWD/../PRDOrdonancement/instance.cpp\
+    $$PWD/../PRDOrdonancement/resultat.cpp
 
 HEADERS  += \
     $$PWD/../PRDOrdonancement/methodeexacte.h \
     $$PWD/../PRDOrdonancement/heuristique.h \
-    $$PWD/../PRDOrdonancement/instance.h
+    $$PWD/../PRDOrdonancement/instance.h\
+    $$PWD/../PRDOrdonancement/resultat.h
 
 INCLUDEPATH += /home/pierre/build-PRDOrdonancement-Desktop_Qt_5_7_0_GCC_64bit-Debug/PRDOrdonancement/cplex_216/cplex/include
 INCLUDEPATH += /home/pierre/build-PRDOrdonancement-Desktop_Qt_5_7_0_GCC_64bit-Debug/PRDOrdonancement/cplex_216/concert/include

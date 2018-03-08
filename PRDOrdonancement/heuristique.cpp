@@ -336,7 +336,7 @@ unsigned int Heuristique::resolveMachinePerMachine(QString typeTri, QString fich
 
     double time = nanoseconds/1000000000;
 
-    return ecritureDansFichier(jobsOrdonnances, "Affectation1-"+typeTri, fichierResultat, time);
+    return this->resultat.sauvegarderResultat(this->instance, jobsOrdonnances, "Affectation1-"+typeTri, fichierResultat, time);
 
 }
 
@@ -460,61 +460,26 @@ unsigned int Heuristique::resolveMachineLessUsedMachine(QString typeTri, QString
 
     double time = nanoseconds/1000000000;
 
-    return ecritureDansFichier(jobsOrdonnances, "Affectation2-"+typeTri, fichierResultat, time);
+    return this->resultat.sauvegarderResultat(this->instance, jobsOrdonnances, "Affectation2-"+typeTri, fichierResultat, time);
 
 }
 
 /**
- * @brief Ecriture dans un fichier de résulat
+ * @brief Getter de l'instance pour laquelle on veut appliquer une heuristique
  *
- * @param jobsOrdonnances Le tableau de jobs ordonancés
- * @param typeResolution Le type de résolution
- * @param fichierResultat Le fichier où seront stockés les résulats
- * @param dureeExecution La durée d'execution de la résolution
- * @return unsigned int Le nombre de jobs ordonnancés
+ * @return Instance L'instance pour laquelle on veut appliquer une heuristique
  */
-unsigned int Heuristique:: ecritureDansFichier(vector<vector<unsigned int>> jobsOrdonnances, QString typeResolution, QString fichierResultat, double dureeExecution){
-
-    unsigned int nbrJobsOrdonnances = 0;
-    for(unsigned int i = 0; i < jobsOrdonnances.size(); i++){
-        //cout << "Machines : " << i << " : ";
-        for(unsigned int j = 0; j < jobsOrdonnances[i].size(); j++){
-            cout << jobsOrdonnances[i][j] << " ";
-            nbrJobsOrdonnances++;
-        }
-        //cout << endl;
-    }
-
-    ofstream output_file(fichierResultat.toStdString(),ios::app);
-
-    output_file << "Instance:" << this->instance.getFichierInstance().toStdString() << endl;
-    output_file << "Solution status:" << typeResolution.toStdString() << endl;
-    output_file << " Optimal Value=" << nbrJobsOrdonnances << endl;
-
-    output_file << "temps écoulé (en secondes):" << dureeExecution << endl;
-
-    output_file << "IdMachine " << "Nombre de jobs ordonnancés" << endl;
-
-    for(unsigned int i = 0; i < jobsOrdonnances.size(); i++){
-        output_file << i << " " << jobsOrdonnances[i].size() << endl;
-    }
-
-    output_file << "IdMachine " << "n°Job " << "Si " << "Fi " << endl;
-
-    for(unsigned int i = 0; i < jobsOrdonnances.size(); i++){
-        for(unsigned int j = 0; j < jobsOrdonnances[i].size(); j++){
-            output_file << i << " " << jobsOrdonnances[i][j] << " " << this->instance.getSj()[jobsOrdonnances[i][j]] << " " << this->instance.getFj()[jobsOrdonnances[i][j]] << endl;
-        }
-    }
-
-    return nbrJobsOrdonnances;
-}
-
 Instance Heuristique::getInstance() const
 {
     return instance;
 }
 
+
+/**
+ * @brief Setter de l'instance pour laquelle on veut appliquer une heuristique
+ *
+ * @param value L'instance pour laquelle on veut appliquer une heuristique
+ */
 void Heuristique::setInstance(Instance value)
 {
     instance = value;

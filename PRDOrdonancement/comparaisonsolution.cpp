@@ -1,18 +1,32 @@
 #include "comparaisonsolution.h"
 #include "ui_comparaisonsolution.h"
 
+/**
+ * @brief Constructeur de la classe ComparaisonSolution
+ *
+ * @param parent
+ */
 ComparaisonSolution::ComparaisonSolution(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ComparaisonSolution)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Comparaison des méthodes de résolution");
 }
 
+/**
+ * @brief Destructeur de la classe ComparaisonSolution
+ *
+ */
 ComparaisonSolution::~ComparaisonSolution()
 {
     delete ui;
 }
 
+/**
+ * @brief Action réalisée lors du clic sur le bouton permettant de choisir un dossier de résultat
+ *
+ */
 void ComparaisonSolution::on_choisirDossierPushButton_clicked()
 {
     QFileDialog fenetreDossier;
@@ -25,6 +39,10 @@ void ComparaisonSolution::on_choisirDossierPushButton_clicked()
     }
 }
 
+/**
+ * @brief Action réalisée lors du clic sur le bouton permettant de valider la comparaison
+ *
+ */
 void ComparaisonSolution::on_validerPushButton_clicked()
 {
     QString dossierInstance = this->ui->choisirDossierLineEdit->text();
@@ -48,6 +66,14 @@ void ComparaisonSolution::on_validerPushButton_clicked()
     }
 }
 
+/**
+ * @brief Execute la comparaison de solution
+ *
+ * @param dossierResultat Le dossier de résultat que l'on souhaite comparer
+ * @param typeComparaison Le type de comparaison que l'on souhaite effectuer
+ * @param nbrRessources Le nombre de ressources de chaque fichier de resultat
+ * @param nbrMachines Le nombre de machines de chaque fichier de resultat
+ */
 void ComparaisonSolution::executionComparaison(QString dossierInstance, QString typeResolution, unsigned int nbrRessources, unsigned int nbrMachines)
 {
     QThread* thread = new QThread;
@@ -65,11 +91,21 @@ void ComparaisonSolution::executionComparaison(QString dossierInstance, QString 
     thread->start();
 }
 
+/**
+ * @brief Action réalisée lors du clic sur le bouton permettant d'annuler la comparaison
+ *
+ */
 void ComparaisonSolution::on_annulerPushButton_clicked()
 {
     reject();
 }
 
+/**
+ * @brief Permet de mettre à jour le layout contenant le graphique de comparaison
+ *
+ * @param tableauComparaison Le tableau de comparaison contenant toute les données nécessaires à l'affichage du graphique
+ * @param typeComparaison Le type de comparaison que nous avons effectué
+ */
 void ComparaisonSolution::updateLayout(map<unsigned int,map<QString,unsigned int>> tableauComparaison, QString typeComparaison){
 
     cout << "Plot" << endl;
@@ -175,7 +211,10 @@ void ComparaisonSolution::updateLayout(map<unsigned int,map<QString,unsigned int
 
 }
 
-
+/**
+ * @brief Action réalisée lors du clic sur le bouton permettant de nettoyer le layout contenant le graphique de comparaison
+ *
+ */
 void ComparaisonSolution::on_netoyerLayoutPushButton_clicked()
 {
     QLayoutItem * item;

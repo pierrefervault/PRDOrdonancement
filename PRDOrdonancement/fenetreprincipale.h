@@ -48,6 +48,10 @@ private slots:
      */
     void on_actionR_soudre_des_instances_triggered();
 
+    /**
+     * @brief Action effectuée lors du clic sur le bouton de comparaison de méthode de résolution
+     *
+     */
     void on_actionComparer_des_m_thodes_de_r_solutions_triggered();
 
 private:
