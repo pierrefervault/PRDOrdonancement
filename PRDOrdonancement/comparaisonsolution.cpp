@@ -49,13 +49,13 @@ void ComparaisonSolution::on_validerPushButton_clicked()
 
     if (dossierInstance != NULL){
         if (this->ui->typeComparaisonComboBox->currentText() == "Calcul Gap"){
-            executionComparaison(dossierInstance,"Gap",this->ui->nbrRessourcesLineEdit->text().toInt(), this->ui->nbrMachinesLineEdit->text().toInt());
+            executionComparaison(dossierInstance,"Gap",this->ui->nbrRessourcesSpinBox->text().toInt(), this->ui->nbrMachinesSpinBox->text().toInt());
         }
         if (this->ui->typeComparaisonComboBox->currentText() == "Pourcentage de solutions optimales"){
-            executionComparaison(dossierInstance,"PourcentageSolutionsOptimales",this->ui->nbrRessourcesLineEdit->text().toInt(), this->ui->nbrMachinesLineEdit->text().toInt());
+            executionComparaison(dossierInstance,"PourcentageSolutionsOptimales",this->ui->nbrRessourcesSpinBox->text().toInt(), this->ui->nbrMachinesSpinBox->text().toInt());
         }
         if (this->ui->typeComparaisonComboBox->currentText() == "Pourcentage du temps de résolution par méthode exacte"){
-            executionComparaison(dossierInstance,"PourcentageTempsResolutionExacte",this->ui->nbrRessourcesLineEdit->text().toInt(), this->ui->nbrMachinesLineEdit->text().toInt());
+            executionComparaison(dossierInstance,"PourcentageTempsResolutionExacte",this->ui->nbrRessourcesSpinBox->text().toInt(), this->ui->nbrMachinesSpinBox->text().toInt());
         }
         //accept();
     }
@@ -108,106 +108,175 @@ void ComparaisonSolution::on_annulerPushButton_clicked()
  */
 void ComparaisonSolution::updateLayout(map<unsigned int,map<QString,unsigned int>> tableauComparaison, QString typeComparaison){
 
-    cout << "Plot" << endl;
-    QwtPlot * plot = new QwtPlot();
+    if (this->ui->tableauRadioButton->isChecked()){
 
-    if (typeComparaison == "Gap") plot->setTitle( "Gap des différentes méthodes de résolution" );
-    if (typeComparaison == "PourcentageSolutionsOptimales") plot->setTitle("Pourcentage de solutions optimales");
-    if (typeComparaison == "PourcentageTempsResolutionExacte") plot->setTitle("Pourcentage du temps de résolution par méthode exacte");
+        QTableView * tableView = new QTableView();
 
-    plot->setCanvasBackground( Qt::white );
-    plot->setAxisScale( QwtPlot::yLeft, 0.0, 100.0);
-    plot->insertLegend( new QwtLegend() );
+        unsigned int idColonne = 0;
+        unsigned int idLigne = 0;
 
-    cout << "PlotGrid" << endl;
-    QwtPlotGrid *grid = new QwtPlotGrid();
-    grid->attach( plot );
+        QStandardItemModel *model = new QStandardItemModel(tableauComparaison.size(), 9, this);
+        model->setHorizontalHeaderItem(0, new QStandardItem(QString("Nombre de jobs")));
 
-    cout << "PlotCurve" << endl;
-    QwtPlotCurve *curveAffectation1CCmaxMaxRessources = new QwtPlotCurve();
-    curveAffectation1CCmaxMaxRessources->setTitle( "Affectation1 CCmaxMaxRessources" );
-    curveAffectation1CCmaxMaxRessources->setPen( Qt::blue, 4 ),
-    curveAffectation1CCmaxMaxRessources->setRenderHint( QwtPlotItem::RenderAntialiased, true );
-
-    QwtPlotCurve *curveAffectation2CCmaxMaxRessources = new QwtPlotCurve();
-    curveAffectation2CCmaxMaxRessources->setTitle( "Affectation2 CCmaxMaxRessources" );
-    curveAffectation2CCmaxMaxRessources->setPen( Qt::green, 4 ),
-    curveAffectation2CCmaxMaxRessources->setRenderHint( QwtPlotItem::RenderAntialiased, true );
-
-    QwtPlotCurve *curveAffectation1CCmaxSommeRessources = new QwtPlotCurve();
-    curveAffectation1CCmaxSommeRessources->setTitle( "Affectation1 CCmaxSommeRessources" );
-    curveAffectation1CCmaxSommeRessources->setPen( Qt::black, 4 ),
-    curveAffectation1CCmaxSommeRessources->setRenderHint( QwtPlotItem::RenderAntialiased, true );
-
-    QwtPlotCurve *curveAffectation2CCmaxSommeRessources = new QwtPlotCurve();
-    curveAffectation2CCmaxSommeRessources->setTitle( "Affectation2 CCmaxSommeRessources" );
-    curveAffectation2CCmaxSommeRessources->setPen( Qt::yellow, 4 ),
-    curveAffectation2CCmaxSommeRessources->setRenderHint( QwtPlotItem::RenderAntialiased, true );
-
-    QwtPlotCurve *curveAffectation1SommeRessources = new QwtPlotCurve();
-    curveAffectation1SommeRessources->setTitle( "Affectation1 SommeRessources" );
-    curveAffectation1SommeRessources->setPen( Qt::gray, 4 ),
-    curveAffectation1SommeRessources->setRenderHint( QwtPlotItem::RenderAntialiased, true );
-
-    QwtPlotCurve *curveAffectation2SommeRessources = new QwtPlotCurve();
-    curveAffectation2SommeRessources->setTitle( "Affectation2 SommeRessources" );
-    curveAffectation2SommeRessources->setPen( Qt::darkBlue, 4 ),
-    curveAffectation2SommeRessources->setRenderHint( QwtPlotItem::RenderAntialiased, true );
-
-    QwtPlotCurve *curveAffectation1MoyenneRessourcesSousEnsembles = new QwtPlotCurve();
-    curveAffectation1MoyenneRessourcesSousEnsembles->setTitle( "Affectation1 MoyenneRessourcesSousEnsembles" );
-    curveAffectation1MoyenneRessourcesSousEnsembles->setPen( Qt::darkGreen, 4 ),
-    curveAffectation1MoyenneRessourcesSousEnsembles->setRenderHint( QwtPlotItem::RenderAntialiased, true );
-
-    QwtPlotCurve *curveAffectation2MoyenneRessourcesSousEnsembles = new QwtPlotCurve();
-    curveAffectation2MoyenneRessourcesSousEnsembles->setTitle( "Affectation2 MoyenneRessourcesSousEnsembles" );
-    curveAffectation2MoyenneRessourcesSousEnsembles->setPen( Qt::darkMagenta, 4 ),
-    curveAffectation2MoyenneRessourcesSousEnsembles->setRenderHint( QwtPlotItem::RenderAntialiased, true );
-
-    QPolygonF pointsAffectation1CCmaxMaxRessources;
-    QPolygonF pointsAffectation2CCmaxMaxRessources;
-    QPolygonF pointsAffectation1CCmaxSommeRessources;
-    QPolygonF pointsAffectation2CCmaxSommeRessources;
-    QPolygonF pointsAffectation1SommeRessources;
-    QPolygonF pointsAffectation2SommeRessources;
-    QPolygonF pointsAffectation1MoyenneRessourcesSousEnsembles;
-    QPolygonF pointsAffectation2MoyenneRessourcesSousEnsembles;
-
-    for (std::map<unsigned int,map<QString,unsigned int>>::iterator it=tableauComparaison.begin(); it!=tableauComparaison.end(); ++it)
-    {
-        for (std::map<QString,unsigned int>::iterator it2=it->second.begin(); it2!=it->second.end(); ++it2){
-            if (it2->first.contains("Affectation1-CCmaxMaxRessources")) pointsAffectation1CCmaxMaxRessources << QPointF( it->first, it2->second);
-            if (it2->first.contains("Affectation2-CCmaxMaxRessources")) pointsAffectation2CCmaxMaxRessources << QPointF( it->first, it2->second);
-            if (it2->first.contains("Affectation1-CCmaxSommeRessources")) pointsAffectation1CCmaxSommeRessources << QPointF( it->first, it2->second);
-            if (it2->first.contains("Affectation2-CCmaxSommeRessources")) pointsAffectation2CCmaxSommeRessources << QPointF( it->first, it2->second);
-            if (it2->first.contains("Affectation1-SommeRessources")) pointsAffectation1SommeRessources << QPointF( it->first, it2->second);
-            if (it2->first.contains("Affectation2-SommeRessources")) pointsAffectation2SommeRessources << QPointF( it->first, it2->second);
-            if (it2->first.contains("Affectation1-MoyenneRessourcesSousEnsembles")) pointsAffectation1MoyenneRessourcesSousEnsembles << QPointF( it->first, it2->second);
-            if (it2->first.contains("Affectation2-MoyenneRessourcesSousEnsembles")) pointsAffectation2MoyenneRessourcesSousEnsembles << QPointF( it->first, it2->second);
+        for (std::map<QString,unsigned int>::iterator it2=tableauComparaison.begin()->second.begin(); it2!=tableauComparaison.begin()->second.end(); ++it2){
+            idColonne++;
+            if (it2->first.contains("Affectation1-CCmaxMaxRessources")) model->setHorizontalHeaderItem(idColonne, new QStandardItem("Affectation1-CCmaxMaxRessources"));
+            if (it2->first.contains("Affectation2-CCmaxMaxRessources")) model->setHorizontalHeaderItem(idColonne, new QStandardItem("Affectation2-CCmaxMaxRessources"));
+            if (it2->first.contains("Affectation1-CCmaxSommeRessources")) model->setHorizontalHeaderItem(idColonne, new QStandardItem("Affectation1-CCmaxSommeRessources"));
+            if (it2->first.contains("Affectation2-CCmaxSommeRessources")) model->setHorizontalHeaderItem(idColonne, new QStandardItem("Affectation2-CCmaxSommeRessources"));
+            if (it2->first.contains("Affectation1-SommeRessources")) model->setHorizontalHeaderItem(idColonne, new QStandardItem("Affectation1-SommeRessources"));
+            if (it2->first.contains("Affectation2-SommeRessources")) model->setHorizontalHeaderItem(idColonne, new QStandardItem("Affectation2-SommeRessources"));
+            if (it2->first.contains("Affectation1-MoyenneRessourcesSousEnsembles")) model->setHorizontalHeaderItem(idColonne, new QStandardItem("Affectation1-MoyenneRessourcesSousEnsembles"));
+            if (it2->first.contains("Affectation2-MoyenneRessourcesSousEnsembles")) model->setHorizontalHeaderItem(idColonne, new QStandardItem("Affectation2-MoyenneRessourcesSousEnsembles"));
+            if (it2->first.contains("Mip1")) model->setHorizontalHeaderItem(idColonne, new QStandardItem("Mip1"));
+            if (it2->first.contains("Mip2")) model->setHorizontalHeaderItem(idColonne, new QStandardItem("Mip2"));
         }
+
+        tableView->setModel(model);
+
+        for (std::map<unsigned int,map<QString,unsigned int>>::iterator it=tableauComparaison.begin(); it!=tableauComparaison.end(); ++it)
+        {
+            idColonne = 0;
+            QStandardItem * valeur = new QStandardItem(QString::number(it->first));
+            model->setItem(idLigne,idColonne,valeur);
+            for (std::map<QString,unsigned int>::iterator it2=it->second.begin(); it2!=it->second.end(); ++it2){
+                idColonne++;
+                QStandardItem * valeurHeuristique = new QStandardItem(QString::number(it2->second)+QString(" %"));
+                model->setItem(idLigne,idColonne,valeurHeuristique);
+            }
+            idLigne++;
+        }
+
+        tableView->resizeColumnsToContents();
+
+        QLabel * titre = new QLabel();
+
+        if (typeComparaison == "Gap") titre->setText("Gap des différentes méthodes de résolution" );
+        if (typeComparaison == "PourcentageSolutionsOptimales") titre->setText("Pourcentage de solutions optimales");
+        if (typeComparaison == "PourcentageTempsResolutionExacte") titre->setText("Pourcentage du temps de résolution par méthode exacte");
+
+        QFont font( "Arial", 18, QFont::Bold);
+
+        titre->setFont(font);
+
+        this->ui->verticalLayout->addWidget(titre);
+
+        this->ui->verticalLayout->addWidget(tableView);
     }
 
-    cout << "PlotSetSamples" << endl;
-    curveAffectation1CCmaxMaxRessources->setSamples( pointsAffectation1CCmaxMaxRessources );
-    curveAffectation2CCmaxMaxRessources->setSamples( pointsAffectation2CCmaxMaxRessources );
-    curveAffectation1CCmaxSommeRessources->setSamples( pointsAffectation1CCmaxSommeRessources );
-    curveAffectation2CCmaxSommeRessources->setSamples( pointsAffectation2CCmaxSommeRessources );
-    curveAffectation1SommeRessources->setSamples( pointsAffectation1SommeRessources );
-    curveAffectation2SommeRessources->setSamples( pointsAffectation2SommeRessources );
-    curveAffectation1MoyenneRessourcesSousEnsembles->setSamples( pointsAffectation1MoyenneRessourcesSousEnsembles );
-    curveAffectation2MoyenneRessourcesSousEnsembles->setSamples( pointsAffectation2MoyenneRessourcesSousEnsembles );
+    if (this->ui->graphiqueRadioButton->isChecked()){
+        QwtPlot * plot = new QwtPlot();
 
-    cout << "PlotAttach" << endl;
-    curveAffectation1CCmaxMaxRessources->attach( plot );
-    curveAffectation2CCmaxMaxRessources->attach( plot );
-    curveAffectation1CCmaxSommeRessources->attach( plot );
-    curveAffectation2CCmaxSommeRessources->attach( plot );
-    curveAffectation1SommeRessources->attach( plot );
-    curveAffectation2SommeRessources->attach( plot );
-    curveAffectation1MoyenneRessourcesSousEnsembles->attach( plot );
-    curveAffectation2MoyenneRessourcesSousEnsembles->attach( plot );
+        if (typeComparaison == "Gap") plot->setTitle( "Gap des différentes méthodes de résolution" );
+        if (typeComparaison == "PourcentageSolutionsOptimales") plot->setTitle("Pourcentage de solutions optimales");
+        if (typeComparaison == "PourcentageTempsResolutionExacte") plot->setTitle("Pourcentage du temps de résolution par méthode exacte");
 
-    this->ui->verticalLayout->addWidget(plot);
+        plot->setCanvasBackground( Qt::white );
+        plot->setAxisScale( QwtPlot::yLeft, 0.0, 100.0);
+        plot->insertLegend( new QwtLegend() );
+
+        QwtPlotGrid *grid = new QwtPlotGrid();
+        grid->attach( plot );
+
+        QwtPlotCurve *curveAffectation1CCmaxMaxRessources = new QwtPlotCurve();
+        curveAffectation1CCmaxMaxRessources->setTitle( "Affectation1 CCmaxMaxRessources" );
+        curveAffectation1CCmaxMaxRessources->setPen( Qt::blue, 4 ),
+        curveAffectation1CCmaxMaxRessources->setRenderHint( QwtPlotItem::RenderAntialiased, true );
+        QwtSymbol *symbolAffectation1CCmaxMaxRessources = new QwtSymbol( QwtSymbol::Ellipse, QBrush( Qt::blue ), QPen( Qt::red, 2 ), QSize( 8, 8 ) );
+        curveAffectation1CCmaxMaxRessources->setSymbol( symbolAffectation1CCmaxMaxRessources );
+
+        QwtPlotCurve *curveAffectation2CCmaxMaxRessources = new QwtPlotCurve();
+        curveAffectation2CCmaxMaxRessources->setTitle( "Affectation2 CCmaxMaxRessources" );
+        curveAffectation2CCmaxMaxRessources->setPen( Qt::green, 4 ),
+        curveAffectation2CCmaxMaxRessources->setRenderHint( QwtPlotItem::RenderAntialiased, true );
+        QwtSymbol *symbolAffectation2CCmaxMaxRessources = new QwtSymbol( QwtSymbol::Ellipse, QBrush( Qt::green ), QPen( Qt::red, 2 ), QSize( 8, 8 ) );
+        curveAffectation2CCmaxMaxRessources->setSymbol( symbolAffectation2CCmaxMaxRessources );
+
+        QwtPlotCurve *curveAffectation1CCmaxSommeRessources = new QwtPlotCurve();
+        curveAffectation1CCmaxSommeRessources->setTitle( "Affectation1 CCmaxSommeRessources" );
+        curveAffectation1CCmaxSommeRessources->setPen( Qt::black, 4 ),
+        curveAffectation1CCmaxSommeRessources->setRenderHint( QwtPlotItem::RenderAntialiased, true );
+        QwtSymbol *symbolAffectation1CCmaxSommeRessources = new QwtSymbol( QwtSymbol::Ellipse, QBrush( Qt::black ), QPen( Qt::red, 2 ), QSize( 8, 8 ) );
+        curveAffectation1CCmaxSommeRessources->setSymbol( symbolAffectation1CCmaxSommeRessources );
+
+        QwtPlotCurve *curveAffectation2CCmaxSommeRessources = new QwtPlotCurve();
+        curveAffectation2CCmaxSommeRessources->setTitle( "Affectation2 CCmaxSommeRessources" );
+        curveAffectation2CCmaxSommeRessources->setPen( Qt::yellow, 4 ),
+        curveAffectation2CCmaxSommeRessources->setRenderHint( QwtPlotItem::RenderAntialiased, true );
+        QwtSymbol *symbolAffectation2CCmaxSommeRessources = new QwtSymbol( QwtSymbol::Ellipse, QBrush( Qt::yellow ), QPen( Qt::red, 2 ), QSize( 8, 8 ) );
+        curveAffectation2CCmaxSommeRessources->setSymbol( symbolAffectation2CCmaxSommeRessources );
+
+        QwtPlotCurve *curveAffectation1SommeRessources = new QwtPlotCurve();
+        curveAffectation1SommeRessources->setTitle( "Affectation1 SommeRessources" );
+        curveAffectation1SommeRessources->setPen( Qt::gray, 4 ),
+        curveAffectation1SommeRessources->setRenderHint( QwtPlotItem::RenderAntialiased, true );
+        QwtSymbol *symbolAffectation1SommeRessources = new QwtSymbol( QwtSymbol::Ellipse, QBrush( Qt::gray ), QPen( Qt::red, 2 ), QSize( 8, 8 ) );
+        curveAffectation1SommeRessources->setSymbol( symbolAffectation1SommeRessources );
+
+        QwtPlotCurve *curveAffectation2SommeRessources = new QwtPlotCurve();
+        curveAffectation2SommeRessources->setTitle( "Affectation2 SommeRessources" );
+        curveAffectation2SommeRessources->setPen( Qt::darkBlue, 4 ),
+        curveAffectation2SommeRessources->setRenderHint( QwtPlotItem::RenderAntialiased, true );
+        QwtSymbol *symbolAffectation2SommeRessources = new QwtSymbol( QwtSymbol::Ellipse, QBrush( Qt::darkBlue ), QPen( Qt::red, 2 ), QSize( 8, 8 ) );
+        curveAffectation2SommeRessources->setSymbol( symbolAffectation2SommeRessources );
+
+        QwtPlotCurve *curveAffectation1MoyenneRessourcesSousEnsembles = new QwtPlotCurve();
+        curveAffectation1MoyenneRessourcesSousEnsembles->setTitle( "Affectation1 MoyenneRessourcesSousEnsembles" );
+        curveAffectation1MoyenneRessourcesSousEnsembles->setPen( Qt::darkGreen, 4 ),
+        curveAffectation1MoyenneRessourcesSousEnsembles->setRenderHint( QwtPlotItem::RenderAntialiased, true );
+        QwtSymbol *symbolAffectation1MoyenneRessourcesSousEnsembles = new QwtSymbol( QwtSymbol::Ellipse, QBrush( Qt::darkGreen ), QPen( Qt::red, 2 ), QSize( 8, 8 ) );
+        curveAffectation1MoyenneRessourcesSousEnsembles->setSymbol( symbolAffectation1MoyenneRessourcesSousEnsembles );
+
+        QwtPlotCurve *curveAffectation2MoyenneRessourcesSousEnsembles = new QwtPlotCurve();
+        curveAffectation2MoyenneRessourcesSousEnsembles->setTitle( "Affectation2 MoyenneRessourcesSousEnsembles" );
+        curveAffectation2MoyenneRessourcesSousEnsembles->setPen( Qt::darkMagenta, 4 ),
+        curveAffectation2MoyenneRessourcesSousEnsembles->setRenderHint( QwtPlotItem::RenderAntialiased, true );
+        QwtSymbol *symbolAffectation2MoyenneRessourcesSousEnsembles = new QwtSymbol( QwtSymbol::Ellipse, QBrush( Qt::darkMagenta ), QPen( Qt::red, 2 ), QSize( 8, 8 ) );
+        curveAffectation2MoyenneRessourcesSousEnsembles->setSymbol( symbolAffectation2MoyenneRessourcesSousEnsembles );
+
+        QPolygonF pointsAffectation1CCmaxMaxRessources;
+        QPolygonF pointsAffectation2CCmaxMaxRessources;
+        QPolygonF pointsAffectation1CCmaxSommeRessources;
+        QPolygonF pointsAffectation2CCmaxSommeRessources;
+        QPolygonF pointsAffectation1SommeRessources;
+        QPolygonF pointsAffectation2SommeRessources;
+        QPolygonF pointsAffectation1MoyenneRessourcesSousEnsembles;
+        QPolygonF pointsAffectation2MoyenneRessourcesSousEnsembles;
+
+        for (std::map<unsigned int,map<QString,unsigned int>>::iterator it=tableauComparaison.begin(); it!=tableauComparaison.end(); ++it)
+        {
+            for (std::map<QString,unsigned int>::iterator it2=it->second.begin(); it2!=it->second.end(); ++it2){
+                if (it2->first.contains("Affectation1-CCmaxMaxRessources")) pointsAffectation1CCmaxMaxRessources << QPointF( it->first, it2->second);
+                if (it2->first.contains("Affectation2-CCmaxMaxRessources")) pointsAffectation2CCmaxMaxRessources << QPointF( it->first, it2->second);
+                if (it2->first.contains("Affectation1-CCmaxSommeRessources")) pointsAffectation1CCmaxSommeRessources << QPointF( it->first, it2->second);
+                if (it2->first.contains("Affectation2-CCmaxSommeRessources")) pointsAffectation2CCmaxSommeRessources << QPointF( it->first, it2->second);
+                if (it2->first.contains("Affectation1-SommeRessources")) pointsAffectation1SommeRessources << QPointF( it->first, it2->second);
+                if (it2->first.contains("Affectation2-SommeRessources")) pointsAffectation2SommeRessources << QPointF( it->first, it2->second);
+                if (it2->first.contains("Affectation1-MoyenneRessourcesSousEnsembles")) pointsAffectation1MoyenneRessourcesSousEnsembles << QPointF( it->first, it2->second);
+                if (it2->first.contains("Affectation2-MoyenneRessourcesSousEnsembles")) pointsAffectation2MoyenneRessourcesSousEnsembles << QPointF( it->first, it2->second);
+            }
+        }
+
+        curveAffectation1CCmaxMaxRessources->setSamples( pointsAffectation1CCmaxMaxRessources );
+        curveAffectation2CCmaxMaxRessources->setSamples( pointsAffectation2CCmaxMaxRessources );
+        curveAffectation1CCmaxSommeRessources->setSamples( pointsAffectation1CCmaxSommeRessources );
+        curveAffectation2CCmaxSommeRessources->setSamples( pointsAffectation2CCmaxSommeRessources );
+        curveAffectation1SommeRessources->setSamples( pointsAffectation1SommeRessources );
+        curveAffectation2SommeRessources->setSamples( pointsAffectation2SommeRessources );
+        curveAffectation1MoyenneRessourcesSousEnsembles->setSamples( pointsAffectation1MoyenneRessourcesSousEnsembles );
+        curveAffectation2MoyenneRessourcesSousEnsembles->setSamples( pointsAffectation2MoyenneRessourcesSousEnsembles );
+
+        curveAffectation1CCmaxMaxRessources->attach( plot );
+        curveAffectation2CCmaxMaxRessources->attach( plot );
+        curveAffectation1CCmaxSommeRessources->attach( plot );
+        curveAffectation2CCmaxSommeRessources->attach( plot );
+        curveAffectation1SommeRessources->attach( plot );
+        curveAffectation2SommeRessources->attach( plot );
+        curveAffectation1MoyenneRessourcesSousEnsembles->attach( plot );
+        curveAffectation2MoyenneRessourcesSousEnsembles->attach( plot );
+
+        this->ui->verticalLayout->addWidget(plot);
+    }
 
 }
 

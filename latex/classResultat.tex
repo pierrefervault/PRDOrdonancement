@@ -1,0 +1,308 @@
+\hypertarget{classResultat}{}\section{Resultat Class Reference}
+\label{classResultat}\index{Resultat@{Resultat}}
+
+
+La classe représentant un fichier de résultat.  
+
+
+
+
+{\ttfamily \#include $<$resultat.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classResultat_acc2413409ddb57b3d1ac405d8bdfb922}{Resultat} ()
+\begin{DoxyCompactList}\small\item\em Le constructeur de la classe \hyperlink{classResultat}{Resultat}. \end{DoxyCompactList}\item 
+void \hyperlink{classResultat_afce37c00573db2aa3f96dd5d69f50d40}{charger\+Resultat} (Q\+String fichier\+Resultat)
+\begin{DoxyCompactList}\small\item\em Permet de charger un résulat à partir d\textquotesingle{}un fichier de résultat. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{classResultat_adc6f1595c1e2271cd39805a6b62e8448}{sauvegarder\+Resultat} (\hyperlink{classInstance}{Instance} instance, vector$<$ vector$<$ unsigned int $>$$>$ jobs\+Ordonnances, Q\+String type\+Resolution, Q\+String fichier\+Resultat, double duree\+Execution)
+\begin{DoxyCompactList}\small\item\em Permet de sauvegarder le résultat d\textquotesingle{}une résolution d\textquotesingle{}instance dans un fichier de résultat. \end{DoxyCompactList}\item 
+vector$<$ unsigned int $>$ \hyperlink{classResultat_ac1b23e9ca052ec68a71f7d028673404c}{get\+Solutions} () const
+\begin{DoxyCompactList}\small\item\em Getter permetant d\textquotesingle{}obtenir le tableau contenant l\textquotesingle{}ensemble des solutions trouvées. \end{DoxyCompactList}\item 
+void \hyperlink{classResultat_a972135d1658be3aa3c72afbb5deaa6b7}{set\+Solutions} (const vector$<$ unsigned int $>$ \&value)
+\begin{DoxyCompactList}\small\item\em Setter permetant de spécifier le tableau contenant l\textquotesingle{}ensemble des solutions trouvées. \end{DoxyCompactList}\item 
+vector$<$ double $>$ \hyperlink{classResultat_aa55a388229eaf8707db45db93303438d}{get\+Temps\+Execution} () const
+\begin{DoxyCompactList}\small\item\em Getter permetant d\textquotesingle{}obtenir le tableau contenant les temps de calcul pour chaque solution. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{classResultat_a2bc475be569fa5b75e83401e712fe48c}{get\+Nbr\+Jobs} () const
+\begin{DoxyCompactList}\small\item\em Getter permetant d\textquotesingle{}obtenir le nombre de jobs pour chaque solution. \end{DoxyCompactList}\item 
+void \hyperlink{classResultat_a61b3cb17971280228fe9e1ce20e906fa}{set\+Nbr\+Jobs} (unsigned int value)
+\begin{DoxyCompactList}\small\item\em Setter permetant de spécifier le nombre de jobs pour chaque solution. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{classResultat_a27c7c950f55c5cf608a8acb6b1eb3c80}{get\+Nbr\+Ressources} () const
+\begin{DoxyCompactList}\small\item\em Getter permetant d\textquotesingle{}obtenir le nombre de ressources pour chaque solution. \end{DoxyCompactList}\item 
+void \hyperlink{classResultat_a3e4e337fd9d39bf566a26873c9c4410c}{set\+Nbr\+Ressources} (unsigned int value)
+\begin{DoxyCompactList}\small\item\em Setter permetant de spécifier le nombre de ressources pour chaque solution. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{classResultat_a2153dfd451577fcdbd4f5bb44d531c85}{get\+Nbr\+Machines} () const
+\begin{DoxyCompactList}\small\item\em Getter permetant d\textquotesingle{}obtenir le nombre de machines pour chaque solution. \end{DoxyCompactList}\item 
+void \hyperlink{classResultat_a5de638751a3dadde3d8765663a3d1403}{set\+Nbr\+Machines} (unsigned int value)
+\begin{DoxyCompactList}\small\item\em Setter permetant de spécifier le nombre de machines pour chaque solution. \end{DoxyCompactList}\item 
+Q\+String \hyperlink{classResultat_a77306ef96fc23df3eeea71c986755509}{get\+Fichier\+Resultat} () const
+\begin{DoxyCompactList}\small\item\em Getter permetant d\textquotesingle{}obtenir le fichier de resultat. \end{DoxyCompactList}\item 
+void \hyperlink{classResultat_a075763b45ce7ff0e43d1d9e5e425b78c}{set\+Fichier\+Resultat} (const Q\+String \&value)
+\begin{DoxyCompactList}\small\item\em Setter permetant de spécifier le fichier de resultat. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+La classe représentant un fichier de résultat. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classResultat_acc2413409ddb57b3d1ac405d8bdfb922}\label{classResultat_acc2413409ddb57b3d1ac405d8bdfb922}} 
+\index{Resultat@{Resultat}!Resultat@{Resultat}}
+\index{Resultat@{Resultat}!Resultat@{Resultat}}
+\subsubsection{\texorpdfstring{Resultat()}{Resultat()}}
+{\footnotesize\ttfamily Resultat\+::\+Resultat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Le constructeur de la classe \hyperlink{classResultat}{Resultat}. 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classResultat_acc2413409ddb57b3d1ac405d8bdfb922_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classResultat_afce37c00573db2aa3f96dd5d69f50d40}\label{classResultat_afce37c00573db2aa3f96dd5d69f50d40}} 
+\index{Resultat@{Resultat}!charger\+Resultat@{charger\+Resultat}}
+\index{charger\+Resultat@{charger\+Resultat}!Resultat@{Resultat}}
+\subsubsection{\texorpdfstring{charger\+Resultat()}{chargerResultat()}}
+{\footnotesize\ttfamily void Resultat\+::charger\+Resultat (\begin{DoxyParamCaption}\item[{Q\+String}]{fichier\+Resultat }\end{DoxyParamCaption})}
+
+
+
+Permet de charger un résulat à partir d\textquotesingle{}un fichier de résultat. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fichier\+Resultat} & Le fichier contenant les données spécifiques à des résultats de résolution \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classResultat_afce37c00573db2aa3f96dd5d69f50d40_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classResultat_a77306ef96fc23df3eeea71c986755509}\label{classResultat_a77306ef96fc23df3eeea71c986755509}} 
+\index{Resultat@{Resultat}!get\+Fichier\+Resultat@{get\+Fichier\+Resultat}}
+\index{get\+Fichier\+Resultat@{get\+Fichier\+Resultat}!Resultat@{Resultat}}
+\subsubsection{\texorpdfstring{get\+Fichier\+Resultat()}{getFichierResultat()}}
+{\footnotesize\ttfamily Q\+String Resultat\+::get\+Fichier\+Resultat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter permetant d\textquotesingle{}obtenir le fichier de resultat. 
+
+\begin{DoxyReturn}{Returns}
+unsigned int Le le fichier de resultat 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classResultat_a2bc475be569fa5b75e83401e712fe48c}\label{classResultat_a2bc475be569fa5b75e83401e712fe48c}} 
+\index{Resultat@{Resultat}!get\+Nbr\+Jobs@{get\+Nbr\+Jobs}}
+\index{get\+Nbr\+Jobs@{get\+Nbr\+Jobs}!Resultat@{Resultat}}
+\subsubsection{\texorpdfstring{get\+Nbr\+Jobs()}{getNbrJobs()}}
+{\footnotesize\ttfamily unsigned int Resultat\+::get\+Nbr\+Jobs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter permetant d\textquotesingle{}obtenir le nombre de jobs pour chaque solution. 
+
+\begin{DoxyReturn}{Returns}
+unsigned int Le nombre de jobs pour chaque solution 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classResultat_a2153dfd451577fcdbd4f5bb44d531c85}\label{classResultat_a2153dfd451577fcdbd4f5bb44d531c85}} 
+\index{Resultat@{Resultat}!get\+Nbr\+Machines@{get\+Nbr\+Machines}}
+\index{get\+Nbr\+Machines@{get\+Nbr\+Machines}!Resultat@{Resultat}}
+\subsubsection{\texorpdfstring{get\+Nbr\+Machines()}{getNbrMachines()}}
+{\footnotesize\ttfamily unsigned int Resultat\+::get\+Nbr\+Machines (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter permetant d\textquotesingle{}obtenir le nombre de machines pour chaque solution. 
+
+\begin{DoxyReturn}{Returns}
+unsigned int Le nombre de machines pour chaque solution 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classResultat_a27c7c950f55c5cf608a8acb6b1eb3c80}\label{classResultat_a27c7c950f55c5cf608a8acb6b1eb3c80}} 
+\index{Resultat@{Resultat}!get\+Nbr\+Ressources@{get\+Nbr\+Ressources}}
+\index{get\+Nbr\+Ressources@{get\+Nbr\+Ressources}!Resultat@{Resultat}}
+\subsubsection{\texorpdfstring{get\+Nbr\+Ressources()}{getNbrRessources()}}
+{\footnotesize\ttfamily unsigned int Resultat\+::get\+Nbr\+Ressources (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter permetant d\textquotesingle{}obtenir le nombre de ressources pour chaque solution. 
+
+\begin{DoxyReturn}{Returns}
+unsigned int Le nombre de ressources pour chaque solution 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classResultat_ac1b23e9ca052ec68a71f7d028673404c}\label{classResultat_ac1b23e9ca052ec68a71f7d028673404c}} 
+\index{Resultat@{Resultat}!get\+Solutions@{get\+Solutions}}
+\index{get\+Solutions@{get\+Solutions}!Resultat@{Resultat}}
+\subsubsection{\texorpdfstring{get\+Solutions()}{getSolutions()}}
+{\footnotesize\ttfamily vector$<$ unsigned int $>$ Resultat\+::get\+Solutions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter permetant d\textquotesingle{}obtenir le tableau contenant l\textquotesingle{}ensemble des solutions trouvées. 
+
+\begin{DoxyReturn}{Returns}
+vector$<$unsigned int$>$ Le tableau contenant l\textquotesingle{}ensemble des solutions trouvées 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classResultat_aa55a388229eaf8707db45db93303438d}\label{classResultat_aa55a388229eaf8707db45db93303438d}} 
+\index{Resultat@{Resultat}!get\+Temps\+Execution@{get\+Temps\+Execution}}
+\index{get\+Temps\+Execution@{get\+Temps\+Execution}!Resultat@{Resultat}}
+\subsubsection{\texorpdfstring{get\+Temps\+Execution()}{getTempsExecution()}}
+{\footnotesize\ttfamily vector$<$ double $>$ Resultat\+::get\+Temps\+Execution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter permetant d\textquotesingle{}obtenir le tableau contenant les temps de calcul pour chaque solution. 
+
+\begin{DoxyReturn}{Returns}
+vector$<$double$>$ Le tableau contenant les temps de calcul pour chaque solution 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classResultat_adc6f1595c1e2271cd39805a6b62e8448}\label{classResultat_adc6f1595c1e2271cd39805a6b62e8448}} 
+\index{Resultat@{Resultat}!sauvegarder\+Resultat@{sauvegarder\+Resultat}}
+\index{sauvegarder\+Resultat@{sauvegarder\+Resultat}!Resultat@{Resultat}}
+\subsubsection{\texorpdfstring{sauvegarder\+Resultat()}{sauvegarderResultat()}}
+{\footnotesize\ttfamily unsigned int Resultat\+::sauvegarder\+Resultat (\begin{DoxyParamCaption}\item[{\hyperlink{classInstance}{Instance}}]{instance,  }\item[{vector$<$ vector$<$ unsigned int $>$$>$}]{jobs\+Ordonnances,  }\item[{Q\+String}]{type\+Resolution,  }\item[{Q\+String}]{fichier\+Resultat,  }\item[{double}]{duree\+Execution }\end{DoxyParamCaption})}
+
+
+
+Permet de sauvegarder le résultat d\textquotesingle{}une résolution d\textquotesingle{}instance dans un fichier de résultat. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em instance} & L\textquotesingle{}instance que l\textquotesingle{}on a résolu \\
+\hline
+{\em jobs\+Ordonnances} & Le tableau de jobs ordonancés \\
+\hline
+{\em type\+Resolution} & Le type de résolution \\
+\hline
+{\em fichier\+Resultat} & Le fichier où seront stockés les résulats \\
+\hline
+{\em duree\+Execution} & La durée d\textquotesingle{}execution de la résolution \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+unsigned int Le nombre de jobs ordonnancés 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classResultat_adc6f1595c1e2271cd39805a6b62e8448_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classResultat_adc6f1595c1e2271cd39805a6b62e8448_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classResultat_a075763b45ce7ff0e43d1d9e5e425b78c}\label{classResultat_a075763b45ce7ff0e43d1d9e5e425b78c}} 
+\index{Resultat@{Resultat}!set\+Fichier\+Resultat@{set\+Fichier\+Resultat}}
+\index{set\+Fichier\+Resultat@{set\+Fichier\+Resultat}!Resultat@{Resultat}}
+\subsubsection{\texorpdfstring{set\+Fichier\+Resultat()}{setFichierResultat()}}
+{\footnotesize\ttfamily void Resultat\+::set\+Fichier\+Resultat (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{value }\end{DoxyParamCaption})}
+
+
+
+Setter permetant de spécifier le fichier de resultat. 
+
+\begin{DoxyReturn}{Returns}
+unsigned int Le le fichier de resultat 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classResultat_a61b3cb17971280228fe9e1ce20e906fa}\label{classResultat_a61b3cb17971280228fe9e1ce20e906fa}} 
+\index{Resultat@{Resultat}!set\+Nbr\+Jobs@{set\+Nbr\+Jobs}}
+\index{set\+Nbr\+Jobs@{set\+Nbr\+Jobs}!Resultat@{Resultat}}
+\subsubsection{\texorpdfstring{set\+Nbr\+Jobs()}{setNbrJobs()}}
+{\footnotesize\ttfamily void Resultat\+::set\+Nbr\+Jobs (\begin{DoxyParamCaption}\item[{unsigned int}]{value }\end{DoxyParamCaption})}
+
+
+
+Setter permetant de spécifier le nombre de jobs pour chaque solution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Le nombre de jobs pour chaque solution \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{classResultat_a61b3cb17971280228fe9e1ce20e906fa_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classResultat_a5de638751a3dadde3d8765663a3d1403}\label{classResultat_a5de638751a3dadde3d8765663a3d1403}} 
+\index{Resultat@{Resultat}!set\+Nbr\+Machines@{set\+Nbr\+Machines}}
+\index{set\+Nbr\+Machines@{set\+Nbr\+Machines}!Resultat@{Resultat}}
+\subsubsection{\texorpdfstring{set\+Nbr\+Machines()}{setNbrMachines()}}
+{\footnotesize\ttfamily void Resultat\+::set\+Nbr\+Machines (\begin{DoxyParamCaption}\item[{unsigned int}]{value }\end{DoxyParamCaption})}
+
+
+
+Setter permetant de spécifier le nombre de machines pour chaque solution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Le nombre de machines pour chaque solution \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=343pt]{classResultat_a5de638751a3dadde3d8765663a3d1403_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classResultat_a3e4e337fd9d39bf566a26873c9c4410c}\label{classResultat_a3e4e337fd9d39bf566a26873c9c4410c}} 
+\index{Resultat@{Resultat}!set\+Nbr\+Ressources@{set\+Nbr\+Ressources}}
+\index{set\+Nbr\+Ressources@{set\+Nbr\+Ressources}!Resultat@{Resultat}}
+\subsubsection{\texorpdfstring{set\+Nbr\+Ressources()}{setNbrRessources()}}
+{\footnotesize\ttfamily void Resultat\+::set\+Nbr\+Ressources (\begin{DoxyParamCaption}\item[{unsigned int}]{value }\end{DoxyParamCaption})}
+
+
+
+Setter permetant de spécifier le nombre de ressources pour chaque solution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Le nombre de ressources pour chaque solution \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classResultat_a3e4e337fd9d39bf566a26873c9c4410c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classResultat_a972135d1658be3aa3c72afbb5deaa6b7}\label{classResultat_a972135d1658be3aa3c72afbb5deaa6b7}} 
+\index{Resultat@{Resultat}!set\+Solutions@{set\+Solutions}}
+\index{set\+Solutions@{set\+Solutions}!Resultat@{Resultat}}
+\subsubsection{\texorpdfstring{set\+Solutions()}{setSolutions()}}
+{\footnotesize\ttfamily void Resultat\+::set\+Solutions (\begin{DoxyParamCaption}\item[{const vector$<$ unsigned int $>$ \&}]{value }\end{DoxyParamCaption})}
+
+
+
+Setter permetant de spécifier le tableau contenant l\textquotesingle{}ensemble des solutions trouvées. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Le tableau contenant l\textquotesingle{}ensemble des solutions trouvées \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+P\+R\+D\+Ordonancement/\hyperlink{resultat_8h}{resultat.\+h}\item 
+P\+R\+D\+Ordonancement/\hyperlink{resultat_8cpp}{resultat.\+cpp}\end{DoxyCompactItemize}

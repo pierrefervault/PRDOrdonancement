@@ -1,0 +1,21 @@
+#include "nouvelleinterface.h"
+#include "ui_nouvelleinterface.h"
+#include "fenetreprincipale.h"
+
+NouvelleInterface::NouvelleInterface(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::NouvelleInterface)
+{
+    ui->setupUi(this);
+}
+
+NouvelleInterface::~NouvelleInterface()
+{
+    delete ui;
+}
+
+void NouvelleInterface::on_pushButton_clicked()
+{
+    close();
+
+}

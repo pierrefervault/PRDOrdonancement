@@ -1,6 +1,8 @@
 <map id="PRDOrdonancement/workercomparaison.h" name="PRDOrdonancement/workercomparaison.h">
-<area shape="rect" id="node2" href="$comparaisonsolution_8h.html" title="PRDOrdonancement/comparaisonsolution.h" alt="" coords="163,80,440,107"/>
-<area shape="rect" id="node5" href="$workercomparaison_8cpp.html" title="PRDOrdonancement/workercomparaison.cpp" alt="" coords="464,80,749,107"/>
+<area shape="rect" id="node2" href="$comparaisonsolution_8h.html" title="PRDOrdonancement/comparaisonsolution.h" alt="" coords="160,80,437,107"/>
+<area shape="rect" id="node7" href="$workercomparaison_8cpp.html" title="PRDOrdonancement/workercomparaison.cpp" alt="" coords="461,80,747,107"/>
 <area shape="rect" id="node3" href="$comparaisonsolution_8cpp.html" title="PRDOrdonancement/comparaisonsolution.cpp" alt="" coords="5,155,296,181"/>
-<area shape="rect" id="node4" href="$fenetreprincipale_8cpp.html" title="PRDOrdonancement/fenetreprincipale.cpp" alt="" coords="320,155,587,181"/>
+<area shape="rect" id="node4" href="$fenetreprincipale_8h.html" title="PRDOrdonancement/fenetreprincipale.h" alt="" coords="320,155,573,181"/>
+<area shape="rect" id="node5" href="$fenetreprincipale_8cpp.html" title="PRDOrdonancement/fenetreprincipale.cpp" alt="" coords="184,229,451,256"/>
+<area shape="rect" id="node6" href="$main_8cpp.html" title="PRDOrdonancement/main.cpp" alt="" coords="475,229,675,256"/>
 </map>

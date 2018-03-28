@@ -1,6 +1,7 @@
 <map id="Heuristique::trierCCmaxMaxRessources" name="Heuristique::trierCCmaxMaxRessources">
 <area shape="rect" id="node2" href="$classInstance.html#a1ed694b05c888cdb177ddf4c92a482d9" title="Permet d&#39;obtenir le nombre de jobs de l&#39;instance. " alt="" coords="289,5,436,32"/>
-<area shape="rect" id="node3" href="$classInstance.html#ad4124bd2f1edb83a46ef94cfe07eafc8" title="Permet d&#39;obtenir le tableau des capacités en ressource pour l&#39;ensemble des jobs. " alt="" coords="241,56,484,83"/>
-<area shape="rect" id="node4" href="$classInstance.html#af7b70cbd8670e4eb213fbd2b81eca6f0" title="Permet d&#39;obtenir le tableau des instants de fin de l&#39;ensemble des jobs. " alt="" coords="308,107,417,133"/>
-<area shape="rect" id="node5" href="$classInstance.html#ab998bc8d9a8b03c8f6279573779217cc" title="Permet d&#39;obtenir le tableau des instants de départ de l&#39;ensemble des jobs. " alt="" coords="307,157,418,184"/>
+<area shape="rect" id="node3" href="$classInstance.html#a79b49dcc3d590b823e41d8a223ecf25d" title="Permet d&#39;obtenir le nombre de ressources de l&#39;instance. " alt="" coords="268,56,457,83"/>
+<area shape="rect" id="node4" href="$classInstance.html#ad4124bd2f1edb83a46ef94cfe07eafc8" title="Permet d&#39;obtenir le tableau des capacités en ressource pour l&#39;ensemble des jobs. " alt="" coords="241,107,484,133"/>
+<area shape="rect" id="node5" href="$classInstance.html#af7b70cbd8670e4eb213fbd2b81eca6f0" title="Permet d&#39;obtenir le tableau des instants de fin de l&#39;ensemble des jobs. " alt="" coords="308,157,417,184"/>
+<area shape="rect" id="node6" href="$classInstance.html#ab998bc8d9a8b03c8f6279573779217cc" title="Permet d&#39;obtenir le tableau des instants de départ de l&#39;ensemble des jobs. " alt="" coords="307,208,418,235"/>
 </map>

@@ -55,7 +55,7 @@ void \hyperlink{classInstance_aa64eca6a12ffa8ffc850ac4e04f268fb}{charger\+Instan
 map$<$ unsigned int, vector$<$ unsigned int $>$ $>$ \hyperlink{classInstance_a2011ff3253fcb1d2d354c3c34a14a6fb}{get\+Sous\+Ensembles\+Maximaux} ()
 \begin{DoxyCompactList}\small\item\em Retourne les sous-\/ensembles maximaux de jobs de l\textquotesingle{}instance (jobs se chevauchant) \end{DoxyCompactList}\item 
 void \hyperlink{classInstance_a36e8de8c42d48f16f14f37622dbd3eb1}{sauvegarder\+Instance} (unsigned int nbr\+Instance, unsigned int nbr\+Jobs, unsigned int nbr\+Ressources, unsigned int nbr\+Machines, unsigned int horizon\+Planification)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Permet de sauvegarder des instances avec des paramètres particuliers. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -223,7 +223,8 @@ Permet d\textquotesingle{}obtenir le nombre de ressources de l\textquotesingle{}
 \begin{DoxyReturn}{Returns}
 unsigned int Le nombre de ressources 
 \end{DoxyReturn}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -243,7 +244,8 @@ Permet d\textquotesingle{}obtenir le tableau des instants de départ de l\textqu
 \begin{DoxyReturn}{Returns}
 vector$<$unsigned int$>$ Le tableau des instants de départ de l\textquotesingle{}ensemble des jobs 
 \end{DoxyReturn}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -263,7 +265,8 @@ Retourne les sous-\/ensembles maximaux de jobs de l\textquotesingle{}instance (j
 \begin{DoxyReturn}{Returns}
 map$<$unsigned int, vector$<$unsigned int$>$ $>$ Les sous-\/ensembles maximaux de jobs de l\textquotesingle{}instance 
 \end{DoxyReturn}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -283,7 +286,8 @@ Permet d\textquotesingle{}obtenir le tableau des capacités en ressource pour l\
 \begin{DoxyReturn}{Returns}
 vector$<$vector$<$unsigned int$>$$>$ Le tableau des capacités en ressource pour l\textquotesingle{}ensemble des jobs 
 \end{DoxyReturn}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -295,6 +299,10 @@ Here is the caller graph for this function\+:\nopagebreak
 \index{sauvegarder\+Instance@{sauvegarder\+Instance}!Instance@{Instance}}
 \subsubsection{\texorpdfstring{sauvegarder\+Instance()}{sauvegarderInstance()}}
 {\footnotesize\ttfamily void Instance\+::sauvegarder\+Instance (\begin{DoxyParamCaption}\item[{unsigned int}]{nbr\+Instance,  }\item[{unsigned int}]{nbr\+Jobs,  }\item[{unsigned int}]{nbr\+Ressources,  }\item[{unsigned int}]{nbr\+Machines,  }\item[{unsigned int}]{horizon\+Planification }\end{DoxyParamCaption})}
+
+
+
+Permet de sauvegarder des instances avec des paramètres particuliers. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -309,7 +317,8 @@ Here is the caller graph for this function\+:\nopagebreak
 {\em horizon\+Planification} & L\textquotesingle{}horizon de planification maximal de chaque instance \\
 \hline
 \end{DoxyParams}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

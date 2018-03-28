@@ -6,9 +6,10 @@
  *
  * @param fichierInstance Le fichier d'instance
  */
-Heuristique::Heuristique(string fichierInstance)
+Heuristique::Heuristique(string fichierInstance, map<unsigned int, unsigned int> pourcentagesParAgent)
 {
     this->instance.chargerInstance(fichierInstance);
+    this->pourcentagesParAgent = pourcentagesParAgent;
 }
 
 /**
@@ -31,6 +32,7 @@ vector<unsigned int> Heuristique::trierCCmaxSommeRessources(){
         {
             jobCCmax[1] += (this->instance.getTableauRessourcesJobs()[i][r] * (this->instance.getFj()[i]-this->instance.getSj()[i]));
         }
+
         tableauInitial.push_back(jobCCmax);
     }
 
@@ -64,6 +66,7 @@ vector<unsigned int> Heuristique::trierCCmaxSommeRessources(){
     //Création du tableau de jobstriés selon la règle CCmax (sommesRessources)
     vector<unsigned int> tableauJobs;
 
+    //cout << "CCmaxSomme" << endl;
     for (unsigned int i = 0; i < this->instance.getNbrJobs(); i++){
         tableauJobs.push_back(tableauInitial[i][0]);
     }
@@ -90,11 +93,12 @@ vector<unsigned int> Heuristique::trierCCmaxMaxRessources(){
         jobCCmax.push_back(0);
         //On prend en compte la ressource la plus importante pour calculer le CCmax
         unsigned int maxRessource = 0;
-        for (unsigned int r = 0; r < this->instance.getNbrJobs() ; r++)
+        for (unsigned int r = 0; r < this->instance.getNbrRessources() ; r++)
         {
             if (this->instance.getTableauRessourcesJobs()[i][r] > maxRessource) maxRessource = this->instance.getTableauRessourcesJobs()[i][r];
         }
         jobCCmax[1] = (maxRessource * (this->instance.getFj()[i]-this->instance.getSj()[i]));
+        //cout << jobCCmax[1] << endl;
         tableauInitial.push_back(jobCCmax);
     }
 
@@ -128,9 +132,12 @@ vector<unsigned int> Heuristique::trierCCmaxMaxRessources(){
     //Création du tableau de jobstriés selon la règle CCmax (par rapport à la ressource maximale)
     vector<unsigned int> tableauJobs;
 
+    //cout << "CCmaxMax" << endl;
     for (unsigned int i = 0; i < this->instance.getNbrJobs(); i++){
         tableauJobs.push_back(tableauInitial[i][0]);
+        //cout << tableauInitial[i][0]+1;
     }
+    //cout << endl;
 
     return tableauJobs;
 
@@ -207,13 +214,13 @@ vector<unsigned int> Heuristique::trierMoyenneRessourcesSousEnsembles(){
 
     map<unsigned int,vector<unsigned int>> Jk = this->instance.getSousEnsemblesMaximaux();
 
-    for(unsigned int i = 0; i < Jk.size(); i++){
+   /* for(unsigned int i = 0; i < Jk.size(); i++){
         //cout << "Sous-ensembles " << i << " : ";
         for(unsigned int j = 0; j < Jk[i].size(); j++){
             //cout << Jk[i][j] << " ";
         }
         //cout << endl;
-    }
+    }*/
 
     vector<unsigned int> moyenneRessourceJk;
 
@@ -266,6 +273,66 @@ vector<unsigned int> Heuristique::trierMoyenneRessourcesSousEnsembles(){
 }
 
 /**
+ * @brief Tri selon la méthode CCmax basée sur la somme des ressources de chaque job pour un cas multi agent
+ *
+ * @return vector<unsigned int> La liste des jobs triés
+ */
+vector<unsigned int> Heuristique::trierCCmaxSommeRessourcesMultiAgent(){
+    cout << "TrierCCMaxSommeRessources MultiAgent" << endl;
+    for(int i = 0; i < pourcentagesParAgent.size(); i++){
+        cout << pourcentagesParAgent[i] << endl;
+    }
+
+    vector<unsigned int> tableauJobs;
+    return tableauJobs;
+}
+
+/**
+ * @brief Tri selon la méthode CCmax basée sur la valeur de ressource maximale de chaque job pour un cas multi agent
+ *
+ * @return vector<unsigned int> La liste des jobs triés
+ */
+vector<unsigned int> Heuristique::trierCCmaxMaxRessourcesMultiAgent(){
+    cout << "TrierCCMaxMaxRessources MultiAgent" << endl;
+    for(int i = 0; i < pourcentagesParAgent.size(); i++){
+        cout << pourcentagesParAgent[i] << endl;
+    }
+
+    vector<unsigned int> tableauJobs;
+    return tableauJobs;
+}
+
+/**
+ * @brief Tri selon la somme des ressources de chaque job pour un cas multi agent
+ *
+ * @return vector<unsigned int> La liste des jobs triés
+ */
+vector<unsigned int> Heuristique::trierSommeRessourcesMultiAgent(){
+    cout << "TrierSommeRessources MultiAgent" << endl;
+    for(int i = 0; i < pourcentagesParAgent.size(); i++){
+        cout << pourcentagesParAgent[i] << endl;
+    }
+
+    vector<unsigned int> tableauJobs;
+    return tableauJobs;
+}
+
+/**
+ * @brief Tri selon la moyenne des ressources de chaque sous-ensembles maximaux de l'instance pour un cas multi agent
+ *
+ * @return vector<unsigned int> La liste des jobs triés
+ */
+vector<unsigned int> Heuristique::trierMoyenneRessourcesSousEnsemblesMultiAgent(){
+    cout << "TrierMoyenneRessourcesSousEnsembles MultiAgent" << endl;
+    for(int i = 0; i < pourcentagesParAgent.size(); i++){
+        cout << pourcentagesParAgent[i] << endl;
+    }
+
+    vector<unsigned int> tableauJobs;
+    return tableauJobs;
+}
+
+/**
  * @brief Affectation machine par machine
  *
  * @param typeTri Le type de tri à utiliser avant l'affectation
@@ -291,6 +358,11 @@ unsigned int Heuristique::resolveMachinePerMachine(QString typeTri, QString fich
     if(typeTri == "CCmaxMaxRessources") tableauJobs = this->trierCCmaxMaxRessources();
     if(typeTri == "SommeRessources") tableauJobs = this->trierSommeRessources();
     if(typeTri == "MoyenneRessourcesSousEnsembles") tableauJobs = this->trierMoyenneRessourcesSousEnsembles();
+
+    if(typeTri == "CCmaxSommeRessourcesMultiAgent") tableauJobs = this->trierCCmaxSommeRessourcesMultiAgent();
+    if(typeTri == "CCmaxMaxRessourcesMultiAgent") tableauJobs = this->trierCCmaxMaxRessourcesMultiAgent();
+    if(typeTri == "SommeRessourcesMultiAgent") tableauJobs = this->trierSommeRessourcesMultiAgent();
+    if(typeTri == "MoyenneRessourcesSousEnsemblesMultiAgent") tableauJobs = this->trierMoyenneRessourcesSousEnsemblesMultiAgent();
 
     vector<vector<unsigned int>> jobsOrdonnances;
     for(unsigned int m = 0; m < nbr_machines ; m++){
@@ -367,6 +439,11 @@ unsigned int Heuristique::resolveMachineLessUsedMachine(QString typeTri, QString
     if(typeTri == "CCmaxMaxRessources") tableauJobs = this->trierCCmaxMaxRessources();
     if(typeTri == "SommeRessources") tableauJobs = this->trierSommeRessources();
     if(typeTri == "MoyenneRessourcesSousEnsembles") tableauJobs = this->trierMoyenneRessourcesSousEnsembles();
+
+    if(typeTri == "CCmaxSommeRessourcesMultiAgent") tableauJobs = this->trierCCmaxSommeRessourcesMultiAgent();
+    if(typeTri == "CCmaxMaxRessourcesMultiAgent") tableauJobs = this->trierCCmaxMaxRessourcesMultiAgent();
+    if(typeTri == "SommeRessourcesMultiAgent") tableauJobs = this->trierSommeRessourcesMultiAgent();
+    if(typeTri == "MoyenneRessourcesSousEnsemblesMultiAgent") tableauJobs = this->trierMoyenneRessourcesSousEnsemblesMultiAgent();
 
     vector<vector<unsigned int>> jobsOrdonnances;
     for(unsigned int m = 0; m < nbr_machines ; m++){

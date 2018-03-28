@@ -1,4 +1,6 @@
 <map id="PRDOrdonancement/comparaisonsolution.h" name="PRDOrdonancement/comparaisonsolution.h">
 <area shape="rect" id="node2" href="$comparaisonsolution_8cpp.html" title="PRDOrdonancement/comparaisonsolution.cpp" alt="" coords="5,80,296,107"/>
-<area shape="rect" id="node3" href="$fenetreprincipale_8cpp.html" title="PRDOrdonancement/fenetreprincipale.cpp" alt="" coords="320,80,587,107"/>
+<area shape="rect" id="node3" href="$fenetreprincipale_8h.html" title="PRDOrdonancement/fenetreprincipale.h" alt="" coords="320,80,573,107"/>
+<area shape="rect" id="node4" href="$fenetreprincipale_8cpp.html" title="PRDOrdonancement/fenetreprincipale.cpp" alt="" coords="184,155,451,181"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title="PRDOrdonancement/main.cpp" alt="" coords="475,155,675,181"/>
 </map>

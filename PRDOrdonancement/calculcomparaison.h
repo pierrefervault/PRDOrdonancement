@@ -2,9 +2,9 @@
 #define CALCULCOMPARAISON_H
 
 #include <QObject>
-#include <QWidget>
 #include "iostream"
 #include "resultat.h"
+#include "fstream"
 
 using namespace std;
 

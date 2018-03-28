@@ -18,7 +18,7 @@ ResolutionInstance::ResolutionInstance(QWidget *parent) :
     this->ui->agentComboBox->clear();
     this->ui->agentComboBox->addItem("Agent 1");
     this->ui->pourcentageLineEdit->setText("100");
-    this->pourcentageParAgent.push_back(100);
+    this->pourcentageParAgent[0] = 100;
 }
 
 /**
@@ -70,12 +70,16 @@ void ResolutionInstance::on_validerPushButton_clicked()
 
     QString fichierInstance = this->ui->choisirFichierLineEdit->text();
 
+    QString multiAgent = "";
+
+    if(this->ui->agentSpinBox->text().toInt() > 1) multiAgent = "MultiAgent";
+
     if (fichierInstance != NULL){
         for (unsigned int i = 0; i < this->ui->treeWidget->topLevelItemCount() ; i++){
             if (this->ui->treeWidget->topLevelItem(i)->checkState(0) == 2){
 
-                if(this->ui->fichierRadioButton->isChecked()) executionFichier(fichierInstance, trouverMethodeResolution(i));
-                if(this->ui->dossierRadioButton->isChecked()) executionDossier(fichierInstance, trouverMethodeResolution(i));
+                if(this->ui->fichierRadioButton->isChecked()) executionFichier(fichierInstance, trouverMethodeResolution(i)+multiAgent, pourcentageParAgent);
+                if(this->ui->dossierRadioButton->isChecked()) executionDossier(fichierInstance, trouverMethodeResolution(i)+multiAgent, pourcentageParAgent);
 
             }
             else {
@@ -85,8 +89,8 @@ void ResolutionInstance::on_validerPushButton_clicked()
 
                         if(this->ui->treeWidget->topLevelItem(i)->child(j)->checkState(0) == 2){
 
-                            if(this->ui->fichierRadioButton->isChecked()) executionFichier(fichierInstance, trouverMethodeResolution(i, j));
-                            if(this->ui->dossierRadioButton->isChecked()) executionDossier(fichierInstance, trouverMethodeResolution(i, j));
+                            if(this->ui->fichierRadioButton->isChecked()) executionFichier(fichierInstance, trouverMethodeResolution(i, j)+multiAgent,pourcentageParAgent);
+                            if(this->ui->dossierRadioButton->isChecked()) executionDossier(fichierInstance, trouverMethodeResolution(i, j)+multiAgent, pourcentageParAgent);
 
                         }
                     }
@@ -108,11 +112,11 @@ void ResolutionInstance::on_validerPushButton_clicked()
  * @param fichierInstance Chemin vers le fichier d'instance
  * @param typeResolution Type de la résolution
  */
-void ResolutionInstance::executionFichier(QString fichierInstance, QString typeResolution)
+void ResolutionInstance::executionFichier(QString fichierInstance, QString typeResolution, map<unsigned int, unsigned int> pourcentagesParAgent)
 {
     QThread* thread = new QThread;
     //cout << fichierInstance << " " << fichierResultat << endl;
-    WorkerFichier* workerFichier = new WorkerFichier(fichierInstance, typeResolution);
+    WorkerFichier* workerFichier = new WorkerFichier(fichierInstance, typeResolution, pourcentagesParAgent);
     workerFichier->moveToThread(thread);
     //connect(workerFichier, SIGNAL (error(QString)), this, SLOT (errorString(QString)));
     connect(thread, SIGNAL (started()), workerFichier, SLOT (process()));
@@ -128,11 +132,11 @@ void ResolutionInstance::executionFichier(QString fichierInstance, QString typeR
  * @param dossierInstance Chemin vers le dossier d'instances
  * @param typeResolution Type de la résolution
  */
-void ResolutionInstance::executionDossier(QString fichierInstance, QString typeResolution)
+void ResolutionInstance::executionDossier(QString fichierInstance, QString typeResolution, map<unsigned int, unsigned int> pourcentagesParAgent)
 {
     QThread* thread = new QThread();
     //cout << fichierInstance << " " << fichierResultat << endl;
-    WorkerDossier* workerDossier = new WorkerDossier(fichierInstance, typeResolution);
+    WorkerDossier* workerDossier = new WorkerDossier(fichierInstance, typeResolution, pourcentagesParAgent);
     workerDossier->moveToThread(thread);
     //connect(workerDossier, SIGNAL (error(QString)), this, SLOT (errorString(QString)));
     connect(thread, SIGNAL (started()), workerDossier, SLOT (process()));
@@ -181,7 +185,7 @@ void ResolutionInstance::on_dossierRadioButton_clicked()
  * @param indexSousElement Index du sous-élément du tableau selectionné (-1 si il n'y a pas de sous-élément)
  * @return QString La méthode de résolution
  */
-QString ResolutionInstance::trouverMethodeResolution(unsigned int indexTableau, unsigned int indexSousElement){
+QString ResolutionInstance::trouverMethodeResolution(unsigned int indexTableau, int indexSousElement){
 
     if (this->ui->treeWidget->topLevelItem(indexTableau)->text(0) == "Resolution exacte indexée temps") return "mip1";
     if (this->ui->treeWidget->topLevelItem(indexTableau)->text(0) == "Resolution exacte indexée jobs") return "mip2";
@@ -225,12 +229,26 @@ void ResolutionInstance::on_agentSpinBox_valueChanged(int arg1)
     this->ui->agentComboBox->clear();
     this->pourcentageParAgent.clear();
 
-    for (unsigned int i = 1; i < this->ui->agentSpinBox->text().toInt()+1; i++){
-        this->ui->agentComboBox->addItem("Agent "+QString::number(i));
-        this->pourcentageParAgent.push_back(0);
+    for (unsigned int i = 0; i < (unsigned int) this->ui->agentSpinBox->text().toInt(); i++){
+        this->ui->agentComboBox->addItem("Agent "+QString::number(i+1));
+        this->pourcentageParAgent[i] = 0;
     }
     this->pourcentageParAgent[0] = 100;
     this->ui->pourcentageLineEdit->setText("100");
+
+    if(this->ui->agentSpinBox->text().toInt() == 1){
+        this->ui->agentComboBox->setEnabled(false);
+        this->ui->pourcentageLineEdit->setEnabled(false);
+        this->ui->pourcentageLabel->setEnabled(false);
+        this->ui->validerPourcentagePushButton->setEnabled(false);
+    }
+    else{
+        this->ui->agentComboBox->setEnabled(true);
+        this->ui->pourcentageLineEdit->setEnabled(true);
+        this->ui->pourcentageLabel->setEnabled(true);
+        this->ui->validerPourcentagePushButton->setEnabled(true);
+    }
+
 }
 
 /**
@@ -240,7 +258,7 @@ void ResolutionInstance::on_agentSpinBox_valueChanged(int arg1)
  */
 void ResolutionInstance::on_agentComboBox_currentIndexChanged(int index)
 {
-    cout << this->pourcentageParAgent.size() << endl;
+    //cout << this->pourcentageParAgent.size() << endl;
     for (unsigned int i = 0; i < this->pourcentageParAgent.size(); i++){
         cout << this->pourcentageParAgent[i] << endl;
     }
@@ -258,7 +276,7 @@ void ResolutionInstance::on_validerPourcentagePushButton_clicked()
     unsigned int sommePourcentage = 0;
     for (unsigned int i = 0; i < this->pourcentageParAgent.size(); i++){
 
-        if (i == this->ui->agentComboBox->currentIndex()){
+        if (i == (unsigned int)this->ui->agentComboBox->currentIndex()){
             sommePourcentage += this->ui->pourcentageLineEdit->text().toInt();
         }
         else{
@@ -284,10 +302,10 @@ void ResolutionInstance::on_validerPourcentagePushButton_clicked()
 void ResolutionInstance::on_toutCocherCheckBox_clicked(bool checked)
 {
     if (checked){
-        for (unsigned int i = 0; i < this->ui->treeWidget->topLevelItemCount() ; i++){
+        for (unsigned int i = 0; i < (unsigned int)this->ui->treeWidget->topLevelItemCount() ; i++){
 
             if (this->ui->treeWidget->topLevelItem(i)->childCount() != 0){
-                for(unsigned int j = 0; j < this->ui->treeWidget->topLevelItem(i)->childCount(); j++){
+                for(unsigned int j = 0; j < (unsigned int)this->ui->treeWidget->topLevelItem(i)->childCount(); j++){
                     this->ui->treeWidget->topLevelItem(i)->child(j)->setCheckState(0,Qt::Checked);
                 }
             }
@@ -297,10 +315,10 @@ void ResolutionInstance::on_toutCocherCheckBox_clicked(bool checked)
         }
     }
     else{
-        for (unsigned int i = 0; i < this->ui->treeWidget->topLevelItemCount() ; i++){
+        for (unsigned int i = 0; i < (unsigned int)this->ui->treeWidget->topLevelItemCount() ; i++){
 
             if (this->ui->treeWidget->topLevelItem(i)->childCount() != 0){
-                for(unsigned int j = 0; j < this->ui->treeWidget->topLevelItem(i)->childCount(); j++){
+                for(unsigned int j = 0; j < (unsigned int) this->ui->treeWidget->topLevelItem(i)->childCount(); j++){
                     this->ui->treeWidget->topLevelItem(i)->child(j)->setCheckState(0,Qt::Unchecked);
                 }
             }

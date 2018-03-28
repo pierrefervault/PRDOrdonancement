@@ -12,23 +12,31 @@ Classe \hyperlink{classMethodeExacte}{Methode\+Exacte} permetant de résoudre de
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classMethodeExacte_a1548457daee37a44a3913378d90dab65}{Methode\+Exacte} (string fichier\+Instance)
+\hyperlink{classMethodeExacte_a82cea9720ff44a85f2c991f601ffd53b}{Methode\+Exacte} (string fichier\+Instance, map$<$ unsigned int, unsigned int $>$ pourcentages\+Par\+Agent)
 \begin{DoxyCompactList}\small\item\em Constructeur de la classe \hyperlink{classMethodeExacte}{Methode\+Exacte}. \end{DoxyCompactList}\item 
 unsigned int \hyperlink{classMethodeExacte_a91443b3ea749912772b40b5b5c40379e}{resolution\+Plne\+Mip1} (string fichier\+Resultat)
 \begin{DoxyCompactList}\small\item\em Methode de résolution exacte indéxée temps. \end{DoxyCompactList}\item 
 unsigned int \hyperlink{classMethodeExacte_a3163e487cc9e99ee7667d1dd146edb4b}{resolution\+Plne\+Mip2} (string fichier\+Resultat)
-\begin{DoxyCompactList}\small\item\em Methode de résolution exacte indéxée jobs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Methode de résolution exacte indéxée jobs. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{classMethodeExacte_a3b3d9ad4a6d21f6e3be43212eb706054}{resolution\+Plne\+Mip1\+Multi\+Agent} (string fichier\+Resultat)
+\begin{DoxyCompactList}\small\item\em Methode de résolution exacte indéxée temps pour un cas multi agent. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{classMethodeExacte_af5ed64d8d21ead081e02c3ac97192859}{resolution\+Plne\+Mip2\+Multi\+Agent} (string fichier\+Resultat)
+\begin{DoxyCompactList}\small\item\em Methode de résolution exacte indéxée jobs pour un cas multi agent. \end{DoxyCompactList}\item 
+\hyperlink{classInstance}{Instance} \hyperlink{classMethodeExacte_a6c8b291d40a0e9c3df51ea367d43189c}{get\+Instance} () const
+\item 
+void \hyperlink{classMethodeExacte_ae4a99972ce73ff50611a8842506723f9}{set\+Instance} (const \hyperlink{classInstance}{Instance} \&value)
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Classe \hyperlink{classMethodeExacte}{Methode\+Exacte} permetant de résoudre des instances à l\textquotesingle{}aide de méthodes exactes. 
 
 \subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classMethodeExacte_a1548457daee37a44a3913378d90dab65}\label{classMethodeExacte_a1548457daee37a44a3913378d90dab65}} 
+\mbox{\Hypertarget{classMethodeExacte_a82cea9720ff44a85f2c991f601ffd53b}\label{classMethodeExacte_a82cea9720ff44a85f2c991f601ffd53b}} 
 \index{Methode\+Exacte@{Methode\+Exacte}!Methode\+Exacte@{Methode\+Exacte}}
 \index{Methode\+Exacte@{Methode\+Exacte}!Methode\+Exacte@{Methode\+Exacte}}
 \subsubsection{\texorpdfstring{Methode\+Exacte()}{MethodeExacte()}}
-{\footnotesize\ttfamily Methode\+Exacte\+::\+Methode\+Exacte (\begin{DoxyParamCaption}\item[{string}]{fichier\+Instance }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Methode\+Exacte\+::\+Methode\+Exacte (\begin{DoxyParamCaption}\item[{string}]{fichier\+Instance,  }\item[{map$<$ unsigned int, unsigned int $>$}]{pourcentages\+Par\+Agent }\end{DoxyParamCaption})}
 
 
 
@@ -42,6 +50,12 @@ Constructeur de la classe \hyperlink{classMethodeExacte}{Methode\+Exacte}.
 
 
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{classMethodeExacte_a6c8b291d40a0e9c3df51ea367d43189c}\label{classMethodeExacte_a6c8b291d40a0e9c3df51ea367d43189c}} 
+\index{Methode\+Exacte@{Methode\+Exacte}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Methode\+Exacte@{Methode\+Exacte}}
+\subsubsection{\texorpdfstring{get\+Instance()}{getInstance()}}
+{\footnotesize\ttfamily \hyperlink{classInstance}{Instance} Methode\+Exacte\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
 \mbox{\Hypertarget{classMethodeExacte_a91443b3ea749912772b40b5b5c40379e}\label{classMethodeExacte_a91443b3ea749912772b40b5b5c40379e}} 
 \index{Methode\+Exacte@{Methode\+Exacte}!resolution\+Plne\+Mip1@{resolution\+Plne\+Mip1}}
 \index{resolution\+Plne\+Mip1@{resolution\+Plne\+Mip1}!Methode\+Exacte@{Methode\+Exacte}}
@@ -65,6 +79,31 @@ Here is the caller graph for this function\+:\nopagebreak
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{classMethodeExacte_a91443b3ea749912772b40b5b5c40379e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classMethodeExacte_a3b3d9ad4a6d21f6e3be43212eb706054}\label{classMethodeExacte_a3b3d9ad4a6d21f6e3be43212eb706054}} 
+\index{Methode\+Exacte@{Methode\+Exacte}!resolution\+Plne\+Mip1\+Multi\+Agent@{resolution\+Plne\+Mip1\+Multi\+Agent}}
+\index{resolution\+Plne\+Mip1\+Multi\+Agent@{resolution\+Plne\+Mip1\+Multi\+Agent}!Methode\+Exacte@{Methode\+Exacte}}
+\subsubsection{\texorpdfstring{resolution\+Plne\+Mip1\+Multi\+Agent()}{resolutionPlneMip1MultiAgent()}}
+{\footnotesize\ttfamily unsigned int Methode\+Exacte\+::resolution\+Plne\+Mip1\+Multi\+Agent (\begin{DoxyParamCaption}\item[{string}]{fichier\+Resultat }\end{DoxyParamCaption})}
+
+
+
+Methode de résolution exacte indéxée temps pour un cas multi agent. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fichier\+Resultat} & Le fichier où seront stockés les résulats \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+unsigned int Le nombre de jobs ordonnancés 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMethodeExacte_a3b3d9ad4a6d21f6e3be43212eb706054_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{classMethodeExacte_a3163e487cc9e99ee7667d1dd146edb4b}\label{classMethodeExacte_a3163e487cc9e99ee7667d1dd146edb4b}} 
@@ -92,6 +131,37 @@ Here is the caller graph for this function\+:\nopagebreak
 \includegraphics[width=350pt]{classMethodeExacte_a3163e487cc9e99ee7667d1dd146edb4b_icgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{classMethodeExacte_af5ed64d8d21ead081e02c3ac97192859}\label{classMethodeExacte_af5ed64d8d21ead081e02c3ac97192859}} 
+\index{Methode\+Exacte@{Methode\+Exacte}!resolution\+Plne\+Mip2\+Multi\+Agent@{resolution\+Plne\+Mip2\+Multi\+Agent}}
+\index{resolution\+Plne\+Mip2\+Multi\+Agent@{resolution\+Plne\+Mip2\+Multi\+Agent}!Methode\+Exacte@{Methode\+Exacte}}
+\subsubsection{\texorpdfstring{resolution\+Plne\+Mip2\+Multi\+Agent()}{resolutionPlneMip2MultiAgent()}}
+{\footnotesize\ttfamily unsigned int Methode\+Exacte\+::resolution\+Plne\+Mip2\+Multi\+Agent (\begin{DoxyParamCaption}\item[{string}]{fichier\+Resultat }\end{DoxyParamCaption})}
+
+
+
+Methode de résolution exacte indéxée jobs pour un cas multi agent. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fichier\+Resultat} & Le fichier où seront stockés les résulats \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+unsigned int Le nombre de jobs ordonnancés 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMethodeExacte_af5ed64d8d21ead081e02c3ac97192859_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classMethodeExacte_ae4a99972ce73ff50611a8842506723f9}\label{classMethodeExacte_ae4a99972ce73ff50611a8842506723f9}} 
+\index{Methode\+Exacte@{Methode\+Exacte}!set\+Instance@{set\+Instance}}
+\index{set\+Instance@{set\+Instance}!Methode\+Exacte@{Methode\+Exacte}}
+\subsubsection{\texorpdfstring{set\+Instance()}{setInstance()}}
+{\footnotesize\ttfamily void Methode\+Exacte\+::set\+Instance (\begin{DoxyParamCaption}\item[{const \hyperlink{classInstance}{Instance} \&}]{value }\end{DoxyParamCaption})}
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

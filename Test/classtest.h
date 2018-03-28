@@ -4,15 +4,17 @@
 #include <QtTest/QTest>
 #include <QObject>
 #include <QDir>
+#include <QDirIterator>
 #include "instance.h"
 #include "resultat.h"
 #include "heuristique.h"
 #include "methodeexacte.h"
+#include "calculcomparaison.h"
 
 using namespace std;
 
 /**
- * @brief
+ * @brief Classe permetant d'effectuer les tests des fonctionnalités du programme principal
  *
  */
 class ClassTest : public QObject
@@ -20,8 +22,9 @@ class ClassTest : public QObject
     Q_OBJECT
 
 public:
+
     /**
-     * @brief
+     * @brief Contructeur de la classe de test
      *
      * @param parent
      */
@@ -29,43 +32,66 @@ public:
 
 private slots:
 
+    /**
+     * @brief Test la génération de fichier d'instance et
+     * vérifie que chacune des valeurs spécifiées est correcte
+     *
+     */
     void testGeneration();
 
     /**
-     * @brief
+     * @brief Test vérifiant que les affectations machines par machines
+     * donnent des solutions dont les valeurs sont inférieures au nombre de jobs de l'instance
      *
      */
     void testSolutionInferieureOuEgaleNbrJobsAffectation1();
 
     /**
-     * @brief
+     * @brief Test vérifiant que les affectations priorisant la machine la moins chargée
+     * donnent des solutions dont les valeurs sont inférieures au nombre de jobs de l'instance
      *
      */
     void testSolutionInferieureOuEgaleNbrJobsAffectation2();
 
     /**
-     * @brief
+     * @brief Test vérifiant que la résolution exacte indexée temps
+     * donne des solutions dont les valeurs sont inférieures au nombre de jobs de l'instance
      *
      */
     void testSolutionInferieureOuEgaleNbrJobsMip1();
 
     /**
-     * @brief
+     * @brief Test vérifiant que la résolution exacte indexée jobs
+     * donne des solutions dont les valeurs sont inférieures au nombre de jobs de l'instance
      *
      */
     void testSolutionInferieureOuEgaleNbrJobsMip2();
 
 
+    /**
+     * @brief Test vérifiant que la résolution exacte indexée temps
+     * donne des solutions égales à celles trouvées par la résolution exacte indexée jobs
+     *
+     */
     void testSolutionMip1EgaleMip2();
 
     /**
-     * @brief
+     * @brief Test vérifiant que la résolution exacte indexée temps
+     * donne des solutions égales ou meilleures que celles trouvées par les heuristiques
      *
      */
     void testSolutionMip1SuperieureOuEgaleHeuristique();
 
-    void testHeuristiqueGapPositif();
+    /**
+     * @brief Test vérifiant la cohérence de la comparaison des différentes méthodes de résolution d'instances
+     *
+     */
+    void testCoherenceComparaison();
 
+    /**
+     * @brief Supprime les dossiers d'instances et de résultats générés pour les tests
+     *
+     */
     void supprimerInstanceEtResultat();
 };
 

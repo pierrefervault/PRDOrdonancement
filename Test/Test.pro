@@ -23,18 +23,20 @@ SOURCES += \
     $$PWD/../PRDOrdonancement/methodeexacte.cpp \
     $$PWD/../PRDOrdonancement/heuristique.cpp \
     $$PWD/../PRDOrdonancement/instance.cpp\
+    $$PWD/../PRDOrdonancement/calculcomparaison.cpp\
     $$PWD/../PRDOrdonancement/resultat.cpp
 
 HEADERS  += \
     $$PWD/../PRDOrdonancement/methodeexacte.h \
     $$PWD/../PRDOrdonancement/heuristique.h \
     $$PWD/../PRDOrdonancement/instance.h\
+    $$PWD/../PRDOrdonancement/calculcomparaison.h\
     $$PWD/../PRDOrdonancement/resultat.h
 
-INCLUDEPATH += /home/pierre/build-PRDOrdonancement-Desktop_Qt_5_7_0_GCC_64bit-Debug/PRDOrdonancement/cplex_216/cplex/include
-INCLUDEPATH += /home/pierre/build-PRDOrdonancement-Desktop_Qt_5_7_0_GCC_64bit-Debug/PRDOrdonancement/cplex_216/concert/include
+INCLUDEPATH += /home/pierre/cplex_216/cplex/include
+INCLUDEPATH += /home/pierre/cplex_216/concert/include
 
 DEFINES += IL_STD
 
-LIBS += -L/home/pierre/build-PRDOrdonancement-Desktop_Qt_5_7_0_GCC_64bit-Debug/PRDOrdonancement/cplex_216/cplex/lib/x86-64_linux/static_pic -lilocplex -lconcert -lcplex -lm -lpthread
-LIBS += -L/home/pierre/build-PRDOrdonancement-Desktop_Qt_5_7_0_GCC_64bit-Debug/PRDOrdonancement/cplex_216/concert/lib/x86-64_linux/static_pic -lconcert
+LIBS += -L/home/pierre/cplex_216/cplex/lib/x86-64_linux/static_pic -lilocplex -lconcert -lcplex -lm -lpthread
+LIBS += -L/home/pierre/cplex_216/concert/lib/x86-64_linux/static_pic -lconcert

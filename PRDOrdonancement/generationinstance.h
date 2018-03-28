@@ -5,6 +5,7 @@
 #include "workerinstance.h"
 #include <QtConcurrent/QtConcurrent>
 #include <iostream>
+#include "QMessageBox"
 
 namespace Ui {
 class GenerationInstance;

@@ -9,6 +9,8 @@
 #include <QDir>
 #include <QDirIterator>
 #include "resultat.h"
+#include "fstream"
+#include "calculcomparaison.h"
 
 using namespace std;
 

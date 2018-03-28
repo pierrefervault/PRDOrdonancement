@@ -137,6 +137,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a2011ff3253fcb1d2d354c3c34a14a6fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne les sous-ensembles maximaux de jobs de l'instance (jobs se chevauchant)  <a href="#a2011ff3253fcb1d2d354c3c34a14a6fb">More...</a><br /></td></tr>
 <tr class="separator:a2011ff3253fcb1d2d354c3c34a14a6fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36e8de8c42d48f16f14f37622dbd3eb1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInstance.html#a36e8de8c42d48f16f14f37622dbd3eb1">sauvegarderInstance</a> (unsigned int nbrInstance, unsigned int nbrJobs, unsigned int nbrRessources, unsigned int nbrMachines, unsigned int horizonPlanification)</td></tr>
+<tr class="memdesc:a36e8de8c42d48f16f14f37622dbd3eb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de sauvegarder des instances avec des paramètres particuliers.  <a href="#a36e8de8c42d48f16f14f37622dbd3eb1">More...</a><br /></td></tr>
 <tr class="separator:a36e8de8c42d48f16f14f37622dbd3eb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -190,7 +191,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classInstance_aa64eca6a12ffa8ffc850ac4e04f268fb_icgraph.png" border="0" usemap="#classInstance_aa64eca6a12ffa8ffc850ac4e04f268fb_icgraph" alt=""/></div>
 <map name="classInstance_aa64eca6a12ffa8ffc850ac4e04f268fb_icgraph" id="classInstance_aa64eca6a12ffa8ffc850ac4e04f268fb_icgraph">
-<area shape="rect" id="node2" href="classHeuristique.html#a58630433c6bac8eec9a5888945eba479" title="Constructeur de la classe Heuristique. " alt="" coords="227,5,389,32"/>
+<area shape="rect" id="node2" href="classHeuristique.html#a6d5f8c9f55e42a8713c8a5636d9cef1b" title="Constructeur de la classe Heuristique. " alt="" coords="227,5,389,32"/>
 </map>
 </div>
 
@@ -247,7 +248,9 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classInstance_a783365375cdab53149f87208374331a7_icgraph.png" border="0" usemap="#classInstance_a783365375cdab53149f87208374331a7_icgraph" alt=""/></div>
 <map name="classInstance_a783365375cdab53149f87208374331a7_icgraph" id="classInstance_a783365375cdab53149f87208374331a7_icgraph">
-<area shape="rect" id="node2" href="classHeuristique.html#aee20a4baec95a33533a6e13029c437df" title="Affectation privilégiant la machine la moins chargée. " alt="" coords="240,5,427,47"/>
+<area shape="rect" id="node2" href="classResultat.html#adc6f1595c1e2271cd39805a6b62e8448" title="Permet de sauvegarder le résultat d&#39;une résolution d&#39;instance dans un fichier de résultat. " alt="" coords="240,46,439,73"/>
+<area shape="rect" id="node3" href="classHeuristique.html#ad8a57ed34b0c46f6d65e501ee99da498" title="Affectation machine par machine. " alt="" coords="487,5,673,47"/>
+<area shape="rect" id="node4" href="classHeuristique.html#aee20a4baec95a33533a6e13029c437df" title="Affectation privilégiant la machine la moins chargée. " alt="" coords="487,71,673,112"/>
 </map>
 </div>
 
@@ -275,10 +278,11 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classInstance_af7b70cbd8670e4eb213fbd2b81eca6f0_icgraph.png" border="0" usemap="#classInstance_af7b70cbd8670e4eb213fbd2b81eca6f0_icgraph" alt=""/></div>
 <map name="classInstance_af7b70cbd8670e4eb213fbd2b81eca6f0_icgraph" id="classInstance_af7b70cbd8670e4eb213fbd2b81eca6f0_icgraph">
-<area shape="rect" id="node2" href="classHeuristique.html#a38c390423fc2b190da599148ca879cd6" title="Tri selon la méthode CCmax basée sur la somme des ressources de chaque job. " alt="" coords="163,33,371,74"/>
-<area shape="rect" id="node3" href="classHeuristique.html#ad8a57ed34b0c46f6d65e501ee99da498" title="Affectation machine par machine. " alt="" coords="419,33,605,74"/>
-<area shape="rect" id="node4" href="classHeuristique.html#aee20a4baec95a33533a6e13029c437df" title="Affectation privilégiant la machine la moins chargée. " alt="" coords="419,98,605,139"/>
-<area shape="rect" id="node5" href="classHeuristique.html#a02aae5127f941e55311e8bbd3b4afd3c" title="Tri selon la méthode CCmax basée sur la valeur de ressource maximale de chaque job. " alt="" coords="173,98,361,139"/>
+<area shape="rect" id="node2" href="classHeuristique.html#a38c390423fc2b190da599148ca879cd6" title="Tri selon la méthode CCmax basée sur la somme des ressources de chaque job. " alt="" coords="163,36,371,77"/>
+<area shape="rect" id="node3" href="classHeuristique.html#ad8a57ed34b0c46f6d65e501ee99da498" title="Affectation machine par machine. " alt="" coords="419,51,605,92"/>
+<area shape="rect" id="node4" href="classHeuristique.html#aee20a4baec95a33533a6e13029c437df" title="Affectation privilégiant la machine la moins chargée. " alt="" coords="419,131,605,172"/>
+<area shape="rect" id="node5" href="classHeuristique.html#a02aae5127f941e55311e8bbd3b4afd3c" title="Tri selon la méthode CCmax basée sur la valeur de ressource maximale de chaque job. " alt="" coords="173,101,361,143"/>
+<area shape="rect" id="node6" href="classResultat.html#adc6f1595c1e2271cd39805a6b62e8448" title="Permet de sauvegarder le résultat d&#39;une résolution d&#39;instance dans un fichier de résultat. " alt="" coords="167,167,366,194"/>
 </map>
 </div>
 
@@ -387,10 +391,11 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classInstance_a79b49dcc3d590b823e41d8a223ecf25d_icgraph.png" border="0" usemap="#classInstance_a79b49dcc3d590b823e41d8a223ecf25d_icgraph" alt=""/></div>
 <map name="classInstance_a79b49dcc3d590b823e41d8a223ecf25d_icgraph" id="classInstance_a79b49dcc3d590b823e41d8a223ecf25d_icgraph">
-<area shape="rect" id="node2" href="classHeuristique.html#a38c390423fc2b190da599148ca879cd6" title="Tri selon la méthode CCmax basée sur la somme des ressources de chaque job. " alt="" coords="243,28,451,69"/>
-<area shape="rect" id="node3" href="classHeuristique.html#ad8a57ed34b0c46f6d65e501ee99da498" title="Affectation machine par machine. " alt="" coords="499,28,685,69"/>
-<area shape="rect" id="node4" href="classHeuristique.html#aee20a4baec95a33533a6e13029c437df" title="Affectation privilégiant la machine la moins chargée. " alt="" coords="499,93,685,135"/>
-<area shape="rect" id="node5" href="classHeuristique.html#a4541884c49c13e08ee6c73c919388fd3" title="Tri selon la moyenne des ressources de chaque sous&#45;ensembles maximaux de l&#39;instance. " alt="" coords="253,93,440,135"/>
+<area shape="rect" id="node2" href="classHeuristique.html#a38c390423fc2b190da599148ca879cd6" title="Tri selon la méthode CCmax basée sur la somme des ressources de chaque job. " alt="" coords="243,37,451,78"/>
+<area shape="rect" id="node3" href="classHeuristique.html#ad8a57ed34b0c46f6d65e501ee99da498" title="Affectation machine par machine. " alt="" coords="499,70,685,111"/>
+<area shape="rect" id="node4" href="classHeuristique.html#aee20a4baec95a33533a6e13029c437df" title="Affectation privilégiant la machine la moins chargée. " alt="" coords="499,135,685,177"/>
+<area shape="rect" id="node5" href="classHeuristique.html#a02aae5127f941e55311e8bbd3b4afd3c" title="Tri selon la méthode CCmax basée sur la valeur de ressource maximale de chaque job. " alt="" coords="253,102,441,143"/>
+<area shape="rect" id="node6" href="classHeuristique.html#a4541884c49c13e08ee6c73c919388fd3" title="Tri selon la moyenne des ressources de chaque sous&#45;ensembles maximaux de l&#39;instance. " alt="" coords="253,167,440,209"/>
 </map>
 </div>
 
@@ -418,11 +423,12 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classInstance_ab998bc8d9a8b03c8f6279573779217cc_icgraph.png" border="0" usemap="#classInstance_ab998bc8d9a8b03c8f6279573779217cc_icgraph" alt=""/></div>
 <map name="classInstance_ab998bc8d9a8b03c8f6279573779217cc_icgraph" id="classInstance_ab998bc8d9a8b03c8f6279573779217cc_icgraph">
-<area shape="rect" id="node2" href="classHeuristique.html#a38c390423fc2b190da599148ca879cd6" title="Tri selon la méthode CCmax basée sur la somme des ressources de chaque job. " alt="" coords="177,38,385,79"/>
-<area shape="rect" id="node3" href="classHeuristique.html#ad8a57ed34b0c46f6d65e501ee99da498" title="Affectation machine par machine. " alt="" coords="445,52,632,94"/>
-<area shape="rect" id="node4" href="classHeuristique.html#aee20a4baec95a33533a6e13029c437df" title="Affectation privilégiant la machine la moins chargée. " alt="" coords="445,132,632,174"/>
-<area shape="rect" id="node5" href="classHeuristique.html#a02aae5127f941e55311e8bbd3b4afd3c" title="Tri selon la méthode CCmax basée sur la valeur de ressource maximale de chaque job. " alt="" coords="187,103,375,144"/>
-<area shape="rect" id="node6" href="classHeuristique.html#a6101d6d238a7667b820b50629e4d497f" title="Tri selon la somme des ressources de chaque job. " alt="" coords="164,169,397,196"/>
+<area shape="rect" id="node2" href="classHeuristique.html#a38c390423fc2b190da599148ca879cd6" title="Tri selon la méthode CCmax basée sur la somme des ressources de chaque job. " alt="" coords="177,47,385,88"/>
+<area shape="rect" id="node3" href="classHeuristique.html#ad8a57ed34b0c46f6d65e501ee99da498" title="Affectation machine par machine. " alt="" coords="445,110,632,151"/>
+<area shape="rect" id="node4" href="classHeuristique.html#aee20a4baec95a33533a6e13029c437df" title="Affectation privilégiant la machine la moins chargée. " alt="" coords="445,175,632,216"/>
+<area shape="rect" id="node5" href="classHeuristique.html#a02aae5127f941e55311e8bbd3b4afd3c" title="Tri selon la méthode CCmax basée sur la valeur de ressource maximale de chaque job. " alt="" coords="187,112,375,154"/>
+<area shape="rect" id="node6" href="classHeuristique.html#a6101d6d238a7667b820b50629e4d497f" title="Tri selon la somme des ressources de chaque job. " alt="" coords="164,178,397,205"/>
+<area shape="rect" id="node7" href="classResultat.html#adc6f1595c1e2271cd39805a6b62e8448" title="Permet de sauvegarder le résultat d&#39;une résolution d&#39;instance dans un fichier de résultat. " alt="" coords="181,229,380,256"/>
 </map>
 </div>
 
@@ -534,6 +540,8 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Permet de sauvegarder des instances avec des paramètres particuliers. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">nbrInstance</td><td>Le nombre d'instance à générer </td></tr>

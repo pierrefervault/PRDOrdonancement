@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QWidget>
+#include <iostream>
 #include "instance.h"
 
 using namespace std;

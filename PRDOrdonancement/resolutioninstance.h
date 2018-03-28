@@ -39,14 +39,14 @@ public:
      * @param fichierInstance Chemin vers le fichier d'instance
      * @param typeResolution Type de la résolution
      */
-    void executionFichier(QString fichierInstance, QString typeResolution);
+    void executionFichier(QString fichierInstance, QString typeResolution, map<unsigned int, unsigned int> pourcentagesParAgent);
     /**
      * @brief Execution de la résolution avec un seul fichier d'instance
      *
      * @param dossierInstance Chemin vers le dossier d'instances
      * @param typeResolution Type de la résolution
      */
-    void executionDossier(QString dossierInstance, QString typeResolution);
+    void executionDossier(QString dossierInstance, QString typeResolution, map<unsigned int, unsigned int> pourcentagesParAgent);
     /**
      * @brief Fonction permetant de trouver la methode de résolution suivant les champs CheckBox remplis
      *
@@ -54,7 +54,7 @@ public:
      * @param indexSousElement Index du sous-élément du tableau selectionné (-1 si il n'y a pas de sous-élément)
      * @return QString La méthode de résolution
      */
-    QString trouverMethodeResolution(unsigned int indexTableau, unsigned int indexSousElement = -1);
+    QString trouverMethodeResolution(unsigned int indexTableau, int indexSousElement = -1);
     /**
      * @brief Destructeur de la classe ResolutionInstance
      *
@@ -120,7 +120,7 @@ private slots:
 
 private:
     Ui::ResolutionInstance *ui; /**< La fenêtre de résolution d'instances */
-    vector<unsigned int> pourcentageParAgent; /**< Le pourcentage attribué à chaque agent */
+    map<unsigned int, unsigned int> pourcentageParAgent; /**< Le pourcentage attribué à chaque agent */
 };
 
 #endif // RESOLUTIONINSTANCE_H

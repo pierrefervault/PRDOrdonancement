@@ -1,5 +1,3 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node2" href="$classComparaisonSolution.html" title="ComparaisonSolution" alt="" coords="123,5,269,32"/>
-<area shape="rect" id="node3" href="$classGenerationInstance.html" title="La fenêtre de génération d&#39;instance. " alt="" coords="129,56,263,83"/>
-<area shape="rect" id="node4" href="$classResolutionInstance.html" title="Fenêtre ResolutionInstance. " alt="" coords="129,107,263,133"/>
+<area shape="rect" id="node1" href="$classCalculComparaison.html" title="La classe permetant d&#39;effectuer des comparaisons entre les différentes méthodes de résolution..." alt="" coords="5,5,141,32"/>
 </map>

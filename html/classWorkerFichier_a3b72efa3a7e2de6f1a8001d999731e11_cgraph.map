@@ -1,4 +1,6 @@
 <map id="WorkerFichier::process" name="WorkerFichier::process">
 <area shape="rect" id="node2" href="$classMethodeExacte.html#a91443b3ea749912772b40b5b5c40379e" title="Methode de résolution exacte indéxée temps. " alt="" coords="211,5,388,47"/>
 <area shape="rect" id="node3" href="$classMethodeExacte.html#a3163e487cc9e99ee7667d1dd146edb4b" title="Methode de résolution exacte indéxée jobs. " alt="" coords="211,71,388,112"/>
+<area shape="rect" id="node4" href="$classMethodeExacte.html#a3b3d9ad4a6d21f6e3be43212eb706054" title="Methode de résolution exacte indéxée temps pour un cas multi agent. " alt="" coords="211,136,388,177"/>
+<area shape="rect" id="node5" href="$classMethodeExacte.html#af5ed64d8d21ead081e02c3ac97192859" title="Methode de résolution exacte indéxée jobs pour un cas multi agent. " alt="" coords="211,201,388,243"/>
 </map>

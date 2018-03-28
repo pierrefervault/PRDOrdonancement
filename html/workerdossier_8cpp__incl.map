@@ -1,6 +1,7 @@
 <map id="PRDOrdonancement/workerdossier.cpp" name="PRDOrdonancement/workerdossier.cpp">
-<area shape="rect" id="node2" href="$workerdossier_8h.html" title="workerdossier.h" alt="" coords="783,80,898,107"/>
-<area shape="rect" id="node5" href="$methodeexacte_8h.html" title="methodeexacte.h" alt="" coords="519,155,642,181"/>
-<area shape="rect" id="node21" href="$heuristique_8h.html" title="heuristique.h" alt="" coords="171,155,267,181"/>
-<area shape="rect" id="node14" href="$instance_8h.html" title="instance.h" alt="" coords="539,229,622,256"/>
+<area shape="rect" id="node2" href="$workerdossier_8h.html" title="workerdossier.h" alt="" coords="1085,80,1200,107"/>
+<area shape="rect" id="node6" href="$methodeexacte_8h.html" title="methodeexacte.h" alt="" coords="597,155,720,181"/>
+<area shape="rect" id="node21" href="$heuristique_8h.html" title="heuristique.h" alt="" coords="201,155,297,181"/>
+<area shape="rect" id="node13" href="$instance_8h.html" title="instance.h" alt="" coords="640,304,723,331"/>
+<area shape="rect" id="node16" href="$resultat_8h.html" title="resultat.h" alt="" coords="431,229,507,256"/>
 </map>

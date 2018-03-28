@@ -3,11 +3,15 @@
 
 #include <QObject>
 #include <QWidget>
+#include <iostream>
 #include "methodeexacte.h"
 #include <iostream>
 #include <QFileDialog>
 #include <QFileInfo>
 #include <heuristique.h>
+#include "QMessageBox"
+
+using namespace std;
 
 /**
  * @brief Le Worker permetant de gérer la résolution d'un fichier d'instance
@@ -23,7 +27,7 @@ public:
      * @param fichierInstance Le chemin vers le fichier d'instance
      * @param typeResolution Le type de résolution à effectuer
      */
-    WorkerFichier(QString fichierInstance, QString typeResolution);
+    WorkerFichier(QString fichierInstance, QString typeResolution, map<unsigned int, unsigned int> pourcentagesParAgent);
     /**
      * @brief Destructeur de la classe WorkerFichier
      *
@@ -50,6 +54,7 @@ signals:
 private:
     QString fichierInstance; /**< Le chemin vers le fichier d'instance */
     QString typeResolution; /**< Le type de résolution à effectuer */
+    map<unsigned int, unsigned int> pourcentagesParAgent; /**< Le tableau de pourcentage par agent */
 };
 
 #endif // WORKERFICHIER_H

@@ -1,15 +1,20 @@
 <map id="Heuristique::resolveMachinePerMachine" name="Heuristique::resolveMachinePerMachine">
-<area shape="rect" id="node2" href="$classInstance.html#a2f985b9a7ce18fd8739ec589d9016003" title="Permet d&#39;obtenir le nombre de machines de l&#39;instance. " alt="" coords="269,5,444,32"/>
-<area shape="rect" id="node3" href="$classInstance.html#a79b49dcc3d590b823e41d8a223ecf25d" title="Permet d&#39;obtenir le nombre de ressources de l&#39;instance. " alt="" coords="548,144,737,171"/>
-<area shape="rect" id="node4" href="$classInstance.html#ab998bc8d9a8b03c8f6279573779217cc" title="Permet d&#39;obtenir le tableau des instants de départ de l&#39;ensemble des jobs. " alt="" coords="587,404,698,431"/>
-<area shape="rect" id="node5" href="$classInstance.html#af7b70cbd8670e4eb213fbd2b81eca6f0" title="Permet d&#39;obtenir le tableau des instants de fin de l&#39;ensemble des jobs. " alt="" coords="588,232,697,259"/>
-<area shape="rect" id="node6" href="$classInstance.html#a5dac330671540cf94e87b7586cd3102e" title="Permet d&#39;obtenir le tableau des capacités en ressource pour l&#39;ensemble des machines. " alt="" coords="261,509,453,536"/>
-<area shape="rect" id="node7" href="$classInstance.html#ad4124bd2f1edb83a46ef94cfe07eafc8" title="Permet d&#39;obtenir le tableau des capacités en ressource pour l&#39;ensemble des jobs. " alt="" coords="521,291,764,317"/>
-<area shape="rect" id="node8" href="$classHeuristique.html#a38c390423fc2b190da599148ca879cd6" title="Tri selon la méthode CCmax basée sur la somme des ressources de chaque job. " alt="" coords="253,225,461,266"/>
-<area shape="rect" id="node10" href="$classHeuristique.html#a02aae5127f941e55311e8bbd3b4afd3c" title="Tri selon la méthode CCmax basée sur la valeur de ressource maximale de chaque job. " alt="" coords="263,342,451,383"/>
-<area shape="rect" id="node11" href="$classHeuristique.html#a6101d6d238a7667b820b50629e4d497f" title="Tri selon la somme des ressources de chaque job. " alt="" coords="240,408,473,435"/>
-<area shape="rect" id="node12" href="$classHeuristique.html#a4541884c49c13e08ee6c73c919388fd3" title="Tri selon la moyenne des ressources de chaque sous&#45;ensembles maximaux de l&#39;instance. " alt="" coords="263,107,450,149"/>
-<area shape="rect" id="node14" href="$classHeuristique.html#a2aa8150a74e4b2b903cddacb22a2396b" title="Ecriture dans un fichier de résulat. " alt="" coords="279,560,435,587"/>
-<area shape="rect" id="node9" href="$classInstance.html#a1ed694b05c888cdb177ddf4c92a482d9" title="Permet d&#39;obtenir le nombre de jobs de l&#39;instance. " alt="" coords="569,349,716,376"/>
-<area shape="rect" id="node13" href="$classInstance.html#a2011ff3253fcb1d2d354c3c34a14a6fb" title="Retourne les sous&#45;ensembles maximaux de jobs de l&#39;instance (jobs se chevauchant) " alt="" coords="546,78,739,119"/>
+<area shape="rect" id="node2" href="$classInstance.html#a2f985b9a7ce18fd8739ec589d9016003" title="Permet d&#39;obtenir le nombre de machines de l&#39;instance. " alt="" coords="277,5,452,32"/>
+<area shape="rect" id="node3" href="$classInstance.html#a79b49dcc3d590b823e41d8a223ecf25d" title="Permet d&#39;obtenir le nombre de ressources de l&#39;instance. " alt="" coords="564,376,753,403"/>
+<area shape="rect" id="node4" href="$classInstance.html#ab998bc8d9a8b03c8f6279573779217cc" title="Permet d&#39;obtenir le tableau des instants de départ de l&#39;ensemble des jobs. " alt="" coords="603,267,714,293"/>
+<area shape="rect" id="node5" href="$classInstance.html#af7b70cbd8670e4eb213fbd2b81eca6f0" title="Permet d&#39;obtenir le tableau des instants de fin de l&#39;ensemble des jobs. " alt="" coords="604,161,713,188"/>
+<area shape="rect" id="node6" href="$classInstance.html#a5dac330671540cf94e87b7586cd3102e" title="Permet d&#39;obtenir le tableau des capacités en ressource pour l&#39;ensemble des machines. " alt="" coords="269,208,461,235"/>
+<area shape="rect" id="node7" href="$classInstance.html#ad4124bd2f1edb83a46ef94cfe07eafc8" title="Permet d&#39;obtenir le tableau des capacités en ressource pour l&#39;ensemble des jobs. " alt="" coords="537,427,780,453"/>
+<area shape="rect" id="node8" href="$classHeuristique.html#a38c390423fc2b190da599148ca879cd6" title="Tri selon la méthode CCmax basée sur la somme des ressources de chaque job. " alt="" coords="261,259,469,301"/>
+<area shape="rect" id="node10" href="$classHeuristique.html#a02aae5127f941e55311e8bbd3b4afd3c" title="Tri selon la méthode CCmax basée sur la valeur de ressource maximale de chaque job. " alt="" coords="271,325,459,366"/>
+<area shape="rect" id="node11" href="$classHeuristique.html#a6101d6d238a7667b820b50629e4d497f" title="Tri selon la somme des ressources de chaque job. " alt="" coords="248,391,481,417"/>
+<area shape="rect" id="node12" href="$classHeuristique.html#a4541884c49c13e08ee6c73c919388fd3" title="Tri selon la moyenne des ressources de chaque sous&#45;ensembles maximaux de l&#39;instance. " alt="" coords="271,493,458,534"/>
+<area shape="rect" id="node14" href="$classHeuristique.html#aca0409bb9bab82ae4d47c13f3838d04d" title="Tri selon la méthode CCmax basée sur la somme des ressources de chaque job pour un cas multi agent..." alt="" coords="261,558,469,599"/>
+<area shape="rect" id="node15" href="$classHeuristique.html#a177908d75131594fb1a37bd1a5b795f0" title="Tri selon la méthode CCmax basée sur la valeur de ressource maximale de chaque job pour un cas multi ..." alt="" coords="271,623,459,665"/>
+<area shape="rect" id="node16" href="$classHeuristique.html#aadc8e02ca8aa127354993bb01910bcef" title="Tri selon la somme des ressources de chaque job pour un cas multi agent. " alt="" coords="248,689,481,730"/>
+<area shape="rect" id="node17" href="$classHeuristique.html#a7dcb7f68553d90195c39950ed456e266" title="Tri selon la moyenne des ressources de chaque sous&#45;ensembles maximaux de l&#39;instance pour un cas multi..." alt="" coords="240,754,489,795"/>
+<area shape="rect" id="node18" href="$classResultat.html#adc6f1595c1e2271cd39805a6b62e8448" title="Permet de sauvegarder le résultat d&#39;une résolution d&#39;instance dans un fichier de résultat. " alt="" coords="265,56,464,83"/>
+<area shape="rect" id="node9" href="$classInstance.html#a1ed694b05c888cdb177ddf4c92a482d9" title="Permet d&#39;obtenir le nombre de jobs de l&#39;instance. " alt="" coords="585,325,732,352"/>
+<area shape="rect" id="node13" href="$classInstance.html#a2011ff3253fcb1d2d354c3c34a14a6fb" title="Retourne les sous&#45;ensembles maximaux de jobs de l&#39;instance (jobs se chevauchant) " alt="" coords="562,493,755,534"/>
+<area shape="rect" id="node19" href="$classInstance.html#a783365375cdab53149f87208374331a7" title="Permet de retourner le chemin vers le fichier d&#39;instance. " alt="" coords="565,56,752,83"/>
 </map>

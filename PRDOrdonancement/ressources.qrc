@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/logoLi">
+        <file alias="logoLi">logoLI.jpg</file>
+    </qresource>
+</RCC>

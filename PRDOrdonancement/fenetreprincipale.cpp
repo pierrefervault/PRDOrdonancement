@@ -1,14 +1,5 @@
 #include "fenetreprincipale.h"
 #include "ui_fenetreprincipale.h"
-#include "generationinstance.h"
-#include "resolutioninstance.h"
-#include "comparaisonsolution.h"
-#include <qwt.h>
-#include <qwt_plot.h>
-#include <qwt_plot_curve.h>
-#include <qwt_plot_grid.h>
-#include <qwt_symbol.h>
-#include <qwt_legend.h>
 
 FenetrePrincipale::FenetrePrincipale(QWidget *parent) :
     QMainWindow(parent),

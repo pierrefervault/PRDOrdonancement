@@ -2,7 +2,6 @@
 #define METHODEEXACTE_H
 
 #include <QObject>
-#include <ilcplex/ilocplex.h>
 #include <iostream>
 #include <fstream>
 #include <algorithm>
@@ -12,6 +11,8 @@
 #include <vector>
 #include "instance.h"
 #include "resultat.h"
+
+#include <ilcplex/ilocplex.h>
 
 using namespace std;
 
@@ -31,7 +32,7 @@ public:
      *
      * @param fichierInstance Le chemin vers le fichier d'instance
      */
-    MethodeExacte(string fichierInstance);
+    MethodeExacte(string fichierInstance, map<unsigned int, unsigned int> pourcentagesParAgent);
     /**
      * @brief Methode de résolution exacte indéxée temps
      *
@@ -47,12 +48,29 @@ public:
      */
     unsigned int resolutionPlneMip2(string fichierResultat);
 
+    /**
+     * @brief Methode de résolution exacte indéxée temps pour un cas multi agent
+     *
+     * @param fichierResultat Le fichier où seront stockés les résulats
+     * @return unsigned int Le nombre de jobs ordonnancés
+     */
+    unsigned int resolutionPlneMip1MultiAgent(string fichierResultat);
+    /**
+     * @brief Methode de résolution exacte indéxée jobs pour un cas multi agent
+     *
+     * @param fichierResultat Le fichier où seront stockés les résulats
+     * @return unsigned int Le nombre de jobs ordonnancés
+     */
+    unsigned int resolutionPlneMip2MultiAgent(string fichierResultat);
+
     Instance getInstance() const;
     void setInstance(const Instance &value);
 
 private:
     Instance instance; /**< L'instance à résoudre */
     Resultat resultat; /**< La classe Resultat permetant de sauvegarder des résultats de résolution dans un fichier */
+
+    map<unsigned int, unsigned int> pourcentagesParAgent; /**< Le pourcentage par agent dans un cas multi-agent */
 };
 
 #endif // METHODEEXACTE_H

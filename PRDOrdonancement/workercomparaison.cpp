@@ -1,6 +1,5 @@
 #include "workercomparaison.h"
-#include "fstream"
-#include "calculcomparaison.h"
+
 
 /**
  * @brief Constructeur de la classe WorkerComparaison

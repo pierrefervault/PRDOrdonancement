@@ -1,7 +1,8 @@
 <map id="Instance::getSj" name="Instance::getSj">
-<area shape="rect" id="node2" href="$classHeuristique.html#a38c390423fc2b190da599148ca879cd6" title="Tri selon la méthode CCmax basée sur la somme des ressources de chaque job. " alt="" coords="177,38,385,79"/>
-<area shape="rect" id="node3" href="$classHeuristique.html#ad8a57ed34b0c46f6d65e501ee99da498" title="Affectation machine par machine. " alt="" coords="445,52,632,94"/>
-<area shape="rect" id="node4" href="$classHeuristique.html#aee20a4baec95a33533a6e13029c437df" title="Affectation privilégiant la machine la moins chargée. " alt="" coords="445,132,632,174"/>
-<area shape="rect" id="node5" href="$classHeuristique.html#a02aae5127f941e55311e8bbd3b4afd3c" title="Tri selon la méthode CCmax basée sur la valeur de ressource maximale de chaque job. " alt="" coords="187,103,375,144"/>
-<area shape="rect" id="node6" href="$classHeuristique.html#a6101d6d238a7667b820b50629e4d497f" title="Tri selon la somme des ressources de chaque job. " alt="" coords="164,169,397,196"/>
+<area shape="rect" id="node2" href="$classHeuristique.html#a38c390423fc2b190da599148ca879cd6" title="Tri selon la méthode CCmax basée sur la somme des ressources de chaque job. " alt="" coords="177,47,385,88"/>
+<area shape="rect" id="node3" href="$classHeuristique.html#ad8a57ed34b0c46f6d65e501ee99da498" title="Affectation machine par machine. " alt="" coords="445,110,632,151"/>
+<area shape="rect" id="node4" href="$classHeuristique.html#aee20a4baec95a33533a6e13029c437df" title="Affectation privilégiant la machine la moins chargée. " alt="" coords="445,175,632,216"/>
+<area shape="rect" id="node5" href="$classHeuristique.html#a02aae5127f941e55311e8bbd3b4afd3c" title="Tri selon la méthode CCmax basée sur la valeur de ressource maximale de chaque job. " alt="" coords="187,112,375,154"/>
+<area shape="rect" id="node6" href="$classHeuristique.html#a6101d6d238a7667b820b50629e4d497f" title="Tri selon la somme des ressources de chaque job. " alt="" coords="164,178,397,205"/>
+<area shape="rect" id="node7" href="$classResultat.html#adc6f1595c1e2271cd39805a6b62e8448" title="Permet de sauvegarder le résultat d&#39;une résolution d&#39;instance dans un fichier de résultat. " alt="" coords="181,229,380,256"/>
 </map>

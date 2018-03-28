@@ -12,7 +12,7 @@ Classe \hyperlink{classHeuristique}{Heuristique} permetant de trier et affecter 
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classHeuristique_a58630433c6bac8eec9a5888945eba479}{Heuristique} (string fichier\+Instance)
+\hyperlink{classHeuristique_a6d5f8c9f55e42a8713c8a5636d9cef1b}{Heuristique} (string fichier\+Instance, map$<$ unsigned int, unsigned int $>$ pourcentages\+Par\+Agent)
 \begin{DoxyCompactList}\small\item\em Constructeur de la classe \hyperlink{classHeuristique}{Heuristique}. \end{DoxyCompactList}\item 
 vector$<$ unsigned int $>$ \hyperlink{classHeuristique_a38c390423fc2b190da599148ca879cd6}{trier\+C\+Cmax\+Somme\+Ressources} ()
 \begin{DoxyCompactList}\small\item\em Tri selon la méthode C\+Cmax basée sur la somme des ressources de chaque job. \end{DoxyCompactList}\item 
@@ -22,27 +22,33 @@ vector$<$ unsigned int $>$ \hyperlink{classHeuristique_a6101d6d238a7667b820b5062
 \begin{DoxyCompactList}\small\item\em Tri selon la somme des ressources de chaque job. \end{DoxyCompactList}\item 
 vector$<$ unsigned int $>$ \hyperlink{classHeuristique_a4541884c49c13e08ee6c73c919388fd3}{trier\+Moyenne\+Ressources\+Sous\+Ensembles} ()
 \begin{DoxyCompactList}\small\item\em Tri selon la moyenne des ressources de chaque sous-\/ensembles maximaux de l\textquotesingle{}instance. \end{DoxyCompactList}\item 
+vector$<$ unsigned int $>$ \hyperlink{classHeuristique_aca0409bb9bab82ae4d47c13f3838d04d}{trier\+C\+Cmax\+Somme\+Ressources\+Multi\+Agent} ()
+\begin{DoxyCompactList}\small\item\em Tri selon la méthode C\+Cmax basée sur la somme des ressources de chaque job pour un cas multi agent. \end{DoxyCompactList}\item 
+vector$<$ unsigned int $>$ \hyperlink{classHeuristique_a177908d75131594fb1a37bd1a5b795f0}{trier\+C\+Cmax\+Max\+Ressources\+Multi\+Agent} ()
+\begin{DoxyCompactList}\small\item\em Tri selon la méthode C\+Cmax basée sur la valeur de ressource maximale de chaque job pour un cas multi agent. \end{DoxyCompactList}\item 
+vector$<$ unsigned int $>$ \hyperlink{classHeuristique_aadc8e02ca8aa127354993bb01910bcef}{trier\+Somme\+Ressources\+Multi\+Agent} ()
+\begin{DoxyCompactList}\small\item\em Tri selon la somme des ressources de chaque job pour un cas multi agent. \end{DoxyCompactList}\item 
+vector$<$ unsigned int $>$ \hyperlink{classHeuristique_a7dcb7f68553d90195c39950ed456e266}{trier\+Moyenne\+Ressources\+Sous\+Ensembles\+Multi\+Agent} ()
+\begin{DoxyCompactList}\small\item\em Tri selon la moyenne des ressources de chaque sous-\/ensembles maximaux de l\textquotesingle{}instance pour un cas multi agent. \end{DoxyCompactList}\item 
 unsigned int \hyperlink{classHeuristique_ad8a57ed34b0c46f6d65e501ee99da498}{resolve\+Machine\+Per\+Machine} (Q\+String type\+Tri, Q\+String fichier\+Resultat)
 \begin{DoxyCompactList}\small\item\em Affectation machine par machine. \end{DoxyCompactList}\item 
 unsigned int \hyperlink{classHeuristique_aee20a4baec95a33533a6e13029c437df}{resolve\+Machine\+Less\+Used\+Machine} (Q\+String type\+Tri, Q\+String fichier\+Resultat)
 \begin{DoxyCompactList}\small\item\em Affectation privilégiant la machine la moins chargée. \end{DoxyCompactList}\item 
-unsigned int \hyperlink{classHeuristique_a2aa8150a74e4b2b903cddacb22a2396b}{write\+In\+File} (vector$<$ vector$<$ unsigned int $>$$>$ jobs\+Ordonnances, Q\+String type\+Resolution, Q\+String fichier\+Resultat, double duree\+Execution)
-\begin{DoxyCompactList}\small\item\em Ecriture dans un fichier de résulat. \end{DoxyCompactList}\item 
-\hyperlink{classInstance}{Instance} $\ast$ \hyperlink{classHeuristique_aa84c0d4d8d2ff50462bc7e77079818e4}{get\+Instance} () const
-\item 
-void \hyperlink{classHeuristique_ab181d69cd0e2c8a7a28ac5fd9be0e214}{set\+Instance} (\hyperlink{classInstance}{Instance} $\ast$value)
-\end{DoxyCompactItemize}
+\hyperlink{classInstance}{Instance} \hyperlink{classHeuristique_aa6eca6703702298968f03ac30c4be86f}{get\+Instance} () const
+\begin{DoxyCompactList}\small\item\em Getter de l\textquotesingle{}instance pour laquelle on veut appliquer une heuristique. \end{DoxyCompactList}\item 
+void \hyperlink{classHeuristique_a06be9aa588fa801a9a4fb19f8ea79179}{set\+Instance} (\hyperlink{classInstance}{Instance} value)
+\begin{DoxyCompactList}\small\item\em Setter de l\textquotesingle{}instance pour laquelle on veut appliquer une heuristique. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Classe \hyperlink{classHeuristique}{Heuristique} permetant de trier et affecter des jobs sur des machines. 
 
 \subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classHeuristique_a58630433c6bac8eec9a5888945eba479}\label{classHeuristique_a58630433c6bac8eec9a5888945eba479}} 
+\mbox{\Hypertarget{classHeuristique_a6d5f8c9f55e42a8713c8a5636d9cef1b}\label{classHeuristique_a6d5f8c9f55e42a8713c8a5636d9cef1b}} 
 \index{Heuristique@{Heuristique}!Heuristique@{Heuristique}}
 \index{Heuristique@{Heuristique}!Heuristique@{Heuristique}}
 \subsubsection{\texorpdfstring{Heuristique()}{Heuristique()}}
-{\footnotesize\ttfamily Heuristique\+::\+Heuristique (\begin{DoxyParamCaption}\item[{string}]{fichier\+Instance }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Heuristique\+::\+Heuristique (\begin{DoxyParamCaption}\item[{string}]{fichier\+Instance,  }\item[{map$<$ unsigned int, unsigned int $>$}]{pourcentages\+Par\+Agent }\end{DoxyParamCaption})}
 
 
 
@@ -57,20 +63,24 @@ Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{classHeuristique_a58630433c6bac8eec9a5888945eba479_cgraph}
+\includegraphics[width=350pt]{classHeuristique_a6d5f8c9f55e42a8713c8a5636d9cef1b_cgraph}
 \end{center}
 \end{figure}
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{classHeuristique_aa84c0d4d8d2ff50462bc7e77079818e4}\label{classHeuristique_aa84c0d4d8d2ff50462bc7e77079818e4}} 
+\mbox{\Hypertarget{classHeuristique_aa6eca6703702298968f03ac30c4be86f}\label{classHeuristique_aa6eca6703702298968f03ac30c4be86f}} 
 \index{Heuristique@{Heuristique}!get\+Instance@{get\+Instance}}
 \index{get\+Instance@{get\+Instance}!Heuristique@{Heuristique}}
 \subsubsection{\texorpdfstring{get\+Instance()}{getInstance()}}
-{\footnotesize\ttfamily \hyperlink{classInstance}{Instance} $\ast$ Heuristique\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \hyperlink{classInstance}{Instance} Heuristique\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter de l\textquotesingle{}instance pour laquelle on veut appliquer une heuristique. 
 
 \begin{DoxyReturn}{Returns}
-\hyperlink{classInstance}{Instance} 
+\hyperlink{classInstance}{Instance} L\textquotesingle{}instance pour laquelle on veut appliquer une heuristique 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classHeuristique_aee20a4baec95a33533a6e13029c437df}\label{classHeuristique_aee20a4baec95a33533a6e13029c437df}} 
 \index{Heuristique@{Heuristique}!resolve\+Machine\+Less\+Used\+Machine@{resolve\+Machine\+Less\+Used\+Machine}}
@@ -92,7 +102,8 @@ Affectation privilégiant la machine la moins chargée.
 \begin{DoxyReturn}{Returns}
 unsigned int Le nombre de jobs ordonnancés 
 \end{DoxyReturn}
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -119,22 +130,27 @@ Affectation machine par machine.
 \begin{DoxyReturn}{Returns}
 unsigned int Le nombre de jobs ordonnancés 
 \end{DoxyReturn}
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{classHeuristique_ad8a57ed34b0c46f6d65e501ee99da498_cgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{classHeuristique_ab181d69cd0e2c8a7a28ac5fd9be0e214}\label{classHeuristique_ab181d69cd0e2c8a7a28ac5fd9be0e214}} 
+\mbox{\Hypertarget{classHeuristique_a06be9aa588fa801a9a4fb19f8ea79179}\label{classHeuristique_a06be9aa588fa801a9a4fb19f8ea79179}} 
 \index{Heuristique@{Heuristique}!set\+Instance@{set\+Instance}}
 \index{set\+Instance@{set\+Instance}!Heuristique@{Heuristique}}
 \subsubsection{\texorpdfstring{set\+Instance()}{setInstance()}}
-{\footnotesize\ttfamily void Heuristique\+::set\+Instance (\begin{DoxyParamCaption}\item[{\hyperlink{classInstance}{Instance} $\ast$}]{value }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Heuristique\+::set\+Instance (\begin{DoxyParamCaption}\item[{\hyperlink{classInstance}{Instance}}]{value }\end{DoxyParamCaption})}
+
+
+
+Setter de l\textquotesingle{}instance pour laquelle on veut appliquer une heuristique. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em value} & \\
+{\em value} & L\textquotesingle{}instance pour laquelle on veut appliquer une heuristique \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classHeuristique_a02aae5127f941e55311e8bbd3b4afd3c}\label{classHeuristique_a02aae5127f941e55311e8bbd3b4afd3c}} 
@@ -150,18 +166,41 @@ Tri selon la méthode C\+Cmax basée sur la valeur de ressource maximale de chaq
 \begin{DoxyReturn}{Returns}
 vector$<$unsigned int$>$ La liste des jobs triés 
 \end{DoxyReturn}
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{classHeuristique_a02aae5127f941e55311e8bbd3b4afd3c_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{classHeuristique_a02aae5127f941e55311e8bbd3b4afd3c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classHeuristique_a177908d75131594fb1a37bd1a5b795f0}\label{classHeuristique_a177908d75131594fb1a37bd1a5b795f0}} 
+\index{Heuristique@{Heuristique}!trier\+C\+Cmax\+Max\+Ressources\+Multi\+Agent@{trier\+C\+Cmax\+Max\+Ressources\+Multi\+Agent}}
+\index{trier\+C\+Cmax\+Max\+Ressources\+Multi\+Agent@{trier\+C\+Cmax\+Max\+Ressources\+Multi\+Agent}!Heuristique@{Heuristique}}
+\subsubsection{\texorpdfstring{trier\+C\+Cmax\+Max\+Ressources\+Multi\+Agent()}{trierCCmaxMaxRessourcesMultiAgent()}}
+{\footnotesize\ttfamily vector$<$ unsigned int $>$ Heuristique\+::trier\+C\+Cmax\+Max\+Ressources\+Multi\+Agent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Tri selon la méthode C\+Cmax basée sur la valeur de ressource maximale de chaque job pour un cas multi agent. 
+
+\begin{DoxyReturn}{Returns}
+vector$<$unsigned int$>$ La liste des jobs triés 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classHeuristique_a177908d75131594fb1a37bd1a5b795f0_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{classHeuristique_a38c390423fc2b190da599148ca879cd6}\label{classHeuristique_a38c390423fc2b190da599148ca879cd6}} 
@@ -177,18 +216,41 @@ Tri selon la méthode C\+Cmax basée sur la somme des ressources de chaque job.
 \begin{DoxyReturn}{Returns}
 vector$<$unsigned int$>$ La liste des jobs triés 
 \end{DoxyReturn}
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{classHeuristique_a38c390423fc2b190da599148ca879cd6_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{classHeuristique_a38c390423fc2b190da599148ca879cd6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classHeuristique_aca0409bb9bab82ae4d47c13f3838d04d}\label{classHeuristique_aca0409bb9bab82ae4d47c13f3838d04d}} 
+\index{Heuristique@{Heuristique}!trier\+C\+Cmax\+Somme\+Ressources\+Multi\+Agent@{trier\+C\+Cmax\+Somme\+Ressources\+Multi\+Agent}}
+\index{trier\+C\+Cmax\+Somme\+Ressources\+Multi\+Agent@{trier\+C\+Cmax\+Somme\+Ressources\+Multi\+Agent}!Heuristique@{Heuristique}}
+\subsubsection{\texorpdfstring{trier\+C\+Cmax\+Somme\+Ressources\+Multi\+Agent()}{trierCCmaxSommeRessourcesMultiAgent()}}
+{\footnotesize\ttfamily vector$<$ unsigned int $>$ Heuristique\+::trier\+C\+Cmax\+Somme\+Ressources\+Multi\+Agent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Tri selon la méthode C\+Cmax basée sur la somme des ressources de chaque job pour un cas multi agent. 
+
+\begin{DoxyReturn}{Returns}
+vector$<$unsigned int$>$ La liste des jobs triés 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classHeuristique_aca0409bb9bab82ae4d47c13f3838d04d_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{classHeuristique_a4541884c49c13e08ee6c73c919388fd3}\label{classHeuristique_a4541884c49c13e08ee6c73c919388fd3}} 
@@ -204,18 +266,41 @@ Tri selon la moyenne des ressources de chaque sous-\/ensembles maximaux de l\tex
 \begin{DoxyReturn}{Returns}
 vector$<$unsigned int$>$ La liste des jobs triés 
 \end{DoxyReturn}
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{classHeuristique_a4541884c49c13e08ee6c73c919388fd3_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{classHeuristique_a4541884c49c13e08ee6c73c919388fd3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classHeuristique_a7dcb7f68553d90195c39950ed456e266}\label{classHeuristique_a7dcb7f68553d90195c39950ed456e266}} 
+\index{Heuristique@{Heuristique}!trier\+Moyenne\+Ressources\+Sous\+Ensembles\+Multi\+Agent@{trier\+Moyenne\+Ressources\+Sous\+Ensembles\+Multi\+Agent}}
+\index{trier\+Moyenne\+Ressources\+Sous\+Ensembles\+Multi\+Agent@{trier\+Moyenne\+Ressources\+Sous\+Ensembles\+Multi\+Agent}!Heuristique@{Heuristique}}
+\subsubsection{\texorpdfstring{trier\+Moyenne\+Ressources\+Sous\+Ensembles\+Multi\+Agent()}{trierMoyenneRessourcesSousEnsemblesMultiAgent()}}
+{\footnotesize\ttfamily vector$<$ unsigned int $>$ Heuristique\+::trier\+Moyenne\+Ressources\+Sous\+Ensembles\+Multi\+Agent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Tri selon la moyenne des ressources de chaque sous-\/ensembles maximaux de l\textquotesingle{}instance pour un cas multi agent. 
+
+\begin{DoxyReturn}{Returns}
+vector$<$unsigned int$>$ La liste des jobs triés 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classHeuristique_a7dcb7f68553d90195c39950ed456e266_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{classHeuristique_a6101d6d238a7667b820b50629e4d497f}\label{classHeuristique_a6101d6d238a7667b820b50629e4d497f}} 
@@ -231,49 +316,41 @@ Tri selon la somme des ressources de chaque job.
 \begin{DoxyReturn}{Returns}
 vector$<$unsigned int$>$ La liste des jobs triés 
 \end{DoxyReturn}
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{classHeuristique_a6101d6d238a7667b820b50629e4d497f_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{classHeuristique_a6101d6d238a7667b820b50629e4d497f_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{classHeuristique_a2aa8150a74e4b2b903cddacb22a2396b}\label{classHeuristique_a2aa8150a74e4b2b903cddacb22a2396b}} 
-\index{Heuristique@{Heuristique}!write\+In\+File@{write\+In\+File}}
-\index{write\+In\+File@{write\+In\+File}!Heuristique@{Heuristique}}
-\subsubsection{\texorpdfstring{write\+In\+File()}{writeInFile()}}
-{\footnotesize\ttfamily unsigned int Heuristique\+::write\+In\+File (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ unsigned int $>$$>$}]{jobs\+Ordonnances,  }\item[{Q\+String}]{type\+Resolution,  }\item[{Q\+String}]{fichier\+Resultat,  }\item[{double}]{duree\+Execution }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classHeuristique_aadc8e02ca8aa127354993bb01910bcef}\label{classHeuristique_aadc8e02ca8aa127354993bb01910bcef}} 
+\index{Heuristique@{Heuristique}!trier\+Somme\+Ressources\+Multi\+Agent@{trier\+Somme\+Ressources\+Multi\+Agent}}
+\index{trier\+Somme\+Ressources\+Multi\+Agent@{trier\+Somme\+Ressources\+Multi\+Agent}!Heuristique@{Heuristique}}
+\subsubsection{\texorpdfstring{trier\+Somme\+Ressources\+Multi\+Agent()}{trierSommeRessourcesMultiAgent()}}
+{\footnotesize\ttfamily vector$<$ unsigned int $>$ Heuristique\+::trier\+Somme\+Ressources\+Multi\+Agent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-Ecriture dans un fichier de résulat. 
+Tri selon la somme des ressources de chaque job pour un cas multi agent. 
 
-
-\begin{DoxyParams}{Parameters}
-{\em jobs\+Ordonnances} & Le tableau de jobs ordonancés \\
-\hline
-{\em type\+Resolution} & Le type de résolution \\
-\hline
-{\em fichier\+Resultat} & Le fichier où seront stockés les résulats \\
-\hline
-{\em duree\+Execution} & La durée d\textquotesingle{}execution de la résolution \\
-\hline
-\end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-unsigned int Le nombre de jobs ordonnancés 
+vector$<$unsigned int$>$ La liste des jobs triés 
 \end{DoxyReturn}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{classHeuristique_a2aa8150a74e4b2b903cddacb22a2396b_icgraph}
+\includegraphics[width=350pt]{classHeuristique_aadc8e02ca8aa127354993bb01910bcef_icgraph}
 \end{center}
 \end{figure}
 

@@ -1,6 +1,5 @@
 #include "generationinstance.h"
 #include "ui_generationinstance.h"
-#include "QMessageBox"
 
 using namespace std;
 
@@ -32,9 +31,9 @@ GenerationInstance::~GenerationInstance()
  */
 void GenerationInstance::on_okPushButton_clicked()
 {
-    if (!this->ui->nbrInstancesLineEdit->text().isEmpty() && !this->ui->nbrJobsLineEdit->text().isEmpty() &&
-            !this->ui->nbrRessourcesLineEdit->text().isEmpty() && !this->ui->nbrMachinesLineEdit->text().isEmpty() &&
-            !this->ui->horizonPlanificationLineEdit->text().isEmpty())
+    if (this->ui->nbrInstancesLineEdit->text().toInt() >= 1 && this->ui->nbrJobsLineEdit->text().toInt() >= 1 &&
+            this->ui->nbrRessourcesLineEdit->text().toInt() >= 1 && this->ui->nbrMachinesLineEdit->text().toInt() >= 1 &&
+            this->ui->horizonPlanificationLineEdit->text().toInt() >= 1)
     {
         cout << "Execution de la génération d'instances" << endl;
         unsigned int horizonPlanification = 0;

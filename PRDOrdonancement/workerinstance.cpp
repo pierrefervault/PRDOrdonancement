@@ -33,5 +33,8 @@ WorkerInstance::~WorkerInstance(){
 void WorkerInstance::process(){
     Instance instance;
     instance.sauvegarderInstance(this->nbrInstance,this->nbrJobs,this->nbrRessources,this->nbrMachines,this->horizonPlanification);
+
+    cout << "Génération terminée" << endl;
+
     emit finished();
 }

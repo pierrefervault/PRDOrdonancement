@@ -1,0 +1,5 @@
+<map id="Resultat::Resultat" name="Resultat::Resultat">
+<area shape="rect" id="node2" href="$classResultat.html#a61b3cb17971280228fe9e1ce20e906fa" title="Setter permetant de spécifier le nombre de jobs pour chaque solution. " alt="" coords="202,5,349,32"/>
+<area shape="rect" id="node3" href="$classResultat.html#a3e4e337fd9d39bf566a26873c9c4410c" title="Setter permetant de spécifier le nombre de ressources pour chaque solution. " alt="" coords="181,56,369,83"/>
+<area shape="rect" id="node4" href="$classResultat.html#a5de638751a3dadde3d8765663a3d1403" title="Setter permetant de spécifier le nombre de machines pour chaque solution. " alt="" coords="188,107,363,133"/>
+</map>

@@ -1,6 +1,8 @@
 <map id="PRDOrdonancement/workerdossier.h" name="PRDOrdonancement/workerdossier.h">
-<area shape="rect" id="node2" href="$resolutioninstance_8h.html" title="PRDOrdonancement/resolutioninstance.h" alt="" coords="155,80,418,107"/>
-<area shape="rect" id="node5" href="$workerdossier_8cpp.html" title="PRDOrdonancement/workerdossier.cpp" alt="" coords="443,80,696,107"/>
-<area shape="rect" id="node3" href="$fenetreprincipale_8cpp.html" title="PRDOrdonancement/fenetreprincipale.cpp" alt="" coords="5,155,272,181"/>
-<area shape="rect" id="node4" href="$resolutioninstance_8cpp.html" title="PRDOrdonancement/resolutioninstance.cpp" alt="" coords="296,155,573,181"/>
+<area shape="rect" id="node2" href="$resolutioninstance_8h.html" title="PRDOrdonancement/resolutioninstance.h" alt="" coords="279,80,542,107"/>
+<area shape="rect" id="node7" href="$workerdossier_8cpp.html" title="PRDOrdonancement/workerdossier.cpp" alt="" coords="567,80,820,107"/>
+<area shape="rect" id="node3" href="$fenetreprincipale_8h.html" title="PRDOrdonancement/fenetreprincipale.h" alt="" coords="140,155,393,181"/>
+<area shape="rect" id="node6" href="$resolutioninstance_8cpp.html" title="PRDOrdonancement/resolutioninstance.cpp" alt="" coords="417,155,695,181"/>
+<area shape="rect" id="node4" href="$fenetreprincipale_8cpp.html" title="PRDOrdonancement/fenetreprincipale.cpp" alt="" coords="5,229,272,256"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title="PRDOrdonancement/main.cpp" alt="" coords="296,229,496,256"/>
 </map>

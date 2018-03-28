@@ -37,12 +37,14 @@ void \hyperlink{classWorkerComparaison_ac62afd6b36f0c1590e5f3878334a9928}{proces
 \item 
 void \hyperlink{classWorkerComparaison_a22ed9afba5f29d89a014b2b895d995b2}{finished} ()
 \begin{DoxyCompactList}\small\item\em Action effectuée lorsque le worker a fini l\textquotesingle{}ensemble de ces tâches. \end{DoxyCompactList}\item 
+void \hyperlink{classWorkerComparaison_afc5278dea0a1d826ece10555812266bd}{update\+Layout} (map$<$ unsigned int, map$<$ Q\+String, unsigned int $>$$>$ tableau\+Comparaison, Q\+String type\+Comparaison)
+\item 
 void \hyperlink{classWorkerComparaison_aa9c167d230b850568f48575bc19241d7}{error} (Q\+String err)
 \begin{DoxyCompactList}\small\item\em Action effectuée lorsqu\textquotesingle{}il y a une erreur dans le worker. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classWorkerComparaison_ab4c8a73500944f1e13c9008dd6302e80}{Worker\+Comparaison} (Q\+String dossier\+Resultat, Q\+String type\+Comparaison)
+\hyperlink{classWorkerComparaison_a145d174d34098a5271b223025f165b09}{Worker\+Comparaison} (Q\+String dossier\+Resultat, Q\+String type\+Comparaison, int nbr\+Ressources, int nbr\+Machines)
 \begin{DoxyCompactList}\small\item\em Constructeur de la classe \hyperlink{classWorkerComparaison}{Worker\+Comparaison}. \end{DoxyCompactList}\item 
 \hyperlink{classWorkerComparaison_a82acf722e3274431c0f86093c9dcb799}{$\sim$\+Worker\+Comparaison} ()
 \begin{DoxyCompactList}\small\item\em Destructeur de la classe \hyperlink{classWorkerComparaison}{Worker\+Comparaison}. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -52,11 +54,11 @@ void \hyperlink{classWorkerComparaison_aa9c167d230b850568f48575bc19241d7}{error}
 Le Worker permetant de gérer la comparaison d\textquotesingle{}un dossier de résultats. 
 
 \subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classWorkerComparaison_ab4c8a73500944f1e13c9008dd6302e80}\label{classWorkerComparaison_ab4c8a73500944f1e13c9008dd6302e80}} 
+\mbox{\Hypertarget{classWorkerComparaison_a145d174d34098a5271b223025f165b09}\label{classWorkerComparaison_a145d174d34098a5271b223025f165b09}} 
 \index{Worker\+Comparaison@{Worker\+Comparaison}!Worker\+Comparaison@{Worker\+Comparaison}}
 \index{Worker\+Comparaison@{Worker\+Comparaison}!Worker\+Comparaison@{Worker\+Comparaison}}
 \subsubsection{\texorpdfstring{Worker\+Comparaison()}{WorkerComparaison()}}
-{\footnotesize\ttfamily Worker\+Comparaison\+::\+Worker\+Comparaison (\begin{DoxyParamCaption}\item[{Q\+String}]{dossier\+Resultat,  }\item[{Q\+String}]{type\+Comparaison }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Worker\+Comparaison\+::\+Worker\+Comparaison (\begin{DoxyParamCaption}\item[{Q\+String}]{dossier\+Resultat,  }\item[{Q\+String}]{type\+Comparaison,  }\item[{int}]{nbr\+Ressources,  }\item[{int}]{nbr\+Machines }\end{DoxyParamCaption})}
 
 
 
@@ -124,6 +126,26 @@ Here is the caller graph for this function\+:\nopagebreak
 
 Action effectuée lors du lancement du worker. 
 
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classWorkerComparaison_ac62afd6b36f0c1590e5f3878334a9928_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classWorkerComparaison_afc5278dea0a1d826ece10555812266bd}\label{classWorkerComparaison_afc5278dea0a1d826ece10555812266bd}} 
+\index{Worker\+Comparaison@{Worker\+Comparaison}!update\+Layout@{update\+Layout}}
+\index{update\+Layout@{update\+Layout}!Worker\+Comparaison@{Worker\+Comparaison}}
+\subsubsection{\texorpdfstring{update\+Layout}{updateLayout}}
+{\footnotesize\ttfamily void Worker\+Comparaison\+::update\+Layout (\begin{DoxyParamCaption}\item[{map$<$ unsigned int, map$<$ Q\+String, unsigned int $>$$>$}]{tableau\+Comparaison,  }\item[{Q\+String}]{type\+Comparaison }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{classWorkerComparaison_afc5278dea0a1d826ece10555812266bd_icgraph}
+\end{center}
+\end{figure}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

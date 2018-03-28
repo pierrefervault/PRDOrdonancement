@@ -6,10 +6,11 @@
  * @param dossierInstance Le chemin vers le dossier d'instance
  * @param typeResolution Le type de résolution à effectuer
  */
-WorkerDossier::WorkerDossier(QString dossierInstance, QString typeResolution)
+WorkerDossier::WorkerDossier(QString dossierInstance, QString typeResolution, map<unsigned int, unsigned int> pourcentagesParAgent)
 {
     this->dossierInstance = dossierInstance;
     this->typeResolution = typeResolution;
+    this->pourcentagesParAgent = pourcentagesParAgent;
 }
 
 /**
@@ -77,8 +78,23 @@ void WorkerDossier::process(){
             //On donne le nouveau chemin pour le fichier de résultat
             QString fichierResultat = repertoire.path()+"/resolutionMip1"+fichier.right(fichier.size()-fichier.split("-")[0].size());
 
-            MethodeExacte methodeExacte(fichierInstance.toStdString());
+            MethodeExacte methodeExacte(fichierInstance.toStdString(), this->pourcentagesParAgent);
             methodeExacte.resolutionPlneMip1(fichierResultat.toStdString());
+        }
+
+        if (typeResolution.split(" ")[0] == "mip1MultiAgent"){
+
+            if (folderName != repertoire.path()){
+                repertoire.remove("resolutionMip1MultiAgent"+fichier.right(fichier.size()-fichier.split("-")[0].size()));
+                folderName = repertoire.path();
+                repertoire.mkpath(".");
+            }
+
+            //On donne le nouveau chemin pour le fichier de résultat
+            QString fichierResultat = repertoire.path()+"/resolutionMip1MultiAgent"+fichier.right(fichier.size()-fichier.split("-")[0].size());
+
+            MethodeExacte methodeExacte(fichierInstance.toStdString(), this->pourcentagesParAgent);
+            methodeExacte.resolutionPlneMip1MultiAgent(fichierResultat.toStdString());
         }
 
         if (typeResolution.split(" ")[0] == "mip2"){
@@ -92,8 +108,23 @@ void WorkerDossier::process(){
             //On donne le nouveau chemin pour le fichier de résultat
             QString fichierResultat = repertoire.path()+"/resolutionMip2"+fichier.right(fichier.size()-fichier.split("-")[0].size());
 
-            MethodeExacte methodeExacte(fichierInstance.toStdString());
+            MethodeExacte methodeExacte(fichierInstance.toStdString(), this->pourcentagesParAgent);
             methodeExacte.resolutionPlneMip2(fichierResultat.toStdString());
+        }
+
+        if (typeResolution.split(" ")[0] == "mip2MultiAgent"){
+
+            if (folderName != repertoire.path()){
+                repertoire.remove("resolutionMip2MultiAgent"+fichier.right(fichier.size()-fichier.split("-")[0].size()));
+                folderName = repertoire.path();
+                repertoire.mkpath(".");
+            }
+
+            //On donne le nouveau chemin pour le fichier de résultat
+            QString fichierResultat = repertoire.path()+"/resolutionMip2Multi"+fichier.right(fichier.size()-fichier.split("-")[0].size());
+
+            MethodeExacte methodeExacte(fichierInstance.toStdString(), this->pourcentagesParAgent);
+            methodeExacte.resolutionPlneMip2MultiAgent(fichierResultat.toStdString());
         }
 
         if (typeResolution.split(" ")[0] == "Affectation1"){
@@ -104,7 +135,7 @@ void WorkerDossier::process(){
                 repertoire.mkpath(".");
             }
 
-            Heuristique heuristic(fichierInstance.toStdString());
+            Heuristique heuristic(fichierInstance.toStdString(), this->pourcentagesParAgent);
 
             //On donne le nouveau chemin pour le fichier de résultat
             QString fichierResultat = repertoire.path()+"/Affectation1-"+typeResolution.split(" ")[1]+fichier.right(fichier.size()-fichier.split("-")[0].size());
@@ -119,13 +150,15 @@ void WorkerDossier::process(){
                 repertoire.mkpath(".");
             }
 
-            Heuristique heuristic(fichierInstance.toStdString());
+            Heuristique heuristic(fichierInstance.toStdString(), this->pourcentagesParAgent);
 
             //On donne le nouveau chemin pour le fichier de résultat
             QString fichierResultat = repertoire.path()+"/Affectation2-"+typeResolution.split(" ")[1]+fichier.right(fichier.size()-fichier.split("-")[0].size());
             heuristic.resolveMachineLessUsedMachine(typeResolution.split(" ")[1], fichierResultat);
         }
     }
+
+    cout << "Résolution " << this->typeResolution.toStdString() << " terminée" << endl;
 
     emit finished();
 }

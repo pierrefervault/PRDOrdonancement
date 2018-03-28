@@ -1,0 +1,122 @@
+\hypertarget{classCalculComparaison}{}\section{Calcul\+Comparaison Class Reference}
+\label{classCalculComparaison}\index{Calcul\+Comparaison@{Calcul\+Comparaison}}
+
+
+La classe permetant d\textquotesingle{}effectuer des comparaisons entre les différentes méthodes de résolution.  
+
+
+
+
+{\ttfamily \#include $<$calculcomparaison.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classCalculComparaison_af2712af8a2e61a46bae912a4784cc285}{Calcul\+Comparaison} ()
+\begin{DoxyCompactList}\small\item\em Le constructeur de la classe \hyperlink{classCalculComparaison}{Calcul\+Comparaison}. \end{DoxyCompactList}\item 
+map$<$ unsigned int, map$<$ Q\+String, unsigned int $>$ $>$ \hyperlink{classCalculComparaison_ada2ba7f37482b4261450e38a8aeed123}{calcul\+Gap} (map$<$ unsigned int, vector$<$ \hyperlink{classResultat}{Resultat} $>$$>$ tableau\+Comparaison)
+\begin{DoxyCompactList}\small\item\em Calcul le gap de toutes les méthodes de résolution. \end{DoxyCompactList}\item 
+map$<$ unsigned int, map$<$ Q\+String, unsigned int $>$ $>$ \hyperlink{classCalculComparaison_a2e68afe2dcc785f580d7e0a365c2b607}{calcul\+Pourcentage\+Solution\+Optimale} (map$<$ unsigned int, vector$<$ \hyperlink{classResultat}{Resultat} $>$$>$ tableau\+Comparaison)
+\begin{DoxyCompactList}\small\item\em Calcul le pourcentage de solution optimale pour chaque méthode de résolution. \end{DoxyCompactList}\item 
+map$<$ unsigned int, map$<$ Q\+String, unsigned int $>$ $>$ \hyperlink{classCalculComparaison_a95460e5474d2abafd7a1c861d65785ea}{calcul\+Pourcentage\+Temps\+Resolution} (map$<$ unsigned int, vector$<$ \hyperlink{classResultat}{Resultat} $>$$>$ tableau\+Comparaison)
+\begin{DoxyCompactList}\small\item\em Calcul le pourcentage du temps de résolution exacte pour chaque méthode de résolution. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+La classe permetant d\textquotesingle{}effectuer des comparaisons entre les différentes méthodes de résolution. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCalculComparaison_af2712af8a2e61a46bae912a4784cc285}\label{classCalculComparaison_af2712af8a2e61a46bae912a4784cc285}} 
+\index{Calcul\+Comparaison@{Calcul\+Comparaison}!Calcul\+Comparaison@{Calcul\+Comparaison}}
+\index{Calcul\+Comparaison@{Calcul\+Comparaison}!Calcul\+Comparaison@{Calcul\+Comparaison}}
+\subsubsection{\texorpdfstring{Calcul\+Comparaison()}{CalculComparaison()}}
+{\footnotesize\ttfamily Calcul\+Comparaison\+::\+Calcul\+Comparaison (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Le constructeur de la classe \hyperlink{classCalculComparaison}{Calcul\+Comparaison}. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classCalculComparaison_ada2ba7f37482b4261450e38a8aeed123}\label{classCalculComparaison_ada2ba7f37482b4261450e38a8aeed123}} 
+\index{Calcul\+Comparaison@{Calcul\+Comparaison}!calcul\+Gap@{calcul\+Gap}}
+\index{calcul\+Gap@{calcul\+Gap}!Calcul\+Comparaison@{Calcul\+Comparaison}}
+\subsubsection{\texorpdfstring{calcul\+Gap()}{calculGap()}}
+{\footnotesize\ttfamily map$<$ unsigned int, map$<$ Q\+String, unsigned int $>$ $>$ Calcul\+Comparaison\+::calcul\+Gap (\begin{DoxyParamCaption}\item[{map$<$ unsigned int, vector$<$ \hyperlink{classResultat}{Resultat} $>$$>$}]{tableau\+Comparaison }\end{DoxyParamCaption})}
+
+
+
+Calcul le gap de toutes les méthodes de résolution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tableau\+Comparaison} & Le tableau contenant pour chaque nombre de jobs, les fichiers de resultat pour chaque méthode de résolution. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+map$<$unsigned int, map$<$\+Q\+String, unsigned int$>$ $>$ Le tableau contenant pour chaque nombre de jobs, le gap pour chaque méthode de résolution. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{classCalculComparaison_ada2ba7f37482b4261450e38a8aeed123_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classCalculComparaison_a2e68afe2dcc785f580d7e0a365c2b607}\label{classCalculComparaison_a2e68afe2dcc785f580d7e0a365c2b607}} 
+\index{Calcul\+Comparaison@{Calcul\+Comparaison}!calcul\+Pourcentage\+Solution\+Optimale@{calcul\+Pourcentage\+Solution\+Optimale}}
+\index{calcul\+Pourcentage\+Solution\+Optimale@{calcul\+Pourcentage\+Solution\+Optimale}!Calcul\+Comparaison@{Calcul\+Comparaison}}
+\subsubsection{\texorpdfstring{calcul\+Pourcentage\+Solution\+Optimale()}{calculPourcentageSolutionOptimale()}}
+{\footnotesize\ttfamily map$<$ unsigned int, map$<$ Q\+String, unsigned int $>$ $>$ Calcul\+Comparaison\+::calcul\+Pourcentage\+Solution\+Optimale (\begin{DoxyParamCaption}\item[{map$<$ unsigned int, vector$<$ \hyperlink{classResultat}{Resultat} $>$$>$}]{tableau\+Comparaison }\end{DoxyParamCaption})}
+
+
+
+Calcul le pourcentage de solution optimale pour chaque méthode de résolution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tableau\+Comparaison} & Le tableau contenant pour chaque nombre de jobs, les fichiers de resultat pour chaque méthode de résolution. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+map$<$unsigned int, map$<$\+Q\+String, unsigned int$>$ $>$ Le tableau contenant pour chaque nombre de jobs, le pourcentage de solution optimale pour chaque méthode de résolution. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalculComparaison_a2e68afe2dcc785f580d7e0a365c2b607_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classCalculComparaison_a95460e5474d2abafd7a1c861d65785ea}\label{classCalculComparaison_a95460e5474d2abafd7a1c861d65785ea}} 
+\index{Calcul\+Comparaison@{Calcul\+Comparaison}!calcul\+Pourcentage\+Temps\+Resolution@{calcul\+Pourcentage\+Temps\+Resolution}}
+\index{calcul\+Pourcentage\+Temps\+Resolution@{calcul\+Pourcentage\+Temps\+Resolution}!Calcul\+Comparaison@{Calcul\+Comparaison}}
+\subsubsection{\texorpdfstring{calcul\+Pourcentage\+Temps\+Resolution()}{calculPourcentageTempsResolution()}}
+{\footnotesize\ttfamily map$<$ unsigned int, map$<$ Q\+String, unsigned int $>$ $>$ Calcul\+Comparaison\+::calcul\+Pourcentage\+Temps\+Resolution (\begin{DoxyParamCaption}\item[{map$<$ unsigned int, vector$<$ \hyperlink{classResultat}{Resultat} $>$$>$}]{tableau\+Comparaison }\end{DoxyParamCaption})}
+
+
+
+Calcul le pourcentage du temps de résolution exacte pour chaque méthode de résolution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tableau\+Comparaison} & Le tableau contenant pour chaque nombre de jobs, les fichiers de resultat pour chaque méthode de résolution. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+map$<$unsigned int, map$<$\+Q\+String, unsigned int$>$ $>$ Le tableau contenant pour chaque nombre de jobs, le pourcentage du temps de résolution exacte pour chaque méthode de résolution. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCalculComparaison_a95460e5474d2abafd7a1c861d65785ea_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+P\+R\+D\+Ordonancement/\hyperlink{calculcomparaison_8h}{calculcomparaison.\+h}\item 
+P\+R\+D\+Ordonancement/\hyperlink{calculcomparaison_8cpp}{calculcomparaison.\+cpp}\end{DoxyCompactItemize}

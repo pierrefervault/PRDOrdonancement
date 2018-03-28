@@ -1,0 +1,6 @@
+<map id="WorkerComparaison::process" name="WorkerComparaison::process">
+<area shape="rect" id="node2" href="$classResultat.html#afce37c00573db2aa3f96dd5d69f50d40" title="Permet de charger un résulat à partir d&#39;un fichier de résultat. " alt="" coords="233,5,403,32"/>
+<area shape="rect" id="node3" href="$classCalculComparaison.html#ada2ba7f37482b4261450e38a8aeed123" title="Calcul le gap de toutes les méthodes de résolution. " alt="" coords="246,57,390,98"/>
+<area shape="rect" id="node4" href="$classCalculComparaison.html#a2e68afe2dcc785f580d7e0a365c2b607" title="Calcul le pourcentage de solution optimale pour chaque méthode de résolution. " alt="" coords="204,122,432,163"/>
+<area shape="rect" id="node5" href="$classCalculComparaison.html#a95460e5474d2abafd7a1c861d65785ea" title="Calcul le pourcentage du temps de résolution exacte pour chaque méthode de résolution. " alt="" coords="203,187,433,229"/>
+</map>

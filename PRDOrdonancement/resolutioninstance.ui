@@ -287,6 +287,9 @@
    </property>
   </widget>
   <widget class="QComboBox" name="agentComboBox">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -296,20 +299,10 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="agentLabel_2">
-   <property name="geometry">
-    <rect>
-     <x>420</x>
-     <y>220</y>
-     <width>31</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>%</string>
-   </property>
-  </widget>
   <widget class="QLineEdit" name="pourcentageLineEdit">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>300</x>
@@ -319,25 +312,31 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="agentLabel_3">
+  <widget class="QLabel" name="pourcentageLabel">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>210</x>
      <y>220</y>
-     <width>91</width>
+     <width>241</width>
      <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>Pourcentage :</string>
+    <string>Pourcentage :                                 %</string>
    </property>
   </widget>
   <widget class="QPushButton" name="validerPourcentagePushButton">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
-     <x>450</x>
+     <x>440</x>
      <y>220</y>
-     <width>121</width>
+     <width>131</width>
      <height>22</height>
     </rect>
    </property>
@@ -358,6 +357,22 @@
     <string>Tout cocher</string>
    </property>
   </widget>
+  <zorder>pourcentageLabel</zorder>
+  <zorder>titleLabel</zorder>
+  <zorder>fichierInstanceLabel</zorder>
+  <zorder>choisirFichierLineEdit</zorder>
+  <zorder>choisirFichierPushButton</zorder>
+  <zorder>validerPushButton</zorder>
+  <zorder>annulerPushButton</zorder>
+  <zorder>fichierRadioButton</zorder>
+  <zorder>dossierRadioButton</zorder>
+  <zorder>treeWidget</zorder>
+  <zorder>agentLabel</zorder>
+  <zorder>agentSpinBox</zorder>
+  <zorder>agentComboBox</zorder>
+  <zorder>pourcentageLineEdit</zorder>
+  <zorder>validerPourcentagePushButton</zorder>
+  <zorder>toutCocherCheckBox</zorder>
  </widget>
  <resources/>
  <connections/>

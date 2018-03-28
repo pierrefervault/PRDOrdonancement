@@ -73,9 +73,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a58630433c6bac8eec9a5888945eba479"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHeuristique.html#a58630433c6bac8eec9a5888945eba479">Heuristique</a> (string fichierInstance)</td></tr>
-<tr class="memdesc:a58630433c6bac8eec9a5888945eba479"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de la classe <a class="el" href="classHeuristique.html" title="Classe Heuristique permetant de trier et affecter des jobs sur des machines. ">Heuristique</a>.  <a href="#a58630433c6bac8eec9a5888945eba479">More...</a><br /></td></tr>
-<tr class="separator:a58630433c6bac8eec9a5888945eba479"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d5f8c9f55e42a8713c8a5636d9cef1b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHeuristique.html#a6d5f8c9f55e42a8713c8a5636d9cef1b">Heuristique</a> (string fichierInstance, map&lt; unsigned int, unsigned int &gt; pourcentagesParAgent)</td></tr>
+<tr class="memdesc:a6d5f8c9f55e42a8713c8a5636d9cef1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de la classe <a class="el" href="classHeuristique.html" title="Classe Heuristique permetant de trier et affecter des jobs sur des machines. ">Heuristique</a>.  <a href="#a6d5f8c9f55e42a8713c8a5636d9cef1b">More...</a><br /></td></tr>
+<tr class="separator:a6d5f8c9f55e42a8713c8a5636d9cef1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38c390423fc2b190da599148ca879cd6"><td class="memItemLeft" align="right" valign="top">vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHeuristique.html#a38c390423fc2b190da599148ca879cd6">trierCCmaxSommeRessources</a> ()</td></tr>
 <tr class="memdesc:a38c390423fc2b190da599148ca879cd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tri selon la méthode CCmax basée sur la somme des ressources de chaque job.  <a href="#a38c390423fc2b190da599148ca879cd6">More...</a><br /></td></tr>
 <tr class="separator:a38c390423fc2b190da599148ca879cd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -88,25 +88,36 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4541884c49c13e08ee6c73c919388fd3"><td class="memItemLeft" align="right" valign="top">vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHeuristique.html#a4541884c49c13e08ee6c73c919388fd3">trierMoyenneRessourcesSousEnsembles</a> ()</td></tr>
 <tr class="memdesc:a4541884c49c13e08ee6c73c919388fd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tri selon la moyenne des ressources de chaque sous-ensembles maximaux de l'instance.  <a href="#a4541884c49c13e08ee6c73c919388fd3">More...</a><br /></td></tr>
 <tr class="separator:a4541884c49c13e08ee6c73c919388fd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca0409bb9bab82ae4d47c13f3838d04d"><td class="memItemLeft" align="right" valign="top">vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHeuristique.html#aca0409bb9bab82ae4d47c13f3838d04d">trierCCmaxSommeRessourcesMultiAgent</a> ()</td></tr>
+<tr class="memdesc:aca0409bb9bab82ae4d47c13f3838d04d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tri selon la méthode CCmax basée sur la somme des ressources de chaque job pour un cas multi agent.  <a href="#aca0409bb9bab82ae4d47c13f3838d04d">More...</a><br /></td></tr>
+<tr class="separator:aca0409bb9bab82ae4d47c13f3838d04d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a177908d75131594fb1a37bd1a5b795f0"><td class="memItemLeft" align="right" valign="top">vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHeuristique.html#a177908d75131594fb1a37bd1a5b795f0">trierCCmaxMaxRessourcesMultiAgent</a> ()</td></tr>
+<tr class="memdesc:a177908d75131594fb1a37bd1a5b795f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tri selon la méthode CCmax basée sur la valeur de ressource maximale de chaque job pour un cas multi agent.  <a href="#a177908d75131594fb1a37bd1a5b795f0">More...</a><br /></td></tr>
+<tr class="separator:a177908d75131594fb1a37bd1a5b795f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadc8e02ca8aa127354993bb01910bcef"><td class="memItemLeft" align="right" valign="top">vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHeuristique.html#aadc8e02ca8aa127354993bb01910bcef">trierSommeRessourcesMultiAgent</a> ()</td></tr>
+<tr class="memdesc:aadc8e02ca8aa127354993bb01910bcef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tri selon la somme des ressources de chaque job pour un cas multi agent.  <a href="#aadc8e02ca8aa127354993bb01910bcef">More...</a><br /></td></tr>
+<tr class="separator:aadc8e02ca8aa127354993bb01910bcef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dcb7f68553d90195c39950ed456e266"><td class="memItemLeft" align="right" valign="top">vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHeuristique.html#a7dcb7f68553d90195c39950ed456e266">trierMoyenneRessourcesSousEnsemblesMultiAgent</a> ()</td></tr>
+<tr class="memdesc:a7dcb7f68553d90195c39950ed456e266"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tri selon la moyenne des ressources de chaque sous-ensembles maximaux de l'instance pour un cas multi agent.  <a href="#a7dcb7f68553d90195c39950ed456e266">More...</a><br /></td></tr>
+<tr class="separator:a7dcb7f68553d90195c39950ed456e266"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8a57ed34b0c46f6d65e501ee99da498"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHeuristique.html#ad8a57ed34b0c46f6d65e501ee99da498">resolveMachinePerMachine</a> (QString typeTri, QString fichierResultat)</td></tr>
 <tr class="memdesc:ad8a57ed34b0c46f6d65e501ee99da498"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affectation machine par machine.  <a href="#ad8a57ed34b0c46f6d65e501ee99da498">More...</a><br /></td></tr>
 <tr class="separator:ad8a57ed34b0c46f6d65e501ee99da498"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee20a4baec95a33533a6e13029c437df"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHeuristique.html#aee20a4baec95a33533a6e13029c437df">resolveMachineLessUsedMachine</a> (QString typeTri, QString fichierResultat)</td></tr>
 <tr class="memdesc:aee20a4baec95a33533a6e13029c437df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affectation privilégiant la machine la moins chargée.  <a href="#aee20a4baec95a33533a6e13029c437df">More...</a><br /></td></tr>
 <tr class="separator:aee20a4baec95a33533a6e13029c437df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2aa8150a74e4b2b903cddacb22a2396b"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHeuristique.html#a2aa8150a74e4b2b903cddacb22a2396b">writeInFile</a> (vector&lt; vector&lt; unsigned int &gt;&gt; jobsOrdonnances, QString typeResolution, QString fichierResultat, double dureeExecution)</td></tr>
-<tr class="memdesc:a2aa8150a74e4b2b903cddacb22a2396b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ecriture dans un fichier de résulat.  <a href="#a2aa8150a74e4b2b903cddacb22a2396b">More...</a><br /></td></tr>
-<tr class="separator:a2aa8150a74e4b2b903cddacb22a2396b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa84c0d4d8d2ff50462bc7e77079818e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classInstance.html">Instance</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHeuristique.html#aa84c0d4d8d2ff50462bc7e77079818e4">getInstance</a> () const</td></tr>
-<tr class="separator:aa84c0d4d8d2ff50462bc7e77079818e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab181d69cd0e2c8a7a28ac5fd9be0e214"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHeuristique.html#ab181d69cd0e2c8a7a28ac5fd9be0e214">setInstance</a> (<a class="el" href="classInstance.html">Instance</a> *value)</td></tr>
-<tr class="separator:ab181d69cd0e2c8a7a28ac5fd9be0e214"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6eca6703702298968f03ac30c4be86f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classInstance.html">Instance</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHeuristique.html#aa6eca6703702298968f03ac30c4be86f">getInstance</a> () const</td></tr>
+<tr class="memdesc:aa6eca6703702298968f03ac30c4be86f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter de l'instance pour laquelle on veut appliquer une heuristique.  <a href="#aa6eca6703702298968f03ac30c4be86f">More...</a><br /></td></tr>
+<tr class="separator:aa6eca6703702298968f03ac30c4be86f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06be9aa588fa801a9a4fb19f8ea79179"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHeuristique.html#a06be9aa588fa801a9a4fb19f8ea79179">setInstance</a> (<a class="el" href="classInstance.html">Instance</a> value)</td></tr>
+<tr class="memdesc:a06be9aa588fa801a9a4fb19f8ea79179"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter de l'instance pour laquelle on veut appliquer une heuristique.  <a href="#a06be9aa588fa801a9a4fb19f8ea79179">More...</a><br /></td></tr>
+<tr class="separator:a06be9aa588fa801a9a4fb19f8ea79179"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Classe <a class="el" href="classHeuristique.html" title="Classe Heuristique permetant de trier et affecter des jobs sur des machines. ">Heuristique</a> permetant de trier et affecter des jobs sur des machines. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a58630433c6bac8eec9a5888945eba479"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58630433c6bac8eec9a5888945eba479">&#9670;&nbsp;</a></span>Heuristique()</h2>
+<a id="a6d5f8c9f55e42a8713c8a5636d9cef1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d5f8c9f55e42a8713c8a5636d9cef1b">&#9670;&nbsp;</a></span>Heuristique()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -115,8 +126,18 @@ Public Member Functions</h2></td></tr>
           <td class="memname">Heuristique::Heuristique </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>fichierInstance</em></td><td>)</td>
+          <td class="paramname"><em>fichierInstance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">map&lt; unsigned int, unsigned int &gt;&#160;</td>
+          <td class="paramname"><em>pourcentagesParAgent</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -131,8 +152,8 @@ Public Member Functions</h2></td></tr>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classHeuristique_a58630433c6bac8eec9a5888945eba479_cgraph.png" border="0" usemap="#classHeuristique_a58630433c6bac8eec9a5888945eba479_cgraph" alt=""/></div>
-<map name="classHeuristique_a58630433c6bac8eec9a5888945eba479_cgraph" id="classHeuristique_a58630433c6bac8eec9a5888945eba479_cgraph">
+<div class="center"><img src="classHeuristique_a6d5f8c9f55e42a8713c8a5636d9cef1b_cgraph.png" border="0" usemap="#classHeuristique_a6d5f8c9f55e42a8713c8a5636d9cef1b_cgraph" alt=""/></div>
+<map name="classHeuristique_a6d5f8c9f55e42a8713c8a5636d9cef1b_cgraph" id="classHeuristique_a6d5f8c9f55e42a8713c8a5636d9cef1b_cgraph">
 <area shape="rect" id="node2" href="classInstance.html#aa64eca6a12ffa8ffc850ac4e04f268fb" title="Permet de charger une instance à partir d&#39;un chemin vers un fichier d&#39;instance. " alt="" coords="216,5,389,32"/>
 </map>
 </div>
@@ -140,21 +161,23 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aa84c0d4d8d2ff50462bc7e77079818e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa84c0d4d8d2ff50462bc7e77079818e4">&#9670;&nbsp;</a></span>getInstance()</h2>
+<a id="aa6eca6703702298968f03ac30c4be86f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6eca6703702298968f03ac30c4be86f">&#9670;&nbsp;</a></span>getInstance()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classInstance.html">Instance</a> * Heuristique::getInstance </td>
+          <td class="memname"><a class="el" href="classInstance.html">Instance</a> Heuristique::getInstance </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classInstance.html" title="Classe représentant une instance. ">Instance</a> </dd></dl>
+
+<p>Getter de l'instance pour laquelle on veut appliquer une heuristique. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classInstance.html" title="Classe représentant une instance. ">Instance</a> L'instance pour laquelle on veut appliquer une heuristique </dd></dl>
 
 </div>
 </div>
@@ -198,20 +221,24 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classHeuristique_aee20a4baec95a33533a6e13029c437df_cgraph.png" border="0" usemap="#classHeuristique_aee20a4baec95a33533a6e13029c437df_cgraph" alt=""/></div>
 <map name="classHeuristique_aee20a4baec95a33533a6e13029c437df_cgraph" id="classHeuristique_aee20a4baec95a33533a6e13029c437df_cgraph">
-<area shape="rect" id="node2" href="classInstance.html#a2f985b9a7ce18fd8739ec589d9016003" title="Permet d&#39;obtenir le nombre de machines de l&#39;instance. " alt="" coords="269,5,444,32"/>
-<area shape="rect" id="node3" href="classInstance.html#a79b49dcc3d590b823e41d8a223ecf25d" title="Permet d&#39;obtenir le nombre de ressources de l&#39;instance. " alt="" coords="548,85,737,112"/>
-<area shape="rect" id="node4" href="classInstance.html#ab998bc8d9a8b03c8f6279573779217cc" title="Permet d&#39;obtenir le tableau des instants de départ de l&#39;ensemble des jobs. " alt="" coords="587,404,698,431"/>
-<area shape="rect" id="node5" href="classInstance.html#af7b70cbd8670e4eb213fbd2b81eca6f0" title="Permet d&#39;obtenir le tableau des instants de fin de l&#39;ensemble des jobs. " alt="" coords="588,232,697,259"/>
-<area shape="rect" id="node6" href="classInstance.html#a5dac330671540cf94e87b7586cd3102e" title="Permet d&#39;obtenir le tableau des capacités en ressource pour l&#39;ensemble des machines. " alt="" coords="261,509,453,536"/>
-<area shape="rect" id="node7" href="classInstance.html#ad4124bd2f1edb83a46ef94cfe07eafc8" title="Permet d&#39;obtenir le tableau des capacités en ressource pour l&#39;ensemble des jobs. " alt="" coords="521,291,764,317"/>
-<area shape="rect" id="node8" href="classHeuristique.html#a38c390423fc2b190da599148ca879cd6" title="Tri selon la méthode CCmax basée sur la somme des ressources de chaque job. " alt="" coords="253,225,461,266"/>
-<area shape="rect" id="node10" href="classHeuristique.html#a02aae5127f941e55311e8bbd3b4afd3c" title="Tri selon la méthode CCmax basée sur la valeur de ressource maximale de chaque job. " alt="" coords="263,342,451,383"/>
-<area shape="rect" id="node11" href="classHeuristique.html#a6101d6d238a7667b820b50629e4d497f" title="Tri selon la somme des ressources de chaque job. " alt="" coords="240,408,473,435"/>
-<area shape="rect" id="node12" href="classHeuristique.html#a4541884c49c13e08ee6c73c919388fd3" title="Tri selon la moyenne des ressources de chaque sous&#45;ensembles maximaux de l&#39;instance. " alt="" coords="263,107,450,149"/>
-<area shape="rect" id="node14" href="classHeuristique.html#a2aa8150a74e4b2b903cddacb22a2396b" title="Ecriture dans un fichier de résulat. " alt="" coords="279,560,435,587"/>
-<area shape="rect" id="node15" href="classInstance.html#a783365375cdab53149f87208374331a7" title="Permet de retourner le chemin vers le fichier d&#39;instance. " alt="" coords="263,611,450,637"/>
-<area shape="rect" id="node9" href="classInstance.html#a1ed694b05c888cdb177ddf4c92a482d9" title="Permet d&#39;obtenir le nombre de jobs de l&#39;instance. " alt="" coords="569,349,716,376"/>
-<area shape="rect" id="node13" href="classInstance.html#a2011ff3253fcb1d2d354c3c34a14a6fb" title="Retourne les sous&#45;ensembles maximaux de jobs de l&#39;instance (jobs se chevauchant) " alt="" coords="546,137,739,178"/>
+<area shape="rect" id="node2" href="classInstance.html#a2f985b9a7ce18fd8739ec589d9016003" title="Permet d&#39;obtenir le nombre de machines de l&#39;instance. " alt="" coords="277,5,452,32"/>
+<area shape="rect" id="node3" href="classInstance.html#a79b49dcc3d590b823e41d8a223ecf25d" title="Permet d&#39;obtenir le nombre de ressources de l&#39;instance. " alt="" coords="564,376,753,403"/>
+<area shape="rect" id="node4" href="classInstance.html#ab998bc8d9a8b03c8f6279573779217cc" title="Permet d&#39;obtenir le tableau des instants de départ de l&#39;ensemble des jobs. " alt="" coords="603,267,714,293"/>
+<area shape="rect" id="node5" href="classInstance.html#af7b70cbd8670e4eb213fbd2b81eca6f0" title="Permet d&#39;obtenir le tableau des instants de fin de l&#39;ensemble des jobs. " alt="" coords="604,161,713,188"/>
+<area shape="rect" id="node6" href="classInstance.html#a5dac330671540cf94e87b7586cd3102e" title="Permet d&#39;obtenir le tableau des capacités en ressource pour l&#39;ensemble des machines. " alt="" coords="269,208,461,235"/>
+<area shape="rect" id="node7" href="classInstance.html#ad4124bd2f1edb83a46ef94cfe07eafc8" title="Permet d&#39;obtenir le tableau des capacités en ressource pour l&#39;ensemble des jobs. " alt="" coords="537,427,780,453"/>
+<area shape="rect" id="node8" href="classHeuristique.html#a38c390423fc2b190da599148ca879cd6" title="Tri selon la méthode CCmax basée sur la somme des ressources de chaque job. " alt="" coords="261,259,469,301"/>
+<area shape="rect" id="node10" href="classHeuristique.html#a02aae5127f941e55311e8bbd3b4afd3c" title="Tri selon la méthode CCmax basée sur la valeur de ressource maximale de chaque job. " alt="" coords="271,325,459,366"/>
+<area shape="rect" id="node11" href="classHeuristique.html#a6101d6d238a7667b820b50629e4d497f" title="Tri selon la somme des ressources de chaque job. " alt="" coords="248,391,481,417"/>
+<area shape="rect" id="node12" href="classHeuristique.html#a4541884c49c13e08ee6c73c919388fd3" title="Tri selon la moyenne des ressources de chaque sous&#45;ensembles maximaux de l&#39;instance. " alt="" coords="271,493,458,534"/>
+<area shape="rect" id="node14" href="classHeuristique.html#aca0409bb9bab82ae4d47c13f3838d04d" title="Tri selon la méthode CCmax basée sur la somme des ressources de chaque job pour un cas multi agent..." alt="" coords="261,558,469,599"/>
+<area shape="rect" id="node15" href="classHeuristique.html#a177908d75131594fb1a37bd1a5b795f0" title="Tri selon la méthode CCmax basée sur la valeur de ressource maximale de chaque job pour un cas multi ..." alt="" coords="271,623,459,665"/>
+<area shape="rect" id="node16" href="classHeuristique.html#aadc8e02ca8aa127354993bb01910bcef" title="Tri selon la somme des ressources de chaque job pour un cas multi agent. " alt="" coords="248,689,481,730"/>
+<area shape="rect" id="node17" href="classHeuristique.html#a7dcb7f68553d90195c39950ed456e266" title="Tri selon la moyenne des ressources de chaque sous&#45;ensembles maximaux de l&#39;instance pour un cas multi..." alt="" coords="240,754,489,795"/>
+<area shape="rect" id="node18" href="classResultat.html#adc6f1595c1e2271cd39805a6b62e8448" title="Permet de sauvegarder le résultat d&#39;une résolution d&#39;instance dans un fichier de résultat. " alt="" coords="265,56,464,83"/>
+<area shape="rect" id="node9" href="classInstance.html#a1ed694b05c888cdb177ddf4c92a482d9" title="Permet d&#39;obtenir le nombre de jobs de l&#39;instance. " alt="" coords="585,325,732,352"/>
+<area shape="rect" id="node13" href="classInstance.html#a2011ff3253fcb1d2d354c3c34a14a6fb" title="Retourne les sous&#45;ensembles maximaux de jobs de l&#39;instance (jobs se chevauchant) " alt="" coords="562,493,755,534"/>
+<area shape="rect" id="node19" href="classInstance.html#a783365375cdab53149f87208374331a7" title="Permet de retourner le chemin vers le fichier d&#39;instance. " alt="" coords="565,56,752,83"/>
 </map>
 </div>
 
@@ -257,26 +284,31 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classHeuristique_ad8a57ed34b0c46f6d65e501ee99da498_cgraph.png" border="0" usemap="#classHeuristique_ad8a57ed34b0c46f6d65e501ee99da498_cgraph" alt=""/></div>
 <map name="classHeuristique_ad8a57ed34b0c46f6d65e501ee99da498_cgraph" id="classHeuristique_ad8a57ed34b0c46f6d65e501ee99da498_cgraph">
-<area shape="rect" id="node2" href="classInstance.html#a2f985b9a7ce18fd8739ec589d9016003" title="Permet d&#39;obtenir le nombre de machines de l&#39;instance. " alt="" coords="269,5,444,32"/>
-<area shape="rect" id="node3" href="classInstance.html#a79b49dcc3d590b823e41d8a223ecf25d" title="Permet d&#39;obtenir le nombre de ressources de l&#39;instance. " alt="" coords="548,144,737,171"/>
-<area shape="rect" id="node4" href="classInstance.html#ab998bc8d9a8b03c8f6279573779217cc" title="Permet d&#39;obtenir le tableau des instants de départ de l&#39;ensemble des jobs. " alt="" coords="587,404,698,431"/>
-<area shape="rect" id="node5" href="classInstance.html#af7b70cbd8670e4eb213fbd2b81eca6f0" title="Permet d&#39;obtenir le tableau des instants de fin de l&#39;ensemble des jobs. " alt="" coords="588,232,697,259"/>
-<area shape="rect" id="node6" href="classInstance.html#a5dac330671540cf94e87b7586cd3102e" title="Permet d&#39;obtenir le tableau des capacités en ressource pour l&#39;ensemble des machines. " alt="" coords="261,509,453,536"/>
-<area shape="rect" id="node7" href="classInstance.html#ad4124bd2f1edb83a46ef94cfe07eafc8" title="Permet d&#39;obtenir le tableau des capacités en ressource pour l&#39;ensemble des jobs. " alt="" coords="521,291,764,317"/>
-<area shape="rect" id="node8" href="classHeuristique.html#a38c390423fc2b190da599148ca879cd6" title="Tri selon la méthode CCmax basée sur la somme des ressources de chaque job. " alt="" coords="253,225,461,266"/>
-<area shape="rect" id="node10" href="classHeuristique.html#a02aae5127f941e55311e8bbd3b4afd3c" title="Tri selon la méthode CCmax basée sur la valeur de ressource maximale de chaque job. " alt="" coords="263,342,451,383"/>
-<area shape="rect" id="node11" href="classHeuristique.html#a6101d6d238a7667b820b50629e4d497f" title="Tri selon la somme des ressources de chaque job. " alt="" coords="240,408,473,435"/>
-<area shape="rect" id="node12" href="classHeuristique.html#a4541884c49c13e08ee6c73c919388fd3" title="Tri selon la moyenne des ressources de chaque sous&#45;ensembles maximaux de l&#39;instance. " alt="" coords="263,107,450,149"/>
-<area shape="rect" id="node14" href="classHeuristique.html#a2aa8150a74e4b2b903cddacb22a2396b" title="Ecriture dans un fichier de résulat. " alt="" coords="279,560,435,587"/>
-<area shape="rect" id="node9" href="classInstance.html#a1ed694b05c888cdb177ddf4c92a482d9" title="Permet d&#39;obtenir le nombre de jobs de l&#39;instance. " alt="" coords="569,349,716,376"/>
-<area shape="rect" id="node13" href="classInstance.html#a2011ff3253fcb1d2d354c3c34a14a6fb" title="Retourne les sous&#45;ensembles maximaux de jobs de l&#39;instance (jobs se chevauchant) " alt="" coords="546,78,739,119"/>
+<area shape="rect" id="node2" href="classInstance.html#a2f985b9a7ce18fd8739ec589d9016003" title="Permet d&#39;obtenir le nombre de machines de l&#39;instance. " alt="" coords="277,5,452,32"/>
+<area shape="rect" id="node3" href="classInstance.html#a79b49dcc3d590b823e41d8a223ecf25d" title="Permet d&#39;obtenir le nombre de ressources de l&#39;instance. " alt="" coords="564,376,753,403"/>
+<area shape="rect" id="node4" href="classInstance.html#ab998bc8d9a8b03c8f6279573779217cc" title="Permet d&#39;obtenir le tableau des instants de départ de l&#39;ensemble des jobs. " alt="" coords="603,267,714,293"/>
+<area shape="rect" id="node5" href="classInstance.html#af7b70cbd8670e4eb213fbd2b81eca6f0" title="Permet d&#39;obtenir le tableau des instants de fin de l&#39;ensemble des jobs. " alt="" coords="604,161,713,188"/>
+<area shape="rect" id="node6" href="classInstance.html#a5dac330671540cf94e87b7586cd3102e" title="Permet d&#39;obtenir le tableau des capacités en ressource pour l&#39;ensemble des machines. " alt="" coords="269,208,461,235"/>
+<area shape="rect" id="node7" href="classInstance.html#ad4124bd2f1edb83a46ef94cfe07eafc8" title="Permet d&#39;obtenir le tableau des capacités en ressource pour l&#39;ensemble des jobs. " alt="" coords="537,427,780,453"/>
+<area shape="rect" id="node8" href="classHeuristique.html#a38c390423fc2b190da599148ca879cd6" title="Tri selon la méthode CCmax basée sur la somme des ressources de chaque job. " alt="" coords="261,259,469,301"/>
+<area shape="rect" id="node10" href="classHeuristique.html#a02aae5127f941e55311e8bbd3b4afd3c" title="Tri selon la méthode CCmax basée sur la valeur de ressource maximale de chaque job. " alt="" coords="271,325,459,366"/>
+<area shape="rect" id="node11" href="classHeuristique.html#a6101d6d238a7667b820b50629e4d497f" title="Tri selon la somme des ressources de chaque job. " alt="" coords="248,391,481,417"/>
+<area shape="rect" id="node12" href="classHeuristique.html#a4541884c49c13e08ee6c73c919388fd3" title="Tri selon la moyenne des ressources de chaque sous&#45;ensembles maximaux de l&#39;instance. " alt="" coords="271,493,458,534"/>
+<area shape="rect" id="node14" href="classHeuristique.html#aca0409bb9bab82ae4d47c13f3838d04d" title="Tri selon la méthode CCmax basée sur la somme des ressources de chaque job pour un cas multi agent..." alt="" coords="261,558,469,599"/>
+<area shape="rect" id="node15" href="classHeuristique.html#a177908d75131594fb1a37bd1a5b795f0" title="Tri selon la méthode CCmax basée sur la valeur de ressource maximale de chaque job pour un cas multi ..." alt="" coords="271,623,459,665"/>
+<area shape="rect" id="node16" href="classHeuristique.html#aadc8e02ca8aa127354993bb01910bcef" title="Tri selon la somme des ressources de chaque job pour un cas multi agent. " alt="" coords="248,689,481,730"/>
+<area shape="rect" id="node17" href="classHeuristique.html#a7dcb7f68553d90195c39950ed456e266" title="Tri selon la moyenne des ressources de chaque sous&#45;ensembles maximaux de l&#39;instance pour un cas multi..." alt="" coords="240,754,489,795"/>
+<area shape="rect" id="node18" href="classResultat.html#adc6f1595c1e2271cd39805a6b62e8448" title="Permet de sauvegarder le résultat d&#39;une résolution d&#39;instance dans un fichier de résultat. " alt="" coords="265,56,464,83"/>
+<area shape="rect" id="node9" href="classInstance.html#a1ed694b05c888cdb177ddf4c92a482d9" title="Permet d&#39;obtenir le nombre de jobs de l&#39;instance. " alt="" coords="585,325,732,352"/>
+<area shape="rect" id="node13" href="classInstance.html#a2011ff3253fcb1d2d354c3c34a14a6fb" title="Retourne les sous&#45;ensembles maximaux de jobs de l&#39;instance (jobs se chevauchant) " alt="" coords="562,493,755,534"/>
+<area shape="rect" id="node19" href="classInstance.html#a783365375cdab53149f87208374331a7" title="Permet de retourner le chemin vers le fichier d&#39;instance. " alt="" coords="565,56,752,83"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="ab181d69cd0e2c8a7a28ac5fd9be0e214"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab181d69cd0e2c8a7a28ac5fd9be0e214">&#9670;&nbsp;</a></span>setInstance()</h2>
+<a id="a06be9aa588fa801a9a4fb19f8ea79179"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06be9aa588fa801a9a4fb19f8ea79179">&#9670;&nbsp;</a></span>setInstance()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -284,15 +316,17 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">void Heuristique::setInstance </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classInstance.html">Instance</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="classInstance.html">Instance</a>&#160;</td>
           <td class="paramname"><em>value</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Setter de l'instance pour laquelle on veut appliquer une heuristique. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td></td></tr>
+    <tr><td class="paramname">value</td><td>L'instance pour laquelle on veut appliquer une heuristique </td></tr>
   </table>
   </dd>
 </dl>
@@ -322,9 +356,10 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="classHeuristique_a02aae5127f941e55311e8bbd3b4afd3c_cgraph.png" border="0" usemap="#classHeuristique_a02aae5127f941e55311e8bbd3b4afd3c_cgraph" alt=""/></div>
 <map name="classHeuristique_a02aae5127f941e55311e8bbd3b4afd3c_cgraph" id="classHeuristique_a02aae5127f941e55311e8bbd3b4afd3c_cgraph">
 <area shape="rect" id="node2" href="classInstance.html#a1ed694b05c888cdb177ddf4c92a482d9" title="Permet d&#39;obtenir le nombre de jobs de l&#39;instance. " alt="" coords="289,5,436,32"/>
-<area shape="rect" id="node3" href="classInstance.html#ad4124bd2f1edb83a46ef94cfe07eafc8" title="Permet d&#39;obtenir le tableau des capacités en ressource pour l&#39;ensemble des jobs. " alt="" coords="241,56,484,83"/>
-<area shape="rect" id="node4" href="classInstance.html#af7b70cbd8670e4eb213fbd2b81eca6f0" title="Permet d&#39;obtenir le tableau des instants de fin de l&#39;ensemble des jobs. " alt="" coords="308,107,417,133"/>
-<area shape="rect" id="node5" href="classInstance.html#ab998bc8d9a8b03c8f6279573779217cc" title="Permet d&#39;obtenir le tableau des instants de départ de l&#39;ensemble des jobs. " alt="" coords="307,157,418,184"/>
+<area shape="rect" id="node3" href="classInstance.html#a79b49dcc3d590b823e41d8a223ecf25d" title="Permet d&#39;obtenir le nombre de ressources de l&#39;instance. " alt="" coords="268,56,457,83"/>
+<area shape="rect" id="node4" href="classInstance.html#ad4124bd2f1edb83a46ef94cfe07eafc8" title="Permet d&#39;obtenir le tableau des capacités en ressource pour l&#39;ensemble des jobs. " alt="" coords="241,107,484,133"/>
+<area shape="rect" id="node5" href="classInstance.html#af7b70cbd8670e4eb213fbd2b81eca6f0" title="Permet d&#39;obtenir le tableau des instants de fin de l&#39;ensemble des jobs. " alt="" coords="308,157,417,184"/>
+<area shape="rect" id="node6" href="classInstance.html#ab998bc8d9a8b03c8f6279573779217cc" title="Permet d&#39;obtenir le tableau des instants de départ de l&#39;ensemble des jobs. " alt="" coords="307,208,418,235"/>
 </map>
 </div>
 <div class="dynheader">
@@ -332,6 +367,35 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classHeuristique_a02aae5127f941e55311e8bbd3b4afd3c_icgraph.png" border="0" usemap="#classHeuristique_a02aae5127f941e55311e8bbd3b4afd3c_icgraph" alt=""/></div>
 <map name="classHeuristique_a02aae5127f941e55311e8bbd3b4afd3c_icgraph" id="classHeuristique_a02aae5127f941e55311e8bbd3b4afd3c_icgraph">
+<area shape="rect" id="node2" href="classHeuristique.html#ad8a57ed34b0c46f6d65e501ee99da498" title="Affectation machine par machine. " alt="" coords="241,5,428,47"/>
+<area shape="rect" id="node3" href="classHeuristique.html#aee20a4baec95a33533a6e13029c437df" title="Affectation privilégiant la machine la moins chargée. " alt="" coords="241,71,428,112"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a177908d75131594fb1a37bd1a5b795f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a177908d75131594fb1a37bd1a5b795f0">&#9670;&nbsp;</a></span>trierCCmaxMaxRessourcesMultiAgent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; unsigned int &gt; Heuristique::trierCCmaxMaxRessourcesMultiAgent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tri selon la méthode CCmax basée sur la valeur de ressource maximale de chaque job pour un cas multi agent. </p>
+<dl class="section return"><dt>Returns</dt><dd>vector&lt;unsigned int&gt; La liste des jobs triés </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classHeuristique_a177908d75131594fb1a37bd1a5b795f0_icgraph.png" border="0" usemap="#classHeuristique_a177908d75131594fb1a37bd1a5b795f0_icgraph" alt=""/></div>
+<map name="classHeuristique_a177908d75131594fb1a37bd1a5b795f0_icgraph" id="classHeuristique_a177908d75131594fb1a37bd1a5b795f0_icgraph">
 <area shape="rect" id="node2" href="classHeuristique.html#ad8a57ed34b0c46f6d65e501ee99da498" title="Affectation machine par machine. " alt="" coords="241,5,428,47"/>
 <area shape="rect" id="node3" href="classHeuristique.html#aee20a4baec95a33533a6e13029c437df" title="Affectation privilégiant la machine la moins chargée. " alt="" coords="241,71,428,112"/>
 </map>
@@ -380,6 +444,35 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="aca0409bb9bab82ae4d47c13f3838d04d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca0409bb9bab82ae4d47c13f3838d04d">&#9670;&nbsp;</a></span>trierCCmaxSommeRessourcesMultiAgent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; unsigned int &gt; Heuristique::trierCCmaxSommeRessourcesMultiAgent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tri selon la méthode CCmax basée sur la somme des ressources de chaque job pour un cas multi agent. </p>
+<dl class="section return"><dt>Returns</dt><dd>vector&lt;unsigned int&gt; La liste des jobs triés </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classHeuristique_aca0409bb9bab82ae4d47c13f3838d04d_icgraph.png" border="0" usemap="#classHeuristique_aca0409bb9bab82ae4d47c13f3838d04d_icgraph" alt=""/></div>
+<map name="classHeuristique_aca0409bb9bab82ae4d47c13f3838d04d_icgraph" id="classHeuristique_aca0409bb9bab82ae4d47c13f3838d04d_icgraph">
+<area shape="rect" id="node2" href="classHeuristique.html#ad8a57ed34b0c46f6d65e501ee99da498" title="Affectation machine par machine. " alt="" coords="261,5,448,47"/>
+<area shape="rect" id="node3" href="classHeuristique.html#aee20a4baec95a33533a6e13029c437df" title="Affectation privilégiant la machine la moins chargée. " alt="" coords="261,71,448,112"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a4541884c49c13e08ee6c73c919388fd3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4541884c49c13e08ee6c73c919388fd3">&#9670;&nbsp;</a></span>trierMoyenneRessourcesSousEnsembles()</h2>
 
@@ -414,6 +507,35 @@ Here is the caller graph for this function:</div>
 <map name="classHeuristique_a4541884c49c13e08ee6c73c919388fd3_icgraph" id="classHeuristique_a4541884c49c13e08ee6c73c919388fd3_icgraph">
 <area shape="rect" id="node2" href="classHeuristique.html#ad8a57ed34b0c46f6d65e501ee99da498" title="Affectation machine par machine. " alt="" coords="240,5,427,47"/>
 <area shape="rect" id="node3" href="classHeuristique.html#aee20a4baec95a33533a6e13029c437df" title="Affectation privilégiant la machine la moins chargée. " alt="" coords="240,71,427,112"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a7dcb7f68553d90195c39950ed456e266"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dcb7f68553d90195c39950ed456e266">&#9670;&nbsp;</a></span>trierMoyenneRessourcesSousEnsemblesMultiAgent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; unsigned int &gt; Heuristique::trierMoyenneRessourcesSousEnsemblesMultiAgent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tri selon la moyenne des ressources de chaque sous-ensembles maximaux de l'instance pour un cas multi agent. </p>
+<dl class="section return"><dt>Returns</dt><dd>vector&lt;unsigned int&gt; La liste des jobs triés </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classHeuristique_a7dcb7f68553d90195c39950ed456e266_icgraph.png" border="0" usemap="#classHeuristique_a7dcb7f68553d90195c39950ed456e266_icgraph" alt=""/></div>
+<map name="classHeuristique_a7dcb7f68553d90195c39950ed456e266_icgraph" id="classHeuristique_a7dcb7f68553d90195c39950ed456e266_icgraph">
+<area shape="rect" id="node2" href="classHeuristique.html#ad8a57ed34b0c46f6d65e501ee99da498" title="Affectation machine par machine. " alt="" coords="303,5,489,47"/>
+<area shape="rect" id="node3" href="classHeuristique.html#aee20a4baec95a33533a6e13029c437df" title="Affectation privilégiant la machine la moins chargée. " alt="" coords="303,71,489,112"/>
 </map>
 </div>
 
@@ -458,62 +580,30 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a2aa8150a74e4b2b903cddacb22a2396b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2aa8150a74e4b2b903cddacb22a2396b">&#9670;&nbsp;</a></span>writeInFile()</h2>
+<a id="aadc8e02ca8aa127354993bb01910bcef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadc8e02ca8aa127354993bb01910bcef">&#9670;&nbsp;</a></span>trierSommeRessourcesMultiAgent()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int Heuristique::writeInFile </td>
+          <td class="memname">vector&lt; unsigned int &gt; Heuristique::trierSommeRessourcesMultiAgent </td>
           <td>(</td>
-          <td class="paramtype">vector&lt; vector&lt; unsigned int &gt;&gt;&#160;</td>
-          <td class="paramname"><em>jobsOrdonnances</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">QString&#160;</td>
-          <td class="paramname"><em>typeResolution</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">QString&#160;</td>
-          <td class="paramname"><em>fichierResultat</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>dureeExecution</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Ecriture dans un fichier de résulat. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">jobsOrdonnances</td><td>Le tableau de jobs ordonancés </td></tr>
-    <tr><td class="paramname">typeResolution</td><td>Le type de résolution </td></tr>
-    <tr><td class="paramname">fichierResultat</td><td>Le fichier où seront stockés les résulats </td></tr>
-    <tr><td class="paramname">dureeExecution</td><td>La durée d'execution de la résolution </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>unsigned int Le nombre de jobs ordonnancés </dd></dl>
+<p>Tri selon la somme des ressources de chaque job pour un cas multi agent. </p>
+<dl class="section return"><dt>Returns</dt><dd>vector&lt;unsigned int&gt; La liste des jobs triés </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classHeuristique_a2aa8150a74e4b2b903cddacb22a2396b_icgraph.png" border="0" usemap="#classHeuristique_a2aa8150a74e4b2b903cddacb22a2396b_icgraph" alt=""/></div>
-<map name="classHeuristique_a2aa8150a74e4b2b903cddacb22a2396b_icgraph" id="classHeuristique_a2aa8150a74e4b2b903cddacb22a2396b_icgraph">
-<area shape="rect" id="node2" href="classHeuristique.html#ad8a57ed34b0c46f6d65e501ee99da498" title="Affectation machine par machine. " alt="" coords="209,5,396,47"/>
-<area shape="rect" id="node3" href="classHeuristique.html#aee20a4baec95a33533a6e13029c437df" title="Affectation privilégiant la machine la moins chargée. " alt="" coords="209,71,396,112"/>
+<div class="center"><img src="classHeuristique_aadc8e02ca8aa127354993bb01910bcef_icgraph.png" border="0" usemap="#classHeuristique_aadc8e02ca8aa127354993bb01910bcef_icgraph" alt=""/></div>
+<map name="classHeuristique_aadc8e02ca8aa127354993bb01910bcef_icgraph" id="classHeuristique_aadc8e02ca8aa127354993bb01910bcef_icgraph">
+<area shape="rect" id="node2" href="classHeuristique.html#ad8a57ed34b0c46f6d65e501ee99da498" title="Affectation machine par machine. " alt="" coords="287,5,473,47"/>
+<area shape="rect" id="node3" href="classHeuristique.html#aee20a4baec95a33533a6e13029c437df" title="Affectation privilégiant la machine la moins chargée. " alt="" coords="287,71,473,112"/>
 </map>
 </div>
 

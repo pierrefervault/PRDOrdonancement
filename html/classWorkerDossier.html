@@ -100,9 +100,9 @@ Signals</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae62defa93ef94862572fda95736a03ed"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkerDossier.html#ae62defa93ef94862572fda95736a03ed">WorkerDossier</a> (QString dossierInstance, QString typeResolution)</td></tr>
-<tr class="memdesc:ae62defa93ef94862572fda95736a03ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de la classe <a class="el" href="classWorkerDossier.html" title="Le Worker permetant de gérer la résolution d&#39;un dossier d&#39;instances. ">WorkerDossier</a>.  <a href="#ae62defa93ef94862572fda95736a03ed">More...</a><br /></td></tr>
-<tr class="separator:ae62defa93ef94862572fda95736a03ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72e98152d70e4c7bdbc0d0c138ba992a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkerDossier.html#a72e98152d70e4c7bdbc0d0c138ba992a">WorkerDossier</a> (QString dossierInstance, QString typeResolution, map&lt; unsigned int, unsigned int &gt; pourcentagesParAgent)</td></tr>
+<tr class="memdesc:a72e98152d70e4c7bdbc0d0c138ba992a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de la classe <a class="el" href="classWorkerDossier.html" title="Le Worker permetant de gérer la résolution d&#39;un dossier d&#39;instances. ">WorkerDossier</a>.  <a href="#a72e98152d70e4c7bdbc0d0c138ba992a">More...</a><br /></td></tr>
+<tr class="separator:a72e98152d70e4c7bdbc0d0c138ba992a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2d339dcdd7e35d1fed6debf3495f904"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkerDossier.html#ac2d339dcdd7e35d1fed6debf3495f904">~WorkerDossier</a> ()</td></tr>
 <tr class="memdesc:ac2d339dcdd7e35d1fed6debf3495f904"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur de la classe <a class="el" href="classWorkerDossier.html" title="Le Worker permetant de gérer la résolution d&#39;un dossier d&#39;instances. ">WorkerDossier</a>.  <a href="#ac2d339dcdd7e35d1fed6debf3495f904">More...</a><br /></td></tr>
 <tr class="separator:ac2d339dcdd7e35d1fed6debf3495f904"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -110,8 +110,8 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Le Worker permetant de gérer la résolution d'un dossier d'instances. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ae62defa93ef94862572fda95736a03ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae62defa93ef94862572fda95736a03ed">&#9670;&nbsp;</a></span>WorkerDossier()</h2>
+<a id="a72e98152d70e4c7bdbc0d0c138ba992a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72e98152d70e4c7bdbc0d0c138ba992a">&#9670;&nbsp;</a></span>WorkerDossier()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -126,7 +126,13 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">QString&#160;</td>
-          <td class="paramname"><em>typeResolution</em>&#160;</td>
+          <td class="paramname"><em>typeResolution</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">map&lt; unsigned int, unsigned int &gt;&#160;</td>
+          <td class="paramname"><em>pourcentagesParAgent</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -266,7 +272,9 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="classWorkerDossier_a2e2970df6c43c669eb730a858a780a31_cgraph.png" border="0" usemap="#classWorkerDossier_a2e2970df6c43c669eb730a858a780a31_cgraph" alt=""/></div>
 <map name="classWorkerDossier_a2e2970df6c43c669eb730a858a780a31_cgraph" id="classWorkerDossier_a2e2970df6c43c669eb730a858a780a31_cgraph">
 <area shape="rect" id="node2" href="classMethodeExacte.html#a91443b3ea749912772b40b5b5c40379e" title="Methode de résolution exacte indéxée temps. " alt="" coords="216,5,393,47"/>
-<area shape="rect" id="node3" href="classMethodeExacte.html#a3163e487cc9e99ee7667d1dd146edb4b" title="Methode de résolution exacte indéxée jobs. " alt="" coords="216,71,393,112"/>
+<area shape="rect" id="node3" href="classMethodeExacte.html#a3b3d9ad4a6d21f6e3be43212eb706054" title="Methode de résolution exacte indéxée temps pour un cas multi agent. " alt="" coords="216,71,393,112"/>
+<area shape="rect" id="node4" href="classMethodeExacte.html#a3163e487cc9e99ee7667d1dd146edb4b" title="Methode de résolution exacte indéxée jobs. " alt="" coords="216,136,393,177"/>
+<area shape="rect" id="node5" href="classMethodeExacte.html#af5ed64d8d21ead081e02c3ac97192859" title="Methode de résolution exacte indéxée jobs pour un cas multi agent. " alt="" coords="216,201,393,243"/>
 </map>
 </div>
 

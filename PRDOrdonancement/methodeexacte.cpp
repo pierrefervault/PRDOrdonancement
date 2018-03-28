@@ -5,9 +5,10 @@
  *
  * @param fichierInstance Le chemin vers le fichier d'instance
  */
-MethodeExacte::MethodeExacte(string fichierInstance)
+MethodeExacte::MethodeExacte(string fichierInstance, map<unsigned int, unsigned int> pourcentagesParAgent)
 {
     this->instance.chargerInstance(fichierInstance);
+    this->pourcentagesParAgent = pourcentagesParAgent;
 }
 
 /**
@@ -118,21 +119,21 @@ unsigned int MethodeExacte::resolutionPlneMip1(string fichierResultat)
     //char output_file_name[80];
     // sprintf(output_file_name,"sol-%d-%d%s",nbrJobs,nbrRessources ,".txt");
     //ofstream output_file(output_file_name);
-    ofstream output_file(fichierResultat,ios::app);
+    //ofstream output_file(fichierResultat,ios::app);
 
     double Avant = cplex.getCplexTime();
     if (cplex.solve()) {
 
 
 
-        cout << "Solution status:" << cplex.getStatus() << endl;
-        cout << " Optimal Value=" << cplex.getObjValue() << endl;
+        //cout << "Solution status:" << cplex.getStatus() << endl;
+        //cout << " Optimal Value=" << cplex.getObjValue() << endl;
         //cout << " temps écouler = " <<cplex.getCplexTime() << endl;
         //cout << " temps écouler = " << cplex.getTime() << endl;
 
-        output_file << "Instance:" << this->instance.getFichierInstance().toStdString() << endl;
-        output_file << "Solution status:" << cplex.getStatus() << endl;
-        output_file << " Optimal Value=" << cplex.getObjValue() << endl;
+        //output_file << "Instance:" << this->instance.getFichierInstance().toStdString() << endl;
+        //output_file << "Solution status:" << cplex.getStatus() << endl;
+        //output_file << " Optimal Value=" << cplex.getObjValue() << endl;
         //output_file << " Optimal Value = " << cplex.getTime() << endl;
 
         for (unsigned int m= 0 ; m < this->instance.getNbrMachines() ; m++) {
@@ -140,22 +141,22 @@ unsigned int MethodeExacte::resolutionPlneMip1(string fichierResultat)
                 if (cplex.getValue(X[i][m])>=0.9)
                 {
                     // cout << "VM_" << i+1 << " : " << cplex.getValue(X[i]) << "[ "  ;
-                    cout << "Machine_"<< m+1 << " VM_" << i+1 << " : [ "  ;
+                    //cout << "Machine_"<< m+1 << " VM_" << i+1 << " : [ "  ;
 
                     for (unsigned int t=this->instance.getSj()[i] ; t < this->instance.getFj()[i] ; t++) {
 
                         if (cplex.getValue(Y[i][m][t]) >= 0.9)
                         {
-                            cout << t << " " ;
+                            //cout << t << " " ;
                         }
                     }
 
-                    cout << this->instance.getFj()[i] << " ]" <<endl;
+                    //cout << this->instance.getFj()[i] << " ]" <<endl;
                 }
             }
         }
 
-        cout << endl;
+        //cout << endl;
 
     }
 
@@ -207,13 +208,13 @@ unsigned int MethodeExacte::resolutionPlneMip2(string fichierResultat)
 
     map<unsigned int,vector<unsigned int>> Jk = this->instance.getSousEnsemblesMaximaux();
 
-    for(std::map<unsigned int,vector<unsigned int>>::iterator it = Jk.begin() ; it != Jk.end() ; ++it){
+    /*for(std::map<unsigned int,vector<unsigned int>>::iterator it = Jk.begin() ; it != Jk.end() ; ++it){
         cout << it->first << endl;
         for(std::vector<unsigned int>::iterator itVect = it->second.begin() ; itVect != it->second.end() ; ++itVect){
             cout << *itVect << " ";
         }
         cout << endl;
-    }
+    }*/
 
     //Ici on créer les variables X qui valent 1 si le jobs i est exécuté sur une machine m
     IloArray<IloNumVarArray> X(env,this->instance.getNbrJobs()) ;
@@ -233,10 +234,10 @@ unsigned int MethodeExacte::resolutionPlneMip2(string fichierResultat)
             for (unsigned int h= 0 ; h < Jk.size() ; h++) {
                 IloExpr capacite_ressources(env);
                 for (unsigned int l=0 ; l < Jk[h].size() ; l++) {
-                    cout << "Job : " << Jk[h][l] << " ";
+                    //cout << "Job : " << Jk[h][l] << " ";
                     capacite_ressources += X[(Jk[h][l])][m] * (int)this->instance.getTableauRessourcesJobs()[(Jk[h][l])][r] ;
                 }
-                cout << endl;
+                //cout << endl;
                 model.add( capacite_ressources <= (int)this->instance.getCapRessources()[r][m] ) ;
             }
         }
@@ -277,21 +278,21 @@ unsigned int MethodeExacte::resolutionPlneMip2(string fichierResultat)
     //char output_file_name[80];
     // sprintf(output_file_name,"sol-%d-%d%s",nbrJobs,nbrRessources ,".txt");
     //ofstream output_file(output_file_name);
-    ofstream output_file(fichierResultat,ios::app);
+    //ofstream output_file(fichierResultat,ios::app);
 
     double Avant = cplex.getCplexTime();
     if (cplex.solve()) {
 
 
 
-        cout << "Solution status:" << cplex.getStatus() << endl;
-        cout << " Optimal Value=" << cplex.getObjValue() << endl;
+        //cout << "Solution status:" << cplex.getStatus() << endl;
+        //cout << " Optimal Value=" << cplex.getObjValue() << endl;
         //cout << " temps écouler = " <<cplex.getCplexTime() << endl;
         //cout << " temps écouler = " << cplex.getTime() << endl;
 
-        output_file << "Instance:" << this->instance.getFichierInstance().toStdString() << endl;
-        output_file << "Solution status:" << cplex.getStatus() << endl;
-        output_file << " Optimal Value=" << cplex.getObjValue() << endl;
+        //output_file << "Instance:" << this->instance.getFichierInstance().toStdString() << endl;
+        //output_file << "Solution status:" << cplex.getStatus() << endl;
+        //output_file << " Optimal Value=" << cplex.getObjValue() << endl;
         //output_file << " Optimal Value = " << cplex.getTime() << endl;
 
         for (unsigned int m= 0 ; m < this->instance.getNbrMachines() ; m++) {
@@ -299,18 +300,18 @@ unsigned int MethodeExacte::resolutionPlneMip2(string fichierResultat)
                 if (cplex.getValue(X[i][m])>=0.9)
                 {
                     // cout << "VM_" << i+1 << " : " << cplex.getValue(X[i]) << "[ "  ;
-                    cout << "Machine_"<< m+1 << " VM_" << i+1 << " : [ "  ;
+                    //cout << "Machine_"<< m+1 << " VM_" << i+1 << " : [ "  ;
 
                     for (unsigned int t=this->instance.getSj()[i] ; t < this->instance.getFj()[i] ; t++) {
-                        cout << t << " " ;
+                        //cout << t << " " ;
                     }
 
-                    cout << this->instance.getFj()[i] << " ]" <<endl;
+                    //cout << this->instance.getFj()[i] << " ]" <<endl;
                 }
             }
         }
 
-        cout << endl;
+        //cout << endl;
 
 
 
@@ -345,6 +346,34 @@ catch (...) {
 }*/
     env.end();
     return optimal;
+}
+
+/**
+ * @brief Methode de résolution exacte indéxée temps pour un cas multi agent
+ *
+ * @param fichierResultat Le fichier où seront stockés les résulats
+ * @return unsigned int Le nombre de jobs ordonnancés
+ */
+unsigned int MethodeExacte::resolutionPlneMip1MultiAgent(string fichierResultat){
+    cout << "ResolutionMip1 MultiAgent" << endl;
+    for(int i = 0; i < pourcentagesParAgent.size(); i++){
+        cout << pourcentagesParAgent[i] << endl;
+    }
+    return 0;
+}
+
+/**
+ * @brief Methode de résolution exacte indéxée jobs pour un cas multi agent
+ *
+ * @param fichierResultat Le fichier où seront stockés les résulats
+ * @return unsigned int Le nombre de jobs ordonnancés
+ */
+unsigned int MethodeExacte::resolutionPlneMip2MultiAgent(string fichierResultat){
+    cout << "ResolutionMip2 MultiAgent" << endl;
+    for(int i = 0; i < pourcentagesParAgent.size(); i++){
+        cout << pourcentagesParAgent[i] << endl;
+    }
+    return 0;
 }
 
 Instance MethodeExacte::getInstance() const

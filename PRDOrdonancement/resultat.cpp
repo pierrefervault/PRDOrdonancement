@@ -36,7 +36,7 @@ void Resultat::chargerResultat(QString fichierResultat){
     vector<double> tempsExecution;
 
     while(getline(f,line)) {
-        cout << line << endl ;
+        //cout << line << endl ;
         getline(f,line);
 
         getline(f,line);
@@ -82,7 +82,7 @@ unsigned int Resultat::sauvegarderResultat(Instance instance, vector<vector<unsi
     for(unsigned int i = 0; i < jobsOrdonnances.size(); i++){
         //cout << "Machines : " << i << " : ";
         for(unsigned int j = 0; j < jobsOrdonnances[i].size(); j++){
-            cout << jobsOrdonnances[i][j] << " ";
+            //cout << jobsOrdonnances[i][j] << " ";
             nbrJobsOrdonnances++;
         }
         //cout << endl;
@@ -92,7 +92,7 @@ unsigned int Resultat::sauvegarderResultat(Instance instance, vector<vector<unsi
 
     output_file << "Instance:" << instance.getFichierInstance().toStdString() << endl;
     output_file << "Solution status:" << typeResolution.toStdString() << endl;
-    output_file << " Optimal Value=" << nbrJobsOrdonnances << endl;
+    output_file << "Optimal Value=" << nbrJobsOrdonnances << endl;
 
     output_file << "temps écoulé (en secondes):" << dureeExecution << endl;
 

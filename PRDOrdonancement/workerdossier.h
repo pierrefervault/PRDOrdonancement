@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QWidget>
+#include <iostream>
 #include "methodeexacte.h"
 #include <iostream>
 #include <QFileDialog>
@@ -10,6 +11,8 @@
 #include <QDir>
 #include <QDirIterator>
 #include <heuristique.h>
+
+using namespace std;
 
 /**
  * @brief Le Worker permetant de gérer la résolution d'un dossier d'instances
@@ -25,7 +28,7 @@ public:
      * @param dossierInstance Le chemin vers le dossier d'instance
      * @param typeResolution Le type de résolution à effectuer
      */
-    WorkerDossier(QString dossierInstance, QString typeResolution);
+    WorkerDossier(QString dossierInstance, QString typeResolution, map<unsigned int, unsigned int> pourcentagesParAgent);
     /**
      * @brief Destructeur de la classe WorkerDossier
      *
@@ -52,6 +55,7 @@ signals:
 private:
     QString dossierInstance; /**< Le chemin vers le dossier d'instances */
     QString typeResolution; /**< Le type de résolution à effectuer */
+    map<unsigned int, unsigned int> pourcentagesParAgent /**< Le tableau de pourcentage par agent*/;
 };
 
 #endif // WORKERDOSSIER_H

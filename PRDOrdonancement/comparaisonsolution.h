@@ -12,6 +12,8 @@
 #include "resultat.h"
 
 #include <QMetaType>
+#include <QTableView>
+#include <QStandardItemModel>
 
 #include <qwt.h>
 #include <qwt_plot.h>

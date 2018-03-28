@@ -1,0 +1,4 @@
+<map id="Heuristique::trierCCmaxMaxRessourcesMultiAgent" name="Heuristique::trierCCmaxMaxRessourcesMultiAgent">
+<area shape="rect" id="node2" href="$classHeuristique.html#ad8a57ed34b0c46f6d65e501ee99da498" title="Affectation machine par machine. " alt="" coords="241,5,428,47"/>
+<area shape="rect" id="node3" href="$classHeuristique.html#aee20a4baec95a33533a6e13029c437df" title="Affectation privilégiant la machine la moins chargée. " alt="" coords="241,71,428,112"/>
+</map>

@@ -2,6 +2,11 @@
 \label{classComparaisonSolution}\index{Comparaison\+Solution@{Comparaison\+Solution}}
 
 
+La fenetre permetant d\textquotesingle{}effectuer des comparaison de méthode de résolution.  
+
+
+
+
 {\ttfamily \#include $<$comparaisonsolution.\+h$>$}
 
 
@@ -26,10 +31,15 @@ Collaboration diagram for Comparaison\+Solution\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classComparaisonSolution_a7fc9723f5a627d53e331719c3f47c7cc}{Comparaison\+Solution} (Q\+Widget $\ast$parent=0)
-\item 
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe \hyperlink{classComparaisonSolution}{Comparaison\+Solution}. \end{DoxyCompactList}\item 
 \hyperlink{classComparaisonSolution_a07a910b473173981273789934cf34e7f}{$\sim$\+Comparaison\+Solution} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe \hyperlink{classComparaisonSolution}{Comparaison\+Solution}. \end{DoxyCompactList}\item 
+void \hyperlink{classComparaisonSolution_a973538f344027840ecf5a7f6b254de69}{execution\+Comparaison} (Q\+String dossier\+Resultat, Q\+String type\+Comparaison, unsigned int nbr\+Ressources, unsigned int nbr\+Machines)
+\begin{DoxyCompactList}\small\item\em Execute la comparaison de solution. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+La fenetre permetant d\textquotesingle{}effectuer des comparaison de méthode de résolution. 
 
 \subsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classComparaisonSolution_a7fc9723f5a627d53e331719c3f47c7cc}\label{classComparaisonSolution_a7fc9723f5a627d53e331719c3f47c7cc}} 
@@ -37,6 +47,10 @@ Collaboration diagram for Comparaison\+Solution\+:\nopagebreak
 \index{Comparaison\+Solution@{Comparaison\+Solution}!Comparaison\+Solution@{Comparaison\+Solution}}
 \subsubsection{\texorpdfstring{Comparaison\+Solution()}{ComparaisonSolution()}}
 {\footnotesize\ttfamily Comparaison\+Solution\+::\+Comparaison\+Solution (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructeur de la classe \hyperlink{classComparaisonSolution}{Comparaison\+Solution}. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -49,6 +63,48 @@ Collaboration diagram for Comparaison\+Solution\+:\nopagebreak
 \subsubsection{\texorpdfstring{$\sim$\+Comparaison\+Solution()}{~ComparaisonSolution()}}
 {\footnotesize\ttfamily Comparaison\+Solution\+::$\sim$\+Comparaison\+Solution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Destructeur de la classe \hyperlink{classComparaisonSolution}{Comparaison\+Solution}. 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classComparaisonSolution_a07a910b473173981273789934cf34e7f_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classComparaisonSolution_a973538f344027840ecf5a7f6b254de69}\label{classComparaisonSolution_a973538f344027840ecf5a7f6b254de69}} 
+\index{Comparaison\+Solution@{Comparaison\+Solution}!execution\+Comparaison@{execution\+Comparaison}}
+\index{execution\+Comparaison@{execution\+Comparaison}!Comparaison\+Solution@{Comparaison\+Solution}}
+\subsubsection{\texorpdfstring{execution\+Comparaison()}{executionComparaison()}}
+{\footnotesize\ttfamily void Comparaison\+Solution\+::execution\+Comparaison (\begin{DoxyParamCaption}\item[{Q\+String}]{dossier\+Instance,  }\item[{Q\+String}]{type\+Resolution,  }\item[{unsigned int}]{nbr\+Ressources,  }\item[{unsigned int}]{nbr\+Machines }\end{DoxyParamCaption})}
+
+
+
+Execute la comparaison de solution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dossier\+Resultat} & Le dossier de résultat que l\textquotesingle{}on souhaite comparer \\
+\hline
+{\em type\+Comparaison} & Le type de comparaison que l\textquotesingle{}on souhaite effectuer \\
+\hline
+{\em nbr\+Ressources} & Le nombre de ressources de chaque fichier de resultat \\
+\hline
+{\em nbr\+Machines} & Le nombre de machines de chaque fichier de resultat \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classComparaisonSolution_a973538f344027840ecf5a7f6b254de69_icgraph}
+\end{center}
+\end{figure}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

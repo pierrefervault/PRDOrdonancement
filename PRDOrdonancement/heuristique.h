@@ -25,7 +25,7 @@ public:
      *
      * @param fichierInstance Le fichier d'instance
      */
-    Heuristique(string fichierInstance);
+    Heuristique(string fichierInstance, map<unsigned int, unsigned int> pourcentagesParAgent);
 
     /**
      * @brief Tri selon la méthode CCmax basée sur la somme des ressources de chaque job
@@ -54,6 +54,34 @@ public:
      * @return vector<unsigned int> La liste des jobs triés
      */
     vector<unsigned int> trierMoyenneRessourcesSousEnsembles();
+
+    /**
+     * @brief Tri selon la méthode CCmax basée sur la somme des ressources de chaque job pour un cas multi agent
+     *
+     * @return vector<unsigned int> La liste des jobs triés
+     */
+    vector<unsigned int> trierCCmaxSommeRessourcesMultiAgent();
+
+    /**
+     * @brief Tri selon la méthode CCmax basée sur la valeur de ressource maximale de chaque job pour un cas multi agent
+     *
+     * @return vector<unsigned int> La liste des jobs triés
+     */
+    vector<unsigned int> trierCCmaxMaxRessourcesMultiAgent();
+
+    /**
+     * @brief Tri selon la somme des ressources de chaque job pour un cas multi agent
+     *
+     * @return vector<unsigned int> La liste des jobs triés
+     */
+    vector<unsigned int> trierSommeRessourcesMultiAgent();
+
+    /**
+     * @brief Tri selon la moyenne des ressources de chaque sous-ensembles maximaux de l'instance pour un cas multi agent
+     *
+     * @return vector<unsigned int> La liste des jobs triés
+     */
+    vector<unsigned int> trierMoyenneRessourcesSousEnsemblesMultiAgent();
 
     /**
      * @brief Affectation machine par machine
@@ -92,6 +120,7 @@ private:
     Instance instance; /**< L'instance à résoudre */
     Resultat resultat; /**< La classe Resultat permetant de sauvegarder des résultats de résolution dans un fichier */
 
+    map<unsigned int, unsigned int> pourcentagesParAgent; /**< Le pourcentage par agent dans un cas multi-agent */
 };
 
 #endif // HEURISTIQUE_H

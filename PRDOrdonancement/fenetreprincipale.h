@@ -2,6 +2,9 @@
 #define FENETREPRINCIPALE_H
 
 #include <QMainWindow>
+#include "generationinstance.h"
+#include "resolutioninstance.h"
+#include "comparaisonsolution.h"
 
 namespace Ui {
 class FenetrePrincipale;
